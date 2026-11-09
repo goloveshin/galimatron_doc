@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="01_one_description" id="01_one_description">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="Without Galimatron: every copy is edited by hand" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="15" width="700" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="message list&lt;br&gt;(wiki page)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="C++ structs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="230" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="protocol docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="420" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="test data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="610" y="55" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;startArrow=classic;dashed=1;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;startArrow=classic;dashed=1;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="a2" target="a3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;startArrow=classic;dashed=1;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="a3" target="a4">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n1" value="The copies drift apart. Nobody knows which one is right, and the old versions are gone." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="115" width="730" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="With Galimatron: one description, the rest is generated" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="700" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="GaL files&lt;br&gt;(one description, with its versions)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="170" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="b2" value="Galimatron&lt;br&gt;checks, edits, compiles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="260" width="150" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="C++ structs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="500" y="225" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="protocol docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="500" y="295" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="test data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="500" y="365" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="b1" target="b2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="f2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="b2" target="o1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="f3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="b2" target="o2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="f4" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="b2" target="o3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n2" value="your XSLT writes these" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="710" y="280" width="110" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="Change the description. Run again. All outputs follow, and every old version is still in the file." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="425" width="730" height="28" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

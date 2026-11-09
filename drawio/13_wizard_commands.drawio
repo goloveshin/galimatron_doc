@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="13_wizard_commands" id="13_wizard_commands">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="g1" value="aggregates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="370" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1t" value="create root aggregate NAME&lt;br&gt;create aggregate [mode] A, B [in DIR]&lt;br&gt;copy aggregate A to B [in DIR]&lt;br&gt;continue aggregate A to B [in DIR]&lt;br&gt;delete aggregate A [physically]" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="45" y="55" width="340" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="versions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="20" width="370" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2t" value="create version [once|local|own]&lt;br&gt;delete version [N, M]&lt;br&gt;collapse version FIRST-LAST" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="445" y="55" width="340" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="hashes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="240" width="370" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3t" value="create hash [N, M] [force]&lt;br&gt;delete hash [N, M] [force]" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="45" y="275" width="340" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" value="statements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="240" width="370" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4t" value="create tag [AGG] [name =] labels { ... }&lt;br&gt;delete tag [AGG] NAME&lt;br&gt;create label [AGG] NAME = static|dynamic ...&lt;br&gt;create ordering [AGG] NAME = { A, B }" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="445" y="275" width="340" height="150" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

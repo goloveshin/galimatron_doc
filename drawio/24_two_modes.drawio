@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="24_two_modes" id="24_two_modes">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="normal mode: input-gal-dir = output-gal-dir" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="10" width="360" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="incoming_gal/&lt;br&gt;(you edit here)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="30" y="55" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="Galimatron" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="55" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="na" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="nb" value="rewrites in place" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="n2" target="n1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="300" y="160"/><mxPoint x="115" y="160"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="nn" value="The usual setup. The wizard changes your files, the xslt keeps counters, and the next run starts from the result. A run that fails changes nothing." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="190" width="360" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="separate mode: the two folders differ" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="10" width="380" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="incoming_gal/&lt;br&gt;(only read)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="430" y="55" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="Galimatron" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="55" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="actual_gal/&lt;br&gt;(emptied, then written)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="610" y="190" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sa" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="sb" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="sn" value="Your sources stay as they were. Good for tests, and for builds that compare the result with an expected folder. Every .gal in actual_gal is deleted at the start." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="380" height="110" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

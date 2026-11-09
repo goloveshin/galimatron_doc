@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="21_diagnostics" id="21_diagnostics">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="h1" value="step" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="10" width="360" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="file in intermediate/" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="10" width="300" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="s0" value="validate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="45" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f0" value="lang-parsed.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="45" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s0" target="f0">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n0" value="the language as parsed" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="45" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="cpp2xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="105" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f1" value="lang-wizard.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="105" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s1" target="f1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n1" value="after the wizard" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="105" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="your language xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="30" y="165" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="the file you name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="165" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s2" target="f2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n2" value="result of that xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="165" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="xml2cpp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="225" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="lang-xslt.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="225" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s3" target="f3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n3" value="after all language xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="225" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="cpp2gal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="285" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="lang-final.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="285" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s4" target="f4">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n4" value="what is written back as .gal" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="285" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="post_cpp2post_xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="30" y="345" width="220" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" value="post-compiled.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="345" width="190" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s5" target="f5">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n5" value="the compiled document" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="345" width="300" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="for the whole run" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="420" width="700" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="w1" value="galimatron.log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="30" y="455" width="170" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="w2" value="galimatron_summary.xml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="215" y="455" width="210" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="w3" value="taskflow.dot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="440" y="455" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="w4" value="galimatron.crash.log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="605" y="455" width="200" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

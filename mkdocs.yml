@@ -1,0 +1,70 @@
+site_name: Galimatron
+site_description: A file-based tool that keeps one versioned description of your data and generates everything else from it
+site_url: https://goloveshin.github.io/galimatron_doc/
+repo_url: https://github.com/goloveshin/galimatron_doc
+edit_uri: edit/main/source/
+copyright: Distributed under the Boost Software License, Version 1.0.
+
+docs_dir: source
+# the documentation is read with "mkdocs serve". this folder is not committed
+site_dir: site
+
+theme:
+  name: readthedocs
+  navigation_depth: 3
+  favicon: img/favicon.ico
+
+extra_css:
+  - css/extra.css
+
+validation:
+  links:
+    anchors: warn
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Why Galimatron: index.md
+  - Getting started: getting-started.md
+  - How a run works: how-it-works.md
+  - The language:
+      - Entities: entities.md
+      - Aggregates and versions: aggregates-and-versions.md
+      - Tags: tags.md
+      - Labels: labels.md
+      - Ordering: ordering.md
+  - Changing data:
+      - The wizard: wizard.md
+      - Hashes and closed versions: hashes.md
+  - Your project:
+      - Configuration (gal.cfg): configuration.md
+      - Logs and diagnostics: diagnostics.md
+      - XSLT: xslt.md
+      - Generating text: templates.md
+      - Custom states: custom-states.md
+      - Editor support: editor.md
+  - Examples:
+      - UUID protocol: uuid-protocol.md
+      - Benchmark: benchmark.md
+  - Reference: reference.md
+  - Developer guide:
+      - Overview: dev/index.md
+      - Architecture: dev/architecture.md
+      - The pipeline: dev/pipeline.md
+      - The runtime: dev/runtime.md
+      - The data model: dev/model.md
+      - Parsing and printing: dev/parsing.md
+      - The compiler: dev/compile.md
+      - XML and Saxon: dev/xml.md
+      - The validator and the wizard: dev/validate-wizard.md
+      - Hashes and the seal: dev/seal-hash.md
+      - Errors, logging, crashes: dev/errors-logging.md
+      - Testing: dev/testing.md
+      - Build, packaging, CI: dev/build-ci.md
+      - Conventions: dev/conventions.md
+      - Recipes: dev/recipes.md
+      - Known quirks: dev/quirks.md

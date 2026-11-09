@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="12_wizard_cycle" id="12_wizard_cycle">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c1" value="console.gal&lt;br&gt;wizard create version;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="g" value="Galimatron&lt;br&gt;runs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="70" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="the .gal files change:&lt;br&gt;new version, tags, hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="560" y="30" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="console.gal now holds&lt;br&gt;// wizard create version;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="110" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="you write&lt;br&gt;it" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="c1" target="g">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="g" target="o1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="a3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="g" target="o2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="f1" value="a command is wrong&lt;br&gt;or a check fails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="30" y="230" width="220" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="Galimatron&lt;br&gt;stops" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="230" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value='no .gal file is touched&lt;br&gt;summary says "fail"' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="230" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="f1" target="f2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="b2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="f2" target="f3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n" value="The command is not run twice: after a successful run it stays in the file as a comment, as a record. A failed run changes nothing, so you fix the command and run again." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="330" width="760" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

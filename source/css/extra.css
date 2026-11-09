@@ -1,0 +1,13 @@
+/* the big pipeline map: shown at a readable width, scrolls sideways, opens at full size on click */
+.big-diagram {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    margin: 1em 0;
+}
+
+.big-diagram img {
+    max-width: none;
+    width: 2600px;
+    display: block;
+}

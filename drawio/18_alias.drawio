@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="18_alias" id="18_alias">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="x" value='in your xslt:&lt;br&gt;&amp;lt;xsl:result-document&lt;br&gt;&amp;nbsp;&amp;nbsp;href="@@generated-dto@@v6/v6.hpp@@"&amp;gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="360" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="c" value='in gal.cfg:&lt;br&gt;"store-dir" : "generated_dto/",&lt;br&gt;"store-dir-string-alias" : "generated-dto",&lt;br&gt;"extentions" : [".hpp", ".cpp"]' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="370" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="f" value="generated_dto/v6/v6.hpp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="430" y="230" width="370" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="alias" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="x" target="c">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="folder + relative path" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="c" target="f">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n" value="The alias is the name between the first pair of @@. Galimatron replaces it with the folder from gal.cfg, so the XSLT never holds a path. A file with another extension is refused." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="310" width="770" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

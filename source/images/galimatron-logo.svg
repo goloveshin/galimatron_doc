@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- B: own concept. A hexagonal "cell" (aggregate) that is also the letter G.
+       The crossbar ends in a gold node: the generated output of the translator. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5B7CFA"/>
+      <stop offset="1" stop-color="#19C3B1"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="#12161F"/>
+  <path d="M214.6 78 L128 28 L41.4 78 V178 L128 228 L214.6 178 V128 H138"
+        fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="138" cy="128" r="17" fill="#F2B632"/>
+</svg>
+

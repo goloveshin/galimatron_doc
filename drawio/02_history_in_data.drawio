@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="02_history_in_data" id="02_history_in_data">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="A file that is overwritten" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="15" width="340" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="o1" value="protocol.json&lt;br&gt;(today)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="o2" value="protocol.json&lt;br&gt;(yesterday)  - only in git" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="protocol.json&lt;br&gt;(last month)  - only in git" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="oa" value="overwrite" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="o1" target="o2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ob" value="overwrite" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="o2" target="o3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="on" value="A generator sees only today. Nothing in the data says what was published before." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="340" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="A file that keeps its versions" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="15" width="340" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="g" value="protocol.gal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="55" width="320" height="255" as="geometry"/>
+        </mxCell>
+        <mxCell id="v0" value="version 0&lt;br&gt;closed: hash 27025d7a..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="470" y="95" width="280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1" value="version 1&lt;br&gt;closed: hash 704dd06e..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="470" y="165" width="280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2" value="version 2&lt;br&gt;open: you may still edit it" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="470" y="235" width="280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="gn" value="Every version is data. A hash closes a version, so it cannot change silently." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="450" y="320" width="340" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

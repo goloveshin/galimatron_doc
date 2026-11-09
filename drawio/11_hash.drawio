@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="11_hash" id="11_hash">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ap" value="Apple, version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="apt" value='field important { "int", "price" }&lt;br&gt;shown = { "ignored" }' style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="pe" value="Pear, version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="pet" value='field important { "int", "weight" }&lt;br&gt;note = { "ignored" }' style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="sh" value="shop (root), version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="310" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="sht" value='label field = static { ... }&lt;br&gt;currency = { "EUR" }' style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="h1" value="content hash&lt;br&gt;of Apple" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="330" y="55" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="content hash&lt;br&gt;of Pear" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="330" y="195" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="h3" value="content hash&lt;br&gt;of shop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="330" y="335" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="so" value="sort, then&lt;br&gt;combine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="195" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rh" value="root declaration:&lt;br&gt;1 = { hash = '...' }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="335" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="x1" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="ap" target="h1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="x2" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="pe" target="h2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="x3" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="sh" target="h3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="y1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="h1" target="so">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="y2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="h2" target="so">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="y3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="h3" target="so">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="y4" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="so" target="rh">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="n" value="Each aggregate stores its own content hash. The root stores the combination of all of them. Only the values of tags marked important count. Tag names, labels, aggregate names and file paths are left out, so you can rename and reorganize freely." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="30" y="440" width="760" height="70" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
