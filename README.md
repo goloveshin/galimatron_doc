@@ -1,6 +1,6 @@
 # galimatron_doc
 
-Documentation for **Galimatron**, a file-based tool that keeps one versioned description of your data in `.gal` files, checks and edits it, and lets your XSLT generate everything else.
+Documentation for [**Galimatron**](https://github.com/goloveshin/galimatron), a file-based tool that keeps one versioned description of your data in `.gal` files, checks and edits it, and lets your XSLT generate everything else.
 
 The pages are Markdown in `source/`. The diagrams are draw.io files in `drawio/`, exported to `source/images/*.svg`.
 
