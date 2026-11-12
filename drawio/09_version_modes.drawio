@@ -1,59 +1,59 @@
 <mxfile host="app.diagrams.net">
   <diagram name="09_version_modes" id="09_version_modes">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="390" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="410" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="t" value="What a version can see when it is compiled" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t" value="What a version can see when it is compiled" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="10" width="760" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="h0" value="version mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="h0" value="version mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="50" width="170" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="h1" value="earlier versions of this aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="h1" value="earlier versions of this aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="210" y="50" width="280" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="h2" value="statements of the root aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="h2" value="statements of the root aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="50" width="280" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="mplain" value="version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;" vertex="1" parent="1">
+        <mxCell id="mplain" value="version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="30" y="100" width="170" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="oplain" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="oplain" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="210" y="100" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="rplain" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="rplain" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="100" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="monce" value="version once" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;" vertex="1" parent="1">
+        <mxCell id="monce" value="version once" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="30" y="160" width="170" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="oonce" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="oonce" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="210" y="160" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="ronce" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="ronce" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="160" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="mlocal" value="version local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;" vertex="1" parent="1">
+        <mxCell id="mlocal" value="version local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="30" y="220" width="170" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="olocal" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="olocal" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="210" y="220" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="rlocal" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="rlocal" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="220" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="mown" value="version own" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;" vertex="1" parent="1">
+        <mxCell id="mown" value="version own" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="30" y="280" width="170" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="oown" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="oown" value="yes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="210" y="280" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="rown" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="rown" value="no" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="280" width="280" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="n" value="once, local and own are written in front of the version index:  version own 6 { ... }" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
-          <mxGeometry x="30" y="350" width="760" height="28" as="geometry"/>
+        <mxCell id="n" value="once, local and own are written in front of the version index:  version own 6 { ... }" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=15;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="30" y="350" width="770" height="50" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

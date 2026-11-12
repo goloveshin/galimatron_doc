@@ -52,12 +52,12 @@ The names are constants in `state/gal_and_xml_tags.hpp` (and `xml_tags.hpp` for 
 | label | `<label index name>` with `<static><values><value index value/></values><tag-name-from value/></static>` or `<dynamic value/>` | not printed |
 | ordering statement | `<ordering index name><ordering-parts><ordering-part><aggregate-ref name/>...` | not printed (the `<orderings>` above are the result) |
 | delete | `<delete index [name]/>` (no name: the whole version) | not printed (the delete has already taken effect) |
-| wizard statement | never printed | never printed |
+| Wizard statement | never printed | never printed |
 
-Wizard marks, **language XML only**: for a vertex with `created_by_wizard`, a child `<dynamic wizard="new-version|new-aggregate|new-root-aggregate"/>`; for a tag that is a wizard copy and uses a dynamic label, a child `<dynamic need_new_uuid="need_gen_uuid"/>`: one attribute per dynamic label, **named after the label**, holding the label's dynamic value. `gal:tag-uses-dynamic($tag, 'need_gen_uuid')` tests the attribute values.
+Wizard marks, **language XML only**: for a vertex with `created_by_wizard`, a child `<dynamic wizard="new-version|new-aggregate|new-root-aggregate"/>`; for a tag that is a Wizard copy and uses a dynamic label, a child `<dynamic need_new_uuid="need_gen_uuid"/>`: one attribute per dynamic label, **named after the label**, holding the label's dynamic value. `gal:tag-uses-dynamic($tag, 'need_gen_uuid')` tests the attribute values.
 
 !!! warning "Three meanings of `dynamic`"
-    `<dynamic value=".."/>` under a `<label>` is the **label's** value. `<dynamic labelname="value"/>` under a `<tag>` marks a **wizard copy**. `<dynamic wizard=".."/>` under an aggregate or version marks a **wizard-made entity**. `xml2cpp_saxon` skips the last one by name and has no use for the second.
+    `<dynamic value=".."/>` under a `<label>` is the **label's** value. `<dynamic labelname="value"/>` under a `<tag>` marks a **Wizard copy**. `<dynamic wizard=".."/>` under an aggregate or version marks a **Wizard-made entity**. `xml2cpp_saxon` skips the last one by name and has no use for the second.
 
 ### Layout marks
 
@@ -119,7 +119,7 @@ file_content_t apply_primary(const saxon_processor_t&, const file_content_t& doc
 - `node_t` wraps an `XdmNode*` in a move-only RAII class with a small API that mirrors `pugi::xml_node`: `local_name`, `is_element`, `text`, `parent`, `child(name)`, `children()`, `attribute(name)`, `attributes()`, `adopt(ptr, owns)`. Arrays that Saxon returns (`getChildren`, `getAttributeNodes`) are owned by a helper that nulls out the items it hands over.
 - `translate()`: `take_document_node()`, then `xml2cpp_saxon_t walker{node_t::adopt(...), layout_table}`. A document node is kept in `kept_document_` and its first element is taken. The source is the element `language` or `compiled`, found under the root (`xml has no language or compiled node` otherwise). The members are declared so that a child wrapper dies **before** the document.
 - `read_string_delimiters` rebuilds the quote table from `<string-delimiters>`.
-- `walk(node, parent)` dispatches by `local_name()`: `chunk`, `root-aggregate`, `aggregate`, the declarations and definitions containers, `tag`, `label`, `ordering`, `delete`. It **skips** `location`, `orderings`, and the wizard `dynamic`. Anything else: `unexpected xml node 'x'`.
+- `walk(node, parent)` dispatches by `local_name()`: `chunk`, `root-aggregate`, `aggregate`, the declarations and definitions containers, `tag`, `label`, `ordering`, `delete`. It **skips** `location`, `orderings`, and the Wizard `dynamic`. Anything else: `unexpected xml node 'x'`.
 - Each `read_*` calls the matching `builder_.create_*`, with the same arguments as `gal2cpp`:
     - `index` is required on tags, labels, orderings and operations (`node 'x' has no index`); a missing aggregate `index` takes the next one.
     - `once` and `local` are the only tag modes; `once`, `local`, `own` for versions. `own` on a tag is `unknown tag mode`.
@@ -148,7 +148,7 @@ Compiled XML can be read back too (the walker accepts `compiled`), but it has no
 | `gal:versions-with-tag($anchor, $index, $name)` | aggregate versions of one index with such a tag |
 | `gal:array-has-label($array, $label)` | whether the tag of the array has the label |
 | `gal:version-definition($node)`, `gal:version-index($node)` | the version definition around a node, and its index |
-| `gal:tag-uses-dynamic($tag, $id)` | a wizard copy with that dynamic label |
+| `gal:tag-uses-dynamic($tag, $id)` | a Wizard copy with that dynamic label |
 | `gal:is-open-version($definition)` | live and no later definition of the aggregate |
 | `gal:next-statement-index($version)` | one past the highest statement index |
 | `gal:history($anchor)` | `<history>` |

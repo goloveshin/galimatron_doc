@@ -33,16 +33,16 @@ Each run, a language XSLT reads it, adds one, and Galimatron writes it back into
 
 - It is versioned like the rest of the data, and it shows in the `history`.
 - It can be [important](tags.md#important): then a hash closes it with the version.
-- The wizard can create and edit it (`wizard create tag ...`).
+- The Wizard can create and edit it (`wizard create tag ...`).
 - The compiled view carries it, so a post XSLT can read it without a file.
 
-The [UUID protocol](uuid-protocol.md) keeps its dictionary in tags too: an aggregate `dictionary` with one `entry` tag per name. The language XSLT `fill-dictionary.xsl` adds an entry for every tag name that has none, and a person can edit the text of an entry next to it. A name already in the dictionary stays: the text a person wrote is not overwritten.
+The [Example: messages that grow](example-messages.md) keeps its dictionary in tags too: an aggregate `dictionary` with one `entry` tag per name. The language XSLT `fill-dictionary.xsl` adds an entry for every tag name that has none, and a person can edit the text of an entry next to it. A name already in the dictionary stays: the text a person wrote is not overwritten.
 
 Use tags when the state *is* a part of the description.
 
 ### 2. In a file
 
-When the state is a record about the **output**, not about the description, a file is better. The UUID protocol keeps `conversion-state.xml`:
+When the state is a record about the **output**, not about the description, a file is better. The messages example keeps `conversion-state.xml`:
 
 ```xml
 <conversion-state>
@@ -91,7 +91,7 @@ A state file needs three things from you:
     On the first run the file does not exist yet, so `doc-available` guards the read.
 
 !!! warning "Read and write are different URIs"
-    Saxon does not allow reading and writing the same URI in one run. The write uses the alias form (`@@conversion-state@@...`) and the read uses a real file URI, so it works. If the state is stored in the *output* gal folder (as in the example, which has separate folders), read both the input and the output copy, because a step may have a state in either.
+    Saxon does not allow reading and writing the same URI in one run. The write uses the alias form (`@@conversion-state@@...`) and the read uses a real file URI, so it works. If the state is stored in the *output* gal folder (as in the example, whose folders are apart for testing), read both the input and the output copy, because a step may have a state in either. In a project with one gal folder there is only one copy.
 
 ### Where to put the file
 

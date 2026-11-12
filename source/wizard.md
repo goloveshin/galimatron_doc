@@ -1,16 +1,18 @@
-# The wizard
+# The Wizard
 
-The wizard edits your `.gal` files for you. You write what you want in a few words, and Galimatron makes the same change in every file that it touches.
+The Wizard is a part of Galimatron that edits your `.gal` files for you. You write what you want in a few words, and Galimatron makes the same change in every file that it touches.
+
+Nothing the Wizard does is magic: every change is an ordinary edit of `.gal` text, and you could make it by hand. The Wizard makes it faster, makes it in all the files at once, and checks it before anything is written. That is why it is a concept of its own and not just a command.
 
 ## The problem
 
 A new version of a project means many small edits: add a version to the root, add it to every aggregate, copy the tags that must follow, add a tag here and there, compute the hash. Done by hand, one aggregate is forgotten, one index is wrong, and the next run fails. Worse, it is boring, so people avoid new versions.
 
-The wizard does these edits as one step, and checks the result before it writes anything.
+The Wizard does these edits as one step, and checks the result before it writes anything.
 
 ## A command file
 
-A wizard command is written in a `.gal` file that has no aggregates. By habit it is called `console.gal`. It sits in the input folder next to the other files.
+A Wizard command is written in a `.gal` file that has no aggregates. By habit it is called `console.gal`. It sits in the input folder next to the other files.
 
 ```
 // version 0 is closed. this opens the next version.
@@ -31,25 +33,25 @@ The comment is a record, and it prevents the command from running twice. A comma
 
 Rules:
 
-- Exactly one wizard statement per run. For several commands, use a batch.
-- The file that holds the wizard holds nothing else (no aggregates).
+- Exactly one Wizard statement per run. For several commands, use a batch.
+- The file that holds the Wizard holds nothing else (no aggregates).
 - Write a comment above the command to say *why*. It stays in the file as the history of the change.
 
 ## A batch
 
 ```
 wizard {
-    create root aggregate protocol;
+    create root aggregate shop;
     create version;
-    create tag protocol version_number = { "1" };
-    create tag protocol published = once important { };
-    create aggregate bye, error, hello, ok;
-    create tag hello uuid = important { "6f1e0001-0000-4000-8000-000000000001" };
+    create tag shop currency = { "EUR" };
+    create tag shop published = once important { };
+    create aggregate apple, pear, plum;
+    create tag apple price = important { "3" };
     create hash;
 }
 ```
 
-This is how the [UUID protocol](uuid-protocol.md) starts (step 1): one batch makes the root, version 0, the tags, four aggregates and the hash. The commands run in order, so the batch can use what an earlier command made. A batch holds create commands, `create hash`, `delete tag`, `delete version` and `collapse version`.
+One batch makes the root, version 0, two tags in the root, three aggregates, a tag in one of them and the hash. The [example with messages](example-messages.md) starts like this. The commands run in order, so the batch can use what an earlier command made. A batch holds create commands, `create hash`, `delete tag`, `delete version` and `collapse version`.
 
 The commands are checked before each file is written. If the third command fails, no file changes.
 
@@ -103,18 +105,18 @@ See [Hashes and closed versions](hashes.md).
 The version that receives the statement is the **last version of that aggregate**, and it must be open. So a version must exist: in a new project run `create version` before the first `create tag`, as the batch above does. When the aggregate is not named, the statement goes to the root.
 
 ```
-wizard create tag protocol speed = field { "int" };
-wizard create tag hello field important { "std::string", "message" };
-wizard create tag dictionary entry { "uuid", "0", "stable id of a message" };
-wizard create ordering protocol precedes = { Item, Pong };
-wizard create label protocol field = static { type };
+wizard create tag shop currency = { "EUR" };
+wizard create tag apple field important { "int", "weight" };
+wizard create tag glossary entry { "price", "what a customer pays" };
+wizard create ordering shop shelf = { apple, pear };
+wizard create label shop field = static { type, name };
 ```
 
 The unnamed form takes one label and lets `tag-name-from` name the tag. With more labels the tag stays unnamed.
 
-## Examples from the UUID protocol
+## Examples
 
-**Step 2: open the next version.**
+**Open the next version.**
 
 ```
 // version 0 is closed. this opens the next version.
@@ -123,37 +125,33 @@ wizard create version;
 
 The root and every aggregate get version 1. The tags with a dynamic label are copied. The [XSLT](xslt.md) then gives the copies new ids.
 
-**Step 3: remove a version that was only a trial, publish again.**
+**Remove a version that was only a trial, and publish again.**
 
 ```
 wizard {
     delete version;
     create version;
-    create label protocol field = static { type, name, default }, tag-name-from { name };
-    create tag hello field important { "std::string", "message" };
-    create tag protocol version_number = { "2" };
-    create tag protocol version_namespace = { "v2" };
-    create tag protocol published = once important { };
+    create label shop field = static { type, name }, tag-name-from { name };
+    create tag apple field important { "int", "weight" };
+    create tag shop published = once important { };
     create hash;
 }
 ```
 
-**Step 5: a new aggregate in a folder.**
+**Add an aggregate in a folder.**
 
 ```
 wizard {
     create version;
-    create aggregate lamp in payload;
-    create tag lamp payload_message = { };
-    create tag lamp struct_name = { "lamp_t" };
-    create tag lamp uuid = need_new_uuid important { "6f1e0005-0000-4000-8000-000000000001" };
-    create tag lamp field important { "bool", "lit", "false" };
-    ...
+    create aggregate cherry in fruit;
+    create tag cherry price = important { "5" };
     create hash;
 }
 ```
 
-`in payload` writes `payload/lamp.gal`.
+`in fruit` writes `fruit/cherry.gal`.
+
+The [example with messages](example-messages.md) uses every one of these commands on a real project, step by step.
 
 ## When a command is refused
 
@@ -166,6 +164,6 @@ Every refusal says which rule failed. These are the common ones:
 | `SOURCE_IN_CLOSED_VERSION` | A copy would change a published version. Use `continue aggregate`. |
 | `ORDERING_NAMES_AGGREGATE` | Remove the aggregate from the ordering first. |
 | `COMMAND_FILE_IS_THE_AGGREGATE` | The command file cannot be one of the aggregates it creates. Rename one. |
-| `WIZARD_COMMAND_MUST_BE_ONE` | Two wizard statements in the files. Join them into a batch. |
+| `WIZARD_COMMAND_MUST_BE_ONE` | Two Wizard statements in the files. Join them into a batch. |
 
 See the [Reference](reference.md#error-names) for the full list.

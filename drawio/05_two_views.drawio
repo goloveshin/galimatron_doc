@@ -4,40 +4,80 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="t1" value="Language: what you write" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t1" value="Language: what you write" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="10" width="330" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="t2" value="Compiled: what an XSLT reads" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t2" value="Compiled: what an XSLT reads" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="470" y="10" width="330" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="l1" value='shop.gal   (root aggregate)&lt;br&gt;version 0:  currency = "EUR"&lt;br&gt;version 1:  (nothing)' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+        <mxCell id="l1" value="shop.gal   (root aggregate)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
           <mxGeometry x="30" y="50" width="300" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="l2" value='Apple.gal&lt;br&gt;version 0:  price = "3"&lt;br&gt;version 1:  price = "4"' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+        <mxCell id="l1_c0" value="version 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l1">
+          <mxGeometry x="10" y="32" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1_t0" value="currency = &quot;EUR&quot;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l1">
+          <mxGeometry x="102" y="32" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1_c1" value="version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l1">
+          <mxGeometry x="10" y="60" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1_t1" value="(nothing)" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l1">
+          <mxGeometry x="102" y="60" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="apple.gal" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
           <mxGeometry x="30" y="160" width="300" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="l3" value='Pear.gal&lt;br&gt;version 0:  price = "5"&lt;br&gt;version 1:  (nothing)' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+        <mxCell id="l2_c0" value="version 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l2">
+          <mxGeometry x="10" y="32" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2_t0" value="price = &quot;3&quot;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l2">
+          <mxGeometry x="102" y="32" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2_c1" value="version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l2">
+          <mxGeometry x="10" y="60" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2_t1" value="price = &quot;4&quot;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l2">
+          <mxGeometry x="102" y="60" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="pear.gal" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
           <mxGeometry x="30" y="270" width="300" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="c0" value="version 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="l3_c0" value="version 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l3">
+          <mxGeometry x="10" y="32" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3_t0" value="price = &quot;5&quot;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l3">
+          <mxGeometry x="102" y="32" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3_c1" value="version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="l3">
+          <mxGeometry x="10" y="60" width="86" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3_t1" value="(nothing)" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=15;" vertex="1" parent="l3">
+          <mxGeometry x="102" y="60" width="192" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
           <mxGeometry x="470" y="50" width="330" height="140" as="geometry"/>
         </mxCell>
-        <mxCell id="c0a" value="Apple&lt;br&gt;currency = EUR&lt;br&gt;price = 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+
+
+        <mxCell id="c0a" value="apple&lt;br&gt;currency = EUR&lt;br&gt;price = 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="490" y="85" width="140" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="c0b" value="Pear&lt;br&gt;currency = EUR&lt;br&gt;price = 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="c0b" value="pear&lt;br&gt;currency = EUR&lt;br&gt;price = 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="85" width="130" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="c1" value="version 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="c1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
           <mxGeometry x="470" y="210" width="330" height="140" as="geometry"/>
         </mxCell>
-        <mxCell id="c1a" value="Apple&lt;br&gt;currency = EUR&lt;br&gt;price = 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+
+
+        <mxCell id="c1a" value="apple&lt;br&gt;currency = EUR&lt;br&gt;price = 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="490" y="245" width="140" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="c1b" value="Pear&lt;br&gt;currency = EUR&lt;br&gt;price = 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="c1b" value="pear&lt;br&gt;currency = EUR&lt;br&gt;price = 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="245" width="130" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="cm" value="compile&lt;br&gt;merge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="cm" value="compile&lt;br&gt;merge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="350" y="150" width="100" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="x1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l2" target="cm">
@@ -49,7 +89,7 @@
         <mxCell id="x3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="cm" target="c1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n1" value="The language view keeps each change where it happened. The compiled view gives every aggregate the full picture of every version: root tags flow into the aggregates, and a value stays until a later version replaces it." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+        <mxCell id="n1" value="The language view keeps each change where it happened. The compiled view gives every aggregate the full picture of every version: root tags flow into the aggregates, and a value stays until a later version replaces it." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="385" width="770" height="60" as="geometry"/>
         </mxCell>
       </root>

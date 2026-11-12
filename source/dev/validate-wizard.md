@@ -1,6 +1,6 @@
-# The validator and the wizard
+# The validator and the Wizard
 
-Two steps work together on the language graph: `cpp2cpp_validate` checks it, and `cpp2cpp_wizard` changes it on command. The wizard asks the validator, through the same class, whether each command may run. This page describes both and the rules that tie them together.
+Two steps work together on the language graph: `cpp2cpp_validate` checks it, and `cpp2cpp_wizard` changes it on command. The Wizard asks the validator, through the same class, whether each command may run. This page describes both and the rules that tie them together.
 
 Code: `transforms/cpp2cpp_validate/`, `transforms/cpp2cpp_wizard/`, `state/wizard/`.
 
@@ -14,10 +14,10 @@ Panel B of [the map](pipeline.md#the-map) draws the same checks.
 
 `prepare_prod_transforms()` puts it in two places:
 
-1. **before the wizard**, as the first step (`cpp2cpp_validate`): "wizard checks see the file before the command is applied",
+1. **before the Wizard**, as the first step (`cpp2cpp_validate`): "Wizard checks see the file before the command is applied",
 2. **after a language xslt**, inside `cpp2cpp_after_xslt`, after the seal.
 
-It does **not** run after the wizard when there is no language xslt. The wizard re-checks each command itself, immediately before changing the graph. It never validates the result of a command.
+It does **not** run after the Wizard when there is no language xslt. The Wizard re-checks each command itself, immediately before changing the graph. It never validates the result of a command.
 
 ### The files
 
@@ -47,11 +47,11 @@ The step writes no file itself. `execute_transform` prints `lang-parsed.xml` aft
 
 ### The snapshot
 
-`cpp2cpp_validate_t` is not copyable. Its constructor takes a **snapshot** of the aggregates: one row per aggregate (`name`, `vd`, `is_root`, `chunk_path`, the declaration indexes, `live_indices`, `deleted_indices`, `definition_indices`, and for the root `last_hashed_index`). The snapshot is partial on purpose: status and hash are read live from the version container, and statements and bodies straight from the graph. Because the aggregate list is snapshotted, anything that changes aggregates between two checks has to build a new checker (the wizard does, in `refresh_checks()`).
+`cpp2cpp_validate_t` is not copyable. Its constructor takes a **snapshot** of the aggregates: one row per aggregate (`name`, `vd`, `is_root`, `chunk_path`, the declaration indexes, `live_indices`, `deleted_indices`, `definition_indices`, and for the root `last_hashed_index`). The snapshot is partial on purpose: status and hash are read live from the version container, and statements and bodies straight from the graph. Because the aggregate list is snapshotted, anything that changes aggregates between two checks has to build a new checker (the Wizard does, in `refresh_checks()`).
 
 ### The memo
 
-`validate_memo_t` caches the result of **three root checks** (`is_root_aggregate_single`, `..._declarations_from_zero_continuous`, `..._definitions_repeat_declarations`), under a shared mutex because the checks run on worker threads. It caches only success: a failure throws. The memo lives as long as the checker, and the wizard replaces both together.
+`validate_memo_t` caches the result of **three root checks** (`is_root_aggregate_single`, `..._declarations_from_zero_continuous`, `..._definitions_repeat_declarations`), under a shared mutex because the checks run on worker threads. It caches only success: a failure throws. The memo lives as long as the checker, and the Wizard replaces both together.
 
 ### The graph of checks
 
@@ -73,7 +73,7 @@ Twelve tasks. The hash checks wait for six checks; `names unique` and `indices u
 
 When the command is, or a batch contains, **`create root aggregate`**, `skips_root_aggregate_checks()` is true and seven checks do nothing (the four root checks, `anonymous versions owned`, and both hash checks): the root does not exist yet. The command's own checks run in the command and use the same checker.
 
-None of the checks looks at a wizard command. They check the **file**.
+None of the checks looks at a Wizard command. They check the **file**.
 
 ### What each group checks
 
@@ -126,22 +126,22 @@ The error carries the domain `translator_library`, the subdomain `translator`, a
 
 Because the checks run in parallel, the **first** error that surfaces is not deterministic when several checks fail. `is_aggregate_version_definitions_repeat_declarations` avoids duplicating one error on purpose: it skips an aggregate that has an illegal deleted definition, which `..._not_deleted` reports.
 
-## The wizard step
+## The Wizard step
 
-![The wizard step](../images/38_dev_wizard_flow.svg)
+![The Wizard step](../images/38_dev_wizard_flow.svg)
 
-Panel C of [the map](pipeline.md#the-map) draws this. The wizard works **in place** on the language graph, through the same `builder_t` as the parser. There is no dry run: the checks run on the real graph right before each change.
+Panel C of [the map](pipeline.md#the-map) draws this. The Wizard works **in place** on the language graph, through the same `builder_t` as the parser. There is no dry run: the checks run on the real graph right before each change.
 
 ### Flow
 
 `cpp2cpp_wizard::translate(language)`:
 
-- no wizard statement: return the graph unchanged (the step is also skipped by `is_skipping`);
+- no Wizard statement: return the graph unchanged (the step is also skipped by `is_skipping`);
 - else `cpp2cpp_wizard_t(*language).translate()`:
 
 ```cpp
 void cpp2cpp_wizard_t::translate() {
-    validate_->is_wizard_command_single();    // exactly one wizard statement in the whole graph
+    validate_->is_wizard_command_single();    // exactly one Wizard statement in the whole graph
     const auto& command = wizard_statement(*language_state_);
     if (command.type == BATCH) apply_wizard_batch(); else apply_one(command.type);
     comment_executed_command();
@@ -184,7 +184,7 @@ Checks are in `cpp2cpp_validate/detail/wizard/wizard_{root,aggregate,version,sta
 
 ### What each command does to the graph
 
-Common to all: vertices that the wizard creates get `created_by_wizard = true` (except the statements of `create tag/label/ordering`, and the bodies that `copy aggregate` clones), and after a structural edit the code calls `refresh_live_and_hashed(vd_aggregate)`.
+Common to all: vertices that the Wizard creates get `created_by_wizard = true` (except the statements of `create tag/label/ordering`, and the bodies that `copy aggregate` clones), and after a structural edit the code calls `refresh_live_and_hashed(vd_aggregate)`.
 
 - **`create root aggregate`**: a new chunk `<command folder>/<name>.gal`, the aggregate, and **empty** declarations and definitions. There is no version 0; the next `create version` makes it.
 - **`create aggregate`**, for each name: a chunk (optionally under `in <directory>`), an aggregate with `index = next_index()`, a declaration for **every** root version (all `DELETED` except the last), and one definition, for the last version only, with the given mode. This is why the last version must be open: the new aggregate is live there and would change a closed version's root hash.
@@ -194,12 +194,12 @@ Common to all: vertices that the wizard creates get `created_by_wizard = true` (
 - **`create version`** (`add_next_version`): version `last + 1` (0 if none) on the root and every non-root aggregate. A non-root aggregate whose last declaration was deleted gets a deleted declaration and no body. Then **dynamic tags are copied**: the tags of the previous body whose mode is `inherit` and that use a dynamic label, minus those removed by a later `delete name;`, cloned with `created_by_wizard = true`. `once` and `local` tags are not carried. A `local` version body is a copy of the previous one (labels and orderings included).
 - **`delete version`**: only trailing versions (the validator keeps the indexes `0..n-1`): definitions and declarations are detached, `forget`, then refresh.
 - **`collapse version a-b`**: the range is parked in the version after it (a numbered or anonymous owner) or, if the range ends on the last version, in a **new** version. The parked body keeps the **last** statement of each `(kind, name)` (a tag with no name takes its name from `tag-name-from`; `delete name;` shares the key space with tags; a version `delete;` is dropped). The sources are detached, each declaration of the range is marked deleted (hash and formatting cleared), then `rebind_version_definitions`. Collapse is not guarded by a closed-version check.
-- **`create label`, `create tag`, `delete tag`, `create ordering`**: append a statement to the **last** version of the named aggregate. The index comes from `next_version_statement_index`. `write_tag_json` turns a `wizard::json_t` into vertices.
+- **`create label`, `create tag`, `delete tag`, `create ordering`**: append a statement to the **last** version of the named aggregate. The index comes from `next_version_statement_index`. `write_tag_json` turns a `Wizard::json_t` into vertices.
 - **`create hash`**: `write_version_hash` (see [Hashes and the seal](seal-hash.md)). **`delete hash`**: clear every aggregate's hash of the version.
 
 ### The executed command disappears
 
-`comment_executed_command()` runs at the end of `translate()`. It appends the statement's `user_comments` to its chunk, then the text of the statement, each line prefixed with `// `, with a blank `//` between a description and the text (the same rule as a comment above a function). Then it clears the statement's comments and formatting. `cpp2gal` prints only comments for a wizard statement, so the command is gone and its text is at the **top of the chunk**, not where the command was. The text got there from `gal2cpp`, which stores the source of the command in `user_formatting`.
+`comment_executed_command()` runs at the end of `translate()`. It appends the statement's `user_comments` to its chunk, then the text of the statement, each line prefixed with `// `, with a blank `//` between a description and the text (the same rule as a comment above a function). Then it clears the statement's comments and formatting. `cpp2gal` prints only comments for a Wizard statement, so the command is gone and its text is at the **top of the chunk**, not where the command was. The text got there from `gal2cpp`, which stores the source of the command in `user_formatting`.
 
 ### Closed versions
 
@@ -223,7 +223,7 @@ Declarations that are `DELETED` do not block `copy` and physical `delete`.
 
 ### Messages and codes
 
-The wizard error codes are the `WIZARD_*` values of `validation_error_code_et` (`common_library/exception_declaration.hpp`), grouped by command:
+The Wizard error codes are the `WIZARD_*` values of `validation_error_code_et` (`common_library/exception_declaration.hpp`), grouped by command:
 
 | Command | Codes (after `WIZARD_<COMMAND>_`) |
 |---|---|
@@ -245,17 +245,17 @@ The message texts are the `string_view` constants of `state/wizard/tags.hpp`, sh
 ## What has to stay in sync
 
 1. **A command's execution assumes its checks passed.** `version_write_target` dereferences without testing; `apply_wizard_delete_aggregate` does `declarations.back()`. A new command must add its checks to the dispatcher in `wizard_root.cpp` and must call `may_execute_wizard_command()` first.
-2. **The state the wizard leaves must satisfy the structural checks** of the next `validate_language` run: every aggregate declares exactly the root's indexes (so `add_next_version` and `create aggregate` create a declaration for every one, including deleted ones); definitions equal live declarations; a deleted version has a body only if it is `delete;`; a parked body sits right before its owner (collapse creates it with no index and an owner, then `order_child_before`); aggregate indexes are `0..n-1`.
+2. **The state the Wizard leaves must satisfy the structural checks** of the next `validate_language` run: every aggregate declares exactly the root's indexes (so `add_next_version` and `create aggregate` create a declaration for every one, including deleted ones); definitions equal live declarations; a deleted version has a body only if it is `delete;`; a parked body sits right before its owner (collapse creates it with no index and an owner, then `order_child_before`); aggregate indexes are `0..n-1`.
 3. **The hash rules are the same code on both sides.** `write_version_hash` and `is_version_hashes_match` both use `important_tags_hash`, `hash_of_hashes` and the same row selection (live aggregates only). Change one without the other and you get `HASH_DOES_NOT_MATCH`.
-4. **"Closed" has one definition**, `last_hashed`. After any change of hashes or declarations the wizard must call `refresh_live_and_hashed`; in a batch the next command would otherwise see a stale seal.
+4. **"Closed" has one definition**, `last_hashed`. After any change of hashes or declarations the Wizard must call `refresh_live_and_hashed`; in a batch the next command would otherwise see a stale seal.
 5. **The checker snapshots at construction.** Code that changes aggregates between commands must call `refresh_checks()`.
-6. **`force`** exempts a version only in the run before the wizard. The run after a language xslt checks what the command stored.
-7. **`write_version_hash`** is also called by the seal (`translator/detail/xslt_seal.cpp`), when an xslt only finished wizard copies. It is a cross-module dependency.
+6. **`force`** exempts a version only in the run before the Wizard. The run after a language xslt checks what the command stored.
+7. **`write_version_hash`** is also called by the seal (`translator/detail/xslt_seal.cpp`), when an xslt only finished Wizard copies. It is a cross-module dependency.
 
 ## Things that are easy to trip over
 
-- `is_wizard_command_single` counts wizard statements in the **whole graph**, not per file.
+- `is_wizard_command_single` counts Wizard statements in the **whole graph**, not per file.
 - Case rules differ: command name checks (`name_already_listed`, `command_file_is_the_aggregate`) are case-insensitive; `is_aggregate_names_unique`, `try_aggregate` and `chunk_path_exists` are case-sensitive. `ordering_link_container` compares names without case, `aggregate_container::by_name` with case.
 - `delete aggregate` with no names passes the per-name checks trivially, and the data is recomputed at execution time.
 - `create version` has the fewest checks (the context and the root). The validity of a mode is not checked.
-- Whether the "empty chunk, no aggregates in that file" restriction for a wizard file is enforced is decided by the grammar (a file is wizard statements or an aggregate), not by the validator.
+- Whether the "empty chunk, no aggregates in that file" restriction for a Wizard file is enforced is decided by the grammar (a file is Wizard statements or an aggregate), not by the validator.

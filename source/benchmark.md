@@ -1,29 +1,29 @@
 # Benchmark
 
-`examples/benchmark` is a synthetic project that answers one question: *how big can a project get?* It builds a description of many aggregates and many versions, runs the wizard and an XSLT over it, and measures every step.
+`examples/benchmark` is a synthetic project that answers one question: *how big can a project get?* It builds a description of many aggregates and many versions, runs the Wizard and an XSLT over it, and measures every step.
 
 ## What it does
 
 ![Time of the biggest dynamic run](images/23_benchmark_time.svg)
 
-One run has a source of `A` aggregates (`protocol.gal`, `console.gal`, and one file for each aggregate), each with version 0 only. Version 0 has a bit of everything: a dynamic label, a static label with `tag-name-from`, an important tag, a dynamic tag, a long string, an unnamed tag, a template, and the payload tags.
+One run has a source of `A` aggregates (the root file, `console.gal`, and one file for each aggregate), each with version 0 only. Version 0 has a bit of everything: a dynamic label, a static label with `tag-name-from`, an important tag, a dynamic tag, a long string, an unnamed tag, a template, and the payload tags.
 
 Then the run:
 
-1. The wizard batch in `console.gal` creates versions 1 to `V-1`. Each new version rewrites the ordering of the root, deletes and creates one tag in every aggregate, and adds a new tag. `create hash 0` closes version 0.
+1. The Wizard batch in `console.gal` creates versions 1 to `V-1`. Each new version rewrites the ordering of the root, deletes and creates one tag in every aggregate, and adds a new tag. `create hash 0` closes version 0.
 2. `xslt/suffix.xsl` appends the version index to every tag string. It writes the result to `intermediate/suffix-fresh.xml`.
 3. The seal keeps the hashed version 0 text and moves those string changes into version 1.
 4. Galimatron compiles everything and writes the post XML.
 
-This exercises every part of the language and the run: wizard, XSLT, seal, compilation. You can read the result in `actual_gal/` and the time of each step in `intermediate/galimatron.log`.
+This exercises every part of the language and the run: Wizard, XSLT, seal, compilation. You can read the result in `actual_gal/` and the time of each step in `intermediate/galimatron.log`.
 
-The machine: Intel Core i7-3770K at 3.5 GHz (4 cores, 8 threads), 32 GB of RAM, Visual C++ 19.51, x64, **Release** build with `/O2`. The times are in seconds. *State* is how much the private memory of the process grew during the run.
+The machine: Intel Core i7-3770K at 3.5 GHz (4 cores, 8 threads), 32 GB of RAM, MSVC 19.51, x64, **Release** build with `/O2`. The times are in seconds. *State* is how much the private memory of the process grew during the run.
 
 ## Dynamic tags
 
 The tag types matter. A tag with a **dynamic** label is copied into every new version, so `T` dynamic tags and `V` versions make `T * V` copies. The table is the measured run; `tags` is the number of dynamic payload tags.
 
-| aggregates | versions | tags | total | wizard | cpp2xml | xslt | xml2cpp | cpp2gal | post xml | state |
+| aggregates | versions | tags | total | Wizard | cpp2xml | xslt | xml2cpp | cpp2gal | post xml | state |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | 50 | 10 | 2 | 6.9 | 0.2 | 1.0 | 1.2 | 1.4 | 1.0 | 1.0 | 152 MB |
 | 50 | 10 | 8 | 14.1 | 0.2 | 2.0 | 3.4 | 3.6 | 2.0 | 1.6 | 201 MB |
@@ -53,7 +53,7 @@ The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes **
 
 The same project with tags that have a **static** label. A new version does not copy them. `V` is fixed at 10.
 
-| aggregates | tags | total | wizard | xslt | xml2cpp | state |
+| aggregates | tags | total | Wizard | xslt | xml2cpp | state |
 |---:|---:|---:|---:|---:|---:|---:|
 | 10 | 1 | 0.8 | 0.0 | 0.1 | 0.1 | 73 MB |
 | 10 | 100 | 4.9 | 0.0 | 0.5 | 0.6 | 135 MB |
@@ -63,13 +63,13 @@ The same project with tags that have a **static** label. A new version does not 
 | 500 | 50 | 271.0 | 24.0 | 70.9 | 75.1 | 1.6 GB |
 | 500 | 100 | 584.9 | 21.3 | 187.1 | 195.5 | 2.9 GB |
 
-500 aggregates, 10 versions and 100 static tags takes 9 min 45 s. Time is about `O(A * T^0.5)`: from 1 tag to 100 tags the run grows 6 to 8 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 96 times longer. At 500 aggregates the **wizard stays near 22 seconds**, whatever the number of tags.
+500 aggregates, 10 versions and 100 static tags takes 9 min 45 s. Time is about `O(A * T^0.5)`: from 1 tag to 100 tags the run grows 6 to 8 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 96 times longer. At 500 aggregates the **Wizard stays near 22 seconds**, whatever the number of tags.
 
 ## Without XSLT
 
-Not every project needs an XSLT between the wizard and the end. `gal-static-no-xslt.cfg` is the same static grid without any user XSLT. Then `cpp2xml`, `suffix.xsl` and `xml2cpp` are not in the run, and **Saxon is not created**. The log has no *xslt processor* line.
+Not every project needs an XSLT between the Wizard and the end. `gal-static-no-xslt.cfg` is the same static grid without any user XSLT. Then `cpp2xml`, `suffix.xsl` and `xml2cpp` are not in the run, and **Saxon is not created**. The log has no *xslt processor* line.
 
-| aggregates | tags | total | wizard | cpp2gal | post xml | state |
+| aggregates | tags | total | Wizard | cpp2gal | post xml | state |
 |---:|---:|---:|---:|---:|---:|---:|
 | 10 | 1 | 0.4 | 0.0 | 0.1 | 0.2 | 5 MB |
 | 10 | 100 | 3.1 | 0.0 | 0.5 | 2.0 | 30 MB |
@@ -89,7 +89,7 @@ The big case (500 aggregates, 100 static tags) drops from 9 min 45 s to **2 min 
 | A tag must be new in every version (an id). | Keep it dynamic, but keep the number of such tags small. |
 | You use a language XSLT. | It is the largest cost on a big project: the step and the read back. Do in the *post* XSLT what does not have to change the data. |
 | You have no data changes to make. | List no language XSLT. Saxon is not even created for a run with no XSLT at all. |
-| The wizard is slow. | It is `O(1)` in tags and grows with aggregates. 500 aggregates cost about 22 s. |
+| The Wizard is slow. | It is `O(1)` in tags and grows with aggregates. 500 aggregates cost about 22 s. |
 
 The time of each step is always in `intermediate/galimatron.log`: use the same lines to measure your own project. See [Logs and diagnostics](diagnostics.md).
 

@@ -85,7 +85,7 @@ ey = by + max(hb1, hb2, hb3) + 40
 d.text(AX + 30, ey, 1200, "**What comes out**, for four common projects (solid: the seed, dashed: inserted by the builder)", font=13)
 ey += 30
 names = [
-    ("gal2cpp", "auto"), ("validate", "seed"), ("wizard", "seed"), ("before_xslt", "seed"), ("cpp2xml", "auto"),
+    ("gal2cpp", "auto"), ("validate", "seed"), ("Wizard", "seed"), ("before_xslt", "seed"), ("cpp2xml", "auto"),
     ("xml2saxon", "auto"), ("your xslt", "user"), ("xml2cpp", "auto"), ("after_xslt", "seed"), ("cpp2gal", "auto"),
     ("gal2cpp (skip)", "skip"), ("cpp2post_cpp", "auto"), ("post_cpp2post_xml", "auto"), ("post_xml2saxon", "auto"),
     ("your post xslt", "user")]
@@ -109,7 +109,7 @@ for label, idxs in rows:
         px += chip_pitch
     ey += 40
 d.text(AX + 30, ey + 4, AW - 60,
-       "The seed steps are in the Taskflow chain as they are. The wizard step is skipped at run time when no `wizard` statement exists. "
+       "The seed steps are in the Taskflow chain as they are. The Wizard step is skipped at run time when no `wizard` statement exists. "
        "Tests use `prepare_testing_transforms()` instead: the seed is only the steps that a `testing_t` flag switches on, and the builder "
        "inserts a conversion only where two seed steps do not meet.",
        font=11, color="#555555")
@@ -175,12 +175,12 @@ for src, ys in [(n_hm, hm_y), (n_hp, hp_y), (n1[6], node_y0 + 6 * step + mid), (
            points=[(bus4, ys), (bus4, node_y0 + 4 * step - 20 + mid)])
 notes_y = node_y0 + 8 * step + 10
 d.box(bx0, notes_y, BW - 60,
-      "• Seven checks (the four root checks, `is anonymous versions owned`, both hash checks) do **nothing** when the wizard command is, or contains, `create root aggregate`: the root does not exist yet.\n"
+      "• Seven checks (the four root checks, `is anonymous versions owned`, both hash checks) do **nothing** when the Wizard command is, or contains, `create root aggregate`: the root does not exist yet.\n"
       "• A hash of a version named by `create hash … force` or `delete hash … force` is not checked in this run.\n"
       "• A failure is thrown on a worker: `fail(code, what, where)` runs `augment_where` **inside** `capture_or_rethrow`, and `subflow.join()` rethrows on the caller.\n"
       "• Which error is reported first is not deterministic when several checks fail.\n"
       "• `validate_memo_t` caches only the three root gate checks (shared mutex, success only). It is replaced together with the checker (`refresh_checks`).\n"
-      "• Wizard commands are **not** in this graph. The wizard step calls `may_execute_wizard_command()` itself (panel C).",
+      "• Wizard commands are **not** in this graph. The Wizard step calls `may_execute_wizard_command()` itself (panel C).",
       fill="#fbfbfb", stroke="#cccccc", font=11, align="left", valign="top")
 b_h = notes_y + d.last_h + 30 - ay
 row1_h = max(a_h, b_h)
@@ -189,7 +189,7 @@ close_row(ay, row1_h, [(ixA, AX, AW, "A  How the list of steps is built"), (ixB,
 if ROWS < 2:
     raise StopPanels()
 
-# ================================================================== C: wizard, D: compile
+# ================================================================== C: Wizard, D: compile
 cy = ay + row1_h + 50
 ixC = begin_panel()
 CX, CW = 40, 2500
@@ -199,7 +199,7 @@ d.text(cx0, cy0 - 12, 1180,
        "`cpp2cpp_wizard::translate` works **in place** on the language graph, through the same `builder_t` that the parser uses. "
        "There is no dry run: the checks run on the real graph right before each change.",
        font=12, color="#444444")
-f0 = d.box(cx0, cy0 + 44, 540, "`translate()`: no wizard statement → return the graph unchanged", h=44, fill=BLUE[0], stroke=BLUE[1], font=11)
+f0 = d.box(cx0, cy0 + 44, 540, "`translate()`: no Wizard statement → return the graph unchanged", h=44, fill=BLUE[0], stroke=BLUE[1], font=11)
 f1 = d.box(cx0, cy0 + 110, 540, "`validate_->is_wizard_command_single()`: one statement in the whole graph, not one per file", h=44, fill=BLUE[0], stroke=BLUE[1], font=11)
 f2 = d.box(cx0, cy0 + 176, 540, "single command: `apply_one(type)`  — a `switch` over `command_et`", h=44, fill=BLUE[0], stroke=BLUE[1], font=11)
 f3 = d.box(cx0 + 600, cy0 + 110,  560,
@@ -333,7 +333,7 @@ d.box(vx, vy, 964,
 d_h = max(cyy, vy + d.last_h) + 30 - cy
 row2_h = max(c_h, d_h)
 d.height = cy + row2_h + 60
-close_row(cy, row2_h, [(ixC, CX, CW, "C  The wizard step"), (ixD, DX, DW, "D  The compile step (`cpp2post_cpp`)")])
+close_row(cy, row2_h, [(ixC, CX, CW, "C  The Wizard step"), (ixD, DX, DW, "D  The compile step (`cpp2post_cpp`)")])
 if ROWS < 3:
     raise StopPanels()
 
@@ -369,7 +369,7 @@ lang_txt = (
     "`<tag index name mode layout-mark>` with `<label-refs><static><label-ref name index/>`, `<values><value index><string delimiter template-engine>`, records, arrays\n"
     "`<label index name>` with `<static><values>…<tag-name-from/>` or `<dynamic value/>`\n"
     "`<ordering index name>`, `<delete index name?/>`\n"
-    "wizard marks: `<dynamic wizard=\"new-version|new-aggregate|new-root-aggregate\"/>`, and `<dynamic labelname=\"value\"/>` on a copied tag that uses a dynamic label\n"
+    "Wizard marks: `<dynamic wizard=\"new-version|new-aggregate|new-root-aggregate\"/>`, and `<dynamic labelname=\"value\"/>` on a copied tag that uses a dynamic label\n"
     "`<string-delimiters>`, and `<history>` beside `<language>`")
 comp_txt = (
     "the same skeleton, but each version lists only the **effective tags** of the compiled state, in order\n"
@@ -377,7 +377,7 @@ comp_txt = (
     "no label statements, no `label-refs`: each static label becomes an **attribute on `<value>`**, `<value index=\"0\" field=\"type\">`\n"
     "`<string>` holds the **rendered** text and no `template-engine` mark\n"
     "`<orderings><ordering name index=\"position\"/></orderings>` under each aggregate version definition\n"
-    "no wizard marks\n"
+    "no Wizard marks\n"
     "`<history>`: per version, per aggregate, the changes (`add`, `replace`, `delete`, `label`, `ordering`, `create-aggregate`, `delete-version`)")
 h_e = max(d.height_for(lang_txt, half, 11), d.height_for(comp_txt, half, 11))
 d.box(ex0, ly0 + 34, half, lang_txt, h=h_e, fill="#f4f8fd", stroke="#cccccc", font=11, align="left", valign="top")
@@ -441,7 +441,7 @@ seal = [
     ("`reject_sealed_shape`: an aggregate removed, or a version inserted into the sealed history → **error**", RED),
     ("`sealed_history_differs`? compare hash, comment, status and `definition_payload` of every sealed version. No → return `after`", BLUE),
     ("`effective_edits`: compile both graphs, diff the **effective tags** of the last sealed version → `REASSIGN` or `DELETE_TAG` per aggregate", BLUE),
-    ("only wizard copies that use a dynamic label? Then the xslt only finished them: `write_version_hash(after, last_sealed)` refreshes the hash and return", GREEN),
+    ("only Wizard copies that use a dynamic label? Then the xslt only finished them: `write_version_hash(after, last_sealed)` refreshes the hash and return", GREEN),
     ("`restore_sealed_history`: every sealed version of `after` is replaced by a clone from `before` (hash, comment, status, presentation, children)", BLUE),
     ("no effective edits → return (the xslt changes were only formatting)", BLUE),
     ("`destination_version`: the first open version after `last_sealed`, or `open_next_version` creates one for every live aggregate", BLUE),

@@ -14,7 +14,7 @@ Paths in `gal.cfg` are absolute, or relative to the folder of `gal.cfg`. This ma
 {
     "galimatron" : {
         "input-gal-dir" : "incoming_gal/",
-        "output-gal-dir" : "actual_gal/",
+        "output-gal-dir" : "incoming_gal/",
         "intermediate-xml-dir" : "intermediate/",
         "intermediate-log-dir" : "intermediate/",
         "intermediate-summary-dir" : "intermediate/",
@@ -41,28 +41,30 @@ Paths in `gal.cfg` are absolute, or relative to the folder of `gal.cfg`. This ma
 | Key | Meaning |
 |---|---|
 | `input-gal-dir` | Where the `.gal` files are read from, with all subfolders. |
-| `output-gal-dir` | Where the rewritten `.gal` files go. |
+| `output-gal-dir` | Where the `.gal` files are written back. Make it the same folder as `input-gal-dir`. |
 | `intermediate-xml-dir` | The XML dumps (`lang-*.xml`, `post-compiled.xml`). |
 | `intermediate-log-dir` | Where logs go. |
 | `intermediate-summary-dir` | Where `galimatron_summary.xml` goes. |
 | `committed-report` | `true` makes the summary, the log and error messages spell paths **relative to the `gal.cfg` folder**, and drops the memory size and the run time. |
 
-### Two modes: one folder or two
+### Your files are rewritten in place
 
-![Normal and separate modes](images/24_two_modes.svg)
+![Galimatron rewrites the .gal files in place](images/24_in_place.svg)
 
-**Normal mode** (`input-gal-dir` equals `output-gal-dir`) is the usual setup. You edit `.gal` files, the wizard changes them, the XSLT keep counters in them, and the next run starts from the result. The new `.gal` text is kept in memory and written only if the whole run succeeds, and only the files whose text changed. A failed run leaves your `.gal` files untouched.
+Give `input-gal-dir` and `output-gal-dir` the same folder. This is how Galimatron is meant to be run: your `.gal` files are the memory of the project, so a run reads them and puts the result back into the same files. The Wizard changes them, your XSLT keep counters in them, and the next run starts from what the last one left.
 
-**Separate mode** (the folders differ) leaves your sources alone. The input folder is only read. Every `.gal` file in the output folder is deleted at the start, and each file the run produces is written there at once, so a run that fails late (in a post XSLT) still leaves its `.gal` files in the output folder. Use it for tests, and for builds that compare the result with an expected folder.
+The new text is held in memory and written only if the whole run succeeds, and only into the files whose text changed. A run that fails leaves your `.gal` files exactly as they were.
 
-!!! warning
-    In separate mode the output folder is emptied of `.gal` files at the start of every run. Do not point `output-gal-dir` at a folder that holds something you want.
+!!! note "Two different folders"
+    The two keys may name different folders. Galimatron then reads the first, empties the second of `.gal` files at the start of every run, and writes each result file there at once. This exists for Galimatron's own tests, which compare the output with an expected folder. A project does not need it, and you should never point `output-gal-dir` at a folder that holds something you want.
 
 ### committed-report: output that you can commit
 
 A log with `D:\work\project\...` in it differs on every machine. With `committed-report: true` the summary, the info log and the exception texts use paths relative to `gal.cfg`, and omit the run time and the memory. The files then only change when the result changes, which is what you want when you keep them under version control, or compare them in a test.
 
 ## saxon-processor
+
+Saxon is the XSLT processor that is built into Galimatron and runs your XSLT. This section tells it where your XSLT live.
 
 | Key | Meaning |
 |---|---|
@@ -87,13 +89,13 @@ A **transform** is one of your XSLT programs and what it writes. `language-trans
 
 ```json
 {
-    "name" : "next uuid for wizard copies",
+    "name" : "next uuid for copies",
     "enable" : true,
     "user-data-for-info" : "any text, it is copied into the summary",
     "input" : {
         "principal-xsl" : {
             "file" : "generate-uuid.xsl",
-            "parameters" : [ { "name" : "protocol_name", "value" : "UUID Protocol 11" } ]
+            "parameters" : [ { "name" : "report_title", "value" : "Price list 11" } ]
         }
     },
     "output" : {
@@ -117,7 +119,7 @@ A **transform** is one of your XSLT programs and what it writes. `language-trans
 
 The principal result of a transform is its main output. For a **language** transform it is the language XML, and it is the input of the next transform. Leave `principal-xml` empty and it stays in memory. Give it a `file` and you can read what that step produced. This is the cheapest debugging tool you have.
 
-For a **post-language** transform the principal result is also the input of the next post transform. A post transform that only writes files and wants to leave the compiled XML to the next one should copy its input through (`<xsl:mode on-no-match="shallow-copy"/>`). A transform that does not copy it through replaces the document for the transforms after it, so put it last. The UUID protocol lists its source generator last for this reason (see [Order matters](#order-matters)).
+For a **post-language** transform the principal result is also the input of the next post transform. A post transform that only writes files and wants to leave the compiled XML to the next one should copy its input through (`<xsl:mode on-no-match="shallow-copy"/>`). A transform that does not copy it through replaces the document for the transforms after it, so put it last. The messages example lists its source generator last for this reason (see [Order matters](#order-matters)).
 
 ### Parameters Galimatron adds
 
@@ -139,7 +141,7 @@ They are how an XSLT finds a state file without knowing the machine (see [Custom
 An XSLT writes files with `xsl:result-document`. It does not write an absolute path. It names a **store** by an alias:
 
 ```xml
-<xsl:result-document href="@@generated-dto@@v6/v6.hpp@@" method="text">
+<xsl:result-document href="@@generated-sql@@v6/schema.sql@@" method="text">
 ```
 
 ![Aliases](images/18_alias.svg)
@@ -149,16 +151,16 @@ The `href` is `@@ALIAS@@RELATIVE_PATH@@`. The `ALIAS` is the `store-dir-string-a
 ```json
 "other-files" : [
     {
-        "store-dir" : "generated_dto/",
-        "store-dir-string-alias" : "generated-dto",
-        "extentions" : [".hpp", ".cpp"],
+        "store-dir" : "generated_sql/",
+        "store-dir-string-alias" : "generated-sql",
+        "extentions" : [".sql"],
         "replace-escaped-form-to-original-symbols" : true,
         "delete-if-not-rewrited" : true
     }
 ]
 ```
 
-Galimatron replaces the alias with the folder. The result is `generated_dto/v6/v6.hpp`.
+Galimatron replaces the alias with the folder. The result is `generated_sql/v6/schema.sql`.
 
 Why aliases?
 
@@ -171,12 +173,12 @@ Why aliases?
 | `store-dir` | The folder of this store. |
 | `store-dir-string-alias` | The alias that the XSLT uses. |
 | `extentions` | Allowed extensions. A file with another one is refused. |
-| `replace-escaped-form-to-original-symbols` | `true` turns `&lt; &gt; &amp; &quot; &apos;` in the written text back into `< > & " '`. Use it for code, where a template in XML had to escape them. |
-| `delete-if-not-rewrited` | `true` (the default) removes files in this store that this run did not rewrite. The store then always mirrors the current description: a deleted aggregate takes its generated file with it. `false` keeps old files. The [UUID protocol](uuid-protocol.md) uses `false` for hand-edited conversions. |
+| `replace-escaped-form-to-original-symbols` | `true` turns `&lt; &gt; &amp; &quot; &apos;` in the written text back into `< > & " '`. Use it for generated source text, where a template in XML had to escape them. |
+| `delete-if-not-rewrited` | `true` (the default) removes files in this store that this run did not rewrite. The store then always mirrors the current description: a deleted aggregate takes its generated file with it. `false` keeps old files. The [Example: messages that grow](example-messages.md) uses `false` for hand-edited conversions. |
 
 ## Order matters
 
-Transforms run in the order of the list. In the UUID protocol the dictionary generator is listed **before** the source generator, because the source generator replaces the compiled document. The `user-data-for-info` of such a transform says so.
+Transforms run in the order of the list. In the messages example the dictionary generator is listed **before** the source generator, because the source generator replaces the compiled document. The `user-data-for-info` of such a transform says so.
 
 ```json
 {

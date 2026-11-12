@@ -1,35 +1,35 @@
 <mxfile host="app.diagrams.net">
   <diagram name="16_ordering" id="16_ordering">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="400" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="535" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="p1" value="ordering precedes = { Item, Pong }, { Pong, Ping };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="30" y="20" width="330" height="50" as="geometry"/>
+        <mxCell id="p1" value="ordering shelf = { apple, pear }, { pear, plum };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="30" y="15" width="500" height="46" as="geometry"/>
         </mxCell>
-        <mxCell id="i" value="Item" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="130" width="100" height="50" as="geometry"/>
+        <mxCell id="i" value="apple" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="95" width="120" height="46" as="geometry"/>
         </mxCell>
-        <mxCell id="po" value="Pong" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="190" y="130" width="100" height="50" as="geometry"/>
+        <mxCell id="po" value="pear" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="220" y="95" width="120" height="46" as="geometry"/>
         </mxCell>
-        <mxCell id="pi" value="Ping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="130" width="100" height="50" as="geometry"/>
+        <mxCell id="pi" value="plum" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="400" y="95" width="120" height="46" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="precedes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="i" target="po">
+        <mxCell id="a1" value="before" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="i" target="po">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="a2" value="precedes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="po" target="pi">
+        <mxCell id="a2" value="before" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="po" target="pi">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="r1" value="rank 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="40" y="230" width="100" height="40" as="geometry"/>
+        <mxCell id="r1" value="position 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="185" width="120" height="44" as="geometry"/>
         </mxCell>
-        <mxCell id="r2" value="rank 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="190" y="230" width="100" height="40" as="geometry"/>
+        <mxCell id="r2" value="position 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="220" y="185" width="120" height="44" as="geometry"/>
         </mxCell>
-        <mxCell id="r3" value="rank 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="340" y="230" width="100" height="40" as="geometry"/>
+        <mxCell id="r3" value="position 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="400" y="185" width="120" height="44" as="geometry"/>
         </mxCell>
         <mxCell id="b1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="i" target="r1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
@@ -40,14 +40,17 @@
         <mxCell id="b3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="pi" target="r3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="x" value='in the compiled XML each aggregate version carries its rank:&lt;br&gt;&lt;br&gt;&amp;lt;orderings&amp;gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;lt;ordering name="precedes"&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;index="1"/&amp;gt;&lt;br&gt;&amp;lt;/orderings&amp;gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="520" y="100" width="280" height="170" as="geometry"/>
+        <mxCell id="x" value="In the compiled XML each aggregate version carries its position:" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;align=left;verticalAlign=top;spacingTop=8;spacingLeft=12;spacingRight=12;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="180" y="255" width="400" height="175" as="geometry"/>
         </mxCell>
         <mxCell id="c" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r3" target="x">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n" value="The rank is the length of the longest chain of predecessors. An XSLT sorts by it. If two names have different ranks, a chain must connect them; otherwise the ordering is rejected as not a strict weak order. A cycle is rejected too." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="30" y="300" width="770" height="90" as="geometry"/>
+        <mxCell id="n" value="Each aggregate gets a position. It comes after everything that precedes it in a chain; aggregates that no chain separates keep the default order. An XSLT sorts by it. If two names get different positions, a chain must connect them; otherwise the ordering is rejected as not a strict weak order. A cycle is rejected too." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="450" width="770" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="xc" value="&amp;lt;orderings&amp;gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;lt;ordering name=&quot;shelf&quot; index=&quot;1&quot;/&amp;gt;&lt;br&gt;&amp;lt;/orderings&amp;gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=15;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="195" y="335" width="370" height="85" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="24_in_place" id="24_in_place">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="330" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t1" value="one folder: input-gal-dir = output-gal-dir" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="10" width="500" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="incoming_gal/&lt;br&gt;(you edit here)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="55" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="Galimatron" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="260" y="55" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="na" value="reads" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="n1" target="n2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="nb" value="rewrites in place" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=13;" edge="1" parent="1" source="n2" target="n1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="160"/><mxPoint x="115" y="160"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="nn" value="The Wizard changes your files, the xslt keeps counters in them, and the next run starts from the result. The new text is written only after the whole run has succeeded, so a run that fails changes nothing." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="190" width="520" height="80" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

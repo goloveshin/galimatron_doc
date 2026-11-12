@@ -5,7 +5,7 @@ Galimatron has no built-in generator, because what you generate is yours. Its pr
 !!! important
     Using XSLT here is **optional**. The compiled XML (`post-compiled.xml`) is written on every run. If you prefer Python or any other tool, leave `transforms` empty and read that file. XSLT inside Galimatron adds three things: Saxon is already there, the output is confined to the folders of `gal.cfg`, and a *language* XSLT can edit the data safely (see the seal below).
 
-    And nothing here is tied to a language: your XSLT can write C++, Java, JSON, SQL, Markdown, anything.
+    And nothing here is tied to a language: your XSLT can write source code in any language, JSON, SQL, Markdown, anything.
 
 You need XSLT for two different jobs:
 
@@ -24,6 +24,18 @@ Each list runs in order, and the result of one transform is the input of the nex
 - XSLT is declarative: "when you see this tag, write that". It fits "for every aggregate of every published version".
 - You do not need a build of your own, a language runtime or a library. A text file is the generator.
 - It is replaceable. Two projects with different generators use the same Galimatron.
+- It is not a fashion. XSLT 1.0 became a W3C standard in 1999, so the language is more than 25 years old, and version 3.0 (the one Galimatron uses) dates from 2017. A generator you write today will still be readable and runnable years from now.
+- It is a full programming language (Turing-complete), with variables, functions and recursion. Whatever you need to compute, you can compute inside the template. It is the shape of the code, not its power, that is different from other languages.
+
+### What SaxonC-HE does not do
+
+Saxon comes in editions, and Galimatron carries the free one, SaxonC-HE (Home Edition). Three things from the paid editions are missing. Know them before you plan a generator:
+
+- **No schema awareness.** Your XSLT cannot validate the XML against an XSD (no `xsl:import-schema`, no `validation="strict"`, no `schema-element()`). Galimatron checks its own data itself, before and after your XSLT. A check on the data that you add yourself is written in XSLT, with `xsl:if` and `xsl:message terminate="yes"`.
+- **No streaming.** The whole document is held in memory while your XSLT runs. This is fine for the sizes in the [benchmark](benchmark.md), and a reason not to dump a huge data set through one transform.
+- **No parallel execution.** The edition does not spread one transform over several threads. This costs little here, because Galimatron runs the transforms of a list one after another anyway.
+
+Ordinary XSLT 3.0 (functions, maps, arrays, `xsl:iterate`, `xsl:result-document`, regular expressions) works.
 
 ## The first XSLT: change the data
 
@@ -55,7 +67,7 @@ Galimatron writes the language as XML. These are the elements you will use:
 <galimatron>
   <language>
     <chunk>                                  <!-- one .gal file -->
-      <aggregate name="Apple" index="0">
+      <aggregate name="apple" index="0">
         <aggregate-version-declarations>
           <aggregate-version-declaration index="0" status="deleted"/>
           <aggregate-version-declaration index="1"/>
@@ -101,7 +113,7 @@ A post XSLT reads the merged picture. There the version definitions are complete
         <aggregate-version-definitions>
           <aggregate-version-definition index="6" mode="own">
             <orderings>
-              <ordering name="enum_precedes_struct" index="4"/>
+              <ordering name="shelf" index="4"/>
             </orderings>
             <tag index="1" name="uuid">
               <values>
@@ -115,7 +127,7 @@ Differences from the language XML:
 
 - A value carries the part of its static label as an attribute (`entry="name"`). No `label-refs`.
 - Tags are merged and deleted tags are gone.
-- Each version definition carries its `orderings` (the ranks, see [Ordering](ordering.md)).
+- Each version definition carries its `orderings` (the positions, see [Ordering](ordering.md)).
 - Template strings (`_te`) are already rendered.
 - The aggregates of a version are not nested under the root. Use `//aggregate-version-definition[@index = 3]` to find all of them.
 
@@ -143,23 +155,23 @@ An installed Galimatron maps this address to the file on disk (the `catalog.xml`
 | `gal:version-index($node)` | Its index. |
 | `gal:is-open-version($definition)` | Whether the version is live and no later version of that aggregate exists. |
 | `gal:next-statement-index($version)` | The next free `index` for a new statement in that version. |
-| `gal:tag-uses-dynamic($tag, 'id')` | Whether the tag is a wizard copy marked by that dynamic label. |
+| `gal:tag-uses-dynamic($tag, 'id')` | Whether the tag is a Wizard copy marked by that dynamic label. |
 | `gal:next-uuid($uuid)` | The uuid with its last group increased by one. |
 | `gal:history($anchor)` | The `history` element. |
 | `gal:dictionary-entry($index, $name, $introduced, $text)` | A new `tag` for a dictionary, written in the language XML. |
 | `gal:ctx($version, $names)` | A map of tag values for a template. Hyphens in names are underscores in tags. |
 | `gal:directory-uri($path)`, `gal:file-uri($path)` | A file URI for a path, for `doc()`. |
 
-Several of these (`next-uuid`, `dictionary-entry`, and the struct helpers) are written for the UUID protocol. The rest are general. Read the file: it is short, and a good model for functions of your own.
+Several of these (`next-uuid`, `dictionary-entry`, and the helpers that find messages and enums) are written for the [example with messages](example-messages.md). The rest are general. Read the file: it is short, and a good model for functions of your own.
 
 ## A language XSLT with state: the next uuid
 
-This is the one from the UUID protocol. `wizard create version` copies each tag with a dynamic label and marks the copy. The XSLT gives the copies a new value:
+This is the one from the messages example. `wizard create version` copies each tag with a dynamic label and marks the copy. The XSLT gives the copies a new value:
 
 ```xml
 <xsl:mode on-no-match="shallow-copy"/>
 
-<!-- a wizard copy of a tag labeled need_new_uuid. the original tag has no dynamic child -->
+    <!-- a Wizard copy of a tag labeled need_new_uuid. the original tag has no dynamic child -->
 <xsl:template match="tag[gal:tag-uses-dynamic(., 'need_gen_uuid')]/values/value/string/text()">
     <xsl:value-of select="gal:next-uuid(.)"/>
 </xsl:template>
@@ -213,5 +225,5 @@ See [Hashes and closed versions](hashes.md#the-hash-and-your-xslt). The effect f
 - **Test one transform at a time.** Give its `principal-xml` a `file` and read the result.
 - **Parameters, not paths.** Pass options with `parameters` in `gal.cfg`, and use `input_gal_dir` and friends for folders.
 - **Say why.** `name` and `user-data-for-info` in `gal.cfg` are read by the next person.
-- **`xsl:message` shows in the console.** Use it to print a progress line, like the protocol name in the example.
+- **`xsl:message` shows in the console.** Use it to print a progress line, like the title in the example.
 - **Keep generated text in templates.** See [Generating text](templates.md).

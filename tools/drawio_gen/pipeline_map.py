@@ -20,7 +20,7 @@ d = Diagram("31_dev_pipeline_map", W, 6200)
 # ------------------------------------------------------------------ title
 d.text(40, 24, 1800, "Galimatron: one run, step by step", font=28, bold=True)
 d.text(40, 66, 3200,
-       "What `galimatron --gal-config-file gal.cfg --log-config-file log.cfg` does, for a project that has a wizard command, "
+       "What `galimatron --gal-config-file gal.cfg --log-config-file log.cfg` does, for a project that has a Wizard command, "
        "a language xslt and a post xslt. Read it top to bottom: the runtime wraps the run, the translator runs fifteen steps "
        "one after another, and the panels below open the steps that hide the most.",
        font=13, color="#555555")
@@ -108,15 +108,15 @@ steps = [
               "• `listener_t` walks the tree, `builder_t` adds vertices and registers them in the holder\n"
               "• keeps source text and comments on the vertices\n"
               "• skipped when `language_state_` is already set",
-         fail="syntax: `ParseCancellationException`, with a friendlier text from `explains.cpp`; LEAF `gal2cpp` for a misplaced wizard command"),
+         fail="syntax: `ParseCancellationException`, with a friendlier text from `explains.cpp`; LEAF `gal2cpp` for a misplaced Wizard command"),
     dict(name="cpp2cpp_validate", user=False, inn="CPP", out="CPP", dom="L",
          code="`transforms/cpp2cpp_validate/cpp2cpp_validate.cpp`",
          does="• a Taskflow **subflow** of twelve checks: shape of versions, anchors, hashes (panel B)\n"
               "• then `compile_for_validation` = `cpp2post_cpp::translate`\n"
-              "• checks the file as it is. The wizard command is checked later, by the wizard step\n"
+              "• checks the file as it is. The Wizard command is checked later, by the Wizard step\n"
               "• prints lang-parsed.xml",
          fail="`validation_error_code_et` raised by `fail()` inside `capture_or_rethrow` (a worker thread has no LEAF context); compile errors: `throw_compiler`"),
-    dict(name="cpp2cpp_wizard", user=False, inn="CPP", out="CPP", dom="L", cond="only if a wizard statement exists",
+    dict(name="cpp2cpp_wizard", user=False, inn="CPP", out="CPP", dom="L", cond="only if a Wizard statement exists",
          code="`transforms/cpp2cpp_wizard/detail/command.cpp`",
          does="• exactly one statement: `is_wizard_command_single`\n"
               "• `apply_one(type)` or the batch loop with `refresh_checks()` (panel C)\n"
@@ -132,8 +132,8 @@ steps = [
          code="`transforms/cpp2xml/detail/translate.cpp`",
          does="• the job is empty: `execute_transform` prints the principal XML\n"
               "• `document_cpp2xml(false)`: `ensure_compiled`, the **language** XML, `<history>`, layout marks (panel E)\n"
-              "• the language XML keeps labels, `_te` templates and wizard marks",
-         fail="LEAF `cpp2xml`: a wizard statement is not an xml node"),
+              "• the language XML keeps labels, `_te` templates and Wizard marks",
+         fail="LEAF `cpp2xml`: a Wizard statement is not an xml node"),
     dict(name="xml2saxon", user=False, inn="XML", out="SAXON", dom="L", cond="language xslt",
          code="`transforms/xml2xml/detail/xml2xml_impl.cpp`",
          does="• a new Saxon session: processor, catalog from `share/galimatron/`\n"
@@ -162,7 +162,7 @@ steps = [
     dict(name="cpp2gal", user=False, inn="CPP", out="GaL", dom="L",
          code="`transforms/cpp2gal/detail/cpp2gal_impl.cpp`",
          does="• `cpp2gal_t` prints one text per chunk\n"
-              "• stored source text wins; wizard-made statements are generated (100 columns, 4 spaces)\n"
+              "• stored source text wins; Wizard-made statements are generated (100 columns, 4 spaces)\n"
               "• the texts go to the .gal place (panels F and I)",
          fail="LEAF `cpp2gal`: unexpected entity, chunk has no path"),
     dict(name="gal2cpp  (skipped)", user=False, inn="GaL", out="CPP", dom="L", skipped=True,
@@ -306,7 +306,7 @@ def band(a, b, text, fill, stroke):
 
 d.box(cx(0), row_y["cond"], COLW, "always", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=11, dashed=True)
 d.box(cx(1), row_y["cond"], COLW, "always", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=11, dashed=True)
-d.box(cx(2), row_y["cond"], COLW, "only if a wizard statement exists", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=11, dashed=True)
+d.box(cx(2), row_y["cond"], COLW, "only if a Wizard statement exists", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=11, dashed=True)
 band(3, 8, "only when a language xslt is enabled: the seal and the round trip through Saxon", "#fff9e0", "#d6b656")
 d.box(cx(9), row_y["cond"], COLW, "always", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=11, dashed=True)
 d.box(cx(10), row_y["cond"], COLW, "inserted by the builder, skipped at run time", h=cond_h, fill="#f5f5f5", stroke="#bbbbbb", font=10, dashed=True)

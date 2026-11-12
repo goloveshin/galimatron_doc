@@ -32,7 +32,7 @@ An absent definition hashes empty text. A `_te` string is hashed as its **source
 - Each live aggregate's declaration for version N stores `important_tags_hash(its definition for N)` in its `hash`.
 - The **root's** declaration stores `hash_of_hashes(...)` over the content hashes of all live aggregates, **including the root's own**. The hashes are sorted before they are combined (each appended as `h<len>:<hash>;` before the final SHA-256), so file order and names do not matter.
 - A deleted declaration has no hash.
-- The wizard writes them (`write_version_hash`); the validator recomputes them.
+- The Wizard writes them (`write_version_hash`); the validator recomputes them.
 
 ### Where a hash lives
 
@@ -67,7 +67,7 @@ A **closed** version is a root version at or before the root's `last_hashed`. Th
 3. `reject_sealed_shape`: an aggregate of `before` missing in `after` (`xslt removed aggregate 'x', which belongs to the sealed history`), or a version inserted into the sealed range (`xslt inserted version N into the sealed history`): **error**.
 4. `sealed_history_differs`: for each sealed version and each aggregate, compare existence of the declaration, hash, comment, status and `definition_payload`; and for an aggregate that is new in `after`, a non-empty payload in a sealed version. If nothing differs: return `after`.
 5. `effective_edits`: compile both graphs (`cpp2post_cpp::translate`) and diff the **effective tags** of the last sealed version of each aggregate (`diff_tags`: a tag whose body changed or is new is `REASSIGN`; a tag that vanished is `DELETE_TAG`). This is what the user would see in the compiled picture, so a change in formatting only gives no edits.
-6. `only_wizard_dynamic_copies`: if **every** edit is a `REASSIGN` of a tag that the wizard copied into that version (`created_by_wizard` and `tag_uses_dynamic_label`), the xslt only finished the copies (assigned a new id, for example). Then `write_version_hash(after, last_sealed)` refreshes the hash of the sealed version, and the function returns. This is the one way an xslt may change a closed version.
+6. `only_wizard_dynamic_copies`: if **every** edit is a `REASSIGN` of a tag that the Wizard copied into that version (`created_by_wizard` and `tag_uses_dynamic_label`), the xslt only finished the copies (assigned a new id, for example). Then `write_version_hash(after, last_sealed)` refreshes the hash of the sealed version, and the function returns. This is the one way an xslt may change a closed version.
 7. Otherwise `restore_sealed_history`: every sealed version of `after` is replaced by a **clone from `before`**: the declaration fields (hash, comment, status), the presentation (`user_formatting`, `user_comments`) and the definition's children (`clone_from`). A sealed version that `after` has and `before` did not is emptied (`detach_children`).
 8. If there were no effective edits: return (the log says `xslt changed a sealed version; restored the sealed text`).
 9. `destination_version`: the first declared root version after `last_sealed`, or `open_next_version`, which creates a new version for the root and for every live aggregate (a declaration with no hash, and a definition marked `created_by_wizard`).
@@ -79,7 +79,7 @@ After the seal, `cpp2cpp_after_xslt` runs `validate_language` again. **A user xs
 
 ## Things to remember
 
-- `write_version_hash` is shared by the wizard and the seal.
+- `write_version_hash` is shared by the Wizard and the seal.
 - The seal needs a **compile** of both graphs, which is the most expensive part of the step on a large project.
 - An xslt that adds a new aggregate may not give it content in a sealed version (`sealed_history_differs` sees a non-empty payload).
-- The seal only runs when a language xslt is enabled. Without one nothing can change a closed version except the wizard, and the validator guards that.
+- The seal only runs when a language xslt is enabled. Without one nothing can change a closed version except the Wizard, and the validator guards that.

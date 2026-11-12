@@ -1,4 +1,4 @@
-"""The smaller developer diagrams, part B: sequence, validation, wizard, compile, XML, places, tests, build."""
+"""The smaller developer diagrams, part B: sequence, validation, Wizard, compile, XML, places, tests, build."""
 import os
 import sys
 
@@ -18,7 +18,7 @@ def sequence():
                 "4. language part done: append `cpp2gal` unless the last step is one\n5. no post step: path to POST XML; a post xslt: path to POST SAXON", fill=GREEN[0], stroke=GREEN[1], font=12, align="left", valign="top", h=190)
     d.edge(seed, bld, exit_xy=(0.5, 0), entry_xy=(0.1, 0), points=[(290, 60), (1388, 60)])
     d.edge(cat, bld, straight=True)
-    names = [("gal2cpp", "auto"), ("validate", "seed"), ("wizard", "seed"), ("before_xslt", "seed"), ("cpp2xml", "auto"), ("xml2saxon", "auto"),
+    names = [("gal2cpp", "auto"), ("validate", "seed"), ("Wizard", "seed"), ("before_xslt", "seed"), ("cpp2xml", "auto"), ("xml2saxon", "auto"),
              ("your xslt", "user"), ("xml2cpp", "auto"), ("after_xslt", "seed"), ("cpp2gal", "auto"), ("gal2cpp (skip)", "skip"),
              ("cpp2post_cpp", "auto"), ("post_cpp2post_xml", "auto"), ("post_xml2saxon", "auto"), ("your post xslt", "user")]
     rows = [("no xslt  (7)", [0, 1, 2, 9, 10, 11, 12]), ("language xslt only  (13)", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
@@ -82,17 +82,17 @@ def validate_dag():
         d.edge(src, join, dashed=True, color="#3b6ea5", width=1.2, exit_xy=(1, 0.5), entry_xy=(1, 0.5), points=[(b4, sy), (b4, jy)])
     d.box(40, y0 + 8 * step + 20, 1900,
           "• With `create root aggregate` in the command (or a batch), **seven** checks do nothing: the four root checks, `anonymous versions owned`, both hash checks.\n"
-          "• `validate_memo_t` caches only the three root gate checks. The wizard replaces memo and checker together.\n"
-          "• The wizard's own checks (`may_execute_wizard_command`) are not in this graph.", h=84,
+          "• `validate_memo_t` caches only the three root gate checks. The Wizard replaces memo and checker together.\n"
+          "• The Wizard's own checks (`may_execute_wizard_command`) are not in this graph.", h=84,
           fill="#fbfbfb", stroke="#cccccc", font=11, align="left", valign="top")
     save(d, "37_dev_validate_dag")
 
 
-# ---------------------------------------------------------------- 38 wizard flow
+# ---------------------------------------------------------------- 38 Wizard flow
 def wizard_flow():
     d = Diagram("38_dev_wizard_flow", 2100, 860)
-    d.text(30, 16, 1500, "The wizard step", font=20, bold=True)
-    a = d.box(30, 90, 420, "`cpp2cpp_wizard::translate(language)`\nno wizard statement: return unchanged", h=60, fill=BLUE[0], stroke=BLUE[1], font=11)
+    d.text(30, 16, 1500, "The Wizard step", font=20, bold=True)
+    a = d.box(30, 90, 420, "`cpp2cpp_wizard::translate(language)`\nno Wizard statement: return unchanged", h=60, fill=BLUE[0], stroke=BLUE[1], font=11)
     b = d.box(30, 190, 420, "`validate_->is_wizard_command_single()`\none statement in the whole graph", h=60, fill=BLUE[0], stroke=BLUE[1], font=11)
     s = rhombus(d, 70, 290, 340, 80, "batch?")
     one = d.box(30, 420, 420, "`apply_one(type)`: a `switch` over `command_et`", h=50, fill=BLUE[0], stroke=BLUE[1], font=11)
@@ -100,7 +100,7 @@ def wizard_flow():
                 h=130, fill=BLUE[0], stroke=BLUE[1], font=11, align="left", valign="top")
     ap = d.box(30, 520, 1130, "**an `apply_*` function**: `validate_->may_execute_wizard_command()` (the per-command checks, in order; the first failure throws) → change the graph with `builder_t` (new vertices get `created_by_wizard`) → `refresh_live_and_hashed(vd_aggregate)` after structural edits",
                h=76, fill=GREEN[0], stroke=GREEN[1], font=11, align="left", valign="top")
-    cm = d.box(30, 640, 1130, "`comment_executed_command()`: the text of the statement becomes `//` lines at the **top of its chunk**; `cpp2gal` prints only comments for a wizard statement, so the command disappears", h=60,
+    cm = d.box(30, 640, 1130, "`comment_executed_command()`: the text of the statement becomes `//` lines at the **top of its chunk**; `cpp2gal` prints only comments for a Wizard statement, so the command disappears", h=60,
                fill=GREEN[0], stroke=GREEN[1], font=11, align="left", valign="top")
     d.edge(a, b, straight=True); d.edge(b, s, straight=True)
     d.edge(s, one, text="no", exit_xy=(0.5, 1), entry_xy=(0.5, 0))
@@ -173,9 +173,9 @@ def xml_roundtrip():
     d.box(30, 270, half, "**language XML**  `<galimatron><language>`", h=32, fill=BLUE[0], stroke=BLUE[1], font=12)
     d.box(30 + half + 40, 270, half, "**compiled XML**  `<galimatron><compiled>`", h=32, fill=ORANGE[0], stroke=ORANGE[1], font=12)
     lang = ("`<chunk><location>` per file\n`<root-aggregate>` / `<aggregate>` with declarations and definitions\n`<tag index name mode layout-mark>` with `<label-refs>` and `<values>` (`template-engine`)\n"
-            "`<label>` static or dynamic · `<ordering>` · `<delete>`\nwizard marks: `<dynamic wizard=\"...\"/>`, `<dynamic labelname=\"value\"/>`\n`<string-delimiters>` · `<history>`")
+            "`<label>` static or dynamic · `<ordering>` · `<delete>`\nWizard marks: `<dynamic wizard=\"...\"/>`, `<dynamic labelname=\"value\"/>`\n`<string-delimiters>` · `<history>`")
     comp = ("the same skeleton; each version lists only the **effective tags**\na tag always has its name\nlabels are **attributes on `<value>`**: `<value index=\"0\" field=\"type\">`\n"
-            "`<string>` holds the **rendered** text\n`<orderings><ordering name index=\"position\"/>` per aggregate version\nno wizard marks · `<history>`")
+            "`<string>` holds the **rendered** text\n`<orderings><ordering name index=\"position\"/>` per aggregate version\nno Wizard marks · `<history>`")
     d.box(30, 306, half, lang, h=170, fill="#f4f8fd", stroke="#cccccc", font=11, align="left", valign="top")
     d.box(30 + half + 40, 306, half, comp, h=170, fill="#fff8ee", stroke="#cccccc", font=11, align="left", valign="top")
     d.box(30, 510, 2320, "**fingerprint**: element name, attributes except `layout-mark` (sorted), children, non-blank text. Two implementations (`layout::fingerprint` on pugixml, `fingerprint` on `node_t`) must produce the same text.\n"

@@ -2,7 +2,7 @@ site_name: Galimatron
 site_description: A file-based tool that keeps one versioned description of your data and generates everything else from it
 site_url: https://goloveshin.github.io/galimatron_doc/
 repo_url: https://github.com/goloveshin/galimatron_doc
-edit_uri: edit/main/source/
+edit_uri: ''
 copyright: Distributed under the Boost Software License, Version 1.0.
 
 docs_dir: source
@@ -38,7 +38,7 @@ nav:
       - Labels: labels.md
       - Ordering: ordering.md
   - Changing data:
-      - The wizard: wizard.md
+      - The Wizard: wizard.md
       - Hashes and closed versions: hashes.md
   - Your project:
       - Configuration (gal.cfg): configuration.md
@@ -48,7 +48,7 @@ nav:
       - Custom states: custom-states.md
       - Editor support: editor.md
   - Examples:
-      - UUID protocol: uuid-protocol.md
+      - "Example: messages that grow": example-messages.md
       - Benchmark: benchmark.md
   - Reference: reference.md
   - Developer guide:
@@ -60,7 +60,7 @@ nav:
       - Parsing and printing: dev/parsing.md
       - The compiler: dev/compile.md
       - XML and Saxon: dev/xml.md
-      - The validator and the wizard: dev/validate-wizard.md
+      - The validator and the Wizard: dev/validate-wizard.md
       - Hashes and the seal: dev/seal-hash.md
       - Errors, logging, crashes: dev/errors-logging.md
       - Testing: dev/testing.md

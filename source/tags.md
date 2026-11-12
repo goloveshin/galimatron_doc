@@ -45,7 +45,7 @@ Words before the values are labels:
 
 ```
 version_number = important { "2" };
-field important { "std::string", "message" };
+field important { "text", "message" };
 ```
 
 `important` is built in. It marks the values that [hashes](hashes.md) cover. `field` is a label that you declared (see [Labels](labels.md)). A tag may have several.
@@ -75,7 +75,7 @@ published = once important { };
 | `once` | its version only | yes, in the same version |
 | `local` | its version only | no |
 
-`once` is the right mode for a fact about one version: this version is published. Written in the root, it marks every aggregate of that version, and does not leak into the next one. In the [UUID protocol](uuid-protocol.md) every version restates `published = once important { }`.
+`once` is the right mode for a fact about one version: this version is published. Written in the root, it marks every aggregate of that version, and does not leak into the next one. In the [Example: messages that grow](example-messages.md) every version restates `published = once important { }`.
 
 `local` is for a fact about this file: a note for the person who reads the aggregate, a switch that the other aggregates must not inherit.
 
@@ -85,7 +85,7 @@ published = once important { };
 delete price;
 ```
 
-The tag is absent from this version on. An earlier version still has it, and a later version may write it again. `wizard delete tag Apple price` writes this for you. See [The wizard](wizard.md).
+The tag is absent from this version on. An earlier version still has it, and a later version may write it again. `wizard delete tag apple price` writes this for you. See [The Wizard](wizard.md).
 
 ## Template strings
 

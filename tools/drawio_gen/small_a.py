@@ -28,7 +28,7 @@ def layers():
     exe = d.box(420, 100, bw, "**galimatron_executable**\n`main.cpp`  →  `galimatron`", fill=GREEN[0], stroke=GREEN[1], font=12, h=56)
     exl = d.box(60, 100, 340, "**galimatron_executable_library**\nthe command line (Boost.Program_options)", fill=BLUE[0], stroke=BLUE[1], font=12, h=60)
     rt = d.box(420, 220, bw, "**galimatron_runtime_library**\nconfig, filesystem decorator, summary, crash handler, error printing, `translate`", fill=BLUE[0], stroke=BLUE[1], font=12, h=76)
-    tr = d.box(420, 360, bw, "**galimatron_translator_library**\nparser, state, wizard, validator, compiler, XML, seal, the sequence of steps", fill=BLUE[0], stroke=BLUE[1], font=12, h=76)
+    tr = d.box(420, 360, bw, "**galimatron_translator_library**\nparser, state, Wizard, validator, compiler, XML, seal, the sequence of steps", fill=BLUE[0], stroke=BLUE[1], font=12, h=76)
     cm = d.box(420, 500, bw, "**galimatron_common_library**\nexception vocabulary, path report", fill=BLUE[0], stroke=BLUE[1], font=12, h=60)
     gfs = d.box(60, 620, 340, "**global_filesystem_library**\nthe filesystem as a struct of functions", fill=TEAL[0], stroke=TEAL[1], font=12, h=60)
     gcm = d.box(420, 620, bw, "**global_common_library**\ntype aliases, logging helpers, scope guard, private memory", fill=TEAL[0], stroke=TEAL[1], font=12, h=60)
@@ -91,7 +91,7 @@ def state_model():
         ("version_container", "(aggregate, version): declaration + definition + status, hash, comment, `definition_payload`; parked bodies"),
         ("version_statement_container", "the direct statements of a body: entity, name, `index_in_version`"),
         ("ordering_link_container", "which aggregates a root ordering names"),
-        ("wizard_statements_", "the descriptors of wizard statements"),
+        ("wizard_statements_", "the descriptors of Wizard statements"),
         ("string_delimiters_", "how strings were quoted; index 0 is a plain \""),
     ]
     cy = lp_y + 190
@@ -150,7 +150,7 @@ def seal():
     s2 = step("`reject_sealed_shape`: an aggregate of `before` is missing in `after`, or a version was inserted into the sealed range", RED[0], RED[1])
     s3 = dec("`sealed_history_differs`: declaration, hash, comment, status or payload of a sealed version?")
     s4 = step("`effective_edits`: compile both graphs, diff the **effective tags** of the last sealed version: `REASSIGN` or `DELETE_TAG` per aggregate")
-    s5 = dec("only `REASSIGN` of tags the wizard copied (`created_by_wizard`, dynamic label)?")
+    s5 = dec("only `REASSIGN` of tags the Wizard copied (`created_by_wizard`, dynamic label)?")
     s6 = step("`restore_sealed_history`: every sealed version of `after` becomes a clone of `before` (declaration fields, presentation, children)")
     s7 = dec("any effective edits left?")
     s8 = step("`destination_version`: the first open version after `last_sealed`, or `open_next_version` makes one for every live aggregate")
@@ -161,7 +161,7 @@ def seal():
     ret = d.box(60, 280, 330, "**return `after`**\nnothing sealed, or nothing changed", fill=GREEN[0], stroke=GREEN[1], font=11, h=56)
     d.edge(s0, ret, text="no", exit_xy=(0, 0.5), entry_xy=(1, 0.5), straight=False)
     d.edge(s3, ret, text="no", exit_xy=(0, 0.5), entry_xy=(1, 0.5))
-    fin = d.box(60, 560, 330, "**return `after`** after `write_version_hash(after, last_sealed)`\nthe xslt only finished wizard copies: the hash is refreshed", fill=GREEN[0], stroke=GREEN[1], font=11, h=78)
+    fin = d.box(60, 560, 330, "**return `after`** after `write_version_hash(after, last_sealed)`\nthe xslt only finished Wizard copies: the hash is refreshed", fill=GREEN[0], stroke=GREEN[1], font=11, h=78)
     d.edge(s5, fin, text="yes", exit_xy=(0, 0.5), entry_xy=(1, 0.5))
     ret2 = d.box(60, 900, 330, "**return `after`**\nonly formatting changed: the sealed text is back, the log says `restored the sealed text`", fill=GREEN[0], stroke=GREEN[1], font=11, h=78)
     d.edge(s7, ret2, text="no", exit_xy=(0, 0.5), entry_xy=(1, 0.5))

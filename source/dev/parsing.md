@@ -20,14 +20,14 @@ Code: `translator_library/parser/` (the grammar and the ANTLR session), `transfo
 ### Parser
 
 - Entry points: `productionEntryPoint : chunk EOF`, and `testStringEntryPoint : STRING EOF` (unit tests).
-- **A file is a "chunk"**: wizard statements only, or one aggregate (root or ordinary), or nothing. So a file holds exactly one aggregate, and a wizard file holds no aggregate.
+- **A file is a "chunk"**: Wizard statements only, or one aggregate (root or ordinary), or nothing. So a file holds exactly one aggregate, and a Wizard file holds no aggregate.
 - An aggregate is its name, a `versions { ... }` list (the **declarations**) and, after it, any number of `version [mode] N { ... }` bodies (the **definitions**) or `version [mode] before N { ... }` (parked bodies). Declaration headers use semantic predicates, so `comment` and `hash` each appear at most once.
 - A root version body may hold tags, labels, orderings and operations. A non-root one holds no orderings.
 - Tags: `[name =] [once|local] label* { values } ;`. Values are strings (optionally `_te`), records `{ "k": v }` and arrays `[ ... ]`. The label `important` is not special in the grammar.
 - Labels: `label x = static { a, b }` with an optional `, tag-name-from { a }`, and `label x = dynamic { id }`.
 - Orderings: `ordering name = { A, B }, { C, D };` (each part needs at least two names).
 - Operations: `delete;` (the version) and `delete tag_name;`.
-- Wizard: `wizard <command>;` and `wizard { <command>; ... }`. The commands are listed in [The validator and the wizard](validate-wizard.md#the-wizard-step).
+- Wizard: `wizard <command>;` and `wizard { <command>; ... }`. The commands are listed in [The validator and the Wizard](validate-wizard.md#the-wizard-step).
 - Modes: `tagMode` is `once` or `local`; `versionMode` is `once`, `local` or `own`.
 
 ### `parser::state_t`
@@ -67,7 +67,7 @@ A type-erased driver (`parser/fill_state_from_content.{hpp,cpp}`): for each `(pa
 | `enterTagStatement` | the tag with name, labels, mode |
 | `enterTagJSON*` | values, records, key-values, arrays, strings. A zero-level string is also put in `string_values_at_zero_level` (the code has a note: the "1 and -1" arithmetic is ugly) |
 | labels, orderings, operations | the matching `create_*` |
-| `enterWizardCommand`, `enterWizardBatch` | one `wizard_statement_t`; a command inside a batch is not its own vertex; a tag inside a wizard command does not create vertices but is stored as `wizard::json_t` in the command data |
+| `enterWizardCommand`, `enterWizardBatch` | one `wizard_statement_t`; a command inside a batch is not its own vertex; a tag inside a Wizard command does not create vertices but is stored as `Wizard::json_t` in the command data |
 
 ### Keeping the source text
 
@@ -76,7 +76,7 @@ A type-erased driver (`parser/fill_state_from_content.{hpp,cpp}`): for each `(pa
 - `user_formatting = original_user_formatting(ctx, stop_index)`: the exact source from the first token to the last, including a trailing comment on the same line (`statement_stop_index` extends over it). CRLF and CR are normalized to `\n`, so a text-mode write gives one platform line end.
 - `user_comments = leading_user_comments(...)`: the comment-channel tokens to the left of the rule, except one that shares a line with the previous statement (that belongs to the previous statement).
 - If a parent vertex starts at the same token and has the same comments, the parent's list is cleared and the **innermost** vertex keeps them, because that is the one `cpp2gal` prints.
-- A wizard statement gets the comments of the statement around it, because the command rule starts after `wizard` and stops before the `;`.
+- A Wizard statement gets the comments of the statement around it, because the command rule starts after `wizard` and stops before the `;`.
 
 ### Errors in `gal2cpp`
 
@@ -90,11 +90,11 @@ Only `wizard.cpp` throws: `wizard command is outside of a wizard context`, `unkn
 - A chunk walks its children, joins the lines into one text, appends `\n`, and pushes `{content, path}`. A chunk without a path throws `chunk has no path`.
 - An aggregate prints `aggregate NAME`, `{`, the declarations, `}`, and **after** the closing brace its version definitions (the `*_VERSION_DEFINITIONS` node is skipped by `walk_children` and emitted later). A blank line precedes each aggregate and each definition.
 - Declarations print `N;`, `N = deleted;` or `N = { comment = '...', hash = '...' };`.
-- A wizard statement prints only its comments. The command itself is never printed back: that is how a command disappears from `console.gal` (see `comment_executed_command` in [The validator and the wizard](validate-wizard.md)).
+- A Wizard statement prints only its comments. The command itself is never printed back: that is how a command disappears from `console.gal` (see `comment_executed_command` in [The validator and the Wizard](validate-wizard.md)).
 
 ### The layout rules
 
-1. **Stored source wins.** If a vertex has non-empty `user_formatting`, that text is printed as one line instead of generated text. This applies to tags, labels, operations and the declarations. A vertex that the wizard or an xslt made has none, so it is generated.
+1. **Stored source wins.** If a vertex has non-empty `user_formatting`, that text is printed as one line instead of generated text. This applies to tags, labels, operations and the declarations. A vertex that the Wizard or an xslt made has none, so it is generated.
 2. Comments are printed above each vertex (`append_user_comments`).
 3. **Orderings** are always generated (`ordering_printer_t`): one line if `indent + text <= 100` columns, otherwise broken like a tag. A trailing comment is kept: `append_statement_comment` finds the last `;` in the stored text and keeps a `//` or `/*` after it.
 4. **Tags without stored text** (`tag_printer_t`): a one-line `{ ... }` body when every value is "flat" (a string, an array of strings, a record of strings) and it fits in 100 columns. Otherwise the header, then `{`, then each payload indented by 4 with commas, and `};`. A tag header is `[name =] [once|local] label1 label2 ...`.

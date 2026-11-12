@@ -10,7 +10,7 @@ The project writes its rules down as **skills** in `.cursor/skills/`. They are p
 | `exception-using` | every throw, catch, and exception type |
 | `log-subsystems` | anything that logs |
 | `content-hash` | hashes and `important` tags |
-| `wizard-closed-version` | any wizard command that writes |
+| `wizard-closed-version` | any Wizard command that writes |
 | `xslt` | every `.xsl` file |
 | `gal-cfg` | every `gal.cfg` |
 | `test-gal` | `.gal` fixtures |
@@ -49,7 +49,7 @@ A version hash covers only the values of tags marked `important`. Aggregate name
 
 ## Closed versions (`wizard-closed-version`)
 
-A closed version is a root version at or before the last hashed declaration. Every wizard command that writes into a version must say what it does with a closed one. The table is in [The validator and the wizard](validate-wizard.md#closed-versions); check a new command against it.
+A closed version is a root version at or before the last hashed declaration. Every Wizard command that writes into a version must say what it does with a closed one. The table is in [The validator and the Wizard](validate-wizard.md#closed-versions); check a new command against it.
 
 ## xslt (`xslt`)
 

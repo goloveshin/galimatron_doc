@@ -1,26 +1,35 @@
 <mxfile host="app.diagrams.net">
   <diagram name="19_seal" id="19_seal">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="440" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="380" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="t1" value="Before your xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t1" value="Before your xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="10" width="300" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="t2" value="After your xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t2" value="After your xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="500" y="10" width="300" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="b1" value='version 1  (closed)&lt;br&gt;field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ "int", "price" };' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="30" y="50" width="260" height="90" as="geometry"/>
+        <mxCell id="b1" value="version 1 (closed)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="260" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="x" value='xslt:&lt;br&gt;"int" becomes&lt;br&gt;"long"' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="100" width="130" height="80" as="geometry"/>
+        <mxCell id="b1_b" value="field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ &quot;int&quot;, &quot;price&quot; };" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="b1">
+          <mxGeometry x="0" y="26" width="260" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value='version 1  (closed, as before)&lt;br&gt;field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ "int", "price" };' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="500" y="50" width="290" height="90" as="geometry"/>
+        <mxCell id="x" value="xslt:&lt;br&gt;&quot;int&quot; becomes&lt;br&gt;&quot;long&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="90" width="130" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="a2" value='version 2  (new, open)&lt;br&gt;field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ "long", "price" };' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="500" y="170" width="290" height="90" as="geometry"/>
+        <mxCell id="a1" value="version 1 (closed, as before)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="50" width="290" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1_b" value="field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ &quot;int&quot;, &quot;price&quot; };" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="a1">
+          <mxGeometry x="0" y="26" width="290" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="version 2 (new, open)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="290" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2_b" value="field important&lt;br&gt;&amp;nbsp;&amp;nbsp;{ &quot;long&quot;, &quot;price&quot; };" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="a2">
+          <mxGeometry x="0" y="26" width="290" height="54" as="geometry"/>
         </mxCell>
         <mxCell id="e1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="b1" target="x">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
@@ -31,8 +40,8 @@
         <mxCell id="e3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="x" target="a2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n" value="An xslt does not rewrite a closed version. Galimatron compares the text before and after. Where the xslt changed a value that belongs to a closed version, the change moves to the first open version after it; the version is added when it does not exist. The hash of version 1 stays true." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="30" y="290" width="770" height="130" as="geometry"/>
+        <mxCell id="n" value="An xslt does not rewrite a closed version. Galimatron compares the text before and after. Where the xslt changed a value that belongs to a closed version, the change moves to the first open version after it; the version is added when it does not exist. The hash of version 1 stays true." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="260" width="770" height="100" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

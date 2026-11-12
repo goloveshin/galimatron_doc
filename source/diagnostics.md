@@ -4,7 +4,7 @@ A tool that edits your files must be able to explain itself. Galimatron leaves f
 
 | Evidence | Where | Answers |
 |---|---|---|
-| the console and `galimatron.log` | `log.cfg` | What happened, in order, and how long did it take? |
+| the console (the terminal output) and `galimatron.log` | `log.cfg` | What happened, in order, and how long did it take? |
 | `galimatron_summary.xml` | `intermediate-summary-dir` | Which steps succeeded, and which files did each write? |
 | XML dumps | `intermediate-xml-dir` | What did the data look like after each step? |
 | the exception text | the console and the log | Why did the run stop? |
@@ -79,7 +79,7 @@ A line carries the subsystem that wrote it. This list is in `log.cfg`. Remove a 
 | `TR-HLD` | holder of the state |
 | `TR-XSLT` | the XSLT processor |
 | `TR-TSP` | the sequence of transformations |
-| `TR-WIZ` | the wizard |
+| `TR-WIZ` | the Wizard |
 
 ## The summary
 
@@ -113,7 +113,7 @@ Galimatron saves the XML at the points where your XSLT take over and give back.
 | File | Taken | Use it to see |
 |---|---|---|
 | `lang-parsed.xml` | after parsing and the first validation | the language as it was read. |
-| `lang-wizard.xml` | after the wizard | what the wizard changed. This is the input of your first language XSLT. |
+| `lang-wizard.xml` | after the Wizard | what the Wizard changed. This is the input of your first language XSLT. |
 | `lang-xslt.xml` | after all language XSLT | what your XSLT made. |
 | `lang-final.xml` | after the seal and the second validation | what is written back as `.gal`. |
 | `post-compiled.xml` | after compilation | what your post XSLT read. |
@@ -126,7 +126,7 @@ The dumps answer the question "my XSLT gave the wrong result" in a mechanical wa
 !!! tip
     To see one XSLT alone, give its `principal-xml` a `file`. Then open the file in an editor that can compare two files.
 
-Both the language XML and the compiled XML carry a `<history>` element: for each version, which tags were added, changed or deleted, and their values. Your XSLT can read it with `gal:history(.)`. The [UUID protocol](uuid-protocol.md) turns it into a dictionary of every tag name and the version that introduced it, and into `history.html`.
+Both the language XML and the compiled XML carry a `<history>` element: for each version, which tags were added, changed or deleted, and their values. Your XSLT can read it with `gal:history(.)`. The [Example: messages that grow](example-messages.md) turns it into a dictionary of every tag name and the version that introduced it, and into `history.html`.
 
 ## taskflow.dot
 
@@ -147,13 +147,13 @@ Exception details:
   validation:
     what: HASH_DOES_NOT_MATCH
   what info:
-    message: hash does not match: version 0: Apple
+    message: hash does not match: version 0: apple
 ```
 
 How to read it:
 
 - `what` is the short name of the rule. The [Reference](reference.md#error-names) lists them.
-- `message` says in words what failed and where: *version 0, the aggregate Apple*.
+- `message` says in words what failed and where: *version 0, the aggregate apple*.
 - For a syntax error, the message names the parsing rule that failed. The line comes from the file named in the text.
 - `domain` and `subdomain` tell which part of the tool stopped: the translator, the runtime, the XSLT processor.
 
@@ -167,7 +167,7 @@ Galimatron also names a crash log in `intermediate-log-dir` at the start of a ru
 
 ## A short checklist
 
-1. Read the last lines of the console. The error is there.
+1. Look at the end of the output in the terminal where you started Galimatron (or in the *Galimatron* terminal panel of VS Code). The error is printed there. This has nothing to do with the Wizard file `console.gal`.
 2. Read `what` and `message`. Most errors say what to do.
 3. If the failure is in your XSLT, open the XML dump before it and the one after it.
 4. If you do not know which step ran, open `galimatron_summary.xml`.

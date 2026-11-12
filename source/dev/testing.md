@@ -99,7 +99,7 @@ The `gal.cfg`, `log.cfg` and `xslt/config.xml` that most cases share live once i
 
 ### `// good` and `// bad`
 
-Automated incoming `.gal` fixtures (`validate`, `wizard_create_aggregate`, `wizard_create_root_aggregate`, and the wizard consoles) mark the line a case is about: `// good: ...` is input that must be accepted, `// bad: ...` input that must fail. A trailing comment is printed on the **next** declaration, so the expected `.gal` follows that shift; the comment on the last declaration is not printed. `uuid_protocol` is a test for a human to run, and gets no such marks (`test-gal` skill).
+Automated incoming `.gal` fixtures (`validate`, `wizard_create_aggregate`, `wizard_create_root_aggregate`, and the Wizard consoles) mark the line a case is about: `// good: ...` is input that must be accepted, `// bad: ...` input that must fail. A trailing comment is printed on the **next** declaration, so the expected `.gal` follows that shift; the comment on the last declaration is not printed. `uuid_protocol` is a test for a human to run, and gets no such marks (`test-gal` skill).
 
 ### The fixtures
 

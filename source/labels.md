@@ -48,7 +48,7 @@ Two tags with the same name replace each other, so a name that comes from a valu
 A tag can have more than one label. They stack:
 
 ```
-field important { "std::string", "message" };
+field important { "text", "message" };
 ```
 
 `field` gives meaning to the values, and `important` is the built-in marker that puts the values into the [hash](hashes.md).
@@ -78,7 +78,7 @@ Your language XSLT then finds the copies and gives them a new value:
 </xsl:template>
 ```
 
-After the run version 1 has `...0002`. Old tags have no marker, so they keep their value. See [XSLT](xslt.md) and the step [02 of the UUID protocol](uuid-protocol.md).
+After the run version 1 has `...0002`. Old tags have no marker, so they keep their value. See [XSLT](xslt.md) and the step [02 of the messages example](example-messages.md).
 
 ### Why dynamic labels and not a script
 
@@ -95,6 +95,6 @@ A label is a statement of a version.
 - Once stated, it stays visible in later versions. A later statement of the same name replaces the earlier one.
 - A label cannot be deleted. `delete name;` of a label name is an error.
 
-A label is not part of the hash: you may add a part to a label in a closed version without breaking the hash of tags. This is how the [UUID protocol](uuid-protocol.md) adds the dynamic label in step 2 while versions 0 and 1 stay closed.
+A label is not part of the hash: you may add a part to a label in a closed version without breaking the hash of tags. This is how the [Example: messages that grow](example-messages.md) adds the dynamic label in step 2 while versions 0 and 1 stay closed.
 
-`wizard create label protocol field = static { type };` adds a label for you (the first word is the aggregate).
+`wizard create label shop field = static { type };` adds a label for you (the first word is the aggregate).

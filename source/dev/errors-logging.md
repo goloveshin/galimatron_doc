@@ -25,7 +25,7 @@ Panel H of [the map](pipeline.md#the-map) draws the same path in the context of 
 
 A subdomain may also mark an exception from another domain that passes through code related to it, such as a callback passed into the decorator.
 
-**Detail enums** (`exception::details`): `io_operation_et { NON_EXIST, OPEN, READ, WRITE }`, and `validation_error_code_et`, a long enum (about 85 values) with the rule names of the validator and the wizard. See [The validator and the wizard](validate-wizard.md).
+**Detail enums** (`exception::details`): `io_operation_et { NON_EXIST, OPEN, READ, WRITE }`, and `validation_error_code_et`, a long enum (about 85 values) with the rule names of the validator and the Wizard. See [The validator and the Wizard](validate-wizard.md).
 
 **Payloads**:
 

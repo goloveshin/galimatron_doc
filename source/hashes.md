@@ -2,7 +2,7 @@
 
 ## The problem
 
-You published version 2 of a protocol. Clients in the field speak it. A month later somebody "fixes" a field in version 2, and now the description and the shipped clients disagree. Nobody notices until something breaks.
+You published version 2 of a description. Programs in the field were built from it, and files that were written with it are still in use. A month later somebody "fixes" a field in version 2, and now the description and everything that was shipped disagree. Nobody notices until something breaks.
 
 A **hash** makes this impossible to do quietly. A hash closes a version. If the important values of a closed version change, the next run fails and says which aggregates differ.
 
@@ -66,13 +66,13 @@ wizard create hash 3 force;
 wizard delete hash 3 force;
 ```
 
-Normally Galimatron checks the stored hash of every version before the wizard runs. If a stored hash does not match because you edited by hand, the run fails, and the message names the version and the aggregates.
+Normally Galimatron checks the stored hash of every version before the Wizard runs. If a stored hash does not match because you edited by hand, the run fails, and the message names the version and the aggregates.
 
 `force` is for the version you name. `create hash ... force` stores the hash of the important tags *as they are now*. `delete hash ... force` removes a hash that does not match. Use it when you know the data is right and the hash is stale. Versions you do not name are still checked.
 
 ## The hash and your XSLT
 
-A hash is taken from the data **after** the wizard and **after** your language XSLT. When `create hash` and an XSLT that generates values (a new uuid) run together, the hash covers the generated values. The [UUID protocol](uuid-protocol.md) does this at step 3.
+A hash is taken from the data **after** the Wizard and **after** your language XSLT. When `create hash` and an XSLT that generates values (a new uuid) run together, the hash covers the generated values. The [Example: messages that grow](example-messages.md) does this at step 3.
 
 Your XSLT must not break a closed version. What if it must? For example a generator changes a type name that the closed version holds. Galimatron has an answer: the **seal**.
 

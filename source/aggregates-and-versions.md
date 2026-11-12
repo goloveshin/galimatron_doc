@@ -50,7 +50,7 @@ version 1 { }
 ```
 
 ```
-aggregate Apple { versions { 0; 1; } }
+aggregate apple { versions { 0; 1; } }
 
 version 0 { price = { "3" }; }
 version 1 { price = { "4" }; }
@@ -58,14 +58,14 @@ version 1 { price = { "4" }; }
 
 | Compiled | currency | price |
 |---|---|---|
-| Apple, version 0 | EUR | 3 |
-| Apple, version 1 | EUR | 4 |
+| apple, version 0 | EUR | 3 |
+| apple, version 1 | EUR | 4 |
 
 You wrote the currency once. A new currency in the root, in version 2, changes every aggregate in version 2 and later.
 
 ## Version modes
 
-Sometimes an aggregate must not take everything. A dictionary of terms may need no settings of the root. A message that was reborn may need to forget its old fields. A **version mode** is written before the index.
+Sometimes an aggregate must not take everything. A dictionary of terms may need no settings of the root. An item that was reborn may need to forget its old fields. A **version mode** is written before the index.
 
 ```
 version own 6 { ... }
@@ -95,9 +95,9 @@ version 4
 }
 ```
 
-- The file stays. Older versions still describe it, and your XSLT can still generate the old types (the UUID protocol uses this to keep conversion from old messages).
+- The file stays. Older versions still describe it, and your XSLT can still generate the old shapes (the [example with messages](example-messages.md) uses this to keep the conversion from old messages).
 - The compiled view of version 4 and later does not have it.
-- `wizard delete aggregate Name` writes this `delete;` for you. It refuses when the aggregate is part of a closed version, because that would change a published version. With `physically` the file goes away, and the name can be used again. See [The wizard](wizard.md).
+- `wizard delete aggregate name` writes this `delete;` for you. It refuses when the aggregate is part of a closed version, because that would change a published version. With `physically` the file goes away, and the name can be used again. See [The Wizard](wizard.md).
 
 ## Collapsing history
 
@@ -115,10 +115,10 @@ wizard collapse version 1-4;
 
 After the collapse, version 5 still sees the same data. What is gone is the ability to ask "what was version 2". Collapse is the way to say that nobody does any more.
 
-`version before N` is written by the wizard. You do not write it by hand, but you may read it in a file.
+`version before N` is written by the Wizard. You do not write it by hand, but you may read it in a file.
 
 !!! note
-    Collapse accepts a closed range: it is the way to retire history that was published once. The [UUID protocol](uuid-protocol.md) ends with such a collapse (step 12).
+    Collapse accepts a closed range: it is the way to retire history that was published once. The [Example: messages that grow](example-messages.md) ends with such a collapse (step 12).
 
 ## Where each statement is written
 

@@ -1,40 +1,58 @@
 <mxfile host="app.diagrams.net">
   <diagram name="08_inheritance" id="08_inheritance">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="420" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="350" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="h1" value="You write" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="h1" value="You write" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="10" width="300" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="h2" value="The version means" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="h2" value="The version means" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="480" y="10" width="300" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="r0l" value='version 0&lt;br&gt;currency = "EUR";&lt;br&gt;price = "3";' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="30" y="50" width="300" height="90" as="geometry"/>
+        <mxCell id="r0l" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="300" height="84" as="geometry"/>
         </mxCell>
-        <mxCell id="r0r" value="currency = EUR&lt;br&gt;price = 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="480" y="50" width="300" height="90" as="geometry"/>
+        <mxCell id="r0l_b" value="currency = &quot;EUR&quot;;&lt;br&gt;price = &quot;3&quot;;" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r0l">
+          <mxGeometry x="0" y="26" width="300" height="58" as="geometry"/>
         </mxCell>
-        <mxCell id="r0e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r0l" target="r0r">
+        <mxCell id="r0r" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="50" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="r0r_b" value="currency = EUR&lt;br&gt;price = 3" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r0r">
+          <mxGeometry x="0" y="26" width="300" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="r0e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="r0l" target="r0r">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="r1l" value='version 1&lt;br&gt;price = "4";' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="30" y="170" width="300" height="90" as="geometry"/>
+        <mxCell id="r1l" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="154" width="300" height="84" as="geometry"/>
         </mxCell>
-        <mxCell id="r1r" value="currency = EUR&lt;br&gt;price = 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="480" y="170" width="300" height="90" as="geometry"/>
+        <mxCell id="r1l_b" value="price = &quot;4&quot;;" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r1l">
+          <mxGeometry x="0" y="26" width="300" height="58" as="geometry"/>
         </mxCell>
-        <mxCell id="r1e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r1l" target="r1r">
+        <mxCell id="r1r" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="154" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1r_b" value="currency = EUR&lt;br&gt;price = 4" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r1r">
+          <mxGeometry x="0" y="26" width="300" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="r1l" target="r1r">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="r2l" value="version 2&lt;br&gt;delete currency;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="30" y="290" width="300" height="90" as="geometry"/>
+        <mxCell id="r2l" value="version 2" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="258" width="300" height="66" as="geometry"/>
         </mxCell>
-        <mxCell id="r2r" value="price = 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=12;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="480" y="290" width="300" height="90" as="geometry"/>
+        <mxCell id="r2l_b" value="delete currency;" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r2l">
+          <mxGeometry x="0" y="26" width="300" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="r2e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r2l" target="r2r">
+        <mxCell id="r2r" value="version 2" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="258" width="300" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2r_b" value="price = 4" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=15;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="r2r">
+          <mxGeometry x="0" y="26" width="300" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2e" value="compile" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="r2l" target="r2r">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
       </root>

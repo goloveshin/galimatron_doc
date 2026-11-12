@@ -4,7 +4,7 @@ This page installs Galimatron and runs the smallest useful project. You will see
 
 ## Install
 
-Galimatron is one executable (`galimatron.exe` on Windows, `galimatron` on Linux) with the SaxonC libraries beside it. The installer puts these in place:
+Galimatron is one executable (`galimatron.exe` on Windows, `galimatron` on Linux) with the SaxonC libraries beside it (Saxon is the XSLT processor that Galimatron uses to run your XSLT). The installer puts these in place:
 
 | What | Where |
 |---|---|
@@ -35,8 +35,7 @@ Galimatron has no project file in a hidden place. A project is a folder with two
 |---|---|---|
 | `gal.cfg` | write | reads |
 | `log.cfg` | write | reads |
-| `incoming_gal/` | write `.gal` files | reads them |
-| `actual_gal/` | | writes the result (this can be the same folder as `incoming_gal/`) |
+| `incoming_gal/` | write `.gal` files | reads them, and rewrites them in place |
 | `xslt/` | write | runs |
 | `generated/` | | your XSLT write here |
 | `intermediate/` | | log, summary, XML dumps |
@@ -120,5 +119,5 @@ Open `lang-parsed.xml` and `lang-final.xml` of the second run side by side. The 
 ## What next
 
 - The model you will write in: [Entities](entities.md).
-- A project that grows, step by step: [UUID protocol](uuid-protocol.md).
-- Commands that edit the `.gal` files for you: [The wizard](wizard.md).
+- A project that grows, step by step: [Example: messages that grow](example-messages.md).
+- Commands that edit the `.gal` files for you: [The Wizard](wizard.md).

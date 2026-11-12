@@ -22,14 +22,14 @@ Code: `galimatron/translator_library/state/`.
 | label | `label_statement_t`, with a child `label_dynamic_t` or `label_static_t {values, tag_name_from}` |
 | ordering | `ordering_statement_t {name, ordering_parts}` |
 | operation | `operation_statement_t {name, is_version}` (the historical `delete`) |
-| wizard | `wizard_statement_t {type, context, chunk_node, chunk_uri, data, commands}` |
+| Wizard | `wizard_statement_t {type, context, chunk_node, chunk_uri, data, commands}` |
 
 Facts that are easy to miss:
 
 - `tag_statement_t` has `index_in_version`, an optional `name` (absent: the compiler names it from a label's `tag-name-from`), the list of `labels`, the `mode`, `created_by_wizard`, and `string_values_at_zero_level`, a map from "value number i" to the vertex of that top-level string. That map is what lets naming, static labels and history read the first-level strings without walking the subtree.
 - A version **definition** has either an `index` or an `owner`. A numbered body has an `index`. A **parked** body (`version before N`) has no index and is owned by version N: this is where `collapse version` puts the statements of the versions it merged.
-- `created_by_wizard` exists on root aggregates, aggregates, version definitions and tags. The XML writer turns it into wizard marks, and the seal uses it to know which copies an xslt may finish.
-- `wizard_statement_t` is in the graph but **never in the XML**. `cpp2xml` throws if it meets one. After the wizard runs, its text stays on the chunk as `//` comments.
+- `created_by_wizard` exists on root aggregates, aggregates, version definitions and tags. The XML writer turns it into Wizard marks, and the seal uses it to know which copies an xslt may finish.
+- `wizard_statement_t` is in the graph but **never in the XML**. `cpp2xml` throws if it meets one. After the Wizard runs, its text stays on the chunk as `//` comments.
 - `entity_et::TAG_LABELS` exists, but no variant alternative has that type: the labels of a tag are a plain list inside `tag_statement_t`.
 - Strings remember how they were quoted: `tag_string_t.delimiter` and `tag_keyvalue_t.key_delimiter` are indexes into a table kept by `language_part_t` (index 0 is a plain `"`). So `'a'`, `"a"` and `R"(a)"` survive a round trip.
 
@@ -101,7 +101,7 @@ Declarations say which versions **exist**, with their status, comment and hash. 
 
 Some calls to know:
 
-- `refresh_live_and_hashed(vd_aggregate)` recomputes `first_live` and `last_hashed`. The builder calls it when it creates a declaration; the wizard calls it after structural edits. The root's `last_hashed` is **the seal boundary**.
+- `refresh_live_and_hashed(vd_aggregate)` recomputes `first_live` and `last_hashed`. The builder calls it when it creates a declaration; the Wizard calls it after structural edits. The root's `last_hashed` is **the seal boundary**.
 - `note_version_child(vd)` and `forget_version_child(vd)` keep `version_statements_` (and `ordering_links_` for root orderings) in sync.
 - `bind_anonymous_owners` and `rebind_version_definitions` set the owner of parked bodies after a definitions list is read or reshaped. A parked body with no written owner takes the next numbered body.
 - `refresh_version_records()` is called only by the seal, on the "before" and "after" graphs. It rebuilds the `definition_payload` of every version (the parked bodies owned by a version first, then its own children). Before that call the payload is not valid.
@@ -128,13 +128,13 @@ clone_under({source, parent, tag_index, created_by_wizard}),
 clone_from({source_graph, source, parent, tag_index, created_by_wizard, clear_formatting});
 ```
 
-Each `create_*` takes a struct with the parent descriptor and the fields, calls `boost::add_vertex`, sets `vd_self`, adds the parent edge, and **registers the vertex in the containers** (aggregates, versions, statements, wizard statements).
+Each `create_*` takes a struct with the parent descriptor and the fields, calls `boost::add_vertex`, sets `vd_self`, adds the parent edge, and **registers the vertex in the containers** (aggregates, versions, statements, Wizard statements).
 
 - `apply_aggregate_version_delete(vd_definition)`: when a body contains `delete;`, every other child is detached and only the `delete;` stays. A numbered body also marks its declaration `DELETED`. The parser calls it at the end of each aggregate version definition.
-- `clone_under` and `clone_from` copy a subtree, within one graph or from another graph. They rebuild `string_values_at_zero_level`, and can set the tag index and the `created_by_wizard` flag, and drop `user_formatting` and `user_comments`. The wizard and the seal use them.
-- **Deleting** is not on the builder. It is `boost::remove_edge` and `vertices.modify(...)` in the wizard code and in `xslt_seal.cpp::detach_children`.
+- `clone_under` and `clone_from` copy a subtree, within one graph or from another graph. They rebuild `string_values_at_zero_level`, and can set the tag index and the `created_by_wizard` flag, and drop `user_formatting` and `user_comments`. The Wizard and the seal use them.
+- **Deleting** is not on the builder. It is `boost::remove_edge` and `vertices.modify(...)` in the Wizard code and in `xslt_seal.cpp::detach_children`.
 
-The same builder is used by the parser (`gal2cpp`), by `xml2cpp_saxon`, by the wizard and by the seal. Only `on_existing_state_t` differs.
+The same builder is used by the parser (`gal2cpp`), by `xml2cpp_saxon`, by the Wizard and by the seal. Only `on_existing_state_t` differs.
 
 ## The compiled part
 
@@ -165,8 +165,8 @@ The same builder is used by the parser (`gal2cpp`), by `xml2cpp_saxon`, by the w
 1. The language part and the compiled part are separate. The compiled part is recomputed from scratch and dropped whenever the graph changes.
 2. Descriptors are stable and never reused.
 3. Statement order is `index_in_version`.
-4. After you reshape versions (wizard, seal), call `rebind_version_definitions`, `refresh_live_and_hashed`, `forget_version_child`, as needed.
+4. After you reshape versions (Wizard, seal), call `rebind_version_definitions`, `refresh_live_and_hashed`, `forget_version_child`, as needed.
 5. The hash covers the **values** of `important` tags, not names, labels or aggregate order. Renaming or reordering does not break a seal, changing a value does.
-6. A wizard statement is never in XML, and the wizard runs on the language graph before any xslt sees it.
+6. A Wizard statement is never in XML, and the Wizard runs on the language graph before any xslt sees it.
 7. `created_by_wizard` is how an xslt (and the seal) knows what is new.
 8. `state/wizard/command.hpp` checks with `static_assert` that its command table is consistent: a command added to `command_et` without an entry in the table does not compile.

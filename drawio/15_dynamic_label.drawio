@@ -1,29 +1,38 @@
 <mxfile host="app.diagrams.net">
   <diagram name="15_dynamic_label" id="15_dynamic_label">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="430" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="390" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="def" value="label need_new_uuid = dynamic { need_gen_uuid };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="30" y="15" width="770" height="45" as="geometry"/>
+        <mxCell id="def" value="label need_new_uuid = dynamic { &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;need_gen_uuid&lt;/span&gt; };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="167" y="15" width="500" height="46" as="geometry"/>
         </mxCell>
-        <mxCell id="v0" value='version 0 (closed)&lt;br&gt;uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;important {"..1"};' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="30" y="100" width="185" height="110" as="geometry"/>
+        <mxCell id="v0" value="version 0 (closed)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="15" y="95" width="190" height="96" as="geometry"/>
         </mxCell>
-        <mxCell id="v1" value='version 1 (new)&lt;br&gt;uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;marked as a copy&lt;br&gt;&amp;nbsp;&amp;nbsp;important {"..1"};' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="325" y="100" width="185" height="110" as="geometry"/>
+        <mxCell id="v0_b" value="uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;important {&quot;..1&quot;};" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="v0">
+          <mxGeometry x="0" y="26" width="190" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="v2" value='version 1 (xslt ran)&lt;br&gt;uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;important {"..2"};' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Courier New;fontSize=11;align=left;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
-          <mxGeometry x="620" y="100" width="185" height="110" as="geometry"/>
+        <mxCell id="v1" value="version 1 (new)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="317" y="95" width="190" height="96" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="wizard&lt;br&gt;create version" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="v0" target="v1">
+        <mxCell id="v1_b" value="uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;marked as a copy&lt;/span&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;important {&lt;span style=&quot;background-color:#f5a3d2;border-radius:3px;&quot;&gt;&quot;..1&quot;&lt;/span&gt;};" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="v1">
+          <mxGeometry x="0" y="26" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2" value="version 1 (xslt ran)" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="95" width="190" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2_b" value="uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;important {&lt;span style=&quot;background-color:#f5a3d2;border-radius:3px;&quot;&gt;&quot;..2&quot;&lt;/span&gt;};" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="v2">
+          <mxGeometry x="0" y="26" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="wizard&lt;br&gt;create version" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v0" target="v1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="a2" value="your language&lt;br&gt;xslt" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="v1" target="v2">
+        <mxCell id="a2" value="your language&lt;br&gt;xslt" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v1" target="v2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n" value="A dynamic label marks tags that must follow every new version. wizard create version copies such a tag into the new version, and the copy carries a marker with the value need_gen_uuid.&lt;br&gt;&lt;br&gt;The original has no marker. An XSLT can tell the fresh copies from the old tags and give them a new value. The next-uuid step of the UUID protocol example does exactly that." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="30" y="235" width="770" height="170" as="geometry"/>
+        <mxCell id="n" value="A dynamic label marks tags that must follow every new version. wizard create version copies such a tag into the new version, and the copy carries &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;a marker with the value need_gen_uuid&lt;/span&gt;.&lt;br&gt;&lt;br&gt;The original has no marker. An XSLT can tell the fresh copies from the old tags and give them &lt;span style=&quot;background-color:#f5a3d2;border-radius:3px;&quot;&gt;a new value&lt;/span&gt;. The next-uuid step of the messages example does exactly that." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="215" width="770" height="150" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

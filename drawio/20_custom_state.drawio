@@ -4,31 +4,31 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="r1" value="run 1&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="r1" value="run 1&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="40" width="150" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="st" value="conversion-state.xml&lt;br&gt;your own state file" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="st" value="conversion-state.xml&lt;br&gt;your own state file" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="290" y="40" width="250" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="r2" value="run 2&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="r2" value="run 2&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="40" width="150" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="writes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r1" target="st">
+        <mxCell id="a1" value="writes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="r1" target="st">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="a2" value="reads" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="st" target="r2">
+        <mxCell id="a2" value="reads" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;fontSize=13;" edge="1" parent="1" source="st" target="r2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="r3" value="run 3&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="r3" value="run 3&lt;br&gt;your xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="650" y="170" width="150" height="70" as="geometry"/>
         </mxCell>
         <mxCell id="a3" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r2" target="r3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="a4" value="writes again" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="r2" target="st">
+        <mxCell id="a4" value="writes again" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=13;" edge="1" parent="1" source="r2" target="st">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n" value="A state file belongs to you: Galimatron does not read it. Your xslt reads the file the last run left, decides what is new, and writes the file again. Put the files in a folder that gal.cfg names, and keep the folder under version control with your .gal files." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;" vertex="1" parent="1">
+        <mxCell id="n" value="A state file belongs to you: Galimatron does not read it. Your xslt reads the file the last run left, decides what is new, and writes the file again. Put the files in a folder that gal.cfg names, and keep the folder under version control with your .gal files." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="260" width="770" height="110" as="geometry"/>
         </mxCell>
       </root>

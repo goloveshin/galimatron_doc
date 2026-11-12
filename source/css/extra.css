@@ -11,3 +11,31 @@
     width: 2600px;
     display: block;
 }
+
+/* tables.
+   the theme makes a table a scrolling block, which sizes its columns by the longest unbroken line,
+   so a description never wraps. an ordinary table wraps the descriptions to the width of the page.
+   a name in code stays on one line. */
+.rst-content .section table.docutils {
+    display: table;
+    width: 100%;
+    overflow: visible;
+}
+
+.rst-content .section table.docutils td,
+.rst-content .section table.docutils th {
+    vertical-align: top;
+    padding: 8px 12px;
+    white-space: normal;
+}
+
+.rst-content .section table.docutils td code,
+.rst-content .section table.docutils th code {
+    white-space: nowrap;
+}
+
+/* a table with many columns (the benchmark numbers) scrolls instead of squeezing */
+.rst-content .section table.docutils:has(th:nth-child(7)) {
+    display: block;
+    overflow-x: auto;
+}

@@ -143,7 +143,7 @@ This follows from the places. It is the answer to "what is on disk after an erro
 | the XML dumps and the files of your xslt | written as each step ends. After a failed run some are new, some old | same |
 | removal of stale files | only after success | only after success (and the output `.gal` folder is emptied at the start in any case) |
 | `galimatron_summary.xml` | always, with `status="fail"` and the error text | same |
-| the wizard command | stays in `console.gal`, so it runs again | the input is never changed |
+| the Wizard command | stays in `console.gal`, so it runs again | the input is never changed |
 
 ## The summary
 

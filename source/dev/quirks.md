@@ -6,14 +6,14 @@ Things that surprise people who read the code for the first time. Some are desig
 
 - **The graph never forgets a vertex.** A delete detaches. Use the version containers, not a scan of all vertices.
 - **The compiled part is a cache.** Anything that changes the language graph must reset `compiled_state_`, and `ensure_compiled()` rebuilds it lazily.
-- **There is no dry run** for the wizard. The checks run on the real graph right before each change. A batch that fails half way leaves the graph changed, but the run aborts, so nothing is written (in normal mode).
-- **Validation runs twice at most**: before the wizard, and after a language xslt. Not after the wizard alone.
+- **There is no dry run** for the Wizard. The checks run on the real graph right before each change. A batch that fails half way leaves the graph changed, but the run aborts, so nothing is written (in normal mode).
+- **Validation runs twice at most**: before the Wizard, and after a language xslt. Not after the Wizard alone.
 - **`.gal` files are written last** in normal mode: they are delayed to `do_jobs_at_end`. XML dumps and generated files are written at once.
 - **`gal2cpp` appears twice** in a run with a post part. The second is skipped.
 - **`cpp2xml` and `post_cpp2post_xml` have empty jobs.** Their work is the printing done by `execute_transform`.
 - **The XML is printed more than once.** `xml2saxon` prints the language XML again to feed Saxon, after `cpp2xml` printed it for `lang-wizard.xml`.
-- **Two XML flavors** from one printer: `<language>` keeps labels, templates and wizard marks; `<compiled>` has none of them.
-- **A wizard statement is not in XML**, and the executed command moves to the **top** of its chunk as comments.
+- **Two XML flavors** from one printer: `<language>` keeps labels, templates and Wizard marks; `<compiled>` has none of them.
+- **A Wizard statement is not in XML**, and the executed command moves to the **top** of its chunk as comments.
 - **Only `once` and `local` are tag modes**; `own` is a version mode only.
 - **Errors on a worker** need `capture_or_rethrow`. A guard in the caller is lost.
 - **`write` is text mode, `read` is binary.** On Windows a bare `\n` becomes `\r\n` on write.
@@ -30,7 +30,7 @@ Things that surprise people who read the code for the first time. Some are desig
 - `use_named_channel` in `logging_utils` is exported and not used by the runtime path.
 - `gal-functions.xsl` mixes general functions with ones written for the UUID example (`gal:next-uuid`, `gal:is-system`, `gal:is-payload`, `gal:structs`, `gal:payload-items`, `gal:dictionary-entry`).
 - Namespaces: part of the runtime is in `galimatron::executable::filesystem[_decorator]`.
-- The three `dynamic` elements of the XML (label value, wizard copy marker, wizard-made entity marker) share a name.
+- The three `dynamic` elements of the XML (label value, Wizard copy marker, Wizard-made entity marker) share a name.
 - `state/version_status.cpp` throws with the `wizard` subdomain for an unknown status, which is probably a copy of a neighbor.
 - `explains.cpp` depends on the exact English text of ANTLR messages.
 - Two rows of `explains.cpp` contain the literal input of a test (`version_number;`), so the friendly text for "a tag needs a value" fires only for a tag whose first token is that word.

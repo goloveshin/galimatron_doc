@@ -20,8 +20,8 @@ How to read it:
 | Panel | About | Details |
 |---|---|---|
 | A | how the list of steps is built | this page |
-| B | the twelve checks of the validator | [The validator and the wizard](validate-wizard.md#the-validator) |
-| C | the wizard step | [The validator and the wizard](validate-wizard.md#the-wizard-step) |
+| B | the twelve checks of the validator | [The validator and the Wizard](validate-wizard.md#the-validator) |
+| C | the Wizard step | [The validator and the Wizard](validate-wizard.md#the-wizard-step) |
 | D | the compile step | [The compiler](compile.md) |
 | E | the XML round trip and the layout table | [XML and Saxon](xml.md) |
 | F | where the output of a step goes | [The runtime](runtime.md#where-the-output-of-a-step-goes) |
@@ -94,7 +94,7 @@ Every built-in step is a factory function `translator_t::get_<name>_transform()`
 |---|---|---|
 | `gal2cpp` | `gal2cpp.cpp` | `compiled_state_.reset()`; `language_state_ = gal2cpp::translate(...)`. Skipped when `language_state_` is already set |
 | `cpp2cpp_validate` | `cpp2cpp_validate.cpp` | `compiled_state_ = validate_language(language_state_, subflow)` |
-| `cpp2cpp_wizard` | `cpp2cpp_wizard.cpp` | `compiled_state_.reset()`; `language_state_ = cpp2cpp_wizard::translate(...)`. Skipped without a wizard statement |
+| `cpp2cpp_wizard` | `cpp2cpp_wizard.cpp` | `compiled_state_.reset()`; `language_state_ = cpp2cpp_wizard::translate(...)`. Skipped without a Wizard statement |
 | `cpp2cpp_before_xslt` | `cpp2cpp_before_xslt.cpp` | `language_before_xslt_ = language_state_` |
 | `cpp2xml` | `cpp2xml.cpp` | empty job. The principal XML is printed by `execute_transform` |
 | `xml2saxon` | `xml2saxon.cpp` | creates the Saxon session and adopts the printed language XML; resets `language_state_` (not in testing) |
@@ -185,7 +185,7 @@ Because tasks run on worker threads, a step must not rely on a LEAF context from
 
 The lifetime of the five slots over a full run is drawn in band 2 of the map. In words:
 
-- `language_state_` is created by `gal2cpp`, edited in place by the wizard, **reset** by `xml2saxon` (production), rebuilt by `xml2cpp`, rewritten by the seal, and read until the end.
+- `language_state_` is created by `gal2cpp`, edited in place by the Wizard, **reset** by `xml2saxon` (production), rebuilt by `xml2cpp`, rewritten by the seal, and read until the end.
 - `language_before_xslt_` is a second pointer to the same graph from `cpp2cpp_before_xslt` until `cpp2cpp_after_xslt`.
 - `compiled_state_` is compiled by validation, reset by every step that changes the graph, and compiled again by `ensure_compiled()` when something needs it: the XML printer (for `<history>` and for the compiled document), the seal, the compile step.
 - The Saxon session exists from `xml2saxon` to `xml2cpp`, and again from `post_xml2saxon` to the end.

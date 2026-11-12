@@ -4,32 +4,32 @@
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="t1" value="language-transforms: each result is the next input" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t1" value="language-transforms: each result is the next input" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="10" width="700" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="l0" value="language XML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="30" y="50" width="130" height="60" as="geometry"/>
+        <mxCell id="l0" value="language XML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="50" width="140" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="l1" value="xslt 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="210" y="50" width="130" height="60" as="geometry"/>
+        <mxCell id="l1" value="xslt 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="205" y="50" width="120" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="l2" value="xslt 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="390" y="50" width="130" height="60" as="geometry"/>
+        <mxCell id="l2" value="xslt 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="450" y="50" width="120" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="l3" value="language XML&lt;br&gt;(edited)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="570" y="50" width="130" height="60" as="geometry"/>
+        <mxCell id="l3" value="language XML&lt;br&gt;(edited)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="615" y="50" width="140" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="la" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l0" target="l1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="lb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l1" target="l2">
+        <mxCell id="lb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="l1" target="l2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
         <mxCell id="lc" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l2" target="l3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="lf" value="other-files: any file, in a store folder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="210" y="150" width="310" height="45" as="geometry"/>
+        <mxCell id="lf" value="other-files: any file, in a store folder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="205" y="150" width="365" height="45" as="geometry"/>
         </mxCell>
         <mxCell id="ld" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="l1" target="lf">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
@@ -37,32 +37,32 @@
         <mxCell id="le" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="l2" target="lf">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="t2" value="post-language-transforms: the same, on the compiled XML" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="t2" value="post-language-transforms: the same, on the compiled XML" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="235" width="700" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="p0" value="compiled XML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="30" y="275" width="130" height="60" as="geometry"/>
+        <mxCell id="p0" value="compiled XML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="275" width="140" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="p1" value="xslt A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="210" y="275" width="130" height="60" as="geometry"/>
+        <mxCell id="p1" value="xslt A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="205" y="275" width="120" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="p2" value="xslt B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
-          <mxGeometry x="390" y="275" width="130" height="60" as="geometry"/>
+        <mxCell id="p2" value="xslt B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="450" y="275" width="120" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="p3" value="compiled XML&lt;br&gt;(passes on)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="570" y="275" width="130" height="60" as="geometry"/>
+        <mxCell id="p3" value="compiled XML&lt;br&gt;(passes on)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="615" y="275" width="140" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="pa" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="p0" target="p1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="pb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="p1" target="p2">
+        <mxCell id="pb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="p1" target="p2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
         <mxCell id="pc" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="p2" target="p3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="pf" value="other-files: code, docs, anything" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="210" y="375" width="310" height="45" as="geometry"/>
+        <mxCell id="pf" value="other-files: code, docs, anything" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="205" y="375" width="365" height="45" as="geometry"/>
         </mxCell>
         <mxCell id="pd" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="p1" target="pf">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

@@ -15,7 +15,7 @@ A `.gal` file is recognized as the language *GaL*. The extension colors:
 - keywords (`aggregate`, `version`, `label`, `wizard`, `create`, ...),
 - numbers, names and punctuation.
 
-The reason it matters: a `.gal` file is something you read often. With color, the structure of versions and the commands of the wizard are visible at a glance, and an unclosed string stands out at once.
+The reason it matters: a `.gal` file is something you read often. With color, the structure of versions and the commands of the Wizard are visible at a glance, and an unclosed string stands out at once.
 
 ## Run Galimatron from the editor
 
@@ -30,7 +30,7 @@ galimatron --gal-config-file gal.cfg --log-config-file log.cfg
 
 with the folder of `gal.cfg` as the working directory. It needs `log.cfg` in the same folder as `gal.cfg`. Paths in `log.cfg` such as `intermediate/galimatron.log` are therefore relative to your project, as they should be.
 
-The run is a Visual Studio Code task. Its output goes to a dedicated terminal panel named *Galimatron*, which is cleared at each run, and the files that Galimatron rewrote update in the editor. A good loop is: edit a `.gal` file or write a wizard command in `console.gal`, run **Galimatron: execute**, read the result.
+The run is a Visual Studio Code task. Its output goes to a dedicated terminal panel named *Galimatron*, which is cleared at each run, and the files that Galimatron rewrote update in the editor. A good loop is: edit a `.gal` file or write a Wizard command in `console.gal`, run **Galimatron: execute**, read the result.
 
 ## The executable
 

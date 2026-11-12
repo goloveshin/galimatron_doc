@@ -61,7 +61,7 @@ wizard create in copy to continue physically force collapse
 
 ## Wizard commands
 
-All commands start with `wizard`. Use `wizard { cmd; cmd; }` for several. One wizard statement per run.
+All commands start with `wizard`. Use `wizard { cmd; cmd; }` for several. One Wizard statement per run.
 
 ```
 create root aggregate NAME
@@ -83,7 +83,7 @@ create label [AGG] NAME = static|dynamic ...
 create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
 ```
 
-Details are in [The wizard](wizard.md).
+Details are in [The Wizard](wizard.md).
 
 ## gal.cfg keys
 
@@ -154,13 +154,13 @@ The message of a failed run names a rule. The names are grouped by what failed.
 | `HASH_DOES_NOT_MATCH` | The stored hash differs from the one computed now. |
 | `HASH_MUST_BE_ON_EVERY_AGGREGATE` | A hashed version has a hash on the root and on every live aggregate. |
 
-### The wizard
+### The Wizard
 
 The names follow the pattern `WIZARD_<COMMAND>_<RULE>`.
 
 | Rule | Meaning |
 |---|---|
-| `WIZARD_COMMAND_MUST_BE_ONE` | One wizard statement per run. |
+| `WIZARD_COMMAND_MUST_BE_ONE` | One Wizard statement per run. |
 | `WIZARD_BATCH_COMMAND_MUST_BE_CREATE` | A batch holds create commands, `create hash`, `delete tag`, `delete version`, `collapse version`. |
 | `..._ROOT_AGGREGATE_MUST_EXIST` | The command needs the root aggregate. |
 | `..._ROOT_AGGREGATE_MUST_BE_ABSENT` | `create root aggregate` and a root exists already. |

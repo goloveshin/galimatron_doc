@@ -2,7 +2,7 @@
 
 Each recipe lists the places you have to touch. Run CMake again after you add a file, and run `run_tests` before you finish.
 
-## Add a wizard command
+## Add a Wizard command
 
 1. **Grammar**: `parser/g_parser.g4`, a new `wizardCommand...` rule, and a keyword in `g_lexer.g4` if you need one.
 2. **Model**: `state/wizard/command.hpp`: a value in `command_et`, a block comment (syntax, context, examples), and an entry in the `entities_t` and `commands_t` tables (the four `static_assert`s fail until the table is consistent). Data goes in `data.hpp`, messages in `tags.hpp`.
@@ -12,7 +12,7 @@ Each recipe lists the places you have to touch. Run CMake again after you add a 
 6. **Execution**: `apply_wizard_<command>` in `cpp2cpp_wizard/detail/*.cpp`, declared in `cpp2cpp_wizard_impl.hpp`, a case in `apply_one`. Start with `validate_->may_execute_wizard_command()`. Call `refresh_live_and_hashed` after structural edits.
 7. **Batch**: decide whether it may be in a batch (`is_wizard_batch_command_create`).
 8. **Tests**: a `test_wizard_<command>.cpp` and fixtures with `// good` and `// bad` lines. Also the `validate` area if a check is new.
-9. **Docs**: [The wizard](../wizard.md), and this guide if the rules change.
+9. **Docs**: [The Wizard](../wizard.md), and this guide if the rules change.
 
 ## Add a validation check
 

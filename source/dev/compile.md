@@ -76,7 +76,7 @@ Then, for each `(version_index, vd_version)` in the merged versions, with `augme
 
 1. Collect the tag and operation statements that reach the version, drop the `once`/`local` tags that are not local to this version, sort by `index_in_versions`.
 2. For each `delete name;` of this aggregate in this version: if a **label** has that name, throw `cannot delete label 'x'`; if the tag is not present before, only log a warning (`delete tag 'x': tag is not present`).
-3. Walk the list **from the end** with `find_and_process_unique`, keyed by the resolved tag name. The first statement seen per name wins; a `delete` consumes the name and emits nothing. So **the last declaration of a name wins, and a delete removes the tag** from the compiled state. This is the historical delete; the wizard's physical delete removes vertices instead.
+3. Walk the list **from the end** with `find_and_process_unique`, keyed by the resolved tag name. The first statement seen per name wins; a `delete` consumes the name and emits nothing. So **the last declaration of a name wins, and a delete removes the tag** from the compiled state. This is the historical delete; the Wizard's physical delete removes vertices instead.
 4. Each winning tag calls `notify_labels_for_tag`, which resolves the labels lazily.
 
 ## Naming (`naming.cpp`)
