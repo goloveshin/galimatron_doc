@@ -1,77 +1,92 @@
 <mxfile host="app.diagrams.net">
   <diagram name="22_uuid_steps" id="22_uuid_steps">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="500" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="520" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="s0" value="00&lt;br&gt;no GaL yet:&lt;br&gt;hello, ok, bye by hand" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="30" width="175" height="70" as="geometry"/>
+        <mxCell id="time" value="the protocol over time" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#555555;labelBackgroundColor=#ffffff;fontSize=14;fontStyle=1;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="30" y="28" as="sourcePoint"/><mxPoint x="790" y="28" as="targetPoint"/></mxGeometry>
         </mxCell>
-        <mxCell id="s1" value="01&lt;br&gt;empty messages,&lt;br&gt;published, hashed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="225" y="30" width="175" height="70" as="geometry"/>
+        <mxCell id="s0" value="step 00" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="70" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s2" value="02&lt;br&gt;unpublished version,&lt;br&gt;dynamic uuid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="420" y="30" width="175" height="70" as="geometry"/>
+        <mxCell id="s0_b" value="no GaL yet:&lt;br&gt;hello, ok, bye by hand" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s0">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="s3" value="03&lt;br&gt;hello gains a text,&lt;br&gt;hash after the xslt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="615" y="30" width="175" height="70" as="geometry"/>
+        <mxCell id="s1" value="step 01" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="225" y="70" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s4" value="04&lt;br&gt;system messages&lt;br&gt;moved by a mark" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="125" width="175" height="70" as="geometry"/>
+        <mxCell id="s1_b" value="empty messages,&lt;br&gt;published, hashed" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s1">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="s5" value="05&lt;br&gt;first payload:&lt;br&gt;the lamp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="225" y="125" width="175" height="70" as="geometry"/>
+        <mxCell id="s2" value="step 02" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="70" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s6" value="06&lt;br&gt;generated&lt;br&gt;conversions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="420" y="125" width="175" height="70" as="geometry"/>
+        <mxCell id="s2_b" value="unpublished version,&lt;br&gt;dynamic uuid" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s2">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="s7" value="07&lt;br&gt;candela and fog,&lt;br&gt;conversions grow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="615" y="125" width="175" height="70" as="geometry"/>
+        <mxCell id="s3" value="step 03" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="615" y="70" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s8" value="08&lt;br&gt;enums, ordering,&lt;br&gt;vessel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="220" width="175" height="70" as="geometry"/>
+        <mxCell id="s3_b" value="hello gains a text,&lt;br&gt;hash after the xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s3">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="s9" value="09&lt;br&gt;watch carries lamp&lt;br&gt;and fog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="225" y="220" width="175" height="70" as="geometry"/>
+        <mxCell id="s4" value="step 04" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="165" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s10" value="10&lt;br&gt;dictionary made&lt;br&gt;of tags" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="420" y="220" width="175" height="70" as="geometry"/>
+        <mxCell id="s4_b" value="system messages&lt;br&gt;moved by a mark" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s4">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="s11" value="11&lt;br&gt;template string&lt;br&gt;{{station}}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="615" y="220" width="175" height="70" as="geometry"/>
+        <mxCell id="s5" value="step 05" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="225" y="165" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="s12" value="12&lt;br&gt;collapse 0-5&lt;br&gt;into version 6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="315" width="175" height="70" as="geometry"/>
+        <mxCell id="s5_b" value="first payload:&lt;br&gt;the lamp" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s5">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="e0" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s0" target="s1">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s6" value="step 06" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="165" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="e1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s1" target="s2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s6_b" value="generated&lt;br&gt;conversions" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s6">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="e2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s2" target="s3">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s7" value="step 07" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="615" y="165" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="e4" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s4" target="s5">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s7_b" value="candela and fog,&lt;br&gt;conversions grow" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s7">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="e5" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s5" target="s6">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s8" value="step 08" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="260" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="e6" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s6" target="s7">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s8_b" value="enums, ordering,&lt;br&gt;vessel" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s8">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="e8" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s8" target="s9">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s9" value="step 09" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="225" y="260" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="e9" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s9" target="s10">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s9_b" value="watch carries lamp&lt;br&gt;and fog" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s9">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
         </mxCell>
-        <mxCell id="e10" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="s10" target="s11">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="s10" value="step 10" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="260" width="175" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="n" value="Each step is a folder in examples/uuid_protocol/steps. It holds a readme, the generated project (gal.cfg, GaL, XSLT) and the code written by hand. Every step builds and runs a real client and server." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="410" width="770" height="70" as="geometry"/>
+        <mxCell id="s10_b" value="dictionary made&lt;br&gt;of tags" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s10">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="s11" value="step 11" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="615" y="260" width="175" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s11_b" value="template string&lt;br&gt;{{station}}" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s11">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="s12" value="step 12" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="355" width="175" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s12_b" value="collapse 0-5&lt;br&gt;into version 6" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;" vertex="1" parent="s12">
+          <mxGeometry x="0" y="26" width="175" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="n" value="Each step is a snapshot of the protocol at one moment, not a transformation of the step before it. It is a folder in examples/uuid_protocol/steps with a readme, the generated project (gal.cfg, GaL, XSLT) and the code written by hand, and every step builds and runs a real client and server." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="470" width="770" height="70" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

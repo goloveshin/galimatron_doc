@@ -4,13 +4,13 @@ This page installs Galimatron and runs the smallest useful project. You will see
 
 ## Install
 
-Galimatron is one executable (`galimatron.exe` on Windows, `galimatron` on Linux) with the SaxonC libraries beside it (Saxon is the XSLT processor that Galimatron uses to run your XSLT). The installer puts these in place:
+Galimatron is one executable (`galimatron.exe` on Windows, `galimatron` on Linux) with the SaxonC libraries beside it (Saxon is the XSLT processor that Galimatron uses to run your XSLT). The installer puts these in place, in the install folder (on Windows, `C:\Program Files\Galimatron`):
 
 | What | Where |
 |---|---|
-| the executable and the Saxon libraries | `bin/` of the install folder (on Windows `C:\Program Files\Galimatron\bin`) |
-| `gal-functions.xsl`, helper functions for your XSLT | `share/galimatron/xslt/` |
-| `catalog.xml`, which maps the address of `gal-functions.xsl` to that file | `share/galimatron/` |
+| the executable and the Saxon libraries | `bin/` |
+| `gal-functions.xsl`: helper functions for your&nbsp;XSLT | `share/galimatron/xslt/` |
+| `catalog.xml`: maps the address of `gal-functions.xsl` to that file | `share/galimatron/` |
 
 The catalog is why your XSLT can write
 
@@ -31,14 +31,14 @@ Galimatron has no project file in a hidden place. A project is a folder with two
 
 ![Folders of a project](images/04_folders.svg)
 
-| Item | You | Galimatron |
+| Item | Who writes it | What it holds |
 |---|---|---|
-| `gal.cfg` | write | reads |
-| `log.cfg` | write | reads |
-| `incoming_gal/` | write `.gal` files | reads them, and rewrites them in place |
-| `xslt/` | write | runs |
-| `generated/` | | your XSLT write here |
-| `intermediate/` | | log, summary, XML dumps |
+| `gal.cfg` | you, by hand | which folders to use and which XSLT to run |
+| `log.cfg` | you, by hand | how much the log says, and where it goes |
+| `incoming_gal/` | you, by hand (Galimatron rewrites the files in place) | your `.gal` files |
+| `xslt/` | you, by hand | your XSLT programs |
+| `generated/` | your XSLT, during a run | the files you generate: source code, SQL, pages |
+| `intermediate/` | Galimatron, during a run | the log, the summary, the XML dumps |
 
 The names of the folders are yours. `gal.cfg` says which is which. See [Configuration](configuration.md).
 

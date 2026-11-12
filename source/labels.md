@@ -36,7 +36,7 @@ Without labels, a tag is `price = { "int", "3", "0" }` and every generator must 
 
 `tag-name-from { name }` says: the tag is called by its value labeled `name`. The tag above is `price`. You can find it with `//tag[@name='price']`, and you do not type the name twice.
 
-If no name is declared this way, the tag has no name of its own and is found by its label. In the language XML the labels of a tag are listed in `label-refs`, and `gal:tags-labeled($version, 'field')` returns every tag that uses `field`. In the compiled XML a value carries its part as an attribute, so `gal:labeled-string` and `gal:tags-with-label` find it.
+A tag written with no name of its own must get one this way. If none of its labels has `tag-name-from`, the run stops. A label is still how you pick out a group of tags, named or not in the text you typed. In the language XML the labels of a tag are listed in `label-refs`, and `gal:tags-labeled($version, 'field')` returns every tag that uses `field`. In the compiled XML a value carries its part as an attribute, so `gal:labeled-string` and `gal:tags-with-label` find it.
 
 Two tags with the same name replace each other, so a name that comes from a value follows the same rule as any other name: a later version can write `field important { "long", "price" }` and the type of `price` changes.
 

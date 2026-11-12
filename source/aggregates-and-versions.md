@@ -80,6 +80,26 @@ version own 6 { ... }
 | `local` | no | no |
 | `own` | yes | no |
 
+### The four modes, one by one
+
+The pictures below use the same data, so you can compare them. The root `shop` has `currency` in version 0 and `country` in version 1. The aggregate `apple` has `price` in version 0 and `weight` in version 1. Only the mode written before version 1 of `apple` changes. Each picture shows what `apple` ends up with in that version: green lines were inherited, struck-out lines were not.
+
+**No mode.** The default. The version takes everything: the earlier versions of `apple` and the root's tags. Nothing is lost, and this is what you want almost always.
+
+![version 1, no mode](images/26_mode_none.svg)
+
+**`once`.** The version forgets what `apple` itself wrote before (here, `price` is gone), but it still receives the root's tags. Use it to start an item over while it keeps following the root.
+
+![version once 1](images/27_mode_once.svg)
+
+**`local`.** The version stands alone. It has nothing from the earlier versions of `apple` and nothing from the root, only what it writes itself. Use it for a body that must not depend on anything else.
+
+![version local 1](images/28_mode_local.svg)
+
+**`own`.** The version keeps what `apple` wrote before, and cuts itself off from the root. The root's `currency` and `country` do not reach it. Use it for an aggregate that has its own life, like a dictionary of terms that needs no settings of the root.
+
+![version own 1](images/29_mode_own.svg)
+
 `local` and `own` are only for aggregates. On the root they are errors.
 
 `wizard create version once|local|own` and `wizard create aggregate once|local|own` set the mode for you. A plain `wizard create version` keeps the mode that the previous version had: after `local`, the new body is a copy of the previous version's ordinary tags, so the aggregate stays self-contained. After `own`, the new version sees the earlier one on its own.

@@ -8,19 +8,19 @@ One run of Galimatron reads your `.gal` files, checks them, applies a Wizard com
 
 Steps 1 to 8 are the **language part**: they work on what you wrote. Steps 9 to 11 are the **post-language part**: they work on the compiled picture and write files.
 
-| # | Step | What it does for you |
-|---|---|---|
-| 1 | parse (`gal2cpp`) | Reads every `.gal` file in the input folder. A syntax error stops the run here, with the file and the line. |
-| 2 | validate (`cpp2cpp_validate`) | Checks the whole description: one root aggregate, versions without gaps, every hash matches. |
-| 3 | Wizard (`cpp2cpp_wizard`) | Runs the one Wizard command, if a file holds one. See [The Wizard](wizard.md). |
-| 4 | to XML (`cpp2xml`, `xml2saxon`) | Turns the description into XML and hands it to Saxon, the XSLT processor that is built in. |
-| 5 | your language XSLT | Zero, one or many of your transforms. Each result is the next input. They may edit the description. |
-| 6 | from XML (`xml2cpp`) | Reads the edited XML back. |
-| 7 | seal and validate (`cpp2cpp_after_xslt`) | Keeps closed versions closed, then checks again. See [Hashes](hashes.md). |
-| 8 | write `.gal` (`cpp2gal`) | Prints the new `.gal` text and keeps it in memory. It is written into your files when the whole run has succeeded. |
-| 9 | compile (`cpp2post_cpp`) | Merges the versions into the compiled picture. |
-| 10 | compiled XML (`post_cpp2post_xml`) | Turns that picture into XML. |
-| 11 | your post XSLT (optional) | Zero, one or many of your transforms. They read the compiled XML and write files. The XML itself is already on disk after step 10. |
+| # | Step | What it does for you | Name in the log |
+|---|---|---|---|
+| 1 | parse | Reads every `.gal` file in the input folder. A syntax error stops the run here, with the file and the line. | `gal2cpp` |
+| 2 | validate | Checks the whole description: one root aggregate, versions without gaps, every hash matches. | `cpp2cpp_validate` |
+| 3 | Wizard | Runs the one Wizard command, if a file holds one. See [The Wizard](wizard.md). | `cpp2cpp_wizard` |
+| 4 | to XML | Turns the description into XML and hands it to Saxon, the XSLT processor that is built in. | `cpp2xml`, `xml2saxon` |
+| 5 | your language XSLT | Zero, one or many of your transforms. Each result is the next input. They may edit the description. | your names |
+| 6 | from XML | Reads the edited XML back. | `xml2cpp` |
+| 7 | seal and validate | Keeps closed versions closed, then checks again. See [Hashes](hashes.md). | `cpp2cpp_after_xslt` |
+| 8 | write `.gal` | Prints the new `.gal` text and keeps it in memory. It is written into your files when the whole run has succeeded. | `cpp2gal` |
+| 9 | compile | Merges the versions into the compiled picture. | `cpp2post_cpp` |
+| 10 | compiled XML | Turns that picture into XML. | `post_cpp2post_xml` |
+| 11 | your post XSLT (optional) | Zero, one or many of your transforms. They read the compiled XML and write files. The XML itself is already on disk after step 10. | your names |
 
 If the Wizard has no command, or you list no XSLT, those steps are skipped. The log says `skip transformation`.
 

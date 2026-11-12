@@ -8,7 +8,7 @@ A **hash** makes this impossible to do quietly. A hash closes a version. If the 
 
 ## What a hash covers
 
-A hash is made of the **important** values only: the values of tags marked `important` (see [Tags](tags.md#important)).
+A hash is made of the **important** values only: the values of tags marked `important` (see [Tags](tags.md#important), which also says how to decide what is important and what is not).
 
 ![The content hash](images/11_hash.svg)
 

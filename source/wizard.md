@@ -112,7 +112,7 @@ wizard create ordering shop shelf = { apple, pear };
 wizard create label shop field = static { type, name };
 ```
 
-The unnamed form takes one label and lets `tag-name-from` name the tag. With more labels the tag stays unnamed.
+The unnamed form writes no name of its own. One label is enough for `tag-name-from` to name the tag. Further words in front of the values are more labels, not a name, and the tag still needs a name from `tag-name-from`.
 
 ## Examples
 

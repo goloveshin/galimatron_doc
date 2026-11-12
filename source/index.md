@@ -6,6 +6,8 @@ Galimatron is a command line tool that keeps **one versioned description of your
 
 You describe your data once, in text files called **GaL** files (Galimatron Language, `.gal`). Galimatron checks the description, edits it on your command, and turns it into **XML**. From that XML you make whatever you need: source code in the language of your choice, documentation, database schemas, test data, a web page.
 
+The model behind it is **extremely simple on purpose**: a few kinds of entities (aggregate, version, tag, label, ordering), and for each one a short life: it is created, changed, closed with a hash, or deleted. [Entities](entities.md) lists all of it on one page. Simple as it is, this model is enough for about 95% of what people want to generate, and for the rest you build the missing piece from the same parts, as the [dictionary in the messages example](example-messages.md#the-steps) does.
+
 ## Key features
 
 - **A very simple language, and the state is only text.** A GaL file looks like JSON: aggregates with versions, and tags with values. All the state of a project is in `.gal` files: no binaries, no database, no hidden project files. They live in git like any other text. [More](entities.md)
@@ -19,7 +21,7 @@ You describe your data once, in text files called **GaL** files (Galimatron Lang
 - **Checked before it is written.** The run parses and validates the description, and checks the seal, before your `.gal` files are rewritten. A failing check stops the run there. [More](how-it-works.md#the-steps)
 - **Deterministic.** The same `.gal` files and the same XSLT give the same result, so a run that has nothing to change leaves no diff in version control. [More](how-it-works.md#a-run-is-deterministic)
 - **Easy to see what happened.** A log with the time and memory of every step, a summary, and XML dumps of every stage. [More](diagnostics.md)
-- **Measured.** Up to 500 aggregates and 100 versions, with the numbers published. [More](benchmark.md)
+- **Measured.** Up to 500 aggregates and 100 versions, with the numbers published. The size to expect in practice, 500 aggregates and 10 versions, runs in 45 seconds to under 10 minutes, depending on the tags and the XSLT. [More](benchmark.md)
 - **One tool, no library.** Galimatron is one executable for Windows and Linux. You do not link it into your program. You run it, and it reads and writes the folders that you name in `gal.cfg`. There is an extension for Visual Studio Code. [More](getting-started.md)
 
 ## Where Galimatron stands
@@ -59,6 +61,7 @@ Galimatron keeps the history **inside the data**. Every GaL file holds all versi
 | Your XSLT has to remember something between runs. | A custom state: a file, or a tag, that your XSLT writes and reads. | [Custom states](custom-states.md) |
 | Fixing an old version breaks its hash. | The seal moves a change from a closed version to the first open one. | [XSLT](xslt.md) |
 | A run fails and nobody knows why. | Every step is checked, and a failing check stops the run before the files are rewritten. Logs and XML dumps show each step. | [Logs](diagnostics.md) |
+| You need a kind of thing the model does not have (a dictionary, a registry of names). | Build it from aggregates, versions, tags and XSLT. Nothing in Galimatron changes. Look at what happened in step 10 of the example. | [The dictionary step](example-messages.md#the-steps) |
 | The tool is slow on a big project. | Measured numbers for up to 500 aggregates and 100 versions. | [Benchmark](benchmark.md) |
 
 ## The idea in one picture

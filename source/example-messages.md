@@ -124,7 +124,7 @@ The lamp appears in version 2 (the earlier versions are deleted), gains a `cande
 | **07** candela and fog | The lamp gets brightness. `fog` appears. | A new published version beside closed ones. |
 | **08** enums and a vessel | Two enums, a vessel, and an **ordering**: an enum before the type that uses it. | [Ordering](ordering.md), a second label. |
 | **09** a watch | One message carries lamp and fog. Some messages become plain types. | A conversion body that generation leaves for you to write. |
-| **10** a dictionary | A dictionary of every tag name, built from the data. | State in tags, post XSLT that writes Markdown. |
+| **10** a dictionary | A dictionary of every tag name, built from the data. It is a new kind of entity that Galimatron does not know. | State in tags, post XSLT that writes Markdown. |
 | **11** a template string | A greeting substitutes `{{station}}`. | [Template strings](tags.md#template-strings). |
 | **12** collapse | Versions 0 to 5 collapse into version 6. | [Collapse](aggregates-and-versions.md#collapsing-history). |
 
@@ -168,6 +168,11 @@ A person writes the body once (it is in `by_hand/conversion/`). The generator ke
 - `lit`
 - `payload_message`: a user message, not a system message
 ```
+
+!!! important
+    Look at what happened in this step. Galimatron has no "dictionary" and no "dictionary entry" in its model, and it was not changed to get one. The dictionary is an ordinary aggregate, `dictionary`, whose tags hold the entries. It has versions and a history like everything else, a person edits it like any other `.gal` file, and one XSLT keeps it complete while another prints it.
+
+    So a new kind of thing, shaped to what this project needs, was made from the parts that every project already has: aggregates, versions, tags, and XSLT. This is the way to use the tool. The model is small on purpose, and a thing it lacks is built from it, not asked from it.
 
 **Step 11: a string that quotes a tag.** `station = { "North Light" }` and `greeting = { "{{station}} on watch"_te }`. The `.gal` file keeps `{{station}}`, the compiled data holds `North Light on watch`, and the dictionary shows it.
 

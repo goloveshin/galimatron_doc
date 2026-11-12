@@ -2,6 +2,25 @@
 
 `examples/benchmark` is a synthetic project that answers one question: *how big can a project get?* It builds a description of many aggregates and many versions, runs the Wizard and an XSLT over it, and measures every step.
 
+## How big is a real project?
+
+Read the numbers below against two facts about real projects.
+
+- **Many aggregates are normal.** A description with 500 aggregates (one for each message, record or data type) is an ordinary size, so the benchmark goes up to 500.
+- **Many live versions are not.** Having 100 versions in use at the same time is extremely rare. A typical project keeps about 5, maybe 10. The benchmark goes to 100 to find the limit, not because a project needs it.
+
+Versions are the expensive part (see "How it grows" below), and that is a reason to retire them. When a version goes out of service, run a [collapse](aggregates-and-versions.md#collapsing-history): the old versions fold into one, and the time and the memory fall back. A project that keeps its live versions to a handful stays in the cheap corner of every table on this page.
+
+!!! important "The case to look at first: 500 aggregates, 10 versions"
+    This is the size most projects will actually have, so read its numbers before the rest. Here are the rows of the [static tags](#static-tags) and [no XSLT](#without-xslt) tables for it:
+
+    | 500 aggregates, 10 versions | with your language XSLT | without any XSLT |
+    |---|---:|---:|
+    | 1 tag in each aggregate | 76.6 s, 444 MB | 44.5 s, 185 MB |
+    | 100 tags in each aggregate | 9 min 45 s, 2.9 GB | 2 min 37 s, 1.1 GB |
+
+    The Wizard stays near 22 seconds in all of these rows. What grows with the tags is your XSLT and the reading of its result back: with 100 tags they are about two thirds of the run.
+
 ## What it does
 
 ![Time of the biggest dynamic run](images/23_benchmark_time.svg)
@@ -84,7 +103,7 @@ The big case (500 aggregates, 100 static tags) drops from 9 min 45 s to **2 min 
 | If | Then |
 |---|---|
 | The project has 10 to 50 aggregates and 10 versions. | A run is a few seconds. Do not worry. |
-| The project has many versions. | Time and memory follow the number of versions. [Collapse](aggregates-and-versions.md#collapsing-history) old ones that nobody needs. |
+| The project has many versions (more than the usual 5 to 10 in use). | Time and memory follow the number of versions. [Collapse](aggregates-and-versions.md#collapsing-history) old ones when they go out of service. |
 | You have many tags that change every version. | Each dynamic tag is copied into every version. Use a **static** label for what does not need to change in each version. |
 | A tag must be new in every version (an id). | Keep it dynamic, but keep the number of such tags small. |
 | You use a language XSLT. | It is the largest cost on a big project: the step and the read back. Do in the *post* XSLT what does not have to change the data. |
