@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="47_seal_cases" id="47_seal_cases">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="870" pageHeight="490" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="Three places where the change of an xslt can land" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="0" width="760" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="h0" value="No version after the hash" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="500" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_bv0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="68" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_bv0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed (has a hash)&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="reassign_bv0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_x" value="the xslt adds&lt;br&gt;&amp;quot;global ws&amp;quot; to roles" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="76" width="150" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_ar" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="285" y="120" as="sourcePoint"/><mxPoint x="450" y="120" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="reassign_av0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="470" y="68" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_av0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed, as before&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="reassign_av0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_av1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="68" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="reassign_av1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;new, open&lt;/span&gt;&lt;br&gt;roles: user, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;global ws&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="reassign_av1">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="h1" value="An open version already exists" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="190" width="500" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_bv0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="218" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_bv0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed (has a hash)&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="open_bv0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_bv1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="218" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_bv1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open&lt;/span&gt;&lt;br&gt;(empty)" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="open_bv1">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_x" value="the xslt adds&lt;br&gt;&amp;quot;global ws&amp;quot; to roles" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="226" width="150" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_ar" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="285" y="270" as="sourcePoint"/><mxPoint x="450" y="270" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="open_av0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="470" y="218" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_av0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed, as before&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="open_av0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_av1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="218" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="open_av1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open&lt;/span&gt;&lt;br&gt;roles: user, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;global ws&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="open_av1">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="h2" value="The tag was written before the hash" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="340" width="500" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_bv0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="368" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_bv0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="inherit_bv0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_bv1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="368" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_bv1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed (has a hash)&lt;/span&gt;&lt;br&gt;(empty, sees roles)" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="inherit_bv1">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_x" value="the xslt adds&lt;br&gt;&amp;quot;global ws&amp;quot; to roles" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="376" width="150" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_ar" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="285" y="420" as="sourcePoint"/><mxPoint x="450" y="420" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="inherit_av0" value="version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="470" y="368" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_av0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open, as before&lt;/span&gt;&lt;br&gt;roles: user" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="inherit_av0">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_av1" value="version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="368" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_av1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed, as before&lt;/span&gt;&lt;br&gt;(empty)" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="inherit_av1">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_av2" value="version 2" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="730" y="368" width="120" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="inherit_av2b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;new, open&lt;/span&gt;&lt;br&gt;roles: user, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;global ws&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontFamily=Courier New;fontSize=12;" vertex="1" parent="inherit_av2">
+          <mxGeometry x="0" y="26" width="120" height="66" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

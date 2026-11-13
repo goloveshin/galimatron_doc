@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="48_seal_xslt" id="48_seal_xslt">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="910" pageHeight="370" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="One xslt edits the whole description, closed versions too" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="0" width="780" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="lh" value="before the xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="36" width="240" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="rh" value="after the xslt, before the seal" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="36" width="300" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="b0" value="protocol, version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="64" width="270" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="b0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed (has a hash)&lt;/span&gt;&lt;br&gt;label role_mark = static { role };&lt;br&gt;roles = role_mark { [ &amp;quot;user&amp;quot; ] };" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;spacingLeft=8;spacingRight=6;fontFamily=Courier New;fontSize=12;" vertex="1" parent="b0">
+          <mxGeometry x="0" y="26" width="270" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1" value="protocol, version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="20" y="194" width="270" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="b1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open&lt;/span&gt;&lt;br&gt;roles = role_mark { [ &amp;quot;user&amp;quot; ] };" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;spacingLeft=8;spacingRight=6;fontFamily=Courier New;fontSize=12;" vertex="1" parent="b1">
+          <mxGeometry x="0" y="26" width="270" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0" value="protocol, version 0" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#dae8fc;strokeColor=#c62828;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="64" width="340" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;closed (has a hash)&lt;/span&gt;&lt;br&gt;label role_mark = static { role };&lt;br&gt;roles = role_mark { [ &amp;quot;user&amp;quot;, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&amp;quot;global ws&amp;quot;&lt;/span&gt; ] };" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;spacingLeft=8;spacingRight=6;fontFamily=Courier New;fontSize=12;" vertex="1" parent="a0">
+          <mxGeometry x="0" y="26" width="340" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="protocol, version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="550" y="194" width="340" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1b" value="&lt;span style=&quot;font-family:Helvetica;font-size:12px;color:#444444;&quot;&gt;open&lt;/span&gt;&lt;br&gt;roles = role_mark { [ &amp;quot;user&amp;quot;, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&amp;quot;global ws&amp;quot;&lt;/span&gt; ] };" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;spacingLeft=8;spacingRight=6;fontFamily=Courier New;fontSize=12;" vertex="1" parent="a1">
+          <mxGeometry x="0" y="26" width="340" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="xs" value="&lt;b&gt;language xslt&lt;/b&gt; &amp;quot;append role&amp;quot;&lt;br&gt;&lt;br&gt;matches every array that has the label &lt;font face=&quot;Courier New&quot;&gt;role_mark&lt;/font&gt; and adds the value &lt;font face=&quot;Courier New&quot;&gt;&amp;quot;global ws&amp;quot;&lt;/font&gt; to it" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;spacingLeft=8;spacingRight=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="86" width="200" height="150" as="geometry"/>
+        </mxCell>
+
+
+        <mxCell id="in0" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1" source="b0" target="xs"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+        <mxCell id="in1" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1" source="b1" target="xs"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+        <mxCell id="out0" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1" source="xs" target="a0"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+        <mxCell id="out1" value="" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=none;" edge="1" parent="1" source="xs" target="a1"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+        <mxCell id="nt" value="The xslt does not know which versions are closed. It changes every &lt;font face=&quot;Courier New&quot;&gt;roles&lt;/font&gt; array, so it changes the closed version 0 as well (red frame). The seal then puts the closed text back and moves the change to an open version." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="20" y="300" width="860" height="50" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

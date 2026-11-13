@@ -149,4 +149,4 @@ After the collapse, version 5 still sees the same data. What is gone is the abil
 | label | any version | later versions, and every aggregate when it is written in the root, see [Labels](labels.md) |
 | ordering | root file only | every compile, see [Ordering](ordering.md) |
 
-Tag modes (`once`, `local`) restrict the flow of one tag. See [Tags](tags.md).
+Tag modes (`once`, `local`) restrict the flow of one tag. See [Tags](tags.md). How a tag mode and a version mode work together is in [Tag modes and version modes together](tags.md#tag-modes-and-version-modes-together).

@@ -1,4 +1,4 @@
-"""One-off vocabulary update of the user pages (not the developer guide):
+"""One-off vocabulary update of the user pages:
 the word "wizard" in prose becomes "Wizard" (code, links and fenced blocks are left alone), and the example page is renamed.
 """
 import glob

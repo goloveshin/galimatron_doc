@@ -82,6 +82,49 @@ After your XSLT Galimatron compares the text before and after. Where the XSLT ch
 
 The effect for you: an XSLT can be written as if it edits the whole description, and history is still safe. The change shows up in the first open version, where you can see it and publish it.
 
+### Why there is a seal
+
+A closed version is a promise: its text and its hash stay. A language XSLT runs on the XML of every version, so a template that rewrites a value rewrites the closed versions too. An XSLT that appends the version number to every tag string does exactly that, version 0 included.
+
+Without the seal there are two outcomes. The edit stays in the closed version, the stored hash no longer matches, and the run stops with `HASH_DOES_NOT_MATCH`, so nothing is written. Or every language XSLT has to skip the closed versions by itself. That is possible for a narrow job: in the [messages example](example-messages.md) the XSLT that fills in uuids only touches the Wizard copies that are marked for it. It is not possible for an XSLT that walks the whole document. With the seal, such an XSLT is written once, as if there were no history.
+
+### What the seal does
+
+![What the seal does with a change](images/46_seal_decision.svg)
+
+The seal compares the text before and after your XSLT and asks the questions of the picture for each change. Most runs stop at the first or second question. A new version is added only when the change belongs to a closed version and there is no version after the last hash.
+
+### Where the change lands
+
+The pictures below use one XSLT. The description has a label `role_mark` and a tag `roles = role_mark { [ "user" ] }`. The language XSLT `append role` adds the value `"global ws"` to every array that has the label `role_mark`:
+
+```xml
+<xsl:template match="array[gal:array-has-label(., 'role_mark')]">
+    <xsl:copy>
+        <xsl:apply-templates select="@* | node()"/>
+        <value>
+            <string>global ws</string>
+        </value>
+    </xsl:copy>
+</xsl:template>
+```
+
+The template does not ask which version it is in. It changes the `roles` array everywhere, in the closed versions too:
+
+![One xslt edits the whole description](images/48_seal_xslt.svg)
+
+That is the input of the seal. The next picture shows what the seal does with it in three layouts of the same description. In each, the `roles` tag gets the new value in the first version after the last hash:
+
+![Three places where the change of an xslt can land](images/47_seal_cases.svg)
+
+- **No version after the hash.** Version 0 is closed and the XSLT edits it. The seal puts the old text back and adds version 1 with the new value.
+- **An open version already exists.** The seal puts the old text back in the closed version and writes the new value into the open one. No version is added.
+- **The tag was written before the hash.** The closed version 1 has no `roles` of its own: it sees the one from version 0. The XSLT changes `roles` as version 1 sees it. The seal does not patch version 0, and it does not touch version 1. It compares the tags that the last closed version has *as it sees them*, and writes the difference into the first version after the hash, here a new version 2.
+
+If the XSLT edits an open version itself, that edit stays and nothing is added. If it changes nothing, no version is added.
+
+A change that the last closed version does not show is restored and not copied forward. That is the case when a later closed version has already replaced that tag.
+
 Then the validation runs again. A user XSLT does not rewrite a hash, so a hash that no longer matches fails the run, and nothing is written.
 
 ## What Galimatron checks about hashes

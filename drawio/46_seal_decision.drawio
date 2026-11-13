@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="46_seal_decision" id="46_seal_decision">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="830" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t" value="What the seal does after your language xslt" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="0" width="700" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="st" value="your language xslt&lt;br&gt;has run" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="20" y="50" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Did a value&lt;br&gt;change?" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="170" y="25" width="170" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Is the changed value&lt;br&gt;in a closed version?" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="385" y="25" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="rs" value="put the closed&lt;br&gt;text back" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="620" y="50" width="170" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="nothing happens,&lt;br&gt;no version is added" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="170" y="150" width="170" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="the change stays:&lt;br&gt;that version is open" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="385" y="150" width="200" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="Is there a version&lt;br&gt;after the last hash?" style="rhombus;whiteSpace=wrap;html=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="595" y="220" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="y1" value="write the change&lt;br&gt;into that version" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="340" y="242" width="210" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="add the next version,&lt;br&gt;write the change there" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="595" y="365" width="220" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="st" target="d1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="yes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d1" target="d2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="yes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d2" target="rs">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="no" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d1" target="n1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="no" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d2" target="n2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="rs" target="d3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="yes" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d3" target="y1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="no" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=13;" edge="1" parent="1" source="d3" target="n3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="nt" value="A closed version is a root version at or before the last version that has a hash. The hash of a closed version stays true in every outcome." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="20" y="445" width="780" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

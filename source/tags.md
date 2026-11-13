@@ -71,6 +71,10 @@ version_namespace = { "v2" };
 
 Here `uuid` and the field are important: they are what is published. `struct_name` and `version_namespace` are not marked. They stay out of the hash, so they may be fixed or renamed at any time, even in a closed version, and nothing breaks.
 
+![Important data reaches the DTO, the rest stays in the code](images/44_important_dto.svg)
+
+The generator writes both kinds into the same DTO. The important values become its published shape, which other programs and files depend on, and the hash guards them. The unimportant values only shape the code inside the DTO.
+
 ### What the mark does
 
 The label `important` puts the values of the tag into the [hash](hashes.md) that closes a version. That is the whole mechanism. The difference shows when a closed version is touched:
@@ -116,6 +120,23 @@ The three pictures below use the same case. The root writes the tag `banner` in 
 **`local`.** The tag is for one version, and for the file it is written in. It does not flow from the root into the aggregates, so only the root has it, and only in that version. `local` is for a fact about this file: a note for the person who reads the aggregate, a switch that the other aggregates must not inherit.
 
 ![A local tag](images/32_tag_mode_local.svg)
+
+### Tag modes and version modes together
+
+A tag mode (`once`, `local`) belongs to one tag. A [version mode](aggregates-and-versions.md#version-modes) (`once`, `local`, `own`) belongs to the version of an aggregate. They are two separate filters, and a tag shows up in a version only if **both** let it through:
+
+1. The version mode decides which statements may reach this version: the earlier versions of the aggregate, and the statements of the root.
+2. The tag mode decides how long the tag lives: a tag with `once` or `local` is visible only in the version where it was written, and `local` never flows from the root into an aggregate.
+
+The picture shows the result for one aggregate, `apple`, in its version 1. The columns are the version mode written before `1`. The rows are the tags and where they were written. Red is a tag that the version mode cuts off. Orange is a tag that the tag mode cuts off, whatever the version mode is.
+
+![Tag modes and version modes together](images/45_tag_and_version_modes.svg)
+
+Three things follow from it:
+
+- A `once` tag of the root flows into `apple` in its own version only when `apple` takes the root in that version. In a `local` or `own` version it does not arrive, because those versions are cut off from the root.
+- A version mode never brings a tag back that its tag mode has ended. A `once` or `local` tag written in version 0 is gone in version 1 in all four columns.
+- What `apple` writes in a version itself is always there in that version, in every version mode and for every tag mode.
 ## Deleting a tag
 
 ```
