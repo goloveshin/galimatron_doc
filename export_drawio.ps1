@@ -13,8 +13,7 @@ $imagesDir = Join-Path $here 'source\images'
 
 New-Item -ItemType Directory -Force $imagesDir | Out-Null
 
-# the developer diagrams (*_dev_*) are exported by tools/drawio_gen/export_dev.py, which also strips the fallback images
-foreach ($file in Get-ChildItem -Path $sourceDir -Filter '*.drawio' | Where-Object { $_.Name -notmatch '_dev_' })
+foreach ($file in Get-ChildItem -Path $sourceDir -Filter '*.drawio')
 {
     $target = Join-Path $imagesDir ($file.BaseName + '.svg')
     & $DrawioExe -x -f svg -b 10 -o $target $file.FullName
