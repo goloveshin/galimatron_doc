@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/example-messages/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Example: messages that grow - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Example: messages that grow";
+        var mkdocs_page_input_path = "example-messages.md";
+        var mkdocs_page_url = "/galimatron_doc/example-messages/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Example: messages that grow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-messages">Why messages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-problem">The problem</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-a-step-contains">What a step contains</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-model">The model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-steps">The steps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ideas-worth-taking-from-each-step">Ideas worth taking from each step</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-the-post-xslt-write-and-in-what-order">What the post XSLT write, and in what order</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#try-it">Try it</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Example: messages that grow</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="example-messages-that-grow">Example: messages that grow<a class="headerlink" href="#example-messages-that-grow" title="Permanent link">&para;</a></h1>
+<p>A client and a server exchange messages. The messages change over thirteen versions of the project, and every step is a complete, building, running state, so you can see in the files what each feature of Galimatron does.</p>
+<p>The project is in the Galimatron sources, in <code>examples/uuid_protocol</code>. Its root aggregate is called <code>protocol</code>, and the snippets below show the real files.</p>
+<h2 id="why-messages">Why messages<a class="headerlink" href="#why-messages" title="Permanent link">&para;</a></h2>
+<p>Messages are a good example because they <strong>almost always need versioning</strong>. They are added and they change, old clients stay in the field, and everything must still be understood. This is exactly the problem that versions, hashes and the Wizard solve, so messages show every feature in a setting that is easy to follow.</p>
+<p>The example generates source code, because the client and the server are programs. This is a choice of the example: the same descriptions could generate a schema, another language, or documentation, because Galimatron is not tied to any output.</p>
+<h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>A set of messages has a life:</p>
+<ul>
+<li>It starts small: hello, ok, bye.</li>
+<li>It gets new messages and new fields. Version 3 of a client talks to a server that already knows version 6.</li>
+<li>The server must understand <strong>every</strong> version a client may use, and convert old messages to the new shape.</li>
+<li>Every message has a stable <strong>uuid</strong>, and the uuid must change when the message changes.</li>
+<li>A published version must never change by accident.</li>
+<li>The types, the registration of messages, the conversions and the documentation must all agree with that.</li>
+</ul>
+<p>Written by hand, this is a place where two copies always drift. Described in GaL, it is one description, and the code is generated.</p>
+<p><img alt="Steps of the example" src="../images/22_uuid_steps.svg" /></p>
+<h2 id="what-a-step-contains">What a step contains<a class="headerlink" href="#what-a-step-contains" title="Permanent link">&para;</a></h2>
+<pre><code>steps/11-substitution/
+    readme.txt          what this step shows
+    CMakeLists.txt      builds and runs the step
+    by_hand/            code that a person writes (handlers, cases, conversion bodies)
+    generated/
+        gal.cfg         the configuration
+        log.cfg
+        incoming_gal/   the .gal files that start the step
+        actual_gal/     the .gal files after Galimatron ran
+        xslt/           the XSLT and their templates
+        generated_dto/        the source files of every published version
+        generated_conversion/ the source files of every conversion
+        dictionary/           dictionary.md
+        intermediate/         log, summary, XML dumps
+</code></pre>
+<p>This example is also used as a test, so it keeps <code>incoming_gal/</code> and <code>actual_gal/</code> apart: you can compare what a step started with and what it produced (see <a href="../configuration/#your-files-are-rewritten-in-place">two different folders</a>). Your own project uses one folder, as in <a href="../getting-started/#a-project-is-a-folder">Getting started</a>.</p>
+<p>The step reads the <code>.gal</code> files from the previous step and applies one Wizard batch (<code>console.gal</code>). The comment above the batch says <em>why</em>.</p>
+<h2 id="the-model">The model<a class="headerlink" href="#the-model" title="Permanent link">&para;</a></h2>
+<p>The root aggregate is <code>protocol</code>. Each message is an aggregate, one file each:</p>
+<pre><code>generated/actual_gal/
+    protocol.gal            root: versions, published, version_namespace
+    console.gal             the Wizard command (commented out after the run)
+    dictionary.gal          an aggregate: the names used in the messages
+    system/                 hello, ok, bye, error
+    payload/                lamp, fog, vessel, watch, enums
+</code></pre>
+<p><code>protocol.gal</code> declares the versions and what each one is:</p>
+<pre><code>root aggregate protocol
+{
+    versions
+    {
+        0 = { hash = '27025d7a...' };
+        1 = { hash = '704dd06e...' };
+        ...
+        5 = { hash = 'b099af2e...' };
+        6;
+    }
+}
+
+version 3
+{
+    version_number = { &quot;4&quot; };
+    version_namespace = { &quot;v4&quot; };
+    published = once important { };
+}
+</code></pre>
+<ul>
+<li>Version N of the project <em>is</em> version N+1 of the messages. <code>version_namespace</code> says in which namespace the version is generated (<code>v4</code>).</li>
+<li><code>published = once important { }</code> marks a version as published. It is <code>once</code>: each version states it again, so a version that is not published (the last, open one) has no such tag.</li>
+<li><code>important</code> puts it into the hash. A published version is closed with a hash, and the root file keeps all of them.</li>
+</ul>
+<p>A message is an aggregate:</p>
+<pre><code>aggregate lamp { versions { 0 = deleted; 1 = deleted; 2 = { hash = '...' }; ...; 6; } }
+
+version 2
+{
+    payload_message = { };
+    struct_name = { &quot;lamp_t&quot; };
+    uuid = need_new_uuid important { &quot;6f1e0005-0000-4000-8000-000000000001&quot; };
+    field important { &quot;bool&quot;, &quot;lit&quot;, &quot;false&quot; };
+}
+
+version 3
+{
+    uuid = need_new_uuid important { &quot;6f1e0005-0000-4000-8000-000000000002&quot; };
+    field important { &quot;int&quot;, &quot;candela&quot;, &quot;0&quot; };
+}
+</code></pre>
+<p>The lamp appears in version 2 (the earlier versions are deleted), gains a <code>candela</code> field in version 3, and every version has a new uuid. The <code>field</code> label comes from the root.</p>
+<h2 id="the-steps">The steps<a class="headerlink" href="#the-steps" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What it adds</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>00</strong> no generation</td>
+<td>Four system messages, written by hand, and a session: hello, ok, bye.</td>
+<td>The messages before Galimatron.</td>
+</tr>
+<tr>
+<td><strong>01</strong> empty messages</td>
+<td>The four messages are described in GaL and generated. Version 0, <code>published</code>, a hash.</td>
+<td><a href="../wizard/">The Wizard</a> batch, <a href="../hashes/">hash</a>, the first <a href="../xslt/">XSLT</a> and its <a href="../templates/">templates</a>.</td>
+</tr>
+<tr>
+<td><strong>02</strong> an unpublished version</td>
+<td>A new, open version 1 and a <strong>dynamic label</strong> that asks for the next uuid.</td>
+<td><a href="../labels/#dynamic-labels-values-that-must-change-with-every-version">Dynamic labels</a>, <code>create version</code>.</td>
+</tr>
+<tr>
+<td><strong>03</strong> hello gains a text</td>
+<td><code>hello</code> gets a <code>message</code> field. A trial version is removed and replaced. Hash after the XSLT.</td>
+<td><code>delete version</code>, <code>create label</code>, <code>create tag</code>, <a href="../hashes/#the-hash-and-your-xslt">hash and XSLT</a>.</td>
+</tr>
+<tr>
+<td><strong>04</strong> system messages</td>
+<td>The system messages move to the namespace <code>system</code>, marked by a tag <strong>outside the hash</strong>.</td>
+<td>Tags without <code>important</code>.</td>
+</tr>
+<tr>
+<td><strong>05</strong> the first payload</td>
+<td><code>lamp</code>, the first user message, in a folder <code>payload/</code>.</td>
+<td><code>create aggregate ... in payload</code>, field defaults.</td>
+</tr>
+<tr>
+<td><strong>06</strong> conversions</td>
+<td>The generator writes an empty conversion from each older version into the last.</td>
+<td><a href="../custom-states/">Custom state</a> in a file.</td>
+</tr>
+<tr>
+<td><strong>07</strong> candela and fog</td>
+<td>The lamp gets brightness. <code>fog</code> appears.</td>
+<td>A new published version beside closed ones.</td>
+</tr>
+<tr>
+<td><strong>08</strong> enums and a vessel</td>
+<td>Two enums, a vessel, and an <strong>ordering</strong>: an enum before the type that uses it.</td>
+<td><a href="../ordering/">Ordering</a>, a second label.</td>
+</tr>
+<tr>
+<td><strong>09</strong> a watch</td>
+<td>One message carries lamp and fog. Some messages become plain types.</td>
+<td>A conversion body that generation leaves for you to write.</td>
+</tr>
+<tr>
+<td><strong>10</strong> a dictionary</td>
+<td>A dictionary of every tag name, built from the data. It is a new kind of entity that Galimatron does not know.</td>
+<td>State in tags, post XSLT that writes Markdown.</td>
+</tr>
+<tr>
+<td><strong>11</strong> a template string</td>
+<td>A greeting substitutes <code>{{station}}</code>.</td>
+<td><a href="../tags/#template-strings">Template strings</a>.</td>
+</tr>
+<tr>
+<td><strong>12</strong> collapse</td>
+<td>Versions 0 to 5 collapse into version 6.</td>
+<td><a href="../aggregates-and-versions/#collapsing-history">Collapse</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ideas-worth-taking-from-each-step">Ideas worth taking from each step<a class="headerlink" href="#ideas-worth-taking-from-each-step" title="Permanent link">&para;</a></h2>
+<p><strong>Step 1: one description, many outputs.</strong> The four system messages become four small <code>.gal</code> files, and <code>generate-sources.xsl</code> writes the source files of version 1 into <code>generated_dto/v1/</code>: the type, <code>get_uuid</code>, the declarations of the handlers and the registration. The XSLT reads the <em>compiled</em> XML and fills text templates (see <a href="../templates/">Generating text</a>).</p>
+<p><strong>Step 2: ids that move by themselves.</strong> <code>uuid</code> is a tag with the dynamic label <code>need_new_uuid</code>. A new version copies it, and the copy asks the XSLT for the next uuid:</p>
+<pre><code>// generate-uuid.xsl
+&lt;xsl:template match=&quot;tag[gal:tag-uses-dynamic(., 'need_gen_uuid')]/values/value/string/text()&quot;&gt;
+    &lt;xsl:value-of select=&quot;gal:next-uuid(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The uuid has the form <code>6f1e0005-0000-4000-8000-000000000002</code>. The first groups name the message, the last group is a version counter. The result: no one types a uuid, and no one forgets to change it.</p>
+<p><strong>Step 3: the hash covers what the XSLT made.</strong> The Wizard batch ends with <code>create hash</code>. The hash is taken after <code>generate-uuid.xsl</code>, so it includes the new uuids. The hashes of version 0 stay, because its closed values did not change.</p>
+<p><strong>Step 4: not everything is <code>important</code>.</strong> <code>system_message</code> is a tag outside the hash. It decides the namespace in which a type is generated. Moving the system messages did not break any hash, because this change is not part of what was published.</p>
+<p><strong>Steps 5 to 8: the messages grow.</strong> Each step is one Wizard batch: <code>create version</code>, new aggregates and tags, <code>create tag protocol published = once important { }</code>, <code>create hash</code>. The batch is the <em>change request</em>. Its comment says why. The old versions are untouched, and every hash stays true.</p>
+<p>In step 8 the batch also writes an ordering:</p>
+<pre><code>create ordering protocol enum_precedes_struct = { sea_state_enum, fog, vessel_kind_enum, vessel };
+</code></pre>
+<p>Without it, the generated code would put <code>fog</code> before <code>sea_state_enum</code>, and the code would not compile.</p>
+<p><strong>Steps 6 and 9: conversions.</strong> For each pair of published versions the generator writes an empty conversion, for example from version 3 to version 6: a function that takes the old message and the server state, and has an empty body.</p>
+<p>A person writes the body once (it is in <code>by_hand/conversion/</code>). The generator keeps a file that is already recorded in <code>conversion-state.xml</code>, so it never overwrites the work. The store has <code>delete-if-not-rewrited: false</code>. See <a href="../custom-states/">Custom states</a>.</p>
+<p><strong>Step 10: the dictionary.</strong> The data knows every tag name and the version that introduced it (the <code>history</code> element). The XSLT adds an entry for each name that has none, and a person writes the text of an entry. The result is the generated <code>dictionary.md</code>:</p>
+<pre><code>## Version 2
+- `lit`
+- `payload_message`: a user message, not a system message
+</code></pre>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Look at what happened in this step. Galimatron has no "dictionary" and no "dictionary entry" in its model, and it was not changed to get one. The dictionary is an ordinary aggregate, <code>dictionary</code>, whose tags hold the entries. It has versions and a history like everything else, a person edits it like any other <code>.gal</code> file, and one XSLT keeps it complete while another prints it.</p>
+<p>So a new kind of thing, shaped to what this project needs, was made from the parts that every project already has: aggregates, versions, tags, and XSLT. This is the way to use the tool. The model is small on purpose, and a thing it lacks is built from it, not asked from it.</p>
+</div>
+<p><strong>Step 11: a string that quotes a tag.</strong> <code>station = { "North Light" }</code> and <code>greeting = { "{{station}} on watch"_te }</code>. The <code>.gal</code> file keeps <code>{{station}}</code>, the compiled data holds <code>North Light on watch</code>, and the dictionary shows it.</p>
+<p><strong>Step 12: collapse.</strong> <code>wizard collapse version 0-5</code> retires six versions into one anonymous body owned by version 6. The generator now writes only <code>v6</code>, and the conversions are not generated. A client that speaks an older version gets the error <em>no message with uuid</em>. This is the end of life of old versions as a deliberate command.</p>
+<h2 id="what-the-post-xslt-write-and-in-what-order">What the post XSLT write, and in what order<a class="headerlink" href="#what-the-post-xslt-write-and-in-what-order" title="Permanent link">&para;</a></h2>
+<p><code>gal.cfg</code> of step 11 lists three post-language transforms:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Transform</th>
+<th>Writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>history-page.xsl</code></td>
+<td><code>intermediate/history.html</code>, from the <code>history</code> element</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>generate-dictionary.xsl</code></td>
+<td><code>dictionary/dictionary.md</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>generate-sources.xsl</code></td>
+<td><code>generated_dto/</code>, <code>generated_conversion/</code>, <code>actual_gal/conversion-state.xml</code></td>
+</tr>
+</tbody>
+</table>
+<p>(and two language transforms before them: <code>generate-uuid.xsl</code> and <code>fill-dictionary.xsl</code>). The sources generator is last: it does not copy the compiled document through, so the transforms that copy it must come before.</p>
+<h2 id="try-it">Try it<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h2>
+<p>Open <code>steps/11-substitution/generated/</code> and look at <code>gal.cfg</code>, <code>xslt/</code> and <code>intermediate/</code>. Run Galimatron there, then compare <code>incoming_gal/</code> with <code>actual_gal/</code>: the Wizard batch in <code>console.gal</code> is commented out in <code>actual_gal/</code>, and the new tags are in the <code>.gal</code> files next to it. <code>intermediate/galimatron.log</code> shows the time of each step, and the dumps show the data after each one.</p>
+<p>Then read <code>by_hand/</code> to see what is <em>not</em> generated: the handlers, the test cases and the conversion bodies. That is the border between what Galimatron owns and what a person owns.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../editor/" class="btn btn-neutral float-left" title="Editor support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../benchmark/" class="btn btn-neutral float-right" title="Benchmark">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../editor/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../benchmark/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

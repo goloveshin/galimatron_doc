@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/reference/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Reference - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Reference";
+        var mkdocs_page_input_path = "reference.md";
+        var mkdocs_page_url = "/galimatron_doc/reference/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#command-line">Command line</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grammar">Grammar</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#keywords">Keywords</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wizard-commands">Wizard commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#galcfg-keys">gal.cfg keys</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters-given-to-every-xslt">Parameters given to every XSLT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#files-that-a-run-writes">Files that a run writes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#versions-what-each-state-allows">Versions: what each state allows</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#error-names">Error names</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-description">The description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hashes">Hashes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-wizard">The Wizard</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Reference</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h1>
+<h2 id="command-line">Command line<a class="headerlink" href="#command-line" title="Permanent link">&para;</a></h2>
+<pre><code>galimatron --gal-config-file gal.cfg --log-config-file log.cfg
+galimatron --help
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--gal-config-file PATH</code></td>
+<td>The configuration of the run. See <a href="../configuration/">Configuration</a>.</td>
+</tr>
+<tr>
+<td><code>--log-config-file PATH</code></td>
+<td>The configuration of the log. See <a href="../diagnostics/#the-log-and-logcfg">Logs</a>.</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>Prints the options.</td>
+</tr>
+</tbody>
+</table>
+<p>A run that fails prints the exception and exits with a non-zero code.</p>
+<h2 id="grammar">Grammar<a class="headerlink" href="#grammar" title="Permanent link">&para;</a></h2>
+<pre><code>file          = wizard-statement+ | root-file | aggregate-file
+root-file     = &quot;root&quot; &quot;aggregate&quot; NAME &quot;{&quot; versions &quot;}&quot;  root-version*
+aggregate-file= &quot;aggregate&quot; NAME &quot;{&quot; versions &quot;}&quot;         version*
+
+versions      = &quot;versions&quot; &quot;{&quot; (INDEX [ &quot;=&quot; [ &quot;deleted&quot; ] [ &quot;{&quot; header &quot;}&quot; ] ] &quot;;&quot;)* &quot;}&quot;
+header        = &quot;comment&quot; &quot;=&quot; STRING | &quot;hash&quot; &quot;=&quot; STRING     // at most one of each, comma separated
+
+version       = &quot;version&quot; [ &quot;once&quot; | &quot;local&quot; | &quot;own&quot; ] ( INDEX | &quot;before&quot; INDEX ) &quot;{&quot; statement* &quot;}&quot;
+statement     = tag &quot;;&quot; | label &quot;;&quot; | ordering &quot;;&quot;   // an ordering is only in a root version
+              | &quot;delete&quot; [ NAME ] &quot;;&quot;
+
+tag           = [ NAME &quot;=&quot; ] [ &quot;once&quot; | &quot;local&quot; ] LABEL* values
+values        = &quot;{&quot; [ value (&quot;,&quot; value)* ] &quot;}&quot;
+value         = STRING [ &quot;_te&quot; ] | record | array
+record        = &quot;{&quot; [ STRING &quot;:&quot; ] value (&quot;,&quot; [ STRING &quot;:&quot; ] value)* &quot;}&quot;
+array         = &quot;[&quot; [ value (&quot;,&quot; value)* ] &quot;]&quot;
+
+label         = &quot;label&quot; NAME &quot;=&quot; ( &quot;static&quot; [ &quot;{&quot; NAME (&quot;,&quot; NAME)* &quot;}&quot; [ &quot;,&quot; &quot;tag-name-from&quot; &quot;{&quot; NAME &quot;}&quot; ] ]
+                                 | &quot;dynamic&quot; &quot;{&quot; NAME &quot;}&quot; )
+ordering      = &quot;ordering&quot; NAME &quot;=&quot; part (&quot;,&quot; part)*
+part          = &quot;{&quot; NAME &quot;,&quot; NAME (&quot;,&quot; NAME)* &quot;}&quot;
+</code></pre>
+<p>Names are <code>[A-Za-z][A-Za-z0-9_]*</code>. A string is <code>"..."</code>, <code>'...'</code>, or a raw string <code>R"(...)"</code> (with dashes, <code>R"-(...)-"</code>, to allow <code>)"</code> in the text). Comments are <code>// ...</code> and <code>/* ... */</code>.</p>
+<p>A version of the root may hold tags, labels, orderings and <code>delete</code>. A version of an aggregate holds tags, labels and <code>delete</code>.</p>
+<p><code>delete;</code> ends the aggregate from this version. <code>delete NAME;</code> removes a tag.</p>
+<h2 id="keywords">Keywords<a class="headerlink" href="#keywords" title="Permanent link">&para;</a></h2>
+<p>These words are reserved. Do not use them as a name.</p>
+<pre><code>root aggregate versions version before label static dynamic tag tag-name-from
+once local own ordering comment hash deleted delete
+wizard create in copy to continue physically force collapse
+</code></pre>
+<p><code>important</code> is not reserved: it is a built-in label name.</p>
+<h2 id="wizard-commands">Wizard commands<a class="headerlink" href="#wizard-commands" title="Permanent link">&para;</a></h2>
+<p>All commands start with <code>wizard</code>. Use <code>wizard { cmd; cmd; }</code> for several. One Wizard statement per run.</p>
+<pre><code>create root aggregate NAME
+create aggregate [once|local|own] A [, B]* [in DIR]
+copy aggregate SRC to A [, B]* [in DIR]
+continue aggregate SRC to A [, B]* [in DIR]
+delete aggregate [A [, B]* [physically]]
+
+create version [once|local|own]
+delete version [N [, M]*]
+collapse version FIRST-LAST
+
+create hash [N [, M]*] [force]
+delete hash [N [, M]*] [force]
+
+create tag [AGG] [NAME =] [once|local] LABEL* { values }
+delete tag [AGG] NAME
+create label [AGG] NAME = static|dynamic ...
+create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
+</code></pre>
+<p>Details are in <a href="../wizard/">The Wizard</a>.</p>
+<h2 id="galcfg-keys">gal.cfg keys<a class="headerlink" href="#galcfg-keys" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>galimatron.input-gal-dir</code>, <code>output-gal-dir</code>, <code>intermediate-xml-dir</code>, <code>intermediate-log-dir</code>, <code>intermediate-summary-dir</code>, <code>committed-report</code></td>
+<td><a href="../configuration/#galimatron-folders">folders</a></td>
+</tr>
+<tr>
+<td><code>saxon-processor.working-dir</code>, <code>config-file</code></td>
+<td><a href="../configuration/#saxon-processor">saxon-processor</a></td>
+</tr>
+<tr>
+<td><code>transforms.language-transforms.user-transforms.transforms[]</code></td>
+<td><a href="../configuration/#transforms">transforms</a></td>
+</tr>
+<tr>
+<td><code>transforms.post-language-transforms.user-transforms.transforms[]</code></td>
+<td><a href="../configuration/#transforms">transforms</a></td>
+</tr>
+<tr>
+<td>a transform: <code>name</code>, <code>enable</code>, <code>user-data-for-info</code>, <code>input.principal-xsl.file</code>, <code>parameters[]</code>, <code>output.principal-xml.file</code>, <code>output.other-files[]</code></td>
+<td><a href="../configuration/#transforms">transforms</a></td>
+</tr>
+<tr>
+<td>a store: <code>store-dir</code>, <code>store-dir-string-alias</code>, <code>extentions</code>, <code>replace-escaped-form-to-original-symbols</code>, <code>delete-if-not-rewrited</code></td>
+<td><a href="../configuration/#where-your-xslt-may-write">aliases</a></td>
+</tr>
+</tbody>
+</table>
+<p><code>buildin-transforms</code> is present and empty in every file.</p>
+<h2 id="parameters-given-to-every-xslt">Parameters given to every XSLT<a class="headerlink" href="#parameters-given-to-every-xslt" title="Permanent link">&para;</a></h2>
+<p><code>input_gal_dir</code>, <code>output_gal_dir</code>, <code>intermediate_xml_dir</code>, <code>intermediate_log_dir</code>, <code>intermediate_summary_dir</code>, <code>saxon_working_dir</code>. Absolute paths with <code>/</code>.</p>
+<h2 id="files-that-a-run-writes">Files that a run writes<a class="headerlink" href="#files-that-a-run-writes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Where</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.gal</code></td>
+<td><code>output-gal-dir</code></td>
+<td>the rewritten description</td>
+</tr>
+<tr>
+<td>files of your XSLT</td>
+<td>the stores of <code>other-files</code></td>
+<td>what you generate</td>
+</tr>
+<tr>
+<td><code>galimatron.log</code></td>
+<td>as set in <code>log.cfg</code></td>
+<td>the log</td>
+</tr>
+<tr>
+<td><code>galimatron_summary.xml</code></td>
+<td><code>intermediate-summary-dir</code></td>
+<td>the result of every step</td>
+</tr>
+<tr>
+<td><code>galimatron.crash.log</code></td>
+<td><code>intermediate-log-dir</code></td>
+<td>empty unless Galimatron crashed</td>
+</tr>
+<tr>
+<td><code>lang-parsed.xml</code>, <code>lang-wizard.xml</code>, <code>lang-xslt.xml</code>, <code>lang-final.xml</code></td>
+<td><code>intermediate-xml-dir</code></td>
+<td>the language after each stage</td>
+</tr>
+<tr>
+<td><code>post-compiled.xml</code></td>
+<td><code>intermediate-xml-dir</code></td>
+<td>the compiled XML</td>
+</tr>
+<tr>
+<td><code>taskflow.dot</code></td>
+<td>the intermediate folders</td>
+<td>the graph of steps and checks</td>
+</tr>
+<tr>
+<td>the file of a <code>principal-xml</code></td>
+<td><code>intermediate-xml-dir</code></td>
+<td>the principal result of that transform</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../diagnostics/">Logs and diagnostics</a>.</p>
+<h2 id="versions-what-each-state-allows">Versions: what each state allows<a class="headerlink" href="#versions-what-each-state-allows" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>open</th>
+<th>closed</th>
+<th>deleted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stored as</td>
+<td><code>N;</code></td>
+<td><code>N = { hash = '...' };</code></td>
+<td><code>N = deleted;</code></td>
+</tr>
+<tr>
+<td>Tags may change</td>
+<td>yes</td>
+<td>only unimportant ones</td>
+<td>no body</td>
+</tr>
+<tr>
+<td><code>delete version</code></td>
+<td>yes</td>
+<td>refused</td>
+<td>–</td>
+</tr>
+<tr>
+<td><code>collapse version</code></td>
+<td>yes</td>
+<td>yes</td>
+<td>–</td>
+</tr>
+<tr>
+<td><code>create hash</code></td>
+<td>yes</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td><code>delete hash</code></td>
+<td>–</td>
+<td>yes</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-names">Error names<a class="headerlink" href="#error-names" title="Permanent link">&para;</a></h2>
+<p>The message of a failed run names a rule. The names are grouped by what failed.</p>
+<h3 id="the-description">The description<a class="headerlink" href="#the-description" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ROOT_AGGREGATE_MISSED</code>, <code>ROOT_AGGREGATE_MUST_BE_ONE_ONLY</code></td>
+<td>There must be exactly one root aggregate.</td>
+</tr>
+<tr>
+<td><code>ROOT_AGGREGATE_VERSION_DECLARATIONS_MUST_START_WITH_ZERO</code>, <code>..._MUST_BE_CONTINUOUS</code></td>
+<td>The version list runs from 0 without gaps.</td>
+</tr>
+<tr>
+<td><code>ROOT_AGGREGATE_VERSION_DEFINITIONS_MUST_REPEAT_DECLARATIONS</code></td>
+<td>A version body exists only for a declared version.</td>
+</tr>
+<tr>
+<td><code>ROOT_AGGREGATE_VERSION_CANNOT_BE_LOCAL</code>, <code>..._CANNOT_BE_OWN</code></td>
+<td><code>local</code> and <code>own</code> are only for aggregates.</td>
+</tr>
+<tr>
+<td><code>AGGREGATE_VERSION_DECLARATIONS_MUST_MATCH_ROOT</code></td>
+<td>An aggregate repeats the version list of the root.</td>
+</tr>
+<tr>
+<td><code>AGGREGATE_VERSION_DECLARATIONS_DELETED_MUST_BE_CONTINUOUS</code></td>
+<td><code>deleted</code> is a prefix, a suffix, or a span owned by the next live version.</td>
+</tr>
+<tr>
+<td><code>AGGREGATE_VERSION_DEFINITIONS_MUST_REPEAT_DECLARATIONS</code>, <code>..._MUST_NOT_BE_DELETED</code></td>
+<td>A body only for a live declared version.</td>
+</tr>
+<tr>
+<td><code>AGGREGATE_NAMES_MUST_BE_UNIQUE</code>, <code>AGGREGATE_INDICES_MUST_BE_UNIQUE_CONTINUOUS</code></td>
+<td>Names are unique, ignoring case.</td>
+</tr>
+<tr>
+<td><code>ANONYMOUS_VERSION_MUST_HAVE_OWNER</code>, <code>..._MUST_PRECEDE_OWNER</code>, <code>..._MUST_BE_DELETED</code></td>
+<td>The rules of <code>version before N</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hashes">Hashes<a class="headerlink" href="#hashes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HASH_DOES_NOT_MATCH</code></td>
+<td>The stored hash differs from the one computed now.</td>
+</tr>
+<tr>
+<td><code>HASH_MUST_BE_ON_EVERY_AGGREGATE</code></td>
+<td>A hashed version has a hash on the root and on every live aggregate.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-wizard">The Wizard<a class="headerlink" href="#the-wizard" title="Permanent link">&para;</a></h3>
+<p>The names follow the pattern <code>WIZARD_&lt;COMMAND&gt;_&lt;RULE&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WIZARD_COMMAND_MUST_BE_ONE</code></td>
+<td>One Wizard statement per run.</td>
+</tr>
+<tr>
+<td><code>WIZARD_BATCH_COMMAND_MUST_BE_CREATE</code></td>
+<td>A batch holds create commands, <code>create hash</code>, <code>delete tag</code>, <code>delete version</code>, <code>collapse version</code>.</td>
+</tr>
+<tr>
+<td><code>..._ROOT_AGGREGATE_MUST_EXIST</code></td>
+<td>The command needs the root aggregate.</td>
+</tr>
+<tr>
+<td><code>..._ROOT_AGGREGATE_MUST_BE_ABSENT</code></td>
+<td><code>create root aggregate</code> and a root exists already.</td>
+</tr>
+<tr>
+<td><code>..._NAMES_MUST_BE_UNIQUE</code>, <code>..._AGGREGATE_MUST_BE_ABSENT</code>, <code>..._CHUNK_MUST_BE_ABSENT</code></td>
+<td>The new name or file exists.</td>
+</tr>
+<tr>
+<td><code>..._COMMAND_FILE_IS_THE_AGGREGATE</code></td>
+<td>The command file would be overwritten by the new aggregate.</td>
+</tr>
+<tr>
+<td><code>..._SOURCE_MUST_EXIST</code>, <code>..._AGGREGATE_MUST_EXIST</code></td>
+<td>The named aggregate is not there.</td>
+</tr>
+<tr>
+<td><code>..._CANNOT_COPY_ROOT_AGGREGATE</code>, <code>..._CANNOT_CONTINUE_ROOT_AGGREGATE</code>, <code>..._CANNOT_DELETE_ROOT_AGGREGATE</code></td>
+<td>The root is not a target.</td>
+</tr>
+<tr>
+<td><code>WIZARD_COPY_AGGREGATE_SOURCE_IN_CLOSED_VERSION</code></td>
+<td>A copy would change a closed version.</td>
+</tr>
+<tr>
+<td><code>WIZARD_CONTINUE_AGGREGATE_LAST_VERSION_IS_ALREADY_DELETED</code>, <code>WIZARD_DELETE_AGGREGATE_LAST_VERSION_IS_ALREADY_DELETED</code></td>
+<td>The aggregate is already deleted.</td>
+</tr>
+<tr>
+<td><code>WIZARD_DELETE_AGGREGATE_CANNOT_DELETE_CLOSED_VERSION</code></td>
+<td>The aggregate is part of a closed version.</td>
+</tr>
+<tr>
+<td><code>WIZARD_DELETE_AGGREGATE_ORDERING_NAMES_AGGREGATE</code></td>
+<td>An ordering still names it.</td>
+</tr>
+<tr>
+<td><code>WIZARD_DELETE_VERSION_CANNOT_DELETE_CLOSED_VERSION</code></td>
+<td>The version is closed.</td>
+</tr>
+<tr>
+<td><code>WIZARD_DELETE_VERSION_MUST_STAY_CONTINUOUS</code></td>
+<td>The versions that remain would have a gap.</td>
+</tr>
+<tr>
+<td><code>WIZARD_COLLAPSE_VERSION_RANGE_MUST_ASCEND</code>, <code>..._VERSION_MUST_EXIST</code>, <code>..._OWNER_MUST_BE_PRESENT</code></td>
+<td>The range is wrong.</td>
+</tr>
+<tr>
+<td><code>WIZARD_VERSION_STATEMENT_LAST_VERSION_MUST_EXIST</code></td>
+<td><code>create tag</code>, <code>label</code>, <code>ordering</code>, <code>delete tag</code> need a version.</td>
+</tr>
+<tr>
+<td><code>WIZARD_VERSION_STATEMENT_VERSION_MUST_BE_OPEN</code>, <code>..._VERSION_IS_DELETED</code></td>
+<td>The last version of the aggregate must be open and live.</td>
+</tr>
+<tr>
+<td><code>WIZARD_VERSION_STATEMENT_AGGREGATE_MUST_BE_NAMED</code>, <code>..._AGGREGATE_MUST_EXIST</code>, <code>..._AGGREGATE_MUST_BE_ROOT</code></td>
+<td>The aggregate of the statement. An ordering is only for the root.</td>
+</tr>
+<tr>
+<td><code>WIZARD_CREATE_HASH_VERSION_MUST_EXIST</code>, <code>WIZARD_DELETE_HASH_VERSION_MUST_EXIST</code></td>
+<td>A hash command names a version that is not there.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../benchmark/" class="btn btn-neutral float-left" title="Benchmark"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../benchmark/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

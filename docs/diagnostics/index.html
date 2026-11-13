@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/diagnostics/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Logs and diagnostics - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Logs and diagnostics";
+        var mkdocs_page_input_path = "diagnostics.md";
+        var mkdocs_page_url = "/galimatron_doc/diagnostics/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Logs and diagnostics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-log-and-logcfg">The log and log.cfg</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-the-log-says">What the log says</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subsystems">Subsystems</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-summary">The summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xml-dumps">XML dumps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#taskflowdot">taskflow.dot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-a-run-fails">When a run fails</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#galimatroncrashlog">galimatron.crash.log</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-short-checklist">A short checklist</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Your project</li>
+      <li class="breadcrumb-item active">Logs and diagnostics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="logs-and-diagnostics">Logs and diagnostics<a class="headerlink" href="#logs-and-diagnostics" title="Permanent link">&para;</a></h1>
+<p>A tool that edits your files must be able to explain itself. Galimatron leaves four kinds of evidence of every run:</p>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Where</th>
+<th>Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>the console (the terminal output) and <code>galimatron.log</code></td>
+<td><code>log.cfg</code></td>
+<td>What happened, in order, and how long did it take?</td>
+</tr>
+<tr>
+<td><code>galimatron_summary.xml</code></td>
+<td><code>intermediate-summary-dir</code></td>
+<td>Which steps succeeded, and which files did each write?</td>
+</tr>
+<tr>
+<td>XML dumps</td>
+<td><code>intermediate-xml-dir</code></td>
+<td>What did the data look like after each step?</td>
+</tr>
+<tr>
+<td>the exception text</td>
+<td>the console and the log</td>
+<td>Why did the run stop?</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Files of the intermediate folder" src="../images/21_diagnostics.svg" /></p>
+<h2 id="the-log-and-logcfg">The log and log.cfg<a class="headerlink" href="#the-log-and-logcfg" title="Permanent link">&para;</a></h2>
+<p><code>log.cfg</code> is the configuration of the logger (Logme). It is JSON and passed with <code>--log-config-file</code>.</p>
+<pre><code class="language-json">{
+    &quot;home-directory&quot;: { &quot;path&quot;: &quot;.&quot; },
+    &quot;flags&quot;: {
+        &quot;text-console&quot;: { &quot;timestamp&quot;: &quot;none&quot;, &quot;signature&quot;: true, &quot;method&quot;: false, &quot;eol&quot;: true, &quot;highlight&quot;: true },
+        &quot;text-minimal&quot;: { &quot;timestamp&quot;: &quot;none&quot;, &quot;signature&quot;: true, &quot;method&quot;: false, &quot;eol&quot;: true, &quot;highlight&quot;: true, &quot;subsystem&quot;: true }
+    },
+    &quot;channels&quot;: [
+        { &quot;name&quot;: &quot;&quot;, &quot;flags&quot;: &quot;text-console&quot;, &quot;level&quot;: &quot;info&quot;,
+          &quot;backends&quot;: [ { &quot;type&quot;: &quot;ConsoleBackend&quot; } ] },
+        { &quot;name&quot;: &quot;file&quot;, &quot;flags&quot;: &quot;text-minimal&quot;, &quot;level&quot;: &quot;info&quot;,
+          &quot;backends&quot;: [ { &quot;type&quot;: &quot;FileBackend&quot;, &quot;file&quot;: &quot;intermediate/galimatron.log&quot;, &quot;append&quot;: false } ] }
+    ],
+    &quot;subsystems&quot;: { &quot;allowed&quot;: [ &quot;EXEC&quot;, &quot;EXLIB&quot;, &quot;RT&quot; ] }   // the real file lists them all
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>home-directory</code></td>
+<td>The base for relative file names. Run Galimatron from the project folder, or set an absolute path.</td>
+</tr>
+<tr>
+<td><code>flags</code></td>
+<td>What each line carries: a <code>timestamp</code> (<code>local</code> or <code>none</code>), the <code>subsystem</code> tag, the end of line.</td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td>Where lines go. The unnamed channel is the console. A channel with a <code>FileBackend</code> writes a file. <code>"append": false</code> starts a new file on every run.</td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td>How much a channel shows. <code>info</code> is the usual level. Raise the detail to <code>debug</code> to see the work of each step.</td>
+</tr>
+<tr>
+<td><code>subsystems.allowed</code></td>
+<td>Which parts of Galimatron may write to the log.</td>
+</tr>
+</tbody>
+</table>
+<p>Two habits worth knowing:</p>
+<ul>
+<li>Use <code>"timestamp": "none"</code> in a project that commits its log: the file then only changes when the run changes.</li>
+<li>Keep one channel for the console and one for the file. The file keeps the whole story when the console has scrolled away.</li>
+</ul>
+<h3 id="what-the-log-says">What the log says<a class="headerlink" href="#what-the-log-says" title="Permanent link">&para;</a></h3>
+<pre><code>#RT-TRN begin of Galimatron
+#RT-TRN normal mode - unparsing will be overwrite incoming .gal
+#TR-TSP begin of transformation: 0, 'gal2cpp'
+#TR-TSP end   of transformation: 0, 'gal2cpp': 0 min 0 sec, (15 ms)
+#TR-TSP begin of transformation: 2, 'cpp2cpp_wizard'
+#TR-TSP skip transformation
+...
+#TR-TSP begin of transformation: 6, 'increment counter and write the greeting'
+#TR-TSP end   of transformation: 6, 'increment counter and write the greeting': 0 min 0 sec, (20 ms)
+...
+#RT-TRN all state: 30.7 MB (32231424 bytes)
+#RT-TRN end of Galimatron: 0 min 0 sec, (124 ms)
+</code></pre>
+<p>Each transformation has a begin and an end line with its time. The user transforms carry the <code>name</code> that you gave them in <code>gal.cfg</code>, so a slow one is easy to find. The last lines say how much memory the state used and how long the run took. The <a href="../benchmark/">benchmark</a> is built on these lines.</p>
+<h3 id="subsystems">Subsystems<a class="headerlink" href="#subsystems" title="Permanent link">&para;</a></h3>
+<p>A line carries the subsystem that wrote it. This list is in <code>log.cfg</code>. Remove a name to silence that part.</p>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Part</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EXEC</code>, <code>EXLIB</code></td>
+<td>the executable, command line</td>
+</tr>
+<tr>
+<td><code>RT</code>, <code>RT-FS</code>, <code>RT-FSD</code>, <code>RT-CFG</code>, <code>RT-TRN</code>, <code>RT-SUM</code></td>
+<td>runtime: files, <code>gal.cfg</code>, the run, the summary</td>
+</tr>
+<tr>
+<td><code>TR</code></td>
+<td>translator in general</td>
+</tr>
+<tr>
+<td><code>TR-PAR</code>, <code>TR-BLD</code></td>
+<td>parser, builder</td>
+</tr>
+<tr>
+<td><code>TR-CMP</code></td>
+<td>compiler (the merge of versions)</td>
+</tr>
+<tr>
+<td><code>TR-G2S</code>, <code>TR-S2G</code>, <code>TR-S2S</code>, <code>TR-S2X</code>, <code>TR-X2S</code></td>
+<td>conversions between GaL, state and XML</td>
+</tr>
+<tr>
+<td><code>TR-HLD</code></td>
+<td>holder of the state</td>
+</tr>
+<tr>
+<td><code>TR-XSLT</code></td>
+<td>the XSLT processor</td>
+</tr>
+<tr>
+<td><code>TR-TSP</code></td>
+<td>the sequence of transformations</td>
+</tr>
+<tr>
+<td><code>TR-WIZ</code></td>
+<td>the Wizard</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-summary">The summary<a class="headerlink" href="#the-summary" title="Permanent link">&para;</a></h2>
+<p><code>galimatron_summary.xml</code> lists every step with its status and what it produced:</p>
+<pre><code class="language-xml">&lt;transformations state-bytes=&quot;32231424&quot; status=&quot;success&quot;&gt;
+    &lt;transformation index=&quot;0&quot; name=&quot;gal2cpp&quot; from=&quot;build-in&quot; status=&quot;SUCCESS&quot; /&gt;
+    &lt;transformation index=&quot;2&quot; name=&quot;cpp2cpp_wizard&quot; from=&quot;build-in&quot; status=&quot;SKIPPED&quot; /&gt;
+    &lt;transformation index=&quot;6&quot; name=&quot;increment counter and write the greeting&quot; from=&quot;user&quot; status=&quot;SUCCESS&quot; /&gt;
+    &lt;transformation index=&quot;9&quot; name=&quot;cpp2gal&quot; from=&quot;build-in&quot; status=&quot;SUCCESS&quot;&gt;
+        &lt;produced-xml path=&quot;intermediate\lang-final.xml&quot; /&gt;
+        &lt;produced-files count=&quot;1&quot;&gt;
+            &lt;file index=&quot;0&quot; path=&quot;incoming_gal\hello.gal&quot; /&gt;
+        &lt;/produced-files&gt;
+    &lt;/transformation&gt;
+    &lt;transformation index=&quot;14&quot; name=&quot;write hello.html&quot; from=&quot;user&quot; status=&quot;SUCCESS&quot;&gt;
+        &lt;produced-files count=&quot;1&quot;&gt;
+            &lt;file index=&quot;0&quot; path=&quot;page\hello.html&quot; /&gt;
+        &lt;/produced-files&gt;
+    &lt;/transformation&gt;
+&lt;/transformations&gt;
+</code></pre>
+<p>It is the answer to "which files did this run write?". <code>from</code> says whether a step is built in or yours. A failed run has <code>status="fail"</code>. With <a href="../configuration/#committed-report-output-that-you-can-commit"><code>committed-report</code></a> the paths are relative and the memory size is dropped, so the file can go into version control, and a test can compare it.</p>
+<h2 id="xml-dumps">XML dumps<a class="headerlink" href="#xml-dumps" title="Permanent link">&para;</a></h2>
+<p>Galimatron saves the XML at the points where your XSLT take over and give back.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Taken</th>
+<th>Use it to see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lang-parsed.xml</code></td>
+<td>after parsing and the first validation</td>
+<td>the language as it was read.</td>
+</tr>
+<tr>
+<td><code>lang-wizard.xml</code></td>
+<td>after the Wizard</td>
+<td>what the Wizard changed. This is the input of your first language XSLT.</td>
+</tr>
+<tr>
+<td><code>lang-xslt.xml</code></td>
+<td>after all language XSLT</td>
+<td>what your XSLT made.</td>
+</tr>
+<tr>
+<td><code>lang-final.xml</code></td>
+<td>after the seal and the second validation</td>
+<td>what is written back as <code>.gal</code>.</td>
+</tr>
+<tr>
+<td><code>post-compiled.xml</code></td>
+<td>after compilation</td>
+<td>what your post XSLT read.</td>
+</tr>
+<tr>
+<td>the file you name in <code>principal-xml</code></td>
+<td>after that transform</td>
+<td>the result of one transform.</td>
+</tr>
+</tbody>
+</table>
+<p><code>lang-parsed.xml</code>, <code>lang-final.xml</code> and <code>post-compiled.xml</code> are written on every run. <code>lang-wizard.xml</code> and <code>lang-xslt.xml</code> belong to the XSLT part of the run (the XML is handed to Saxon and read back), so a run with no language XSLT does not write them.</p>
+<p>The dumps answer the question "my XSLT gave the wrong result" in a mechanical way: compare the dump before your transform with the dump after it. Where they differ is your template.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To see one XSLT alone, give its <code>principal-xml</code> a <code>file</code>. Then open the file in an editor that can compare two files.</p>
+</div>
+<p>Both the language XML and the compiled XML carry a <code>&lt;history&gt;</code> element: for each version, which tags were added, changed or deleted, and their values. Your XSLT can read it with <code>gal:history(.)</code>. The <a href="../example-messages/">Example: messages that grow</a> turns it into a dictionary of every tag name and the version that introduced it, and into <code>history.html</code>.</p>
+<h2 id="taskflowdot">taskflow.dot<a class="headerlink" href="#taskflowdot" title="Permanent link">&para;</a></h2>
+<p><code>taskflow.dot</code> is a <a href="https://graphviz.org/">Graphviz</a> file. It draws the steps of the run and, inside the validation, each check as a subflow. Open it when you want to know which checks exist and in which order they depend on each other:</p>
+<pre><code>dot -Tsvg intermediate/taskflow.dot -o taskflow.svg
+</code></pre>
+<h2 id="when-a-run-fails">When a run fails<a class="headerlink" href="#when-a-run-fails" title="Permanent link">&para;</a></h2>
+<p>Galimatron prints the exception, writes the same text to the log, and exits with a non-zero code. A real example, a hash that does not match:</p>
+<pre><code>Exception details:
+  domain: translator_library
+  subdomain: translator_library::translator
+  validation:
+    what: HASH_DOES_NOT_MATCH
+  what info:
+    message: hash does not match: version 0: apple
+</code></pre>
+<p>How to read it:</p>
+<ul>
+<li><code>what</code> is the short name of the rule. The <a href="../reference/#error-names">Reference</a> lists them.</li>
+<li><code>message</code> says in words what failed and where: <em>version 0, the aggregate apple</em>.</li>
+<li>For a syntax error, the message names the parsing rule that failed. The line comes from the file named in the text.</li>
+<li><code>domain</code> and <code>subdomain</code> tell which part of the tool stopped: the translator, the runtime, the XSLT processor.</li>
+</ul>
+<p>The part below it (<code>Boost.LEAF diagnostic info</code>) is for the author of the tool. The first lines are the ones to read.</p>
+<p>An error in <strong>your XSLT</strong> is reported with the XSLT file, the line, and Saxon's message, because <code>config.xml</code> asks for line numbers.</p>
+<h3 id="galimatroncrashlog">galimatron.crash.log<a class="headerlink" href="#galimatroncrashlog" title="Permanent link">&para;</a></h3>
+<p>Galimatron also names a crash log in <code>intermediate-log-dir</code> at the start of a run. On a normal run it stays empty. If Galimatron itself crashes (a fault of the tool, not of your data), the details go there. Attach it when you report the problem.</p>
+<h2 id="a-short-checklist">A short checklist<a class="headerlink" href="#a-short-checklist" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Look at the end of the output in the terminal where you started Galimatron (or in the <em>Galimatron</em> terminal panel of VS Code). The error is printed there. This has nothing to do with the Wizard file <code>console.gal</code>.</li>
+<li>Read <code>what</code> and <code>message</code>. Most errors say what to do.</li>
+<li>If the failure is in your XSLT, open the XML dump before it and the one after it.</li>
+<li>If you do not know which step ran, open <code>galimatron_summary.xml</code>.</li>
+<li>If you want to know why a step is slow, look at its time in <code>galimatron.log</code>.</li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../configuration/" class="btn btn-neutral float-left" title="Configuration (gal.cfg)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../xslt/" class="btn btn-neutral float-right" title="XSLT">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../xslt/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

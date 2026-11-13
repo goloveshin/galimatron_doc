@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/aggregates-and-versions/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Aggregates and versions - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Aggregates and versions";
+        var mkdocs_page_input_path = "aggregates-and-versions.md";
+        var mkdocs_page_url = "/galimatron_doc/aggregates-and-versions/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Aggregates and versions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-version-list">The version list</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-a-version-sees">What a version sees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#version-modes">Version modes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-four-modes-one-by-one">The four modes, one by one</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deleting-an-aggregate">Deleting an aggregate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#collapsing-history">Collapsing history</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-each-statement-is-written">Where each statement is written</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">The language</li>
+      <li class="breadcrumb-item active">Aggregates and versions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="aggregates-and-versions">Aggregates and versions<a class="headerlink" href="#aggregates-and-versions" title="Permanent link">&para;</a></h1>
+<h2 id="the-version-list">The version list<a class="headerlink" href="#the-version-list" title="Permanent link">&para;</a></h2>
+<p>The root aggregate declares which versions exist. Every aggregate repeats the same list, so an aggregate can never be "at version 3" while the rest of the project is at 2.</p>
+<pre><code>root aggregate shop
+{
+    versions
+    {
+        0 = { hash = '27025d7a...' };
+        1 = deleted;
+        2 = { comment = &quot;spring prices&quot; };
+        3;
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Declaration</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>3;</code></td>
+<td>version 3 exists and is open</td>
+</tr>
+<tr>
+<td><code>0 = { hash = '...' };</code></td>
+<td>version 0 is <strong>closed</strong>: a hash fixes its important values</td>
+</tr>
+<tr>
+<td><code>1 = deleted;</code></td>
+<td>version 1 was removed. The index stays reserved.</td>
+</tr>
+<tr>
+<td><code>{ comment = "..." }</code></td>
+<td>a note for people. It does not affect the data.</td>
+</tr>
+</tbody>
+</table>
+<p>The indexes run from 0 without gaps. Galimatron checks this on every run and tells you which aggregate breaks the rule.</p>
+<p><img alt="States of a version" src="../images/10_version_states.svg" /></p>
+<p>A version is <strong>open</strong> (you may write into it), <strong>closed</strong> (a hash is stored, read only) or <strong>deleted</strong>. See <a href="../hashes/">Hashes and closed versions</a> for the closed state.</p>
+<h2 id="what-a-version-sees">What a version sees<a class="headerlink" href="#what-a-version-sees" title="Permanent link">&para;</a></h2>
+<p>Writing a full copy of every aggregate in every version is the problem you want to avoid. A version states only its <strong>changes</strong>. What the aggregate "means" in a version is the merge of that version with everything before it.</p>
+<p><img alt="Inheritance across versions" src="../images/08_inheritance.svg" /></p>
+<ul>
+<li>A tag written in version 0 is still there in version 1, until version 1 writes the tag again (the new value wins).</li>
+<li><code>delete name;</code> removes a tag from that version on.</li>
+<li>A later version can bring the tag back by writing it.</li>
+</ul>
+<p>The same rule works across aggregates: the root's tags flow into every aggregate.</p>
+<pre><code>root aggregate shop { versions { 0; 1; } }
+
+version 0 { currency = { &quot;EUR&quot; }; }
+version 1 { }
+</code></pre>
+<pre><code>aggregate apple { versions { 0; 1; } }
+
+version 0 { price = { &quot;3&quot; }; }
+version 1 { price = { &quot;4&quot; }; }
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Compiled</th>
+<th>currency</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apple, version 0</td>
+<td>EUR</td>
+<td>3</td>
+</tr>
+<tr>
+<td>apple, version 1</td>
+<td>EUR</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>You wrote the currency once. A new currency in the root, in version 2, changes every aggregate in version 2 and later.</p>
+<h2 id="version-modes">Version modes<a class="headerlink" href="#version-modes" title="Permanent link">&para;</a></h2>
+<p>Sometimes an aggregate must not take everything. A dictionary of terms may need no settings of the root. An item that was reborn may need to forget its old fields. A <strong>version mode</strong> is written before the index.</p>
+<pre><code>version own 6 { ... }
+</code></pre>
+<p><img alt="What each version mode sees" src="../images/09_version_modes.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Earlier versions of this aggregate</th>
+<th>Statements of the root</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>once</code></td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>local</code></td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>own</code></td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-four-modes-one-by-one">The four modes, one by one<a class="headerlink" href="#the-four-modes-one-by-one" title="Permanent link">&para;</a></h3>
+<p>The pictures below use the same data, so you can compare them. The root <code>shop</code> has <code>currency</code> in version 0 and <code>country</code> in version 1. The aggregate <code>apple</code> has <code>price</code> in version 0 and <code>weight</code> in version 1. Only the mode written before version 1 of <code>apple</code> changes. Each picture shows what <code>apple</code> ends up with in that version: green lines were inherited, struck-out lines were not.</p>
+<p><strong>No mode.</strong> The default. The version takes everything: the earlier versions of <code>apple</code> and the root's tags. Nothing is lost, and this is what you want almost always.</p>
+<p><img alt="version 1, no mode" src="../images/26_mode_none.svg" /></p>
+<p><strong><code>once</code>.</strong> The version forgets what <code>apple</code> itself wrote before (here, <code>price</code> is gone), but it still receives the root's tags. Use it to start an item over while it keeps following the root.</p>
+<p><img alt="version once 1" src="../images/27_mode_once.svg" /></p>
+<p><strong><code>local</code>.</strong> The version stands alone. It has nothing from the earlier versions of <code>apple</code> and nothing from the root, only what it writes itself. Use it for a body that must not depend on anything else.</p>
+<p><img alt="version local 1" src="../images/28_mode_local.svg" /></p>
+<p><strong><code>own</code>.</strong> The version keeps what <code>apple</code> wrote before, and cuts itself off from the root. The root's <code>currency</code> and <code>country</code> do not reach it. Use it for an aggregate that has its own life, like a dictionary of terms that needs no settings of the root.</p>
+<p><img alt="version own 1" src="../images/29_mode_own.svg" /></p>
+<p><code>local</code> and <code>own</code> are only for aggregates. On the root they are errors.</p>
+<p><code>wizard create version once|local|own</code> and <code>wizard create aggregate once|local|own</code> set the mode for you. A plain <code>wizard create version</code> keeps the mode that the previous version had: after <code>local</code>, the new body is a copy of the previous version's ordinary tags, so the aggregate stays self-contained. After <code>own</code>, the new version sees the earlier one on its own.</p>
+<h2 id="deleting-an-aggregate">Deleting an aggregate<a class="headerlink" href="#deleting-an-aggregate" title="Permanent link">&para;</a></h2>
+<p>An aggregate that is no longer needed is not erased. A <code>delete;</code> in a version ends it from that version on:</p>
+<pre><code>version 4
+{
+    delete;
+}
+</code></pre>
+<ul>
+<li>The file stays. Older versions still describe it, and your XSLT can still generate the old shapes (the <a href="../example-messages/">example with messages</a> uses this to keep the conversion from old messages).</li>
+<li>The compiled view of version 4 and later does not have it.</li>
+<li><code>wizard delete aggregate name</code> writes this <code>delete;</code> for you. It refuses when the aggregate is part of a closed version, because that would change a published version. With <code>physically</code> the file goes away, and the name can be used again. See <a href="../wizard/">The Wizard</a>.</li>
+</ul>
+<h2 id="collapsing-history">Collapsing history<a class="headerlink" href="#collapsing-history" title="Permanent link">&para;</a></h2>
+<p>A project that lives for years collects versions. Version 0 to version 40 may all be closed, and the new generator only needs the last one. Remove them from the file without losing the current meaning:</p>
+<pre><code>wizard collapse version 1-4;
+</code></pre>
+<p><img alt="Collapse of a range" src="../images/25_collapse.svg" /></p>
+<ul>
+<li>Versions 1 to 4 are marked deleted. Their hashes and bodies go.</li>
+<li>The <strong>last value of each tag</strong> in that range moves into an anonymous body that the next version owns: <code>version before 5 { ... }</code>.</li>
+<li>If the range ends on the last version, a new version is created for the body.</li>
+</ul>
+<p>After the collapse, version 5 still sees the same data. What is gone is the ability to ask "what was version 2". Collapse is the way to say that nobody does any more.</p>
+<p><code>version before N</code> is written by the Wizard. You do not write it by hand, but you may read it in a file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Collapse accepts a closed range: it is the way to retire history that was published once. The <a href="../example-messages/">Example: messages that grow</a> ends with such a collapse (step 12).</p>
+</div>
+<h2 id="where-each-statement-is-written">Where each statement is written<a class="headerlink" href="#where-each-statement-is-written" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Statement</th>
+<th>Where</th>
+<th>Flows to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag in the root version</td>
+<td>root file</td>
+<td>every aggregate in the same and later versions</td>
+</tr>
+<tr>
+<td>tag in an aggregate version</td>
+<td>aggregate file</td>
+<td>that aggregate, later versions</td>
+</tr>
+<tr>
+<td>label</td>
+<td>any version</td>
+<td>later versions, and every aggregate when it is written in the root, see <a href="../labels/">Labels</a></td>
+</tr>
+<tr>
+<td>ordering</td>
+<td>root file only</td>
+<td>every compile, see <a href="../ordering/">Ordering</a></td>
+</tr>
+</tbody>
+</table>
+<p>Tag modes (<code>once</code>, <code>local</code>) restrict the flow of one tag. See <a href="../tags/">Tags</a>. How a tag mode and a version mode work together is in <a href="../tags/#tag-modes-and-version-modes-together">Tag modes and version modes together</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../entities/" class="btn btn-neutral float-left" title="Entities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tags/" class="btn btn-neutral float-right" title="Tags">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../entities/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tags/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/configuration/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Configuration (gal.cfg) - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Configuration (gal.cfg)";
+        var mkdocs_page_input_path = "configuration.md";
+        var mkdocs_page_url = "/galimatron_doc/configuration/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Configuration (gal.cfg)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-whole-file">The whole file</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#galimatron-folders">galimatron: folders</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#your-files-are-rewritten-in-place">Your files are rewritten in place</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#committed-report-output-that-you-can-commit">committed-report: output that you can commit</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#saxon-processor">saxon-processor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transforms">Transforms</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-principal-result">The principal result</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters-galimatron-adds">Parameters Galimatron adds</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-your-xslt-may-write">Where your XSLT may write</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#order-matters">Order matters</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Your project</li>
+      <li class="breadcrumb-item active">Configuration (gal.cfg)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configuration-galcfg">Configuration (gal.cfg)<a class="headerlink" href="#configuration-galcfg" title="Permanent link">&para;</a></h1>
+<p><code>gal.cfg</code> says what a run does: which folders it reads and writes, and which of your XSLT it runs. It is JSON, and it allows <code>//</code> comments. It is passed to Galimatron on the command line:</p>
+<pre><code>galimatron --gal-config-file gal.cfg --log-config-file log.cfg
+</code></pre>
+<p>Paths in <code>gal.cfg</code> are absolute, or relative to the folder of <code>gal.cfg</code>. This makes a project movable: copy the folder and it still runs. (Two exceptions are noted below: the XSLT file and the principal XML file have their own base folders.)</p>
+<h2 id="the-whole-file">The whole file<a class="headerlink" href="#the-whole-file" title="Permanent link">&para;</a></h2>
+<pre><code class="language-json">{
+    &quot;galimatron&quot; : {
+        &quot;input-gal-dir&quot; : &quot;incoming_gal/&quot;,
+        &quot;output-gal-dir&quot; : &quot;incoming_gal/&quot;,
+        &quot;intermediate-xml-dir&quot; : &quot;intermediate/&quot;,
+        &quot;intermediate-log-dir&quot; : &quot;intermediate/&quot;,
+        &quot;intermediate-summary-dir&quot; : &quot;intermediate/&quot;,
+        &quot;committed-report&quot; : true
+    },
+    &quot;saxon-processor&quot; : {
+        &quot;working-dir&quot; : &quot;xslt/&quot;,
+        &quot;config-file&quot; : &quot;config.xml&quot;
+    },
+    &quot;transforms&quot; : {
+        &quot;language-transforms&quot; : {
+            &quot;buildin-transforms&quot; : { },
+            &quot;user-transforms&quot; : { &quot;transforms&quot; : [ ... ] }
+        },
+        &quot;post-language-transforms&quot; : {
+            &quot;user-transforms&quot; : { &quot;transforms&quot; : [ ... ] }
+        }
+    }
+}
+</code></pre>
+<h2 id="galimatron-folders">galimatron: folders<a class="headerlink" href="#galimatron-folders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input-gal-dir</code></td>
+<td>Where the <code>.gal</code> files are read from, with all subfolders.</td>
+</tr>
+<tr>
+<td><code>output-gal-dir</code></td>
+<td>Where the <code>.gal</code> files are written back. Make it the same folder as <code>input-gal-dir</code>.</td>
+</tr>
+<tr>
+<td><code>intermediate-xml-dir</code></td>
+<td>The XML dumps (<code>lang-*.xml</code>, <code>post-compiled.xml</code>).</td>
+</tr>
+<tr>
+<td><code>intermediate-log-dir</code></td>
+<td>Where logs go.</td>
+</tr>
+<tr>
+<td><code>intermediate-summary-dir</code></td>
+<td>Where <code>galimatron_summary.xml</code> goes.</td>
+</tr>
+<tr>
+<td><code>committed-report</code></td>
+<td><code>true</code> makes the summary, the log and error messages spell paths <strong>relative to the <code>gal.cfg</code> folder</strong>, and drops the memory size and the run time.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="your-files-are-rewritten-in-place">Your files are rewritten in place<a class="headerlink" href="#your-files-are-rewritten-in-place" title="Permanent link">&para;</a></h3>
+<p><img alt="Galimatron rewrites the .gal files in place" src="../images/24_in_place.svg" /></p>
+<p>Give <code>input-gal-dir</code> and <code>output-gal-dir</code> the same folder. This is how Galimatron is meant to be run: your <code>.gal</code> files are the memory of the project, so a run reads them and puts the result back into the same files. The Wizard changes them, your XSLT keep counters in them, and the next run starts from what the last one left.</p>
+<p>The new text is held in memory and written only if the whole run succeeds, and only into the files whose text changed. A run that fails leaves your <code>.gal</code> files exactly as they were.</p>
+<div class="admonition note">
+<p class="admonition-title">Two different folders</p>
+<p>The two keys may name different folders. Galimatron then reads the first, empties the second of <code>.gal</code> files at the start of every run, and writes each result file there at once. This exists for Galimatron's own tests, which compare the output with an expected folder. A project does not need it, and you should never point <code>output-gal-dir</code> at a folder that holds something you want.</p>
+</div>
+<h3 id="committed-report-output-that-you-can-commit">committed-report: output that you can commit<a class="headerlink" href="#committed-report-output-that-you-can-commit" title="Permanent link">&para;</a></h3>
+<p>A log with <code>D:\work\project\...</code> in it differs on every machine. With <code>committed-report: true</code> the summary, the info log and the exception texts use paths relative to <code>gal.cfg</code>, and omit the run time and the memory. The files then only change when the result changes, which is what you want when you keep them under version control, or compare them in a test.</p>
+<h2 id="saxon-processor">saxon-processor<a class="headerlink" href="#saxon-processor" title="Permanent link">&para;</a></h2>
+<p>Saxon is the XSLT processor that is built into Galimatron and runs your XSLT. This section tells it where your XSLT live.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>working-dir</code></td>
+<td>The folder of your XSLT, the templates they load and the Saxon configuration.</td>
+</tr>
+<tr>
+<td><code>config-file</code></td>
+<td>The Saxon configuration, relative to <code>working-dir</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>A minimal <code>config.xml</code>:</p>
+<pre><code class="language-xml">&lt;configuration edition=&quot;HE&quot; xmlns=&quot;http://saxon.sf.net/ns/configuration&quot;&gt;
+    &lt;global lineNumbering=&quot;true&quot;/&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p><code>lineNumbering</code> makes an error in your XSLT name the line. The XSLT processor is SaxonC-HE. If you list no XSLT at all, the processor is not created and the run is faster (see <a href="../benchmark/#without-xslt">Benchmark</a>).</p>
+<h2 id="transforms">Transforms<a class="headerlink" href="#transforms" title="Permanent link">&para;</a></h2>
+<p>Transforms are optional: both lists may be empty. The primary output of Galimatron, <code>post-compiled.xml</code>, is written anyway, and you may read it with any tool.</p>
+<p>A <strong>transform</strong> is one of your XSLT programs and what it writes. <code>language-transforms</code> run before the <code>.gal</code> files are written back, <code>post-language-transforms</code> run on the compiled picture. Each list runs in order. See <a href="../how-it-works/">How a run works</a>.</p>
+<pre><code class="language-json">{
+    &quot;name&quot; : &quot;next uuid for copies&quot;,
+    &quot;enable&quot; : true,
+    &quot;user-data-for-info&quot; : &quot;any text, it is copied into the summary&quot;,
+    &quot;input&quot; : {
+        &quot;principal-xsl&quot; : {
+            &quot;file&quot; : &quot;generate-uuid.xsl&quot;,
+            &quot;parameters&quot; : [ { &quot;name&quot; : &quot;report_title&quot;, &quot;value&quot; : &quot;Price list 11&quot; } ]
+        }
+    },
+    &quot;output&quot; : {
+        &quot;principal-xml&quot; : { &quot;file&quot; : &quot;after-uuid.xml&quot; },
+        &quot;other-files&quot; : [ ... ]
+    }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Shown in the log and the summary. Say what the transform <em>does</em>.</td>
+</tr>
+<tr>
+<td><code>enable</code></td>
+<td><code>false</code> leaves the transform out of the run. The key may be absent: then it runs.</td>
+</tr>
+<tr>
+<td><code>user-data-for-info</code></td>
+<td>Free text. It appears in the summary, so a reader of the summary sees why the transform is there.</td>
+</tr>
+<tr>
+<td><code>input.principal-xsl.file</code></td>
+<td>The XSLT, relative to <code>saxon-processor.working-dir</code>.</td>
+</tr>
+<tr>
+<td><code>input.principal-xsl.parameters</code></td>
+<td>Parameters for <code>&lt;xsl:param name="..."&gt;</code>, all strings.</td>
+</tr>
+<tr>
+<td><code>output.principal-xml.file</code></td>
+<td>Optional. If present, the <strong>principal result</strong> of the transform is also saved there, relative to <code>intermediate-xml-dir</code>.</td>
+</tr>
+<tr>
+<td><code>output.other-files</code></td>
+<td>The places where <code>&lt;xsl:result-document&gt;</code> may write.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-principal-result">The principal result<a class="headerlink" href="#the-principal-result" title="Permanent link">&para;</a></h3>
+<p>The principal result of a transform is its main output. For a <strong>language</strong> transform it is the language XML, and it is the input of the next transform. Leave <code>principal-xml</code> empty and it stays in memory. Give it a <code>file</code> and you can read what that step produced. This is the cheapest debugging tool you have.</p>
+<p>For a <strong>post-language</strong> transform the principal result is also the input of the next post transform. A post transform that only writes files and wants to leave the compiled XML to the next one should copy its input through (<code>&lt;xsl:mode on-no-match="shallow-copy"/&gt;</code>). A transform that does not copy it through replaces the document for the transforms after it, so put it last. The messages example lists its source generator last for this reason (see <a href="#order-matters">Order matters</a>).</p>
+<h3 id="parameters-galimatron-adds">Parameters Galimatron adds<a class="headerlink" href="#parameters-galimatron-adds" title="Permanent link">&para;</a></h3>
+<p>Every transform receives these parameters, with absolute paths and <code>/</code> separators. Declare the ones you need with <code>&lt;xsl:param&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input_gal_dir</code></td>
+<td><code>galimatron.input-gal-dir</code></td>
+</tr>
+<tr>
+<td><code>output_gal_dir</code></td>
+<td><code>galimatron.output-gal-dir</code></td>
+</tr>
+<tr>
+<td><code>intermediate_xml_dir</code></td>
+<td><code>galimatron.intermediate-xml-dir</code></td>
+</tr>
+<tr>
+<td><code>intermediate_log_dir</code></td>
+<td><code>galimatron.intermediate-log-dir</code></td>
+</tr>
+<tr>
+<td><code>intermediate_summary_dir</code></td>
+<td><code>galimatron.intermediate-summary-dir</code></td>
+</tr>
+<tr>
+<td><code>saxon_working_dir</code></td>
+<td><code>saxon-processor.working-dir</code></td>
+</tr>
+</tbody>
+</table>
+<p>They are how an XSLT finds a state file without knowing the machine (see <a href="../custom-states/">Custom states</a>).</p>
+<h2 id="where-your-xslt-may-write">Where your XSLT may write<a class="headerlink" href="#where-your-xslt-may-write" title="Permanent link">&para;</a></h2>
+<p>An XSLT writes files with <code>xsl:result-document</code>. It does not write an absolute path. It names a <strong>store</strong> by an alias:</p>
+<pre><code class="language-xml">&lt;xsl:result-document href=&quot;@@generated-sql@@v6/schema.sql@@&quot; method=&quot;text&quot;&gt;
+</code></pre>
+<p><img alt="Aliases" src="../images/18_alias.svg" /></p>
+<p>The <code>href</code> is <code>@@ALIAS@@RELATIVE_PATH@@</code>. The <code>ALIAS</code> is the <code>store-dir-string-alias</code> of an entry in <code>other-files</code>:</p>
+<pre><code class="language-json">&quot;other-files&quot; : [
+    {
+        &quot;store-dir&quot; : &quot;generated_sql/&quot;,
+        &quot;store-dir-string-alias&quot; : &quot;generated-sql&quot;,
+        &quot;extentions&quot; : [&quot;.sql&quot;],
+        &quot;replace-escaped-form-to-original-symbols&quot; : true,
+        &quot;delete-if-not-rewrited&quot; : true
+    }
+]
+</code></pre>
+<p>Galimatron replaces the alias with the folder. The result is <code>generated_sql/v6/schema.sql</code>.</p>
+<p>Why aliases?</p>
+<ul>
+<li><strong>Safety.</strong> An XSLT cannot write outside the folders that <code>gal.cfg</code> names, and not with an extension you did not allow (<code>extentions</code>). A mistake in a path is refused, not executed.</li>
+<li><strong>Portability.</strong> The XSLT holds no machine path. You move the output by changing <code>gal.cfg</code>.</li>
+<li><strong>Review.</strong> One file, <code>gal.cfg</code>, lists every place the project writes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>store-dir</code></td>
+<td>The folder of this store.</td>
+</tr>
+<tr>
+<td><code>store-dir-string-alias</code></td>
+<td>The alias that the XSLT uses.</td>
+</tr>
+<tr>
+<td><code>extentions</code></td>
+<td>Allowed extensions. A file with another one is refused.</td>
+</tr>
+<tr>
+<td><code>replace-escaped-form-to-original-symbols</code></td>
+<td><code>true</code> turns <code>&amp;lt; &amp;gt; &amp;amp; &amp;quot; &amp;apos;</code> in the written text back into <code>&lt; &gt; &amp; " '</code>. Use it for generated source text, where a template in XML had to escape them.</td>
+</tr>
+<tr>
+<td><code>delete-if-not-rewrited</code></td>
+<td><code>true</code> (the default) removes files in this store that this run did not rewrite. The store then always mirrors the current description: a deleted aggregate takes its generated file with it. <code>false</code> keeps old files. The <a href="../example-messages/">Example: messages that grow</a> uses <code>false</code> for hand-edited conversions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="order-matters">Order matters<a class="headerlink" href="#order-matters" title="Permanent link">&para;</a></h2>
+<p>Transforms run in the order of the list. In the messages example the dictionary generator is listed <strong>before</strong> the source generator, because the source generator replaces the compiled document. The <code>user-data-for-info</code> of such a transform says so.</p>
+<pre><code class="language-json">{
+    &quot;name&quot; : &quot;generate dictionary.md&quot;,
+    &quot;user-data-for-info&quot; : &quot;copies the compiled document through, so this stays before the source xslt&quot;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hashes/" class="btn btn-neutral float-left" title="Hashes and closed versions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../diagnostics/" class="btn btn-neutral float-right" title="Logs and diagnostics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../hashes/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../diagnostics/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

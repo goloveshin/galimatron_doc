@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/custom-states/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Custom states - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Custom states";
+        var mkdocs_page_input_path = "custom-states.md";
+        var mkdocs_page_url = "/galimatron_doc/custom-states/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Custom states</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-problem">The problem</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#two-places-for-a-state">Two places for a state</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-in-tags">1. In tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-in-a-file">2. In a file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#where-to-put-the-file">Where to put the file</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-to-remember-when-you-design-a-state">What to remember when you design a state</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Your project</li>
+      <li class="breadcrumb-item active">Custom states</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="custom-states">Custom states<a class="headerlink" href="#custom-states" title="Permanent link">&para;</a></h1>
+<p>Galimatron keeps one state for you: the <code>.gal</code> files. Sometimes your XSLT needs a memory of its own: "which conversions did I already write", "what was the last build number", "which names have I already put in the dictionary". That memory is a <strong>custom state</strong>.</p>
+<h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>An XSLT is a function. It reads its input and writes its output, and forgets. A generator needs a memory in three cases:</p>
+<ul>
+<li><strong>A counter</strong> that must go on from where it stopped.</li>
+<li><strong>A record of what it generated</strong>, so it does not overwrite a file that a person edited by hand.</li>
+<li><strong>A list that grows</strong>: names, ids, a dictionary.</li>
+</ul>
+<p>Galimatron does not need a database for this, and your XSLT does not need a side channel. Your state lives in files next to your <code>.gal</code> files, and goes through version control with them.</p>
+<p><img alt="Custom state" src="../images/20_custom_state.svg" /></p>
+<p>A state belongs to you. Galimatron does not read it, and does not check it. Your XSLT reads what the last run left, decides what is new, and writes it again.</p>
+<h2 id="two-places-for-a-state">Two places for a state<a class="headerlink" href="#two-places-for-a-state" title="Permanent link">&para;</a></h2>
+<h3 id="1-in-tags">1. In tags<a class="headerlink" href="#1-in-tags" title="Permanent link">&para;</a></h3>
+<p>The simplest state is data. The counter in the hello project is a tag:</p>
+<pre><code>version 0
+{
+    counter = { &quot;1&quot; };
+}
+</code></pre>
+<p>Each run, a language XSLT reads it, adds one, and Galimatron writes it back into the <code>.gal</code> file. Advantages:</p>
+<ul>
+<li>It is versioned like the rest of the data, and it shows in the <code>history</code>.</li>
+<li>It can be <a href="../tags/#important">important</a>: then a hash closes it with the version.</li>
+<li>The Wizard can create and edit it (<code>wizard create tag ...</code>).</li>
+<li>The compiled view carries it, so a post XSLT can read it without a file.</li>
+</ul>
+<p>The <a href="../example-messages/">Example: messages that grow</a> keeps its dictionary in tags too: an aggregate <code>dictionary</code> with one <code>entry</code> tag per name. The language XSLT <code>fill-dictionary.xsl</code> adds an entry for every tag name that has none, and a person can edit the text of an entry next to it. A name already in the dictionary stays: the text a person wrote is not overwritten.</p>
+<p>Use tags when the state <em>is</em> a part of the description.</p>
+<h3 id="2-in-a-file">2. In a file<a class="headerlink" href="#2-in-a-file" title="Permanent link">&para;</a></h3>
+<p>When the state is a record about the <strong>output</strong>, not about the description, a file is better. The messages example keeps <code>conversion-state.xml</code>:</p>
+<pre><code class="language-xml">&lt;conversion-state&gt;
+   &lt;made from=&quot;v1&quot; to=&quot;v3&quot;/&gt;
+   &lt;made from=&quot;v2&quot; to=&quot;v3&quot;/&gt;
+   &lt;made from=&quot;v1&quot; to=&quot;v4&quot;/&gt;
+   ...
+&lt;/conversion-state&gt;
+</code></pre>
+<p>Each <code>made</code> says "the conversion from v1 to v3 was generated". The generator writes an empty conversion file for a pair that is not recorded, and a person fills it in. On the next run the pair is recorded, so the file is not touched, and the person's work is safe.</p>
+<p>A state file needs three things from you:</p>
+<ol>
+<li>
+<p><strong>A place.</strong> A store in <code>gal.cfg</code>, so the XSLT can write it:</p>
+<p><code>json
+{
+    "store-dir" : "actual_gal/",
+    "store-dir-string-alias" : "conversion-state",
+    "extentions" : [".xml"],
+    "delete-if-not-rewrited" : true
+}</code></p>
+</li>
+<li>
+<p><strong>A write.</strong> The XSLT writes it with the alias:</p>
+<p><code>xml
+&lt;xsl:result-document href="@@conversion-state@@conversion-state.xml@@" method="xml" indent="yes"&gt;
+    &lt;conversion-state&gt;
+        &lt;xsl:copy-of select="$old-state/conversion-state/made"/&gt;
+        &lt;!-- ... and one made for each pair written in this run --&gt;
+    &lt;/conversion-state&gt;
+&lt;/xsl:result-document&gt;</code></p>
+</li>
+<li>
+<p><strong>A read.</strong> The XSLT finds the file by a path that Galimatron gives it, in <code>input_gal_dir</code>:</p>
+<p>```xml
+<xsl:param name="input_gal_dir" as="xs:string"/></p>
+<p><xsl:variable name="state-uri" select="concat(gal:directory-uri($input_gal_dir), 'conversion-state.xml')"/>
+<xsl:variable name="state" select="if (doc-available($state-uri)) then doc($state-uri) else ()"/>
+```</p>
+<p>On the first run the file does not exist yet, so <code>doc-available</code> guards the read.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Read and write are different URIs</p>
+<p>Saxon does not allow reading and writing the same URI in one run. The write uses the alias form (<code>@@conversion-state@@...</code>) and the read uses a real file URI, so it works. If the state is stored in the <em>output</em> gal folder (as in the example, whose folders are apart for testing), read both the input and the output copy, because a step may have a state in either. In a project with one gal folder there is only one copy.</p>
+</div>
+<h3 id="where-to-put-the-file">Where to put the file<a class="headerlink" href="#where-to-put-the-file" title="Permanent link">&para;</a></h3>
+<p>Put it in a folder that <code>gal.cfg</code> names, and commit it with the <code>.gal</code> files. A state file is part of the project's memory: lose it, and the generator forgets what it wrote.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not let a store delete your state. <code>delete-if-not-rewrited: true</code> removes files in the store that the run did not rewrite. For a state that you write on every run this is a correct cleanup. For files that a person edits (the conversions of the example) use <code>false</code>.</p>
+</div>
+<h2 id="what-to-remember-when-you-design-a-state">What to remember when you design a state<a class="headerlink" href="#what-to-remember-when-you-design-a-state" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Decide from the data, not from the clock.</strong> Do not let a time change the output between two runs of the same input.</li>
+<li><strong>Grow, do not rewrite.</strong> A state that only adds is easy to review in a diff.</li>
+<li><strong>Let a person edit, and respect it.</strong> A generator that overwrites a hand-written file is worse than none. Record what you wrote, and skip it next time.</li>
+<li><strong>Keep it small.</strong> The state travels with the project.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../templates/" class="btn btn-neutral float-left" title="Generating text"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../editor/" class="btn btn-neutral float-right" title="Editor support">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../templates/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../editor/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

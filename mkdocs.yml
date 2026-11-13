@@ -6,8 +6,7 @@ edit_uri: ''
 copyright: Distributed under the Boost Software License, Version 1.0.
 
 docs_dir: source
-# the documentation is read with "mkdocs serve". this folder is not committed
-site_dir: site
+site_dir: docs
 
 theme:
   name: readthedocs

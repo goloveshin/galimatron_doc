@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/entities/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Entities - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Entities";
+        var mkdocs_page_input_path = "entities.md";
+        var mkdocs_page_url = "/galimatron_doc/entities/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Entities</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-problem-each-one-solves">The problem each one solves</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-you-can-do-with-an-entity">What you can do with an entity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-entities-are-written">Where entities are written</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#names">Names</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">The language</li>
+      <li class="breadcrumb-item active">Entities</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="entities">Entities<a class="headerlink" href="#entities" title="Permanent link">&para;</a></h1>
+<p>GaL is a very simple, declarative language that looks like JSON, with a small set of entities on purpose. Anything else you need is built from tags. A GaL file is plain text, and all the state of a project is in such files: there are no binaries and no database, so a project lives in git like any other text.</p>
+<p><img alt="Entities of GaL" src="../images/06_entities.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>What it is</th>
+<th>Belongs to</th>
+<th>How many</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>root aggregate</strong></td>
+<td>The top of the description. It lists the versions and orchestrates the aggregates.</td>
+<td>nothing</td>
+<td>exactly one</td>
+</tr>
+<tr>
+<td><strong>aggregate</strong></td>
+<td>A named group of tags. One message, one table, one setting group.</td>
+<td>the root, through versions</td>
+<td>any number, one file each</td>
+</tr>
+<tr>
+<td><strong>version</strong></td>
+<td>The content of an aggregate at one moment.</td>
+<td>an aggregate</td>
+<td>many</td>
+</tr>
+<tr>
+<td><strong>tag</strong></td>
+<td>A named piece of data. The main entity.</td>
+<td>a version</td>
+<td>many</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td>Gives meaning to the values of a tag.</td>
+<td>a version</td>
+<td>many</td>
+</tr>
+<tr>
+<td><strong>ordering</strong></td>
+<td>Says which aggregates come before which.</td>
+<td>a root version</td>
+<td>many</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-problem-each-one-solves">The problem each one solves<a class="headerlink" href="#the-problem-each-one-solves" title="Permanent link">&para;</a></h2>
+<p><strong>Aggregate.</strong> A description with a hundred items in one file is hard to read and hard to merge. Each aggregate lives in its own file, so a change to <code>apple</code> is a change to <code>apple.gal</code>, and two people rarely edit the same file.</p>
+<p><strong>Root aggregate.</strong> Items often share settings: a currency, a namespace, a flag that says "published". You do not want to repeat them. A tag written in the root flows into every aggregate (see <a href="../aggregates-and-versions/">Aggregates and versions</a>).</p>
+<p><strong>Version.</strong> Data changes, and the old state must stay available. A version is a numbered state. The root says which versions exist, and every aggregate repeats the same indexes.</p>
+<p><strong>Tag.</strong> The unit of data: a name and values. A tag is not typed by the language. Strings, records and arrays are enough. The meaning is yours.</p>
+<p><strong>Label.</strong> A tag often needs more than a value: a type and a name, a default, a flag. Labels give structure to values <em>without adding keywords to the language</em>. A label says: the first value is the <code>type</code>, the second is the <code>name</code>. See <a href="../labels/">Labels</a>.</p>
+<p><strong>Ordering.</strong> Files have no natural order, and generated output often needs one: a type before the types that use it. An ordering says it in the data. See <a href="../ordering/">Ordering</a>.</p>
+<h2 id="what-you-can-do-with-an-entity">What you can do with an entity<a class="headerlink" href="#what-you-can-do-with-an-entity" title="Permanent link">&para;</a></h2>
+<p>Every entity has a life: it is created, it changes, it may be deleted. GaL keeps this small and clear.</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root aggregate</td>
+<td><code>wizard create root aggregate</code></td>
+<td><code>wizard create version</code></td>
+<td>not possible, the root stays</td>
+</tr>
+<tr>
+<td>aggregate</td>
+<td><code>aggregate Name { ... }</code> or <code>wizard create aggregate</code></td>
+<td><code>wizard create version</code></td>
+<td><code>delete;</code> in a version (history stays), or <code>wizard delete aggregate</code> with <code>physically</code></td>
+</tr>
+<tr>
+<td>version</td>
+<td><code>version N { }</code> or <code>wizard create version</code></td>
+<td>by tags, and by a hash that closes it</td>
+<td><code>wizard delete version</code>, <code>wizard collapse version</code></td>
+</tr>
+<tr>
+<td>tag</td>
+<td><code>a = { ... };</code></td>
+<td><code>a = { ... };</code> in a later version</td>
+<td><code>delete a;</code></td>
+</tr>
+<tr>
+<td>label</td>
+<td><code>label name = ...;</code></td>
+<td>a later statement of the same name wins</td>
+<td>not possible, a label name is final</td>
+</tr>
+<tr>
+<td>ordering</td>
+<td><code>ordering name = { ... };</code></td>
+<td>a later statement of the same name wins</td>
+<td>not possible</td>
+</tr>
+</tbody>
+</table>
+<p>Two kinds of delete are worth knowing:</p>
+<ul>
+<li><strong>Historical delete</strong> writes <code>delete;</code> or <code>delete a;</code> into a version. The history stays in the file. The compiled view drops what was deleted from that version on.</li>
+<li><strong>Physical delete</strong> removes the file, or removes a version from every aggregate. It is refused while a closed version still holds the aggregate, and it only removes open versions. It is for a draft that never shipped, or for a mistake.</li>
+</ul>
+<h2 id="where-entities-are-written">Where entities are written<a class="headerlink" href="#where-entities-are-written" title="Permanent link">&para;</a></h2>
+<p>An aggregate is a file. A file has two parts:</p>
+<p><img alt="Anatomy of a GaL file" src="../images/07_gal_file_anatomy.svg" /></p>
+<p>The first part is the <strong>declaration</strong>: which versions exist, which are closed (a hash), which are deleted. The second part is the <strong>definitions</strong>: one block per version with the tags it writes.</p>
+<pre><code>aggregate apple
+{
+    versions
+    {
+        0 = { hash = 'e3b0c442...' };
+        1 = { hash = '1ee2e644...' };
+        2;
+    }
+}
+
+version 0
+{
+    price = { &quot;3&quot; };
+}
+
+version 1
+{
+    field important { &quot;int&quot;, &quot;price&quot; };
+}
+
+version 2
+{
+}
+</code></pre>
+<p><code>field</code> in version 1 is a label that the root declares (see <a href="../labels/">Labels</a>). <code>version 2</code> is open and empty. It inherits everything from 0 and 1 (see <a href="../aggregates-and-versions/#what-a-version-sees">Aggregates and versions</a>).</p>
+<p>The root aggregate has the same shape with the word <code>root</code>: <code>root aggregate shop { versions { ... } }</code>. The root file may also hold labels and orderings.</p>
+<h2 id="names">Names<a class="headerlink" href="#names" title="Permanent link">&para;</a></h2>
+<p>An aggregate or tag name is a letter followed by letters, digits and underscores: <code>apple</code>, <code>hello_world</code>, <code>version_number</code>. Names of aggregates must be unique, ignoring case. By convention aggregate names and file names are lowercase, so that <code>apple.gal</code> is never confused with <code>Apple.gal</code> on a system that cares about case. The name of the root aggregate does not matter to the data. The word <em>comment</em> and the other words of the language are reserved (see the <a href="../reference/#keywords">Reference</a>).</p>
+<p>Strings use <code>"..."</code> or <code>'...'</code>. A raw string <code>R"(...)"</code> keeps every character as written. Comments are <code>// ...</code> and <code>/* ... */</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../how-it-works/" class="btn btn-neutral float-left" title="How a run works"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../aggregates-and-versions/" class="btn btn-neutral float-right" title="Aggregates and versions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../how-it-works/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../aggregates-and-versions/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

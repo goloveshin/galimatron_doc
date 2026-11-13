@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/benchmark/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Benchmark - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Benchmark";
+        var mkdocs_page_input_path = "benchmark.md";
+        var mkdocs_page_url = "/galimatron_doc/benchmark/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Benchmark</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-big-is-a-real-project">How big is a real project?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-tags">Dynamic tags</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-grows">How it grows</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#static-tags">Static tags</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#without-xslt">Without XSLT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-means-for-your-project">What it means for your project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-it-yourself">Run it yourself</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Benchmark</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="benchmark">Benchmark<a class="headerlink" href="#benchmark" title="Permanent link">&para;</a></h1>
+<p><code>examples/benchmark</code> is a synthetic project that answers one question: <em>how big can a project get?</em> It builds a description of many aggregates and many versions, runs the Wizard and an XSLT over it, and measures every step.</p>
+<h2 id="how-big-is-a-real-project">How big is a real project?<a class="headerlink" href="#how-big-is-a-real-project" title="Permanent link">&para;</a></h2>
+<p>Read the numbers below against two facts about real projects.</p>
+<ul>
+<li><strong>Many aggregates are normal.</strong> A description with 500 aggregates (one for each message, record or data type) is an ordinary size, so the benchmark goes up to 500.</li>
+<li><strong>Many live versions are not.</strong> Having 100 versions in use at the same time is extremely rare. A typical project keeps about 5, maybe 10. The benchmark goes to 100 to find the limit, not because a project needs it.</li>
+</ul>
+<p>Versions are the expensive part (see "How it grows" below), and that is a reason to retire them. When a version goes out of service, run a <a href="../aggregates-and-versions/#collapsing-history">collapse</a>: the old versions fold into one, and the time and the memory fall back. A project that keeps its live versions to a handful stays in the cheap corner of every table on this page.</p>
+<div class="admonition important">
+<p class="admonition-title">The case to look at first: 500 aggregates, 10 versions</p>
+<p>This is the size most projects will actually have, so read its numbers before the rest. Here are the rows of the <a href="#static-tags">static tags</a> and <a href="#without-xslt">no XSLT</a> tables for it:</p>
+<table>
+<thead>
+<tr>
+<th>500 aggregates, 10 versions</th>
+<th style="text-align: right;">with your language XSLT</th>
+<th style="text-align: right;">without any XSLT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 tag in each aggregate</td>
+<td style="text-align: right;">76.6 s, 444 MB</td>
+<td style="text-align: right;">44.5 s, 185 MB</td>
+</tr>
+<tr>
+<td>100 tags in each aggregate</td>
+<td style="text-align: right;">9 min 45 s, 2.9 GB</td>
+<td style="text-align: right;">2 min 37 s, 1.1 GB</td>
+</tr>
+</tbody>
+</table>
+<p>The Wizard stays near 22 seconds in all of these rows. What grows with the tags is your XSLT and the reading of its result back: with 100 tags they are about two thirds of the run.</p>
+</div>
+<h2 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h2>
+<p><img alt="Time of the biggest dynamic run" src="../images/23_benchmark_time.svg" /></p>
+<p>One run has a source of <code>A</code> aggregates (the root file, <code>console.gal</code>, and one file for each aggregate), each with version 0 only. Version 0 has a bit of everything: a dynamic label, a static label with <code>tag-name-from</code>, an important tag, a dynamic tag, a long string, an unnamed tag, a template, and the payload tags.</p>
+<p>Then the run:</p>
+<ol>
+<li>The Wizard batch in <code>console.gal</code> creates versions 1 to <code>V-1</code>. Each new version rewrites the ordering of the root, deletes and creates one tag in every aggregate, and adds a new tag. <code>create hash 0</code> closes version 0.</li>
+<li><code>xslt/suffix.xsl</code> appends the version index to every tag string. It writes the result to <code>intermediate/suffix-fresh.xml</code>.</li>
+<li>The seal keeps the hashed version 0 text and moves those string changes into version 1.</li>
+<li>Galimatron compiles everything and writes the post XML.</li>
+</ol>
+<p>This exercises every part of the language and the run: Wizard, XSLT, seal, compilation. You can read the result in <code>actual_gal/</code> and the time of each step in <code>intermediate/galimatron.log</code>.</p>
+<p>The machine: Intel Core i7-3770K at 3.5 GHz (4 cores, 8 threads), 32 GB of RAM, MSVC 19.51, x64, <strong>Release</strong> build with <code>/O2</code>. The times are in seconds. <em>State</em> is how much the private memory of the process grew during the run.</p>
+<h2 id="dynamic-tags">Dynamic tags<a class="headerlink" href="#dynamic-tags" title="Permanent link">&para;</a></h2>
+<p>The tag types matter. A tag with a <strong>dynamic</strong> label is copied into every new version, so <code>T</code> dynamic tags and <code>V</code> versions make <code>T * V</code> copies. The table is the measured run; <code>tags</code> is the number of dynamic payload tags.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">aggregates</th>
+<th style="text-align: right;">versions</th>
+<th style="text-align: right;">tags</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">Wizard</th>
+<th style="text-align: right;">cpp2xml</th>
+<th style="text-align: right;">xslt</th>
+<th style="text-align: right;">xml2cpp</th>
+<th style="text-align: right;">cpp2gal</th>
+<th style="text-align: right;">post xml</th>
+<th style="text-align: right;">state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">152 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">201 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">50.4</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">11.3</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">11.1</td>
+<td style="text-align: right;">447 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">128.5</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">42.7</td>
+<td style="text-align: right;">45.7</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">13.8</td>
+<td style="text-align: right;">799 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">151.8</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">41.2</td>
+<td style="text-align: right;">8.3</td>
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">1.1 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">419.4</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">22.5</td>
+<td style="text-align: right;">152.8</td>
+<td style="text-align: right;">160.4</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">43.3</td>
+<td style="text-align: right;">1.6 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">14.8</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">262 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">32.7</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">277 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">134.1</td>
+<td style="text-align: right;">12.3</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: right;">37.0</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: right;">808 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">393.3</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: right;">20.3</td>
+<td style="text-align: right;">150.9</td>
+<td style="text-align: right;">157.1</td>
+<td style="text-align: right;">17.6</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">1.3 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">436.4</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">20.2</td>
+<td style="text-align: right;">130.6</td>
+<td style="text-align: right;">137.6</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: right;">73.4</td>
+<td style="text-align: right;">2.1 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1383.9</td>
+<td style="text-align: right;">47.4</td>
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">568.0</td>
+<td style="text-align: right;">580.3</td>
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">88.8</td>
+<td style="text-align: right;">2.9 GB</td>
+</tr>
+</tbody>
+</table>
+<p>The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes <strong>23 minutes 4 seconds</strong> and grows the state by 2.9 GB. Nearly all of it is the two steps that walk the data with your XSLT: <code>xslt</code> (568 s, your language XSLT) and <code>xml2cpp</code> (580 s, reading its result back).</p>
+<h3 id="how-it-grows">How it grows<a class="headerlink" href="#how-it-grows" title="Permanent link">&para;</a></h3>
+<p><code>A</code> is the number of aggregates, <code>V</code> the number of versions, <code>T</code> the number of tags.</p>
+<ul>
+<li><strong>Versions dominate</strong>, about <code>O(V^1.5)</code>. Ten times the versions (10 to 100) makes the run 22 to 42 times longer. The copied dynamic tags and the XSLT walk grow with every version.</li>
+<li><strong>Tags</strong> are about <code>O(T^0.5)</code> on a 10-version run. Four times the tags (2 to 8) doubles the time. With 100 versions it triples it, toward <code>O(T)</code>.</li>
+<li><strong>Aggregates</strong> are about <code>O(A)</code> to <code>O(A^1.5)</code>. Twice the aggregates makes the run 2 to 3 times longer.</li>
+<li><strong>State</strong> follows the versions, about <code>O(V)</code>. At 10 versions, 100 aggregates stay near 260 MB for both tag counts.</li>
+</ul>
+<h2 id="static-tags">Static tags<a class="headerlink" href="#static-tags" title="Permanent link">&para;</a></h2>
+<p>The same project with tags that have a <strong>static</strong> label. A new version does not copy them. <code>V</code> is fixed at 10.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">aggregates</th>
+<th style="text-align: right;">tags</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">Wizard</th>
+<th style="text-align: right;">xslt</th>
+<th style="text-align: right;">xml2cpp</th>
+<th style="text-align: right;">state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">73 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">135 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">115 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">26.2</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">431 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.6</td>
+<td style="text-align: right;">22.0</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">13.6</td>
+<td style="text-align: right;">444 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">271.0</td>
+<td style="text-align: right;">24.0</td>
+<td style="text-align: right;">70.9</td>
+<td style="text-align: right;">75.1</td>
+<td style="text-align: right;">1.6 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">584.9</td>
+<td style="text-align: right;">21.3</td>
+<td style="text-align: right;">187.1</td>
+<td style="text-align: right;">195.5</td>
+<td style="text-align: right;">2.9 GB</td>
+</tr>
+</tbody>
+</table>
+<p>500 aggregates, 10 versions and 100 static tags takes 9 min 45 s. Time is about <code>O(A * T^0.5)</code>: from 1 tag to 100 tags the run grows 6 to 8 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 96 times longer. At 500 aggregates the <strong>Wizard stays near 22 seconds</strong>, whatever the number of tags.</p>
+<h2 id="without-xslt">Without XSLT<a class="headerlink" href="#without-xslt" title="Permanent link">&para;</a></h2>
+<p>Not every project needs an XSLT between the Wizard and the end. <code>gal-static-no-xslt.cfg</code> is the same static grid without any user XSLT. Then <code>cpp2xml</code>, <code>suffix.xsl</code> and <code>xml2cpp</code> are not in the run, and <strong>Saxon is not created</strong>. The log has no <em>xslt processor</em> line.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">aggregates</th>
+<th style="text-align: right;">tags</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">Wizard</th>
+<th style="text-align: right;">cpp2gal</th>
+<th style="text-align: right;">post xml</th>
+<th style="text-align: right;">state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">5 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">30 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">14.7</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: right;">126 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">23.4</td>
+<td style="text-align: right;">6.7</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">185 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">156.6</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">24.8</td>
+<td style="text-align: right;">86.4</td>
+<td style="text-align: right;">1.1 GB</td>
+</tr>
+</tbody>
+</table>
+<p>The big case (500 aggregates, 100 static tags) drops from 9 min 45 s to <strong>2 min 37 s</strong>, and from 2.9 GB to 1.1 GB. The slow step is now <code>post xml</code> (86 s), the compiled XML.</p>
+<h2 id="what-it-means-for-your-project">What it means for your project<a class="headerlink" href="#what-it-means-for-your-project" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>If</th>
+<th>Then</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The project has 10 to 50 aggregates and 10 versions.</td>
+<td>A run is a few seconds. Do not worry.</td>
+</tr>
+<tr>
+<td>The project has many versions (more than the usual 5 to 10 in use).</td>
+<td>Time and memory follow the number of versions. <a href="../aggregates-and-versions/#collapsing-history">Collapse</a> old ones when they go out of service.</td>
+</tr>
+<tr>
+<td>You have many tags that change every version.</td>
+<td>Each dynamic tag is copied into every version. Use a <strong>static</strong> label for what does not need to change in each version.</td>
+</tr>
+<tr>
+<td>A tag must be new in every version (an id).</td>
+<td>Keep it dynamic, but keep the number of such tags small.</td>
+</tr>
+<tr>
+<td>You use a language XSLT.</td>
+<td>It is the largest cost on a big project: the step and the read back. Do in the <em>post</em> XSLT what does not have to change the data.</td>
+</tr>
+<tr>
+<td>You have no data changes to make.</td>
+<td>List no language XSLT. Saxon is not even created for a run with no XSLT at all.</td>
+</tr>
+<tr>
+<td>The Wizard is slow.</td>
+<td>It is <code>O(1)</code> in tags and grows with aggregates. 500 aggregates cost about 22 s.</td>
+</tr>
+</tbody>
+</table>
+<p>The time of each step is always in <code>intermediate/galimatron.log</code>: use the same lines to measure your own project. See <a href="../diagnostics/">Logs and diagnostics</a>.</p>
+<h2 id="run-it-yourself">Run it yourself<a class="headerlink" href="#run-it-yourself" title="Permanent link">&para;</a></h2>
+<p>The benchmark is a set of CMake targets in <code>examples/benchmark</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>benchmark</code></td>
+<td>one run (500 aggregates, 10 versions, 2 dynamic tags)</td>
+</tr>
+<tr>
+<td><code>benchmark_matrix</code></td>
+<td>the dynamic grid</td>
+</tr>
+<tr>
+<td><code>benchmark_matrix_static</code></td>
+<td>the static grid</td>
+</tr>
+<tr>
+<td><code>benchmark_matrix_static_no_xslt</code></td>
+<td>the static grid without XSLT</td>
+</tr>
+</tbody>
+</table>
+<p>The results are saved in <code>examples/benchmark/matrix/</code>. A Release build is needed for numbers like the ones above.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../example-messages/" class="btn btn-neutral float-left" title="Example: messages that grow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../reference/" class="btn btn-neutral float-right" title="Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../example-messages/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../reference/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

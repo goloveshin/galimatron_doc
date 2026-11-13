@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/xslt/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>XSLT - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "XSLT";
+        var mkdocs_page_input_path = "xslt.md";
+        var mkdocs_page_url = "/galimatron_doc/xslt/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">XSLT</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-xslt">Why XSLT</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-saxonc-he-does-not-do">What SaxonC-HE does not do</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-first-xslt-change-the-data">The first XSLT: change the data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-language-xml">The language XML</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-compiled-xml">The compiled XML</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gal-functionsxsl">gal-functions.xsl</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-language-xslt-with-state-the-next-uuid">A language XSLT with state: the next uuid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-post-xslt-a-dictionary">A post XSLT: a dictionary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#your-xslt-and-closed-versions-the-seal">Your XSLT and closed versions: the seal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-an-xslt">Working with an XSLT</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Your project</li>
+      <li class="breadcrumb-item active">XSLT</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="xslt">XSLT<a class="headerlink" href="#xslt" title="Permanent link">&para;</a></h1>
+<p>Galimatron has no built-in generator, because what you generate is yours. Its primary output is XML, and XSLT is the way to turn that XML into something else <em>inside</em> the run. Galimatron hands the data to your <strong>XSLT 3.0</strong> programs, run by SaxonC-HE, and takes the result back. This page is about writing those programs.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Using XSLT here is <strong>optional</strong>. The compiled XML (<code>post-compiled.xml</code>) is written on every run. If you prefer Python or any other tool, leave <code>transforms</code> empty and read that file. XSLT inside Galimatron adds three things: Saxon is already there, the output is confined to the folders of <code>gal.cfg</code>, and a <em>language</em> XSLT can edit the data safely (see the seal below).</p>
+<p>And nothing here is tied to a language: your XSLT can write source code in any language, JSON, SQL, Markdown, anything.</p>
+</div>
+<p>You need XSLT for two different jobs:</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Kind of transform</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>change the data</td>
+<td><strong>language</strong> transform</td>
+<td>the language XML</td>
+<td>the changed language XML, written back into <code>.gal</code></td>
+</tr>
+<tr>
+<td>make files</td>
+<td><strong>post-language</strong> transform</td>
+<td>the compiled XML</td>
+<td>files in the folders named by <code>gal.cfg</code></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="A chain of transforms" src="../images/17_xslt_chain.svg" /></p>
+<p>Each list runs in order, and the result of one transform is the input of the next. Both lists are in <a href="../configuration/#transforms">gal.cfg</a>. Either list may be empty.</p>
+<h2 id="why-xslt">Why XSLT<a class="headerlink" href="#why-xslt" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The data already is a tree, and XSLT is made for trees.</li>
+<li>XSLT is declarative: "when you see this tag, write that". It fits "for every aggregate of every published version".</li>
+<li>You do not need a build of your own, a language runtime or a library. A text file is the generator.</li>
+<li>It is replaceable. Two projects with different generators use the same Galimatron.</li>
+<li>It is not a fashion. XSLT 1.0 became a W3C standard in 1999, so the language is more than 25 years old, and version 3.0 (the one Galimatron uses) dates from 2017. A generator you write today will still be readable and runnable years from now.</li>
+<li>It is a full programming language (Turing-complete), with variables, functions and recursion. Whatever you need to compute, you can compute inside the template. It is the shape of the code, not its power, that is different from other languages.</li>
+</ul>
+<h3 id="what-saxonc-he-does-not-do">What SaxonC-HE does not do<a class="headerlink" href="#what-saxonc-he-does-not-do" title="Permanent link">&para;</a></h3>
+<p>Saxon comes in editions, and Galimatron carries the free one, SaxonC-HE (Home Edition). Three things from the paid editions are missing. Know them before you plan a generator:</p>
+<ul>
+<li><strong>No schema awareness.</strong> Your XSLT cannot validate the XML against an XSD (no <code>xsl:import-schema</code>, no <code>validation="strict"</code>, no <code>schema-element()</code>). Galimatron checks its own data itself, before and after your XSLT. A check on the data that you add yourself is written in XSLT, with <code>xsl:if</code> and <code>xsl:message terminate="yes"</code>.</li>
+<li><strong>No streaming.</strong> The whole document is held in memory while your XSLT runs. This is fine for the sizes in the <a href="../benchmark/">benchmark</a>, and a reason not to dump a huge data set through one transform.</li>
+<li><strong>No parallel execution.</strong> The edition does not spread one transform over several threads. This costs little here, because Galimatron runs the transforms of a list one after another anyway.</li>
+</ul>
+<p>Ordinary XSLT 3.0 (functions, maps, arrays, <code>xsl:iterate</code>, <code>xsl:result-document</code>, regular expressions) works.</p>
+<h2 id="the-first-xslt-change-the-data">The first XSLT: change the data<a class="headerlink" href="#the-first-xslt-change-the-data" title="Permanent link">&para;</a></h2>
+<p>A language XSLT copies everything and changes only what it matches.</p>
+<pre><code class="language-xml">&lt;xsl:transform
+    xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+    xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+    exclude-result-prefixes=&quot;xs&quot;
+    version=&quot;3.0&quot;
+&gt;
+    &lt;xsl:mode on-no-match=&quot;shallow-copy&quot;/&gt;
+
+    &lt;!-- counter = { &quot;0&quot; } becomes { &quot;1&quot; }, then { &quot;2&quot; }, and so on --&gt;
+    &lt;xsl:template match=&quot;tag[@name='counter']/values/value/string/text()&quot;&gt;
+        &lt;xsl:value-of select=&quot;xs:integer(.) + 1&quot;/&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:transform&gt;
+</code></pre>
+<p><code>&lt;xsl:mode on-no-match="shallow-copy"/&gt;</code> is the line to remember. Without it, everything you do not match is dropped, and the data disappears. With it, the XSLT is a <em>patch</em>.</p>
+<h2 id="the-language-xml">The language XML<a class="headerlink" href="#the-language-xml" title="Permanent link">&para;</a></h2>
+<p>Galimatron writes the language as XML. These are the elements you will use:</p>
+<pre><code class="language-xml">&lt;galimatron&gt;
+  &lt;language&gt;
+    &lt;chunk&gt;                                  &lt;!-- one .gal file --&gt;
+      &lt;aggregate name=&quot;apple&quot; index=&quot;0&quot;&gt;
+        &lt;aggregate-version-declarations&gt;
+          &lt;aggregate-version-declaration index=&quot;0&quot; status=&quot;deleted&quot;/&gt;
+          &lt;aggregate-version-declaration index=&quot;1&quot;/&gt;
+        &lt;/aggregate-version-declarations&gt;
+        &lt;aggregate-version-definitions&gt;
+          &lt;aggregate-version-definition index=&quot;1&quot;&gt;
+            &lt;tag index=&quot;0&quot; name=&quot;price&quot;&gt;
+              &lt;label-refs/&gt;
+              &lt;values&gt;
+                &lt;value index=&quot;0&quot;&gt;&lt;string delimiter=&quot;0&quot;&gt;3&lt;/string&gt;&lt;/value&gt;
+              &lt;/values&gt;
+            &lt;/tag&gt;
+          &lt;/aggregate-version-definition&gt;
+        &lt;/aggregate-version-definitions&gt;
+      &lt;/aggregate&gt;
+    &lt;/chunk&gt;
+  &lt;/language&gt;
+  &lt;history&gt;...&lt;/history&gt;
+&lt;/galimatron&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>root-aggregate</code>, <code>aggregate</code></td>
+<td>the aggregates, with <code>name</code></td>
+</tr>
+<tr>
+<td><code>*-version-declaration</code></td>
+<td>the version list: <code>index</code>, <code>status="deleted"</code>, hash</td>
+</tr>
+<tr>
+<td><code>*-version-definition</code></td>
+<td>the body of a version, with <code>index</code></td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>a tag, with <code>name</code> when it has one</td>
+</tr>
+<tr>
+<td><code>label-refs</code></td>
+<td>the labels the tag uses</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>a label statement</td>
+</tr>
+<tr>
+<td><code>values/value/string</code></td>
+<td>a value. Records and arrays have <code>record</code> and <code>array</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The simplest way to learn the shape is to open <code>intermediate/lang-wizard.xml</code> of your project: that is the exact input of your first language XSLT. See <a href="../diagnostics/">Logs and diagnostics</a>.</p>
+<h2 id="the-compiled-xml">The compiled XML<a class="headerlink" href="#the-compiled-xml" title="Permanent link">&para;</a></h2>
+<p>A post XSLT reads the merged picture. There the version definitions are complete: the root's tags are in the aggregates, and earlier versions are folded in.</p>
+<pre><code class="language-xml">&lt;galimatron&gt;
+  &lt;compiled&gt;
+    &lt;chunk&gt;
+      &lt;aggregate name=&quot;dictionary&quot; index=&quot;0&quot;&gt;
+        &lt;aggregate-version-definitions&gt;
+          &lt;aggregate-version-definition index=&quot;6&quot; mode=&quot;own&quot;&gt;
+            &lt;orderings&gt;
+              &lt;ordering name=&quot;shelf&quot; index=&quot;4&quot;/&gt;
+            &lt;/orderings&gt;
+            &lt;tag index=&quot;1&quot; name=&quot;uuid&quot;&gt;
+              &lt;values&gt;
+                &lt;value index=&quot;0&quot; entry=&quot;name&quot;&gt;&lt;string&gt;uuid&lt;/string&gt;&lt;/value&gt;
+                &lt;value index=&quot;1&quot; entry=&quot;introduced&quot;&gt;&lt;string&gt;0&lt;/string&gt;&lt;/value&gt;
+              &lt;/values&gt;
+            &lt;/tag&gt;
+</code></pre>
+<p>Differences from the language XML:</p>
+<ul>
+<li>A value carries the part of its static label as an attribute (<code>entry="name"</code>). No <code>label-refs</code>.</li>
+<li>Tags are merged and deleted tags are gone.</li>
+<li>Each version definition carries its <code>orderings</code> (the positions, see <a href="../ordering/">Ordering</a>).</li>
+<li>Template strings (<code>_te</code>) are already rendered.</li>
+<li>The aggregates of a version are not nested under the root. Use <code>//aggregate-version-definition[@index = 3]</code> to find all of them.</li>
+</ul>
+<p>See <code>intermediate/post-compiled.xml</code> for the real thing.</p>
+<h2 id="gal-functionsxsl">gal-functions.xsl<a class="headerlink" href="#gal-functionsxsl" title="Permanent link">&para;</a></h2>
+<p>Galimatron ships <code>gal-functions.xsl</code>, a library of functions for these two XMLs. Include it by its address:</p>
+<pre><code class="language-xml">&lt;xsl:include href=&quot;https://github.com/goloveshin/galimatron/xslt/gal-functions.xsl&quot;/&gt;
+</code></pre>
+<p>An installed Galimatron maps this address to the file on disk (the <code>catalog.xml</code> described in <a href="../getting-started/#install">Getting started</a>), so it needs no network. Declare <code>xmlns:gal="https://github.com/goloveshin/galimatron"</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gal:tagvalue($version, 'name')</code></td>
+<td>The first string of the tag <code>name</code> in that version, or empty.</td>
+</tr>
+<tr>
+<td><code>gal:has-tag($version, 'name')</code></td>
+<td>Whether the version has that tag.</td>
+</tr>
+<tr>
+<td><code>gal:labeled-string($tag, 'label', 'part')</code></td>
+<td>The string of the value marked by that part of a static label. (compiled)</td>
+</tr>
+<tr>
+<td><code>gal:tags-with-label($version, 'label')</code></td>
+<td>Direct tags of a version that carry a value of that label. (compiled)</td>
+</tr>
+<tr>
+<td><code>gal:tags-labeled($parent, 'label')</code></td>
+<td>Tags that use that label. (language)</td>
+</tr>
+<tr>
+<td><code>gal:versions-with-tag($anchor, $index, 'name')</code></td>
+<td>Every aggregate version of one index that has that tag.</td>
+</tr>
+<tr>
+<td><code>gal:version-definition($node)</code></td>
+<td>The version definition that contains the node.</td>
+</tr>
+<tr>
+<td><code>gal:version-index($node)</code></td>
+<td>Its index.</td>
+</tr>
+<tr>
+<td><code>gal:is-open-version($definition)</code></td>
+<td>Whether the version is live and no later version of that aggregate exists.</td>
+</tr>
+<tr>
+<td><code>gal:next-statement-index($version)</code></td>
+<td>The next free <code>index</code> for a new statement in that version.</td>
+</tr>
+<tr>
+<td><code>gal:tag-uses-dynamic($tag, 'id')</code></td>
+<td>Whether the tag is a Wizard copy marked by that dynamic label.</td>
+</tr>
+<tr>
+<td><code>gal:next-uuid($uuid)</code></td>
+<td>The uuid with its last group increased by one.</td>
+</tr>
+<tr>
+<td><code>gal:history($anchor)</code></td>
+<td>The <code>history</code> element.</td>
+</tr>
+<tr>
+<td><code>gal:dictionary-entry($index, $name, $introduced, $text)</code></td>
+<td>A new <code>tag</code> for a dictionary, written in the language XML.</td>
+</tr>
+<tr>
+<td><code>gal:ctx($version, $names)</code></td>
+<td>A map of tag values for a template. Hyphens in names are underscores in tags.</td>
+</tr>
+<tr>
+<td><code>gal:directory-uri($path)</code>, <code>gal:file-uri($path)</code></td>
+<td>A file URI for a path, for <code>doc()</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Several of these (<code>next-uuid</code>, <code>dictionary-entry</code>, and the helpers that find messages and enums) are written for the <a href="../example-messages/">example with messages</a>. The rest are general. Read the file: it is short, and a good model for functions of your own.</p>
+<h2 id="a-language-xslt-with-state-the-next-uuid">A language XSLT with state: the next uuid<a class="headerlink" href="#a-language-xslt-with-state-the-next-uuid" title="Permanent link">&para;</a></h2>
+<p>This is the one from the messages example. <code>wizard create version</code> copies each tag with a dynamic label and marks the copy. The XSLT gives the copies a new value:</p>
+<pre><code class="language-xml">&lt;xsl:mode on-no-match=&quot;shallow-copy&quot;/&gt;
+
+    &lt;!-- a Wizard copy of a tag labeled need_new_uuid. the original tag has no dynamic child --&gt;
+&lt;xsl:template match=&quot;tag[gal:tag-uses-dynamic(., 'need_gen_uuid')]/values/value/string/text()&quot;&gt;
+    &lt;xsl:value-of select=&quot;gal:next-uuid(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>Four lines, and every message in every new version gets a new id. See <a href="../labels/#dynamic-labels-values-that-must-change-with-every-version">Labels</a>.</p>
+<h2 id="a-post-xslt-a-dictionary">A post XSLT: a dictionary<a class="headerlink" href="#a-post-xslt-a-dictionary" title="Permanent link">&para;</a></h2>
+<p>This one reads the compiled XML and writes a Markdown file with an alias (see <a href="../configuration/#where-your-xslt-may-write">aliases</a>):</p>
+<pre><code class="language-xml">&lt;xsl:mode on-no-match=&quot;shallow-copy&quot;/&gt;
+
+&lt;xsl:template match=&quot;galimatron&quot;&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select=&quot;@* | node()&quot;/&gt;
+    &lt;/xsl:copy&gt;
+    &lt;xsl:result-document href=&quot;@@dictionary@@dictionary.md@@&quot; method=&quot;text&quot;&gt;
+        &lt;xsl:text&gt;# Dictionary&amp;#10;&amp;#10;&lt;/xsl:text&gt;
+        &lt;xsl:for-each-group select=&quot;//aggregate[@name = 'dictionary']//tag[values/value/@entry]&quot;
+                            group-by=&quot;string(gal:labeled-string(., 'entry', 'introduced'))&quot;&gt;
+            &lt;xsl:sort select=&quot;xs:integer(current-grouping-key())&quot; data-type=&quot;number&quot;/&gt;
+            &lt;xsl:text&gt;## Version &lt;/xsl:text&gt;
+            &lt;xsl:value-of select=&quot;current-grouping-key()&quot;/&gt;
+            &lt;xsl:text&gt;&amp;#10;&amp;#10;&lt;/xsl:text&gt;
+            &lt;xsl:for-each select=&quot;current-group()&quot;&gt;
+                &lt;xsl:sort select=&quot;@name&quot;/&gt;
+                &lt;xsl:text&gt;- `&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;@name&quot;/&gt;&lt;xsl:text&gt;`&lt;/xsl:text&gt;
+                ...
+            &lt;/xsl:for-each&gt;
+        &lt;/xsl:for-each-group&gt;
+    &lt;/xsl:result-document&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The template matches the document element, copies it through (so the next transform gets the same document), and <strong>also</strong> writes a file. This is the common shape of a post transform.</p>
+<h2 id="your-xslt-and-closed-versions-the-seal">Your XSLT and closed versions: the seal<a class="headerlink" href="#your-xslt-and-closed-versions-the-seal" title="Permanent link">&para;</a></h2>
+<p>A language XSLT may change a value in a version that a hash has closed. Galimatron does not fail, and it does not rewrite history. It moves the change to the first open version.</p>
+<p><img alt="The seal" src="../images/19_seal.svg" /></p>
+<p>See <a href="../hashes/#the-hash-and-your-xslt">Hashes and closed versions</a>. The effect for you: write the XSLT as if it edits the whole description. Published versions stay what they were, and the change shows up in the open version.</p>
+<h2 id="working-with-an-xslt">Working with an XSLT<a class="headerlink" href="#working-with-an-xslt" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Start from <code>shallow-copy</code>.</strong> An XSLT that forgets it destroys the document.</li>
+<li><strong>Look at the dump.</strong> Open <code>lang-wizard.xml</code> or <code>post-compiled.xml</code>, find the element, and write the template from what you see.</li>
+<li><strong>Test one transform at a time.</strong> Give its <code>principal-xml</code> a <code>file</code> and read the result.</li>
+<li><strong>Parameters, not paths.</strong> Pass options with <code>parameters</code> in <code>gal.cfg</code>, and use <code>input_gal_dir</code> and friends for folders.</li>
+<li><strong>Say why.</strong> <code>name</code> and <code>user-data-for-info</code> in <code>gal.cfg</code> are read by the next person.</li>
+<li><strong><code>xsl:message</code> shows in the console.</strong> Use it to print a progress line, like the title in the example.</li>
+<li><strong>Keep generated text in templates.</strong> See <a href="../templates/">Generating text</a>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../diagnostics/" class="btn btn-neutral float-left" title="Logs and diagnostics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../templates/" class="btn btn-neutral float-right" title="Generating text">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../diagnostics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../templates/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

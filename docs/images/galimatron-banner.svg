@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4F6EF0"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="576" fill="#FFFFFF"/>
+  <g transform="translate(112 153.6) scale(1.05)">
+    <path d="M214.6 78 L128 28 L41.4 78 V178 L128 228 L214.6 178 V128 H138"
+          fill="none" stroke="url(#g)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="138" cy="128" r="16" fill="#F2B632"/>
+  </g>
+  <text x="415" y="322" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="104" font-weight="400"
+        letter-spacing="2" fill="#1B1F2A">Galimatron</text>
+  <text id="slogan" x="418" y="384" font-family="Georgia, 'Times New Roman', serif" font-size="33" font-style="italic"
+        fill="#666666">yet another <tspan font-weight="700" fill="#222222">galimatias</tspan> generator</text>
+</svg>
+
+

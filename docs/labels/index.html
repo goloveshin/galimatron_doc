@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/labels/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Labels - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Labels";
+        var mkdocs_page_input_path = "labels.md";
+        var mkdocs_page_url = "/galimatron_doc/labels/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Labels</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#static-labels-naming-the-values">Static labels: naming the values</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-it-helps">Why it helps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tag-name-from">tag-name-from</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#several-labels-in-one-tag">Several labels in one tag</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynamic-labels-values-that-must-change-with-every-version">Dynamic labels: values that must change with every version</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-dynamic-labels-and-not-a-script">Why dynamic labels and not a script</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-a-label-lives">Where a label lives</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">The language</li>
+      <li class="breadcrumb-item active">Labels</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h1>
+<p>A label gives meaning to a tag without adding anything to the language. There are two kinds: <strong>static</strong> and <strong>dynamic</strong>. A label is declared once, with a <code>label</code> statement, and used by name in front of the values of tags.</p>
+<h2 id="static-labels-naming-the-values">Static labels: naming the values<a class="headerlink" href="#static-labels-naming-the-values" title="Permanent link">&para;</a></h2>
+<p>A tag is a list of values. A static label says what each position means.</p>
+<p><img alt="A static label" src="../images/14_static_label.svg" /></p>
+<pre><code>label field = static { type, name, default }, tag-name-from { name };
+
+field important { &quot;int&quot;, &quot;price&quot;, &quot;0&quot; };
+</code></pre>
+<p>The label <code>field</code> has three parts: <code>type</code>, <code>name</code>, <code>default</code>. The tag lists three values, so the first is the type, the second is the name, the third is the default. In the compiled XML each value carries its part as an attribute:</p>
+<pre><code class="language-xml">&lt;tag name=&quot;price&quot;&gt;
+    &lt;values&gt;
+        &lt;value index=&quot;0&quot; field=&quot;type&quot;&gt;&lt;string&gt;int&lt;/string&gt;&lt;/value&gt;
+        &lt;value index=&quot;1&quot; field=&quot;name&quot;&gt;&lt;string&gt;price&lt;/string&gt;&lt;/value&gt;
+        &lt;value index=&quot;2&quot; field=&quot;default&quot;&gt;&lt;string&gt;0&lt;/string&gt;&lt;/value&gt;
+    &lt;/values&gt;
+&lt;/tag&gt;
+</code></pre>
+<p>A post XSLT can ask for a part by name, with <code>gal:labeled-string($tag, 'field', 'type')</code>, and need not count positions.</p>
+<h3 id="why-it-helps">Why it helps<a class="headerlink" href="#why-it-helps" title="Permanent link">&para;</a></h3>
+<p>Without labels, a tag is <code>price = { "int", "3", "0" }</code> and every generator must know "the third value is the default". With a label the meaning lives in the data. Adding a fourth part later changes the label, not every generator.</p>
+<h3 id="tag-name-from">tag-name-from<a class="headerlink" href="#tag-name-from" title="Permanent link">&para;</a></h3>
+<p><code>tag-name-from { name }</code> says: the tag is called by its value labeled <code>name</code>. The tag above is <code>price</code>. You can find it with <code>//tag[@name='price']</code>, and you do not type the name twice.</p>
+<p>A tag written with no name of its own must get one this way. If none of its labels has <code>tag-name-from</code>, the run stops. A label is still how you pick out a group of tags, named or not in the text you typed. In the language XML the labels of a tag are listed in <code>label-refs</code>, and <code>gal:tags-labeled($version, 'field')</code> returns every tag that uses <code>field</code>. In the compiled XML a value carries its part as an attribute, so <code>gal:labeled-string</code> and <code>gal:tags-with-label</code> find it.</p>
+<p>Two tags with the same name replace each other, so a name that comes from a value follows the same rule as any other name: a later version can write <code>field important { "long", "price" }</code> and the type of <code>price</code> changes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A name that comes from a value competes with a name you typed. If <code>price = { ... }</code> and <code>field { "int", "price" }</code> are both in one version, one overrides the other. Keep the names apart.</p>
+</div>
+<h3 id="several-labels-in-one-tag">Several labels in one tag<a class="headerlink" href="#several-labels-in-one-tag" title="Permanent link">&para;</a></h3>
+<p>A tag can have more than one label. They stack:</p>
+<pre><code>field important { &quot;text&quot;, &quot;message&quot; };
+</code></pre>
+<p><code>field</code> gives meaning to the values, and <code>important</code> is the built-in marker that puts the values into the <a href="../hashes/">hash</a>.</p>
+<h2 id="dynamic-labels-values-that-must-change-with-every-version">Dynamic labels: values that must change with every version<a class="headerlink" href="#dynamic-labels-values-that-must-change-with-every-version" title="Permanent link">&para;</a></h2>
+<p>Some values must be new in every version: an identifier of a message, a counter, a build number. Doing this by hand is how people forget.</p>
+<pre><code>label need_new_uuid = dynamic { need_gen_uuid };
+</code></pre>
+<p><img alt="A dynamic label" src="../images/15_dynamic_label.svg" /></p>
+<p>A dynamic label marks tags to <strong>follow every new version</strong>. The command <code>wizard create version</code> copies each tag that has a dynamic label into the new version. The copy carries a marker: the value of the dynamic label, here <code>need_gen_uuid</code>. The original has no marker.</p>
+<pre><code>version 0 { uuid = need_new_uuid important { &quot;6f1e0001-...-000000000001&quot; }; }
+version 1 { uuid = need_new_uuid important { &quot;6f1e0001-...-000000000001&quot; }; }   // just copied
+</code></pre>
+<p>Your language XSLT then finds the copies and gives them a new value:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;tag[gal:tag-uses-dynamic(., 'need_gen_uuid')]/values/value/string/text()&quot;&gt;
+    &lt;xsl:value-of select=&quot;gal:next-uuid(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>After the run version 1 has <code>...0002</code>. Old tags have no marker, so they keep their value. See <a href="../xslt/">XSLT</a> and the step <a href="../example-messages/">02 of the messages example</a>.</p>
+<h3 id="why-dynamic-labels-and-not-a-script">Why dynamic labels and not a script<a class="headerlink" href="#why-dynamic-labels-and-not-a-script" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The rule "this tag is renewed with every version" is part of the data, next to the tag. Nobody has to remember it.</li>
+<li>Only the XSLT decides <em>how</em> to renew. A counter, a uuid, a date: the label just says that a value is due.</li>
+<li>A tag with a dynamic label is copied into every version, so the price is memory and time. The <a href="../benchmark/">benchmark</a> measures it. A tag that does not change should have a static label or none.</li>
+</ul>
+<h2 id="where-a-label-lives">Where a label lives<a class="headerlink" href="#where-a-label-lives" title="Permanent link">&para;</a></h2>
+<p>A label is a statement of a version.</p>
+<ul>
+<li>Written in the root, it is visible to every aggregate.</li>
+<li>Written in an aggregate, it is visible to that aggregate.</li>
+<li>Once stated, it stays visible in later versions. A later statement of the same name replaces the earlier one.</li>
+<li>A label cannot be deleted. <code>delete name;</code> of a label name is an error.</li>
+</ul>
+<p>A label is not part of the hash: you may add a part to a label in a closed version without breaking the hash of tags. This is how the <a href="../example-messages/">Example: messages that grow</a> adds the dynamic label in step 2 while versions 0 and 1 stay closed.</p>
+<p><code>wizard create label shop field = static { type };</code> adds a label for you (the first word is the aggregate).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tags/" class="btn btn-neutral float-left" title="Tags"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ordering/" class="btn btn-neutral float-right" title="Ordering">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../tags/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ordering/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

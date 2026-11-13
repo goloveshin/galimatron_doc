@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/getting-started/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Getting started - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Getting started";
+        var mkdocs_page_input_path = "getting-started.md";
+        var mkdocs_page_url = "/galimatron_doc/getting-started/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install">Install</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-project-is-a-folder">A project is a folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-smallest-project">The smallest project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-it">Run it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#look-at-what-happened">Look at what happened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-next">What next</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hashes/">Hashes and closed versions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Getting started</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>This page installs Galimatron and runs the smallest useful project. You will see what you write, what Galimatron changes, and what your XSLT produce.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>Galimatron is one executable (<code>galimatron.exe</code> on Windows, <code>galimatron</code> on Linux) with the SaxonC libraries beside it (Saxon is the XSLT processor that Galimatron uses to run your XSLT). The installer puts these in place, in the install folder (on Windows, <code>C:\Program Files\Galimatron</code>):</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>the executable and the Saxon libraries</td>
+<td><code>bin/</code></td>
+</tr>
+<tr>
+<td><code>gal-functions.xsl</code>: helper functions for your&nbsp;XSLT</td>
+<td><code>share/galimatron/xslt/</code></td>
+</tr>
+<tr>
+<td><code>catalog.xml</code>: maps the address of <code>gal-functions.xsl</code> to that file</td>
+<td><code>share/galimatron/</code></td>
+</tr>
+</tbody>
+</table>
+<p>The catalog is why your XSLT can write</p>
+<pre><code class="language-xml">&lt;xsl:include href=&quot;https://github.com/goloveshin/galimatron/xslt/gal-functions.xsl&quot;/&gt;
+</code></pre>
+<p>and still work without a network. Galimatron loads the catalog from the folder beside <code>bin/</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A build that is not installed has no catalog. Include <code>gal-functions.xsl</code> by a path in that case.</p>
+</div>
+<p>If you use Visual Studio Code, also install the <a href="../editor/">GaL extension</a>. It colors <code>.gal</code> files and runs Galimatron on an open <code>gal.cfg</code>.</p>
+<h2 id="a-project-is-a-folder">A project is a folder<a class="headerlink" href="#a-project-is-a-folder" title="Permanent link">&para;</a></h2>
+<p>Galimatron has no project file in a hidden place. A project is a folder with two configuration files, your <code>.gal</code> files and your XSLT.</p>
+<p><img alt="Folders of a project" src="../images/04_folders.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Who writes it</th>
+<th>What it holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gal.cfg</code></td>
+<td>you, by hand</td>
+<td>which folders to use and which XSLT to run</td>
+</tr>
+<tr>
+<td><code>log.cfg</code></td>
+<td>you, by hand</td>
+<td>how much the log says, and where it goes</td>
+</tr>
+<tr>
+<td><code>incoming_gal/</code></td>
+<td>you, by hand (Galimatron rewrites the files in place)</td>
+<td>your <code>.gal</code> files</td>
+</tr>
+<tr>
+<td><code>xslt/</code></td>
+<td>you, by hand</td>
+<td>your XSLT programs</td>
+</tr>
+<tr>
+<td><code>generated/</code></td>
+<td>your XSLT, during a run</td>
+<td>the files you generate: source code, SQL, pages</td>
+</tr>
+<tr>
+<td><code>intermediate/</code></td>
+<td>Galimatron, during a run</td>
+<td>the log, the summary, the XML dumps</td>
+</tr>
+</tbody>
+</table>
+<p>The names of the folders are yours. <code>gal.cfg</code> says which is which. See <a href="../configuration/">Configuration</a>.</p>
+<h2 id="the-smallest-project">The smallest project<a class="headerlink" href="#the-smallest-project" title="Permanent link">&para;</a></h2>
+<p>The project <code>galimatron_hello</code> has one <code>.gal</code> file, one language XSLT, one post XSLT and one template.</p>
+<p><code>incoming_gal/hello.gal</code>:</p>
+<pre><code>root aggregate hello
+{
+    versions
+    {
+        0;
+    }
+}
+
+version 0
+{
+    counter = { &quot;0&quot; };
+    greetings = { };
+}
+</code></pre>
+<p>The file says: there is a root aggregate <code>hello</code>. It has one version, 0. In that version are two tags: <code>counter</code> with the value <code>"0"</code> and <code>greetings</code> with no value.</p>
+<p><code>xslt/language.xsl</code> changes the data. It adds one to the counter and writes a greeting:</p>
+<pre><code class="language-xml">&lt;xsl:mode on-no-match=&quot;shallow-copy&quot;/&gt;
+
+&lt;xsl:template match=&quot;tag[@name='counter']/values/value/string/text()&quot;&gt;
+    &lt;xsl:value-of select=&quot;xs:integer(.) + 1&quot;/&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p><code>xslt/page.xsl</code> reads the compiled data and writes <code>page/hello.html</code> from the template <code>templates/page.xml</code>. See <a href="../templates/">Generating text</a>.</p>
+<p><code>gal.cfg</code> lists both XSLT. The first is a <em>language</em> transform, the second a <em>post-language</em> transform. The difference is explained in <a href="../how-it-works/">How a run works</a>.</p>
+<h2 id="run-it">Run it<a class="headerlink" href="#run-it" title="Permanent link">&para;</a></h2>
+<p>Open a terminal in the project folder and run</p>
+<pre><code>galimatron --gal-config-file gal.cfg --log-config-file log.cfg
+</code></pre>
+<p>(or run <strong>Galimatron: execute</strong> in Visual Studio Code with <code>gal.cfg</code> open).</p>
+<p>After the first run <code>incoming_gal/hello.gal</code> holds</p>
+<pre><code>version 0
+{
+    counter = { &quot;1&quot; };
+    greetings = { &quot;Hello world from Galimatron!&quot; };
+}
+</code></pre>
+<p>and <code>page/hello.html</code> exists. Run again: the counter is 2. The <code>.gal</code> file is the memory of the project, and Galimatron rewrites it in place. The console shows each step of the run and its time.</p>
+<h2 id="look-at-what-happened">Look at what happened<a class="headerlink" href="#look-at-what-happened" title="Permanent link">&para;</a></h2>
+<p>The folder <code>intermediate/</code> explains the run:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>It says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>galimatron.log</code></td>
+<td>every step, its time, the memory used</td>
+</tr>
+<tr>
+<td><code>galimatron_summary.xml</code></td>
+<td>the result of every step and every file that was written</td>
+</tr>
+<tr>
+<td><code>lang-parsed.xml</code></td>
+<td>the language as Galimatron read it, before your XSLT</td>
+</tr>
+<tr>
+<td><code>lang-final.xml</code></td>
+<td>the language after your XSLT, as it is written back</td>
+</tr>
+<tr>
+<td><code>post-compiled.xml</code></td>
+<td>the compiled view that your post XSLT read</td>
+</tr>
+</tbody>
+</table>
+<p>Open <code>lang-parsed.xml</code> and <code>lang-final.xml</code> of the second run side by side. The counter is 1 in the first and 2 in the second. That is the difference your XSLT made. See <a href="../diagnostics/">Logs and diagnostics</a>.</p>
+<h2 id="what-next">What next<a class="headerlink" href="#what-next" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The model you will write in: <a href="../entities/">Entities</a>.</li>
+<li>A project that grows, step by step: <a href="../example-messages/">Example: messages that grow</a>.</li>
+<li>Commands that edit the <code>.gal</code> files for you: <a href="../wizard/">The Wizard</a>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Why Galimatron"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../how-it-works/" class="btn btn-neutral float-right" title="How a run works">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../how-it-works/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

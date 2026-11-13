@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://goloveshin.github.io/galimatron_doc/hashes/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Hashes and closed versions - Galimatron</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hashes and closed versions";
+        var mkdocs_page_input_path = "hashes.md";
+        var mkdocs_page_url = "/galimatron_doc/hashes/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Galimatron
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../how-it-works/">How a run works</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">The language</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../entities/">Entities</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aggregates-and-versions/">Aggregates and versions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tags/">Tags</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../labels/">Labels</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ordering/">Ordering</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Changing data</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../wizard/">The Wizard</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Hashes and closed versions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-problem">The problem</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-a-hash-covers">What a hash covers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#closed-versions">Closed versions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-and-removing-a-hash">Creating and removing a hash</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#force">force</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-hash-and-your-xslt">The hash and your XSLT</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-there-is-a-seal">Why there is a seal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-the-seal-does">What the seal does</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#where-the-change-lands">Where the change lands</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-galimatron-checks-about-hashes">What Galimatron checks about hashes</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Your project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration (gal.cfg)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../diagnostics/">Logs and diagnostics</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../xslt/">XSLT</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../templates/">Generating text</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../custom-states/">Custom states</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editor/">Editor support</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example-messages/">Example: messages that grow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../benchmark/">Benchmark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reference/">Reference</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Galimatron</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Changing data</li>
+      <li class="breadcrumb-item active">Hashes and closed versions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hashes-and-closed-versions">Hashes and closed versions<a class="headerlink" href="#hashes-and-closed-versions" title="Permanent link">&para;</a></h1>
+<h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>You published version 2 of a description. Programs in the field were built from it, and files that were written with it are still in use. A month later somebody "fixes" a field in version 2, and now the description and everything that was shipped disagree. Nobody notices until something breaks.</p>
+<p>A <strong>hash</strong> makes this impossible to do quietly. A hash closes a version. If the important values of a closed version change, the next run fails and says which aggregates differ.</p>
+<h2 id="what-a-hash-covers">What a hash covers<a class="headerlink" href="#what-a-hash-covers" title="Permanent link">&para;</a></h2>
+<p>A hash is made of the <strong>important</strong> values only: the values of tags marked <code>important</code> (see <a href="../tags/#important">Tags</a>, which also says how to decide what is important and what is not).</p>
+<p><img alt="The content hash" src="../images/11_hash.svg" /></p>
+<ul>
+<li>Each aggregate has a content hash of its important tags in that version.</li>
+<li>The root stores the combination of all of them: the aggregate hashes sorted, then combined.</li>
+<li><strong>Left out</strong>: tag names, labels, aggregate names, file names and paths, comments, and every tag that is not <code>important</code>.</li>
+</ul>
+<p>The reason is freedom. You can rename a file, move an aggregate to another folder, add a label part, add a note. The published meaning did not change, so the hash does not either.</p>
+<p>A hash is stored in the declaration of a version:</p>
+<pre><code>versions
+{
+    0 = { hash = '27025d7a1482f343d1f2f0bb2865d7055458e172a1ff90dd9b4cccfd4aba3035' };
+    1 = { hash = '704dd06e344f8b26bf000ed10194d6f0e856afec347f962900e05a15e1df091b' };
+    2;
+}
+</code></pre>
+<p>Every aggregate that is not deleted in that version stores its own hash in its own file. The root file stores the combined one. A version with a hash on the root but not on some aggregate is an error (<code>HASH_MUST_BE_ON_EVERY_AGGREGATE</code>).</p>
+<h2 id="closed-versions">Closed versions<a class="headerlink" href="#closed-versions" title="Permanent link">&para;</a></h2>
+<p><img alt="States of a version" src="../images/10_version_states.svg" /></p>
+<p>A <strong>closed version</strong> is a root version that stores a hash, and <strong>every version before it</strong>. If version 3 has a hash, versions 0, 1, 2 and 3 are closed. History does not have holes.</p>
+<p>What is closed:</p>
+<ul>
+<li>Its important values do not change. Any change fails the check.</li>
+<li><code>wizard delete version</code> refuses it.</li>
+<li><code>wizard delete aggregate</code> and <code>wizard copy aggregate</code> refuse an aggregate that it contains.</li>
+<li><code>wizard create tag</code> and the other statement commands write into the <strong>last open version</strong>, so a closed version is never touched by accident.</li>
+</ul>
+<p>What is still allowed in a closed version: unimportant tags, labels, comments. They are outside the hash.</p>
+<h2 id="creating-and-removing-a-hash">Creating and removing a hash<a class="headerlink" href="#creating-and-removing-a-hash" title="Permanent link">&para;</a></h2>
+<pre><code>wizard create hash;           // the last version
+wizard create hash 3;         // version 3
+wizard create hash 3, 4;      // both
+wizard delete hash 3;         // open version 3 again, on purpose
+</code></pre>
+<p><code>wizard create version</code> always adds a new <strong>open</strong> version after the closed ones. The usual rhythm is: write into the open version, check, <code>wizard create hash</code> to publish, <code>wizard create version</code> to start the next.</p>
+<p>To change a closed version, first delete its hash. This is a deliberate act: you cannot do it by accident, and you must say it with a command.</p>
+<h3 id="force">force<a class="headerlink" href="#force" title="Permanent link">&para;</a></h3>
+<pre><code>wizard create hash 3 force;
+wizard delete hash 3 force;
+</code></pre>
+<p>Normally Galimatron checks the stored hash of every version before the Wizard runs. If a stored hash does not match because you edited by hand, the run fails, and the message names the version and the aggregates.</p>
+<p><code>force</code> is for the version you name. <code>create hash ... force</code> stores the hash of the important tags <em>as they are now</em>. <code>delete hash ... force</code> removes a hash that does not match. Use it when you know the data is right and the hash is stale. Versions you do not name are still checked.</p>
+<h2 id="the-hash-and-your-xslt">The hash and your XSLT<a class="headerlink" href="#the-hash-and-your-xslt" title="Permanent link">&para;</a></h2>
+<p>A hash is taken from the data <strong>after</strong> the Wizard and <strong>after</strong> your language XSLT. When <code>create hash</code> and an XSLT that generates values (a new uuid) run together, the hash covers the generated values. The <a href="../example-messages/">Example: messages that grow</a> does this at step 3.</p>
+<p>Your XSLT must not break a closed version. What if it must? For example a generator changes a type name that the closed version holds. Galimatron has an answer: the <strong>seal</strong>.</p>
+<p><img alt="The seal" src="../images/19_seal.svg" /></p>
+<p>After your XSLT Galimatron compares the text before and after. Where the XSLT changed a value that belongs to a closed version, it <strong>moves the change to the first open version after it</strong>, and creates that version when it does not exist. The closed version keeps its text, and its hash stays true.</p>
+<p>The effect for you: an XSLT can be written as if it edits the whole description, and history is still safe. The change shows up in the first open version, where you can see it and publish it.</p>
+<h3 id="why-there-is-a-seal">Why there is a seal<a class="headerlink" href="#why-there-is-a-seal" title="Permanent link">&para;</a></h3>
+<p>A closed version is a promise: its text and its hash stay. A language XSLT runs on the XML of every version, so a template that rewrites a value rewrites the closed versions too. An XSLT that appends the version number to every tag string does exactly that, version 0 included.</p>
+<p>Without the seal there are two outcomes. The edit stays in the closed version, the stored hash no longer matches, and the run stops with <code>HASH_DOES_NOT_MATCH</code>, so nothing is written. Or every language XSLT has to skip the closed versions by itself. That is possible for a narrow job: in the <a href="../example-messages/">messages example</a> the XSLT that fills in uuids only touches the Wizard copies that are marked for it. It is not possible for an XSLT that walks the whole document. With the seal, such an XSLT is written once, as if there were no history.</p>
+<h3 id="what-the-seal-does">What the seal does<a class="headerlink" href="#what-the-seal-does" title="Permanent link">&para;</a></h3>
+<p><img alt="What the seal does with a change" src="../images/46_seal_decision.svg" /></p>
+<p>The seal compares the text before and after your XSLT and asks the questions of the picture for each change. Most runs stop at the first or second question. A new version is added only when the change belongs to a closed version and there is no version after the last hash.</p>
+<h3 id="where-the-change-lands">Where the change lands<a class="headerlink" href="#where-the-change-lands" title="Permanent link">&para;</a></h3>
+<p>The pictures below use one XSLT. The description has a label <code>role_mark</code> and a tag <code>roles = role_mark { [ "user" ] }</code>. The language XSLT <code>append role</code> adds the value <code>"global ws"</code> to every array that has the label <code>role_mark</code>:</p>
+<pre><code class="language-xml">&lt;xsl:template match=&quot;array[gal:array-has-label(., 'role_mark')]&quot;&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select=&quot;@* | node()&quot;/&gt;
+        &lt;value&gt;
+            &lt;string&gt;global ws&lt;/string&gt;
+        &lt;/value&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+<p>The template does not ask which version it is in. It changes the <code>roles</code> array everywhere, in the closed versions too:</p>
+<p><img alt="One xslt edits the whole description" src="../images/48_seal_xslt.svg" /></p>
+<p>That is the input of the seal. The next picture shows what the seal does with it in three layouts of the same description. In each, the <code>roles</code> tag gets the new value in the first version after the last hash:</p>
+<p><img alt="Three places where the change of an xslt can land" src="../images/47_seal_cases.svg" /></p>
+<ul>
+<li><strong>No version after the hash.</strong> Version 0 is closed and the XSLT edits it. The seal puts the old text back and adds version 1 with the new value.</li>
+<li><strong>An open version already exists.</strong> The seal puts the old text back in the closed version and writes the new value into the open one. No version is added.</li>
+<li><strong>The tag was written before the hash.</strong> The closed version 1 has no <code>roles</code> of its own: it sees the one from version 0. The XSLT changes <code>roles</code> as version 1 sees it. The seal does not patch version 0, and it does not touch version 1. It compares the tags that the last closed version has <em>as it sees them</em>, and writes the difference into the first version after the hash, here a new version 2.</li>
+</ul>
+<p>If the XSLT edits an open version itself, that edit stays and nothing is added. If it changes nothing, no version is added.</p>
+<p>A change that the last closed version does not show is restored and not copied forward. That is the case when a later closed version has already replaced that tag.</p>
+<p>Then the validation runs again. A user XSLT does not rewrite a hash, so a hash that no longer matches fails the run, and nothing is written.</p>
+<h2 id="what-galimatron-checks-about-hashes">What Galimatron checks about hashes<a class="headerlink" href="#what-galimatron-checks-about-hashes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The stored hash of a version equals the one computed now.</td>
+<td><code>HASH_DOES_NOT_MATCH</code>, naming the aggregates of each differing version, then a version that differs only in the root.</td>
+</tr>
+<tr>
+<td>A version with a hash has it on the root and on every live aggregate.</td>
+<td><code>HASH_MUST_BE_ON_EVERY_AGGREGATE</code>, naming each declaration where it is absent.</td>
+</tr>
+<tr>
+<td><code>create hash</code> and <code>delete hash</code> name versions that exist.</td>
+<td><code>WIZARD_CREATE_HASH_VERSION_MUST_EXIST</code>, <code>WIZARD_DELETE_HASH_VERSION_MUST_EXIST</code></td>
+</tr>
+</tbody>
+</table>
+<p>A version with no hash is not checked.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../wizard/" class="btn btn-neutral float-left" title="The Wizard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../configuration/" class="btn btn-neutral float-right" title="Configuration (gal.cfg)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Distributed under the Boost Software License, Version 1.0.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/goloveshin/galimatron_doc" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../wizard/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
