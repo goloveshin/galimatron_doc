@@ -41,7 +41,11 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">The problem</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../why-galimatron/">Why Galimatron</a>
                 </li>
               </ul>
               <ul>
@@ -232,6 +236,7 @@ version 3
 <table>
 <thead>
 <tr>
+<th>#</th>
 <th>Step</th>
 <th>What it adds</th>
 <th>Feature</th>
@@ -239,67 +244,80 @@ version 3
 </thead>
 <tbody>
 <tr>
-<td><strong>00</strong> no generation</td>
+<td>00</td>
+<td>no generation</td>
 <td>Four system messages, written by hand, and a session: hello, ok, bye.</td>
 <td>The messages before Galimatron.</td>
 </tr>
 <tr>
-<td><strong>01</strong> empty messages</td>
+<td>01</td>
+<td>empty messages</td>
 <td>The four messages are described in GaL and generated. Version 0, <code>published</code>, a hash.</td>
 <td><a href="../wizard/">The Wizard</a> batch, <a href="../hashes/">hash</a>, the first <a href="../xslt/">XSLT</a> and its <a href="../templates/">templates</a>.</td>
 </tr>
 <tr>
-<td><strong>02</strong> an unpublished version</td>
+<td>02</td>
+<td>unpublished version</td>
 <td>A new, open version 1 and a <strong>dynamic label</strong> that asks for the next uuid.</td>
 <td><a href="../labels/#dynamic-labels-values-that-must-change-with-every-version">Dynamic labels</a>, <code>create version</code>.</td>
 </tr>
 <tr>
-<td><strong>03</strong> hello gains a text</td>
+<td>03</td>
+<td>hello gains a text</td>
 <td><code>hello</code> gets a <code>message</code> field. A trial version is removed and replaced. Hash after the XSLT.</td>
 <td><code>delete version</code>, <code>create label</code>, <code>create tag</code>, <a href="../hashes/#the-hash-and-your-xslt">hash and XSLT</a>.</td>
 </tr>
 <tr>
-<td><strong>04</strong> system messages</td>
+<td>04</td>
+<td>system messages</td>
 <td>The system messages move to the namespace <code>system</code>, marked by a tag <strong>outside the hash</strong>.</td>
 <td>Tags without <code>important</code>.</td>
 </tr>
 <tr>
-<td><strong>05</strong> the first payload</td>
+<td>05</td>
+<td>first payload</td>
 <td><code>lamp</code>, the first user message, in a folder <code>payload/</code>.</td>
 <td><code>create aggregate ... in payload</code>, field defaults.</td>
 </tr>
 <tr>
-<td><strong>06</strong> conversions</td>
+<td>06</td>
+<td>conversions</td>
 <td>The generator writes an empty conversion from each older version into the last.</td>
 <td><a href="../custom-states/">Custom state</a> in a file.</td>
 </tr>
 <tr>
-<td><strong>07</strong> candela and fog</td>
+<td>07</td>
+<td>candela and fog</td>
 <td>The lamp gets brightness. <code>fog</code> appears.</td>
 <td>A new published version beside closed ones.</td>
 </tr>
 <tr>
-<td><strong>08</strong> enums and a vessel</td>
+<td>08</td>
+<td>enums and a vessel</td>
 <td>Two enums, a vessel, and an <strong>ordering</strong>: an enum before the type that uses it.</td>
 <td><a href="../ordering/">Ordering</a>, a second label.</td>
 </tr>
 <tr>
-<td><strong>09</strong> a watch</td>
+<td>09</td>
+<td>a watch</td>
 <td>One message carries lamp and fog. Some messages become plain types.</td>
 <td>A conversion body that generation leaves for you to write.</td>
 </tr>
 <tr>
-<td><strong>10</strong> a dictionary</td>
+<td>10</td>
+<td>a dictionary</td>
 <td>A dictionary of every tag name, built from the data. It is a new kind of entity that Galimatron does not know.</td>
 <td>State in tags, post XSLT that writes Markdown.</td>
 </tr>
 <tr>
-<td><strong>11</strong> a template string</td>
+<td>11</td>
+<td>template string</td>
 <td>A greeting substitutes <code>{{station}}</code>.</td>
 <td><a href="../tags/#template-strings">Template strings</a>.</td>
 </tr>
 <tr>
-<td><strong>12</strong> collapse</td>
+<td>12</td>
+<td>collapse</td>
 <td>Versions 0 to 5 collapse into version 6.</td>
 <td><a href="../aggregates-and-versions/#collapsing-history">Collapse</a>.</td>
 </tr>

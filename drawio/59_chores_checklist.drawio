@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="59_chores_checklist" id="59_chores_checklist">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="860" pageHeight="330" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="440" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="&lt;b&gt;To make version 3&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="36" y="18" width="400" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="✓" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="58" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="copy the description of version 2" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="54" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value="✓" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="92" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="make the change" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="88" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c8" value="✓" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="126" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c9" value="give the changed items new ids" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="122" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;strokeWidth=2;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c11" value="write the conversion from version 2" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="156" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;strokeWidth=2;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="194" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c13" value="update the code" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="190" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c14" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;strokeWidth=2;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="228" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c15" value="update the documentation" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="224" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c16" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;strokeWidth=2;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="262" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c17" value="update the tests" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="76" y="258" width="370" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c18" value="Every change repeats the same chores.&lt;br&gt;Somebody has to remember all of them, every time." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;fontColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="120" width="330" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

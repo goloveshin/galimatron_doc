@@ -27,7 +27,8 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Why Galimatron: index.md
+  - The problem: index.md
+  - Why Galimatron: why-galimatron.md
   - Getting started: getting-started.md
   - How a run works: how-it-works.md
   - The language:

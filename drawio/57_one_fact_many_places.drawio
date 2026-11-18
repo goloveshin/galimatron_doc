@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="57_one_fact_many_places" id="57_one_fact_many_places">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="340" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c2" value='&lt;b&gt;the change&lt;/b&gt;&lt;br&gt;&lt;font face="Courier New"&gt;price: int → long&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="96" width="220" height="92" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value='&lt;b&gt;database&lt;/b&gt; &amp;nbsp; &lt;font face="Courier New" style="font-size:12px"&gt;price BIGINT&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="10" width="360" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="18" width="120" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c3">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c6" value='&lt;b&gt;code&lt;/b&gt; &amp;nbsp; &lt;font face="Courier New" style="font-size:12px"&gt;long price;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="66" width="360" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="updated" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="74" width="120" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c8" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c6">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c9" value='&lt;b&gt;documentation&lt;/b&gt; &amp;nbsp; &lt;font face="Courier New" style="font-size:12px"&gt;price (int)&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="122" width="360" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c10" value="forgotten" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="130" width="120" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c11" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c9">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c12" value='&lt;b&gt;spreadsheet&lt;/b&gt; &amp;nbsp; &lt;font face="Courier New" style="font-size:12px"&gt;price (int)&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="178" width="360" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c13" value="forgotten" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="186" width="120" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c14" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c12">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c15" value='&lt;b&gt;tests&lt;/b&gt; &amp;nbsp; &lt;font face="Courier New" style="font-size:12px"&gt;price as an int&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="234" width="360" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c16" value="forgotten" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="242" width="120" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c17" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c2" target="c15">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c18" value="The same fact is typed in many places. Nobody has a list of them, so some are forgotten." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="20" y="296" width="830" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

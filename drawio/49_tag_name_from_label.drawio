@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="49_tag_name_from_label" id="49_tag_name_from_label">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="def" value="label field = static { type, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;name&lt;/span&gt; }, tag-name-from { &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;name&lt;/span&gt; };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="73" y="20" width="680" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="use" value="field important { &quot;int&quot;, &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&quot;price&quot;&lt;/span&gt; };" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="198" y="130" width="430" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="v1" value="&quot;int&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="225" y="240" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="v2" value="&lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&quot;price&quot;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="455" y="240" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="type" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="225" y="335" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="&lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;name&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="455" y="335" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="res" value="the tag is called &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&quot;price&quot;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="440" width="250" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a0" value="the label field" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="use" target="def">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="a1" value="1st value" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="2nd value" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="b1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="v1" target="l1">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="b2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="v2" target="l2">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c2" value="tag-name-from { name }" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;strokeColor=#d79b00;strokeWidth=3;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="l2" target="res">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

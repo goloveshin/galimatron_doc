@@ -112,21 +112,21 @@ The lamp appears in version 2 (the earlier versions are deleted), gains a `cande
 
 ## The steps
 
-| Step | What it adds | Feature |
-|---|---|---|
-| **00** no generation | Four system messages, written by hand, and a session: hello, ok, bye. | The messages before Galimatron. |
-| **01** empty messages | The four messages are described in GaL and generated. Version 0, `published`, a hash. | [The Wizard](wizard.md) batch, [hash](hashes.md), the first [XSLT](xslt.md) and its [templates](templates.md). |
-| **02** an unpublished version | A new, open version 1 and a **dynamic label** that asks for the next uuid. | [Dynamic labels](labels.md#dynamic-labels-values-that-must-change-with-every-version), `create version`. |
-| **03** hello gains a text | `hello` gets a `message` field. A trial version is removed and replaced. Hash after the XSLT. | `delete version`, `create label`, `create tag`, [hash and XSLT](hashes.md#the-hash-and-your-xslt). |
-| **04** system messages | The system messages move to the namespace `system`, marked by a tag **outside the hash**. | Tags without `important`. |
-| **05** the first payload | `lamp`, the first user message, in a folder `payload/`. | `create aggregate ... in payload`, field defaults. |
-| **06** conversions | The generator writes an empty conversion from each older version into the last. | [Custom state](custom-states.md) in a file. |
-| **07** candela and fog | The lamp gets brightness. `fog` appears. | A new published version beside closed ones. |
-| **08** enums and a vessel | Two enums, a vessel, and an **ordering**: an enum before the type that uses it. | [Ordering](ordering.md), a second label. |
-| **09** a watch | One message carries lamp and fog. Some messages become plain types. | A conversion body that generation leaves for you to write. |
-| **10** a dictionary | A dictionary of every tag name, built from the data. It is a new kind of entity that Galimatron does not know. | State in tags, post XSLT that writes Markdown. |
-| **11** a template string | A greeting substitutes `{{station}}`. | [Template strings](tags.md#template-strings). |
-| **12** collapse | Versions 0 to 5 collapse into version 6. | [Collapse](aggregates-and-versions.md#collapsing-history). |
+| # | Step | What it adds | Feature |
+|---|---|---|---|
+| 00 | no generation | Four system messages, written by hand, and a session: hello, ok, bye. | The messages before Galimatron. |
+| 01 | empty messages | The four messages are described in GaL and generated. Version 0, `published`, a hash. | [The Wizard](wizard.md) batch, [hash](hashes.md), the first [XSLT](xslt.md) and its [templates](templates.md). |
+| 02 | unpublished version | A new, open version 1 and a **dynamic label** that asks for the next uuid. | [Dynamic labels](labels.md#dynamic-labels-values-that-must-change-with-every-version), `create version`. |
+| 03 | hello gains a text | `hello` gets a `message` field. A trial version is removed and replaced. Hash after the XSLT. | `delete version`, `create label`, `create tag`, [hash and XSLT](hashes.md#the-hash-and-your-xslt). |
+| 04 | system messages | The system messages move to the namespace `system`, marked by a tag **outside the hash**. | Tags without `important`. |
+| 05 | first payload | `lamp`, the first user message, in a folder `payload/`. | `create aggregate ... in payload`, field defaults. |
+| 06 | conversions | The generator writes an empty conversion from each older version into the last. | [Custom state](custom-states.md) in a file. |
+| 07 | candela and fog | The lamp gets brightness. `fog` appears. | A new published version beside closed ones. |
+| 08 | enums and a vessel | Two enums, a vessel, and an **ordering**: an enum before the type that uses it. | [Ordering](ordering.md), a second label. |
+| 09 | a watch | One message carries lamp and fog. Some messages become plain types. | A conversion body that generation leaves for you to write. |
+| 10 | a dictionary | A dictionary of every tag name, built from the data. It is a new kind of entity that Galimatron does not know. | State in tags, post XSLT that writes Markdown. |
+| 11 | template string | A greeting substitutes `{{station}}`. | [Template strings](tags.md#template-strings). |
+| 12 | collapse | Versions 0 to 5 collapse into version 6. | [Collapse](aggregates-and-versions.md#collapsing-history). |
 
 ## Ideas worth taking from each step
 

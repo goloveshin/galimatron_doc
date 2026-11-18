@@ -15,6 +15,18 @@ galimatron --help
 
 A run that fails prints the exception and exits with a non-zero code.
 
+## One run in detail
+
+The steps are the same as in [How a run works](how-it-works.md), with the numbers of that page. For each step the picture shows the form of the data that goes in and comes out, what is alive in memory, the files that the step writes, and how it fails.
+
+![One run in detail](images/50_run_in_detail.svg)
+
+Which steps run depends on what you configured:
+
+![The steps of four kinds of run](images/52_step_sequences.svg)
+
+The second `gal2cpp` is not a real step: it only logs `skip transformation`, because the description is already in memory.
+
 ## Grammar
 
 ```
@@ -85,6 +97,8 @@ create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
 
 Details are in [The Wizard](wizard.md).
 
+![What each Wizard command changes](images/53_wizard_command_effects.svg)
+
 ## gal.cfg keys
 
 | Key | Where |
@@ -117,6 +131,10 @@ Details are in [The Wizard](wizard.md).
 | the file of a `principal-xml` | `intermediate-xml-dir` | the principal result of that transform |
 
 See [Logs and diagnostics](diagnostics.md).
+
+### When a file is written and cleaned
+
+![Where a run writes, and when](images/54_places.svg)
 
 ## Versions: what each state allows
 
@@ -179,3 +197,15 @@ The names follow the pattern `WIZARD_<COMMAND>_<RULE>`.
 | `WIZARD_VERSION_STATEMENT_VERSION_MUST_BE_OPEN`, `..._VERSION_IS_DELETED` | The last version of the aggregate must be open and live. |
 | `WIZARD_VERSION_STATEMENT_AGGREGATE_MUST_BE_NAMED`, `..._AGGREGATE_MUST_EXIST`, `..._AGGREGATE_MUST_BE_ROOT` | The aggregate of the statement. An ordering is only for the root. |
 | `WIZARD_CREATE_HASH_VERSION_MUST_EXIST`, `WIZARD_DELETE_HASH_VERSION_MUST_EXIST` | A hash command names a version that is not there. |
+
+## The libraries
+
+Galimatron is built from layers. Each library links only to the ones below it.
+
+![The libraries of Galimatron](images/51_libraries.svg)
+
+## Test axes
+
+Every automated test of Galimatron is marked with an axis, which says what the test covers.
+
+![The test axes](images/55_test_axes.svg)

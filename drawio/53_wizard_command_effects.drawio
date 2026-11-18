@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="53_wizard_command_effects" id="53_wizard_command_effects">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="380" pageHeight="515" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c2" value="&lt;b&gt;Wizard commands&lt;/b&gt; &amp;nbsp; &lt;b&gt;P&lt;/b&gt;: the description changes &amp;nbsp;·&amp;nbsp; &lt;b&gt;H&lt;/b&gt;: a delete is written into the history" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="8" width="520" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="create root aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="40" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="40" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="create aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="71" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="71" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="copy aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="102" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c8" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="102" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c9" value="continue aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="133" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c10" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="133" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c11" value="delete aggregate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="164" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c12" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="164" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c13" value="create version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="195" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c14" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="195" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c15" value="delete version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="226" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c16" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="226" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c17" value="collapse version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="257" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c18" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="257" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c19" value="create label" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="288" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c20" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="288" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c21" value="create tag" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="319" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c22" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="319" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c23" value="delete tag" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="350" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c24" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="350" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c25" value="create ordering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="381" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c26" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="381" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c27" value="create hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="412" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c28" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="412" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c29" value="delete hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="443" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c30" value="P" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="443" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c31" value="{ ... }  a batch of the commands above" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bbbbbb;fontSize=12;align=left;spacingLeft=8;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="474" width="300" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="c32" value="–" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="474" width="40" height="26" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

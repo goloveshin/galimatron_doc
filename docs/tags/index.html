@@ -41,7 +41,11 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">The problem</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../why-galimatron/">Why Galimatron</a>
                 </li>
               </ul>
               <ul>
@@ -193,6 +197,8 @@ shape      = { { &quot;k&quot;: &quot;v&quot;, &quot;n&quot;: [&quot;a&quot;, &q
 <pre><code>field important { &quot;int&quot;, &quot;price&quot; };
 </code></pre>
 <p>This tag has no name that you typed. A <a href="../labels/">label</a> must name it from one of its values (<code>tag-name-from</code>). Here the value labeled <code>name</code> is <code>price</code>, so the tag is called <code>price</code>. Without that, the run stops.</p>
+<p><img alt="How a tag gets its name from a label" src="../images/49_tag_name_from_label.svg" /></p>
+<p>Follow the arrows: the tag uses the label <code>field</code>; the label gives each value a part (<code>type</code>, <code>name</code>); and <code>tag-name-from { name }</code> says that the value in the part <code>name</code> is the name of the tag.</p>
 <p>The reason: a generator wants a list of <em>fields</em>, and wants to find a field by its name. You do not want to invent a tag name for each field, and you do not want the name to be written twice.</p>
 <h2 id="labels-in-front-of-the-values">Labels in front of the values<a class="headerlink" href="#labels-in-front-of-the-values" title="Permanent link">&para;</a></h2>
 <p>Words before the values are labels:</p>
@@ -211,8 +217,8 @@ struct_name = { &quot;PriceMessage&quot; };
 version_namespace = { &quot;v2&quot; };
 </code></pre>
 <p>Here <code>uuid</code> and the field are important: they are what is published. <code>struct_name</code> and <code>version_namespace</code> are not marked. They stay out of the hash, so they may be fixed or renamed at any time, even in a closed version, and nothing breaks.</p>
-<p><img alt="Important data reaches the DTO, the rest stays in the code" src="../images/44_important_dto.svg" /></p>
-<p>The generator writes both kinds into the same DTO. The important values become its published shape, which other programs and files depend on, and the hash guards them. The unimportant values only shape the code inside the DTO.</p>
+<p><img alt="A DTO in two halves: important values are public, the rest is private" src="../images/44_important_dto.svg" /></p>
+<p>The generator writes both kinds into the same DTO, so the DTO has two halves. Left of the dashed line is the public half: the important values become the published shape, which other programs and files depend on, and the hash guards them. Right of the line is the private half: the unimportant values only shape the code inside the DTO.</p>
 <h3 id="what-the-mark-does">What the mark does<a class="headerlink" href="#what-the-mark-does" title="Permanent link">&para;</a></h3>
 <p>The label <code>important</code> puts the values of the tag into the <a href="../hashes/">hash</a> that closes a version. That is the whole mechanism. The difference shows when a closed version is touched:</p>
 <table>

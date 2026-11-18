@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="54_places" id="54_places">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1010" pageHeight="542" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c2" value="place" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#aaaaaa;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="8" width="236" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="key in gal.cfg" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#aaaaaa;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="8" width="226" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="written" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#aaaaaa;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="8" width="206" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="cleaned" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#aaaaaa;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="8" width="300" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value='your .gal files&lt;br&gt;&lt;font color="#666666"&gt;one folder&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="44" width="236" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="input-gal-dir&lt;br&gt;= output-gal-dir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="44" width="226" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c8" value="at the end of a successful run, only if the text changed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="44" width="206" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c9" value="files not rewritten are removed at the end" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="44" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c10" value='your .gal files&lt;br&gt;&lt;font color="#666666"&gt;two folders: input&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="104" width="236" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c11" value="input-gal-dir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="104" width="226" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c12" value="never" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="104" width="206" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c13" value="never" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="104" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c14" value='your .gal files&lt;br&gt;&lt;font color="#666666"&gt;two folders: output&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="164" width="236" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c15" value="output-gal-dir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="164" width="226" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c16" value="at once" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="164" width="206" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c17" value="every .gal file removed at the start" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="164" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c18" value="XML dumps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="224" width="236" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c19" value="intermediate-xml-dir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="224" width="226" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c20" value="at once" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="224" width="206" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c21" value="everything removed at the start" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="224" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c22" value='files of your XSLT&lt;br&gt;&lt;font color="#666666"&gt;one store per entry&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="284" width="236" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c23" value="store-dir&lt;br&gt;(and its extentions)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="284" width="226" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c24" value="at once, only if the text changed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="284" width="206" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c25" value="not rewritten: removed at the end, unless delete-if-not-rewrited is false" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="284" width="300" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="c26" value="&lt;b&gt;at once&lt;/b&gt;: as soon as the step finishes &amp;nbsp;·&amp;nbsp; &lt;b&gt;at the end&lt;/b&gt;: only after the whole run succeeded &amp;nbsp;·&amp;nbsp; the same path written twice in one run is an error &amp;nbsp;·&amp;nbsp; the folders may not be nested" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#cccccc;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="10" y="354" width="990" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="c27" value="&lt;b&gt;where the result of an XSLT goes&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="410" width="300" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="c28" value="the principal result" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="440" width="260" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="c29" value="the intermediate folder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="440" width="230" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="c30" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c28" target="c29">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="c31" value='href="@@alias@@path@@"' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="10" y="486" width="260" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="c32" value="the store with that alias" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="486" width="230" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="c33" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c31" target="c32">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -61,6 +61,12 @@ Galimatron does not generate code, documents or any other text by itself. It has
 
 Running your XSLT inside Galimatron is **optional**. It is the convenient path: Saxon is built in, the XSLT may write only to folders named in `gal.cfg`, the language XSLT may edit the data, and the [seal](hashes.md#the-hash-and-your-xslt) protects closed versions. But the XML is an ordinary file. You may leave `transforms` empty and read `post-compiled.xml` with a Python script, a program in any language, or an XSLT processor of your choice. A run with no XSLT is also the fastest (see [Benchmark](benchmark.md#without-xslt)).
 
+### Validating the compiled XML
+
+The compiled XML is, in effect, a language of your own: its elements are the aggregates, versions and tags that you described. You may write a schema (XSD) for it and validate `post-compiled.xml` against that schema, to be sure that the description has the shape your generator expects.
+
+Galimatron cannot do this for you. The Saxon that is built in, SaxonC-HE, has no [schema awareness](xslt.md#what-saxonc-he-does-not-do), so your XSLT cannot validate against an XSD. Use a third-party tool on the file, for example `xmllint --schema` or any XSD validator, after the run or as a step of your build.
+
 ## Not tied to any language
 
 Because what is made out of the XML is up to you, nothing in Galimatron is tied to a language or a format. Classes in a programming language, JSON schemas, SQL, Markdown, HTML, test data: each is a few templates away. Two projects with different targets use the same Galimatron and the same GaL.

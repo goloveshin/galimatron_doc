@@ -41,7 +41,11 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">The problem</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../why-galimatron/">Why Galimatron</a>
                 </li>
               </ul>
               <ul>
@@ -60,6 +64,10 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-primary-output-is-xml">The primary output is XML</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#validating-the-compiled-xml">Validating the compiled XML</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#not-tied-to-any-language">Not tied to any language</a>
     </li>
@@ -263,6 +271,9 @@
 <li>The <code>.gal</code> files are the other output: the description itself, rewritten with the Wizard's changes.</li>
 </ul>
 <p>Running your XSLT inside Galimatron is <strong>optional</strong>. It is the convenient path: Saxon is built in, the XSLT may write only to folders named in <code>gal.cfg</code>, the language XSLT may edit the data, and the <a href="../hashes/#the-hash-and-your-xslt">seal</a> protects closed versions. But the XML is an ordinary file. You may leave <code>transforms</code> empty and read <code>post-compiled.xml</code> with a Python script, a program in any language, or an XSLT processor of your choice. A run with no XSLT is also the fastest (see <a href="../benchmark/#without-xslt">Benchmark</a>).</p>
+<h3 id="validating-the-compiled-xml">Validating the compiled XML<a class="headerlink" href="#validating-the-compiled-xml" title="Permanent link">&para;</a></h3>
+<p>The compiled XML is, in effect, a language of your own: its elements are the aggregates, versions and tags that you described. You may write a schema (XSD) for it and validate <code>post-compiled.xml</code> against that schema, to be sure that the description has the shape your generator expects.</p>
+<p>Galimatron cannot do this for you. The Saxon that is built in, SaxonC-HE, has no <a href="../xslt/#what-saxonc-he-does-not-do">schema awareness</a>, so your XSLT cannot validate against an XSD. Use a third-party tool on the file, for example <code>xmllint --schema</code> or any XSD validator, after the run or as a step of your build.</p>
 <h2 id="not-tied-to-any-language">Not tied to any language<a class="headerlink" href="#not-tied-to-any-language" title="Permanent link">&para;</a></h2>
 <p>Because what is made out of the XML is up to you, nothing in Galimatron is tied to a language or a format. Classes in a programming language, JSON schemas, SQL, Markdown, HTML, test data: each is a few templates away. Two projects with different targets use the same Galimatron and the same GaL.</p>
 <p>The examples in this documentation generate source code, Markdown and HTML. That is the choice of the examples, not a property of the tool.</p>

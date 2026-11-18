@@ -41,7 +41,11 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Why Galimatron</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">The problem</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../why-galimatron/">Why Galimatron</a>
                 </li>
               </ul>
               <ul>
@@ -99,6 +103,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#command-line">Command line</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#one-run-in-detail">One run in detail</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#grammar">Grammar</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#keywords">Keywords</a>
@@ -110,6 +116,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#parameters-given-to-every-xslt">Parameters given to every XSLT</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#files-that-a-run-writes">Files that a run writes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#when-a-file-is-written-and-cleaned">When a file is written and cleaned</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#versions-what-each-state-allows">Versions: what each state allows</a>
     </li>
@@ -122,6 +132,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#the-wizard">The Wizard</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-libraries">The libraries</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#test-axes">Test axes</a>
     </li>
     </ul>
                 </li>
@@ -177,6 +191,12 @@ galimatron --help
 </tbody>
 </table>
 <p>A run that fails prints the exception and exits with a non-zero code.</p>
+<h2 id="one-run-in-detail">One run in detail<a class="headerlink" href="#one-run-in-detail" title="Permanent link">&para;</a></h2>
+<p>The steps are the same as in <a href="../how-it-works/">How a run works</a>, with the numbers of that page. For each step the picture shows the form of the data that goes in and comes out, what is alive in memory, the files that the step writes, and how it fails.</p>
+<p><img alt="One run in detail" src="../images/50_run_in_detail.svg" /></p>
+<p>Which steps run depends on what you configured:</p>
+<p><img alt="The steps of four kinds of run" src="../images/52_step_sequences.svg" /></p>
+<p>The second <code>gal2cpp</code> is not a real step: it only logs <code>skip transformation</code>, because the description is already in memory.</p>
 <h2 id="grammar">Grammar<a class="headerlink" href="#grammar" title="Permanent link">&para;</a></h2>
 <pre><code>file          = wizard-statement+ | root-file | aggregate-file
 root-file     = &quot;root&quot; &quot;aggregate&quot; NAME &quot;{&quot; versions &quot;}&quot;  root-version*
@@ -231,6 +251,7 @@ create label [AGG] NAME = static|dynamic ...
 create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
 </code></pre>
 <p>Details are in <a href="../wizard/">The Wizard</a>.</p>
+<p><img alt="What each Wizard command changes" src="../images/53_wizard_command_effects.svg" /></p>
 <h2 id="galcfg-keys">gal.cfg keys<a class="headerlink" href="#galcfg-keys" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -327,6 +348,8 @@ create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
 </tbody>
 </table>
 <p>See <a href="../diagnostics/">Logs and diagnostics</a>.</p>
+<h3 id="when-a-file-is-written-and-cleaned">When a file is written and cleaned<a class="headerlink" href="#when-a-file-is-written-and-cleaned" title="Permanent link">&para;</a></h3>
+<p><img alt="Where a run writes, and when" src="../images/54_places.svg" /></p>
 <h2 id="versions-what-each-state-allows">Versions: what each state allows<a class="headerlink" href="#versions-what-each-state-allows" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -532,6 +555,12 @@ create ordering [AGG] NAME = { A, B [, C]* } [, { ... }]*
 </tr>
 </tbody>
 </table>
+<h2 id="the-libraries">The libraries<a class="headerlink" href="#the-libraries" title="Permanent link">&para;</a></h2>
+<p>Galimatron is built from layers. Each library links only to the ones below it.</p>
+<p><img alt="The libraries of Galimatron" src="../images/51_libraries.svg" /></p>
+<h2 id="test-axes">Test axes<a class="headerlink" href="#test-axes" title="Permanent link">&para;</a></h2>
+<p>Every automated test of Galimatron is marked with an axis, which says what the test covers.</p>
+<p><img alt="The test axes" src="../images/55_test_axes.svg" /></p>
               
             </div>
           </div><footer>

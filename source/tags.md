@@ -39,6 +39,10 @@ field important { "int", "price" };
 
 This tag has no name that you typed. A [label](labels.md) must name it from one of its values (`tag-name-from`). Here the value labeled `name` is `price`, so the tag is called `price`. Without that, the run stops.
 
+![How a tag gets its name from a label](images/49_tag_name_from_label.svg)
+
+Follow the arrows: the tag uses the label `field`; the label gives each value a part (`type`, `name`); and `tag-name-from { name }` says that the value in the part `name` is the name of the tag.
+
 The reason: a generator wants a list of *fields*, and wants to find a field by its name. You do not want to invent a tag name for each field, and you do not want the name to be written twice.
 
 ## Labels in front of the values
@@ -71,9 +75,9 @@ version_namespace = { "v2" };
 
 Here `uuid` and the field are important: they are what is published. `struct_name` and `version_namespace` are not marked. They stay out of the hash, so they may be fixed or renamed at any time, even in a closed version, and nothing breaks.
 
-![Important data reaches the DTO, the rest stays in the code](images/44_important_dto.svg)
+![A DTO in two halves: important values are public, the rest is private](images/44_important_dto.svg)
 
-The generator writes both kinds into the same DTO. The important values become its published shape, which other programs and files depend on, and the hash guards them. The unimportant values only shape the code inside the DTO.
+The generator writes both kinds into the same DTO, so the DTO has two halves. Left of the dashed line is the public half: the important values become the published shape, which other programs and files depend on, and the hash guards them. Right of the line is the private half: the unimportant values only shape the code inside the DTO.
 
 ### What the mark does
 

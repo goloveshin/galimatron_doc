@@ -1,50 +1,68 @@
 <mxfile host="app.diagrams.net">
   <diagram name="44_important_dto" id="44_important_dto">
-    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="430" math="0" shadow="0">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="560" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="ag" value="price_message, version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
-          <mxGeometry x="15" y="20" width="330" height="116" as="geometry"/>
+        <mxCell id="hp" value="&lt;b&gt;public&lt;/b&gt;: what others depend on" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=15;fontColor=#b85c00;" vertex="1" parent="1">
+          <mxGeometry x="15" y="5" width="445" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="ag_b" value="field important { &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&quot;int&quot;, &quot;price&quot;&lt;/span&gt; }&lt;br&gt;field important { &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;&quot;text&quot;, &quot;unit&quot;&lt;/span&gt; }&lt;br&gt;&lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;struct_name = { &quot;PriceMessage&quot; }&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;version_namespace = { &quot;v2&quot; }&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="ag">
-          <mxGeometry x="0" y="26" width="330" height="90" as="geometry"/>
+        <mxCell id="hq" value="&lt;b&gt;private&lt;/b&gt;: only your code" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=15;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="485" y="5" width="335" height="28" as="geometry"/>
         </mxCell>
-        <mxCell id="xs" value="generate-&lt;br&gt;sources.xsl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="395" y="50" width="100" height="56" as="geometry"/>
+        <mxCell id="ag" value="price_message, version 1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="15" y="40" width="805" height="100" as="geometry"/>
         </mxCell>
-        <mxCell id="dto" value="generated DTO" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
-          <mxGeometry x="540" y="20" width="280" height="186" as="geometry"/>
+        <mxCell id="ag_l" value="field &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;important&lt;/span&gt; { &quot;int&quot;, &quot;price&quot; }&lt;br&gt;field &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;important&lt;/span&gt; { &quot;text&quot;, &quot;unit&quot; }" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;" vertex="1" parent="ag">
+          <mxGeometry x="5" y="30" width="440" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="dto_in" value="&lt;b&gt;inside the code only&lt;/b&gt;&lt;br&gt;struct PriceMessage, namespace v2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#999999;fontSize=13;" vertex="1" parent="dto">
-          <mxGeometry x="12" y="38" width="256" height="62" as="geometry"/>
+        <mxCell id="ag_r" value="&lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;struct_name = { &quot;PriceMessage&quot; }&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;version_namespace = { &quot;v2&quot; }&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;" vertex="1" parent="ag">
+          <mxGeometry x="470" y="30" width="330" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="xs" value="generate-sources.xsl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="15" y="170" width="805" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto" value="generated DTO" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=8;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;fontStyle=1;fontSize=14;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="15" y="236" width="805" height="110" as="geometry"/>
         </mxCell>
         <mxCell id="dto_pub" value="&lt;b&gt;the published shape&lt;/b&gt;&lt;br&gt;int price, text unit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="dto">
-          <mxGeometry x="12" y="112" width="256" height="62" as="geometry"/>
+          <mxGeometry x="5" y="34" width="440" height="66" as="geometry"/>
         </mxCell>
-        <mxCell id="ou" value="other programs, stored files,&lt;br&gt;clients in the field" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="540" y="250" width="280" height="56" as="geometry"/>
+        <mxCell id="dto_in" value="&lt;b&gt;inside the code only&lt;/b&gt;&lt;br&gt;struct PriceMessage, namespace v2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#999999;fontSize=13;" vertex="1" parent="dto">
+          <mxGeometry x="470" y="34" width="330" height="66" as="geometry"/>
         </mxCell>
-        <mxCell id="hs" value="hash of the version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="100" y="253" width="160" height="50" as="geometry"/>
+        <mxCell id="hs" value="hash of the&lt;br&gt;important values" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="15" y="400" width="170" height="56" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="ag" target="xs">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="ou" value="other programs, stored files, clients in the field" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="400" width="205" height="56" as="geometry"/>
         </mxCell>
-        <mxCell id="a2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="xs" target="dto">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="no" value="nobody outside depends on it: change it at any time" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=center;fontSize=14;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="485" y="400" width="335" height="56" as="geometry"/>
         </mxCell>
-        <mxCell id="a3" value="depend on it" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="dto_pub" target="ou">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a1" value="" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="237" y="140" as="sourcePoint"/><mxPoint x="237" y="170" as="targetPoint"/></mxGeometry>
         </mxCell>
-        <mxCell id="a4" value="important values only" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="ag" target="hs">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a1b" value="" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="652" y="140" as="sourcePoint"/><mxPoint x="652" y="170" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a2" value="" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="237" y="206" as="sourcePoint"/><mxPoint x="237" y="236" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a2b" value="" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="652" y="206" as="sourcePoint"/><mxPoint x="652" y="236" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="a3" value="depend on it" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="352" y="400" as="sourcePoint"/><mxPoint x="352" y="346" as="targetPoint"/></mxGeometry>
         </mxCell>
         <mxCell id="a5" value="guards" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="hs" target="ou">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="n" value="Important values reach the generated DTO as its &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;published shape&lt;/span&gt;, and the hash guards them. Unimportant values only decide how the code is written &lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;inside the DTO&lt;/span&gt;, so you can change them at any time." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="30" y="335" width="760" height="70" as="geometry"/>
+        <mxCell id="line" value="" style="endArrow=none;html=1;edgeStyle=none;dashed=1;dashPattern=8 6;strokeWidth=2;strokeColor=#555555;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="472" y="5" as="sourcePoint"/><mxPoint x="472" y="462" as="targetPoint"/></mxGeometry>
+        </mxCell>
+        <mxCell id="n" value="The dashed line splits the DTO in two. Important values form the &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;public half&lt;/span&gt;: its published shape, which others depend on and the hash guards. Unimportant values form the &lt;span style=&quot;background-color:#d4d4d4;border-radius:3px;&quot;&gt;private half&lt;/span&gt;: they only decide how the code is written, so you can change them at any time." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="30" y="480" width="780" height="60" as="geometry"/>
         </mxCell>
       </root>
     </mxGraphModel>

@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Why Galimatron";
+        var mkdocs_page_name = "The problem";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = "/galimatron_doc/";
       </script>
@@ -41,23 +41,23 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Why Galimatron</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">The problem</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#key-features">Key features</a>
+    <li class="toctree-l2"><a class="reference internal" href="#many-versions-live-at-the-same-time">Many versions live at the same time</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#where-galimatron-stands">Where Galimatron stands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#one-fact-many-places">One fact, many places</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-problem">The problem</a>
+    <li class="toctree-l2"><a class="reference internal" href="#a-published-version-must-not-change">A published version must not change</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-galimatron-gives-you">What Galimatron gives you</a>
+    <li class="toctree-l2"><a class="reference internal" href="#the-same-chores-every-time">The same chores every time</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#the-idea-in-one-picture">The idea in one picture</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#two-examples-that-run">Two examples that run</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#where-to-go-next">Where to go next</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-would-help">What would help</a>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="why-galimatron/">Why Galimatron</a>
                 </li>
               </ul>
               <ul>
@@ -128,7 +128,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Why Galimatron</li>
+      <li class="breadcrumb-item active">The problem</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -138,145 +138,58 @@
             <div class="section" itemprop="articleBody">
               
                 <p><img alt="Galimatron" src="images/galimatron-banner.svg" /></p>
-<h1 id="why-galimatron">Why Galimatron<a class="headerlink" href="#why-galimatron" title="Permanent link">&para;</a></h1>
-<p>Galimatron is a command line tool that keeps <strong>one versioned description of your data</strong> and lets you generate everything else from it.</p>
-<p>You describe your data once, in text files called <strong>GaL</strong> files (Galimatron Language, <code>.gal</code>). Galimatron checks the description, edits it on your command, and turns it into <strong>XML</strong>. From that XML you make whatever you need: source code in the language of your choice, documentation, database schemas, test data, a web page.</p>
-<p>The model behind it is <strong>extremely simple on purpose</strong>: a few kinds of entities (aggregate, version, tag, label, ordering), and for each one a short life: it is created, changed, closed with a hash, or deleted. <a href="entities/">Entities</a> lists all of it on one page. Simple as it is, this model is enough for about 95% of what people want to generate, and for the rest you build the missing piece from the same parts, as the <a href="example-messages/#the-steps">dictionary in the messages example</a> does.</p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>A very simple language, and the state is only text.</strong> A GaL file looks like JSON: aggregates with versions, and tags with values. All the state of a project is in <code>.gal</code> files: no binaries, no database, no hidden project files. They live in git like any other text. <a href="entities/">More</a></li>
-<li><strong>The history lives inside the data.</strong> Every <code>.gal</code> file holds all versions of a description, so a generator sees version 2 next to version 3, not only today's state. <a href="aggregates-and-versions/">More</a></li>
-<li><strong>A closed version cannot change by accident.</strong> A hash seals a version. A changed value is an error, and your XSLT cannot rewrite a sealed version: the seal moves the change into the first open one. <a href="hashes/">More</a></li>
-<li><strong>The Wizard edits the description for you.</strong> One command creates a version, a tag, an aggregate or a hash, and a batch of commands does many at once. You do not copy and edit many files by hand. The result is written back into the <code>.gal</code> files, so the project <strong>modifies itself</strong> and the next run starts from it. <a href="wizard/">More</a></li>
-<li><strong>The primary output is XML.</strong> Every run writes the compiled description, with the history of every version, as an ordinary XML file (<code>post-compiled.xml</code>). Running XSLT inside Galimatron is optional: Saxon, an XSLT processor, is built in and it is the convenient way, but you may read the XML with any tool, or none. <a href="how-it-works/#the-primary-output-is-xml">More</a></li>
-<li><strong>It is not tied to any language.</strong> No programming language, data format or database is built into Galimatron. You can generate anything you like. What is generated is decided by what reads the XML. <a href="how-it-works/#not-tied-to-any-language">More</a></li>
-<li><strong>Declare once, inherit everywhere.</strong> Tags written in the root flow into every aggregate. Labels name the values and give your XSLT something to read by name. <a href="entities/">More</a></li>
-<li><strong>Values that must be new in every version.</strong> A dynamic label asks your XSLT for the next id or counter, and a custom state remembers what your XSLT needs between runs. <a href="labels/">More</a></li>
-<li><strong>Checked before it is written.</strong> The run parses and validates the description, and checks the seal, before your <code>.gal</code> files are rewritten. A failing check stops the run there. <a href="how-it-works/#the-steps">More</a></li>
-<li><strong>Deterministic.</strong> The same <code>.gal</code> files and the same XSLT give the same result, so a run that has nothing to change leaves no diff in version control. <a href="how-it-works/#a-run-is-deterministic">More</a></li>
-<li><strong>Easy to see what happened.</strong> A log with the time and memory of every step, a summary, and XML dumps of every stage. <a href="diagnostics/">More</a></li>
-<li><strong>Measured.</strong> Up to 500 aggregates and 100 versions, with the numbers published. The size to expect in practice, 500 aggregates and 10 versions, runs in 45 seconds to under 10 minutes, depending on the tags and the XSLT. <a href="benchmark/">More</a></li>
-<li><strong>One tool, no library.</strong> Galimatron is one executable for Windows and Linux. You do not link it into your program. You run it, and it reads and writes the folders that you name in <code>gal.cfg</code>. There is an extension for Visual Studio Code. <a href="getting-started/">More</a></li>
-</ul>
-<h2 id="where-galimatron-stands">Where Galimatron stands<a class="headerlink" href="#where-galimatron-stands" title="Permanent link">&para;</a></h2>
-<pre><code> .gal files  ──►  Galimatron  ──►  XML (the primary output)  ──►  anything you like
- (you write)      checks, edits,    the full, versioned picture      your XSLT, a Python script,
-                  compiles                                           a program in any language, ...
-</code></pre>
-<p>Galimatron owns the part that is hard to get right and the same for everybody: a versioned description, its checks, its edits, the history. It does not own the part that is different for every project: what to make out of it.</p>
-<h2 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
-<p>A description of data lives in many places at once.</p>
-<p><img alt="One description or many copies" src="images/01_one_description.svg" /></p>
-<p>A product list sits on a wiki page. The same products are records in a database, items in the code, rows in a spreadsheet, and cases in the tests. Every copy is edited by hand, so the copies drift apart.</p>
-<p>Then the data changes. Version 2 of the list must still be understood next to version 3. Where is version 2 now? It is in a git history, or in somebody's memory. A generator that reads today's file cannot see it.</p>
-<p><img alt="History as data" src="images/02_history_in_data.svg" /></p>
-<p>Galimatron keeps the history <strong>inside the data</strong>. Every GaL file holds all versions of a description. A closed version is sealed with a hash, so it cannot change by accident.</p>
-<h2 id="what-galimatron-gives-you">What Galimatron gives you<a class="headerlink" href="#what-galimatron-gives-you" title="Permanent link">&para;</a></h2>
+<h1 id="the-problem-data-that-changes">The problem: data that changes<a class="headerlink" href="#the-problem-data-that-changes" title="Permanent link">&para;</a></h1>
+<p>Think of any shape of data that other people or programs depend on: a file format, the messages between an app and a server, a table in a database, a configuration. You design it and publish it. Then it has to change.</p>
+<p>This page is about what happens next. It has nothing to do with Galimatron yet: if you have ever kept a data format alive for more than a year, you already know it.</p>
+<h2 id="many-versions-live-at-the-same-time">Many versions live at the same time<a class="headerlink" href="#many-versions-live-at-the-same-time" title="Permanent link">&para;</a></h2>
+<p>A new shape does not replace the old one. An app built last year still sends the old shape. Files saved last year still hold it. The server speaks the newest shape and must read all of them.</p>
+<p><img alt="Versions in use at the same time" src="images/56_versions_side_by_side.svg" /></p>
+<p>So a version is not "yesterday's file". Every version that was published stays alive for as long as somebody uses it, and the data has to say which version it is.</p>
+<h2 id="one-fact-many-places">One fact, many places<a class="headerlink" href="#one-fact-many-places" title="Permanent link">&para;</a></h2>
+<p>A field is never written down once. <code>price</code> is a column in the database, a field in the code, a line in the documentation, a column in a spreadsheet, a value in the tests.</p>
+<p><img alt="One change, many places" src="images/57_one_fact_many_places.svg" /></p>
+<p>Change the type in one place and the others are wrong. Nobody has a list of all the places, so a few are forgotten, and you learn about them from a bug report.</p>
+<h2 id="a-published-version-must-not-change">A published version must not change<a class="headerlink" href="#a-published-version-must-not-change" title="Permanent link">&para;</a></h2>
+<p>Version 2 has shipped. Later somebody finds a mistake in it and fixes it in place. Nothing complains: the file is only text. But the apps in the field and the files on the disk still have the old shape, and now they do not match.</p>
+<p><img alt="Edit in place, or add a version" src="images/58_published_stays_closed.svg" /></p>
+<p>A published version is a promise. To change something that others rely on, you add a new version and leave the old one alone. The difficulty is that nothing stops you from breaking the promise by accident.</p>
+<h2 id="the-same-chores-every-time">The same chores every time<a class="headerlink" href="#the-same-chores-every-time" title="Permanent link">&para;</a></h2>
+<p>Adding a version is a routine, and a routine is easy to get wrong when it is done by hand.</p>
+<p><img alt="The checklist of a new version" src="images/59_chores_checklist.svg" /></p>
+<h2 id="what-would-help">What would help<a class="headerlink" href="#what-would-help" title="Permanent link">&para;</a></h2>
+<p>A short list of what you would want, whatever tool you use:</p>
 <table>
 <thead>
 <tr>
-<th>Your problem</th>
-<th>What Galimatron does</th>
-<th>Read</th>
+<th>You want</th>
+<th>Because</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>The same data is typed in many places.</td>
-<td>One description in GaL, compiled to XML. Your XSLT, or any tool that reads XML, generates every other copy, in any language.</td>
-<td><a href="how-it-works/">How a run works</a></td>
+<td><strong>One place</strong> where the fact is written</td>
+<td>so that the copies cannot drift apart</td>
 </tr>
 <tr>
-<td>Old versions are lost.</td>
-<td>Every version stays in the file, and a generator sees all of them.</td>
-<td><a href="aggregates-and-versions/">Aggregates and versions</a></td>
+<td><strong>The history kept with the data</strong></td>
+<td>so that version 2 can still be read next to version 3</td>
 </tr>
 <tr>
-<td>A published version was changed by mistake.</td>
-<td>A hash closes a version. A changed value is an error.</td>
-<td><a href="hashes/">Hashes</a></td>
+<td><strong>Published versions that are locked</strong></td>
+<td>so that a promise cannot be broken by accident</td>
 </tr>
 <tr>
-<td>A new version means copying and editing many files.</td>
-<td>The Wizard creates versions, tags, aggregates and hashes for you.</td>
-<td><a href="wizard/">The Wizard</a></td>
-</tr>
-<tr>
-<td>Every item repeats the same settings.</td>
-<td>Tags written in the root flow into every aggregate.</td>
-<td><a href="entities/">Entities</a></td>
-</tr>
-<tr>
-<td>A value must be new in each version (an id, a counter).</td>
-<td>A dynamic label asks your XSLT for the next value.</td>
-<td><a href="labels/">Labels</a></td>
-</tr>
-<tr>
-<td>Your XSLT has to remember something between runs.</td>
-<td>A custom state: a file, or a tag, that your XSLT writes and reads.</td>
-<td><a href="custom-states/">Custom states</a></td>
-</tr>
-<tr>
-<td>Fixing an old version breaks its hash.</td>
-<td>The seal moves a change from a closed version to the first open one.</td>
-<td><a href="xslt/">XSLT</a></td>
-</tr>
-<tr>
-<td>A run fails and nobody knows why.</td>
-<td>Every step is checked, and a failing check stops the run before the files are rewritten. Logs and XML dumps show each step.</td>
-<td><a href="diagnostics/">Logs</a></td>
-</tr>
-<tr>
-<td>You need a kind of thing the model does not have (a dictionary, a registry of names).</td>
-<td>Build it from aggregates, versions, tags and XSLT. Nothing in Galimatron changes. Look at what happened in step 10 of the example.</td>
-<td><a href="example-messages/#the-steps">The dictionary step</a></td>
-</tr>
-<tr>
-<td>The tool is slow on a big project.</td>
-<td>Measured numbers for up to 500 aggregates and 100 versions.</td>
-<td><a href="benchmark/">Benchmark</a></td>
+<td><strong>New versions made for you</strong></td>
+<td>so that the chores are done the same way every time</td>
 </tr>
 </tbody>
 </table>
-<h2 id="the-idea-in-one-picture">The idea in one picture<a class="headerlink" href="#the-idea-in-one-picture" title="Permanent link">&para;</a></h2>
-<p>You write a few lines.</p>
-<pre><code>root aggregate shop
-{
-    versions { 0; }
-}
-
-version 0
-{
-    currency = { &quot;EUR&quot; };
-}
-</code></pre>
-<p>An aggregate says more.</p>
-<pre><code>aggregate apple
-{
-    versions { 0; }
-}
-
-version 0
-{
-    price = { &quot;3&quot; };
-}
-</code></pre>
-<p>Galimatron compiles the files. Every aggregate gets the root's <code>currency</code> and its own <code>price</code>, and the result is written as XML. Your XSLT (or any program that reads XML) turns that compiled picture into what you need.</p>
-<h2 id="two-examples-that-run">Two examples that run<a class="headerlink" href="#two-examples-that-run" title="Permanent link">&para;</a></h2>
-<p>This documentation uses two real projects from the Galimatron sources.</p>
-<p><a href="example-messages/">Example: messages that grow</a>
-:   A client and a server that exchange messages. Messages are added and changed, and old clients stay in use, so every change must be tracked: this is a good case for versions. The messages are described in GaL. The types, the registration and the conversion from every older version are generated. Thirteen steps, from a hand-written start to a collapsed history. (The example generates source code because its client and server are programs; it could be any output.)</p>
-<p><a href="benchmark/">Benchmark</a>
-:   A synthetic project of up to 500 aggregates and 100 versions. It shows how time and memory grow, and which step of the run costs what.</p>
-<h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
-<p>New here? Read <a href="getting-started/">Getting started</a>: install, run a small project, and see what changed on disk.</p>
-<p>Want the model first? Read <a href="entities/">Entities</a>.</p>
-<p>Looking for a command or a file format? See the <a href="reference/">Reference</a>.</p>
+<p>Galimatron is a tool built for exactly this list. <a href="why-galimatron/">Why Galimatron</a> shows how it works, and <a href="getting-started/">Getting started</a> gets you running in a few minutes.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="getting-started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="why-galimatron/" class="btn btn-neutral float-right" title="Why Galimatron">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -305,7 +218,7 @@ version 0
     
     
     
-      <span><a href="getting-started/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="why-galimatron/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -325,5 +238,5 @@ version 0
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-11-13 12:20:00.696334+00:00
+Build Date UTC : 2026-11-18 10:42:37.088716+00:00
 -->

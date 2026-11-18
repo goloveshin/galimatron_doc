@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="55_test_axes" id="55_test_axes">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="640" pageHeight="230" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c2" value='&lt;b&gt;test axes&lt;/b&gt; &amp;nbsp; (&lt;font face="Courier New"&gt;test_axes::mark(...)&lt;/font&gt; in the suite description)' style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="10" y="8" width="600" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontFamily=Courier New;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="40" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="full integration: gal.cfg, log.cfg, translate_production" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="186" y="40" width="440" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="translator_slice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontFamily=Courier New;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="76" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value="chosen built-in steps: translate_slice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="186" y="76" width="440" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c7" value="parser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontFamily=Courier New;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="112" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c8" value="the grammar and the version rule" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="186" y="112" width="440" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c9" value="component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontFamily=Courier New;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="148" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c10" value="one helper" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="186" y="148" width="440" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c11" value="process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontFamily=Courier New;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="184" width="170" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c12" value="the crash handler in a child process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="186" y="184" width="440" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

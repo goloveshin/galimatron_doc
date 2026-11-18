@@ -4,6 +4,8 @@ This page installs Galimatron and runs the smallest useful project. You will see
 
 ## Install
 
+Download the installer from [GitHub Releases](https://github.com/goloveshin/galimatron/releases). The source code is in the [Galimatron repository](https://github.com/goloveshin/galimatron).
+
 Galimatron is one executable (`galimatron.exe` on Windows, `galimatron` on Linux) with the SaxonC libraries beside it (Saxon is the XSLT processor that Galimatron uses to run your XSLT). The installer puts these in place, in the install folder (on Windows, `C:\Program Files\Galimatron`):
 
 | What | Where |
