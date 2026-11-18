@@ -16,10 +16,10 @@ Versions are the expensive part (see "How it grows" below), and that is a reason
 
     | 500 aggregates, 10 versions | with your language XSLT | without any XSLT |
     |---|---:|---:|
-    | 1 tag in each aggregate | 76.6 s, 444 MB | 44.5 s, 185 MB |
-    | 100 tags in each aggregate | 9 min 45 s, 2.9 GB | 2 min 37 s, 1.1 GB |
+    | 1 tag in each aggregate | 48.3 s, 352 MB | 20.4 s, 185 MB |
+    | 100 tags in each aggregate | 4 min 34 s, 1.7 GB | 2 min 26 s, 1.1 GB |
 
-    The Wizard stays near 22 seconds in all of these rows. What grows with the tags is your XSLT and the reading of its result back: with 100 tags they are about two thirds of the run.
+    The Wizard stays under a second in all of these rows. What grows with the tags is the XML: with 100 tags and your XSLT, the compiled XML (`post xml`) takes 89 s, reading the result of your XSLT back (`xml2cpp`) 64 s, and writing the `.gal` files (`cpp2gal`) 40 s. Together they are about two thirds of the run.
 
 ## What it does
 
@@ -42,73 +42,75 @@ The machine: Intel Core i7-3770K at 3.5 GHz (4 cores, 8 threads), 32 GB of RAM, 
 
 The tag types matter. A tag with a **dynamic** label is copied into every new version, so `T` dynamic tags and `V` versions make `T * V` copies. The table is the measured run; `tags` is the number of dynamic payload tags.
 
-| aggregates | versions | tags | total | Wizard | cpp2xml | xslt | xml2cpp | cpp2gal | post xml | state |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 50 | 10 | 2 | 6.9 | 0.2 | 1.0 | 1.2 | 1.4 | 1.0 | 1.0 | 152 MB |
-| 50 | 10 | 8 | 14.1 | 0.2 | 2.0 | 3.4 | 3.6 | 2.0 | 1.6 | 201 MB |
-| 50 | 50 | 2 | 50.4 | 3.5 | 4.9 | 11.3 | 12.9 | 4.2 | 11.1 | 447 MB |
-| 50 | 50 | 8 | 128.5 | 3.5 | 10.0 | 42.7 | 45.7 | 9.1 | 13.8 | 799 MB |
-| 50 | 100 | 2 | 151.8 | 11.2 | 10.2 | 36.9 | 41.2 | 8.3 | 37.5 | 1.1 GB |
-| 50 | 100 | 8 | 419.4 | 12.9 | 22.5 | 152.8 | 160.4 | 18.3 | 43.3 | 1.6 GB |
-| 100 | 10 | 2 | 14.8 | 0.8 | 1.9 | 3.0 | 3.5 | 1.9 | 2.1 | 262 MB |
-| 100 | 10 | 8 | 32.7 | 0.8 | 3.8 | 8.9 | 10.0 | 4.0 | 3.1 | 277 MB |
-| 100 | 50 | 2 | 134.1 | 12.3 | 9.5 | 37.0 | 39.9 | 8.5 | 21.5 | 808 MB |
-| 100 | 50 | 8 | 393.3 | 12.6 | 20.3 | 150.9 | 157.1 | 17.6 | 27.1 | 1.3 GB |
-| 100 | 100 | 2 | 436.4 | 45.0 | 20.2 | 130.6 | 137.6 | 16.2 | 73.4 | 2.1 GB |
-| 100 | 100 | 8 | 1383.9 | 47.4 | 43.5 | 568.0 | 580.3 | 35.2 | 88.8 | 2.9 GB |
+| aggregates | versions | tags | total | Wizard | cpp2xml | xslt | xml2cpp | seal | cpp2gal | post xml | state |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 50 | 10 | 2 | 8.1 | 0.0 | 1.0 | 0.4 | 3.5 | 0.3 | 1.0 | 1.1 | 130 MB |
+| 50 | 10 | 8 | 14.6 | 0.0 | 2.1 | 1.0 | 6.0 | 0.7 | 2.0 | 1.8 | 191 MB |
+| 50 | 50 | 2 | 42.1 | 0.5 | 5.2 | 2.0 | 13.8 | 2.7 | 4.2 | 12.9 | 330 MB |
+| 50 | 50 | 8 | 77.1 | 0.9 | 11.8 | 4.5 | 29.1 | 3.9 | 10.2 | 15.7 | 508 MB |
+| 50 | 100 | 2 | 109.5 | 1.6 | 11.2 | 4.5 | 28.3 | 7.6 | 9.1 | 46.1 | 651 MB |
+| 50 | 100 | 8 | 184.4 | 3.6 | 24.3 | 10.6 | 63.3 | 11.2 | 19.2 | 50.6 | 1.0 GB |
+| 100 | 10 | 2 | 14.9 | 0.1 | 2.0 | 0.9 | 5.7 | 0.7 | 2.0 | 2.1 | 179 MB |
+| 100 | 10 | 8 | 28.4 | 0.1 | 4.3 | 1.9 | 12.0 | 1.2 | 3.9 | 3.5 | 263 MB |
+| 100 | 50 | 2 | 84.4 | 1.0 | 10.5 | 4.0 | 27.9 | 5.5 | 8.6 | 25.4 | 538 MB |
+| 100 | 50 | 8 | 157.0 | 2.0 | 23.0 | 9.1 | 59.6 | 8.6 | 18.3 | 34.7 | 942 MB |
+| 100 | 100 | 2 | 217.0 | 3.6 | 23.3 | 8.4 | 57.7 | 15.8 | 17.2 | 89.0 | 1.2 GB |
+| 100 | 100 | 8 | 365.3 | 6.7 | 49.2 | 21.1 | 119.9 | 27.3 | 36.7 | 101.6 | 1.9 GB |
 
-The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes **23 minutes 4 seconds** and grows the state by 2.9 GB. Nearly all of it is the two steps that walk the data with your XSLT: `xslt` (568 s, your language XSLT) and `xml2cpp` (580 s, reading its result back).
+The columns are the steps of the run. `xslt` is Saxon at work: it takes the document and runs your XSLT. `xml2cpp` reads the result back, and `seal` moves the changes out of the closed versions. The full grid (aggregates 10, 20, 50 and 100, versions 10, 20, 50 and 100) is in `examples/benchmark/matrix/times.md`.
+
+The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes **6 minutes 5 seconds** and grows the state by 1.9 GB. The slowest steps are `xml2cpp` (120 s, reading the result of your XSLT back) and `post xml` (102 s, the compiled XML). Saxon itself, with your XSLT, takes 21 s.
 
 ### How it grows
 
 `A` is the number of aggregates, `V` the number of versions, `T` the number of tags.
 
-- **Versions dominate**, about `O(V^1.5)`. Ten times the versions (10 to 100) makes the run 22 to 42 times longer. The copied dynamic tags and the XSLT walk grow with every version.
-- **Tags** are about `O(T^0.5)` on a 10-version run. Four times the tags (2 to 8) doubles the time. With 100 versions it triples it, toward `O(T)`.
-- **Aggregates** are about `O(A)` to `O(A^1.5)`. Twice the aggregates makes the run 2 to 3 times longer.
-- **State** follows the versions, about `O(V)`. At 10 versions, 100 aggregates stay near 260 MB for both tag counts.
+- **Versions dominate**, about `O(V^1.1)`. Ten times the versions (10 to 100) makes the run 13 to 15 times longer. The copied dynamic tags grow with every version.
+- **Tags** are about `O(T^0.4)`. Four times the tags (2 to 8) makes the run 1.7 to 1.9 times longer.
+- **Aggregates** are about `O(A)`. Twice the aggregates makes the run about twice as long.
+- **State** follows the versions, a little slower than `O(V)`: ten times the versions needs 6 to 7 times the memory. At 10 versions, 100 aggregates take 179 MB with 2 tags and 263 MB with 8 tags.
 
 ## Static tags
 
 The same project with tags that have a **static** label. A new version does not copy them. `V` is fixed at 10.
 
-| aggregates | tags | total | Wizard | xslt | xml2cpp | state |
-|---:|---:|---:|---:|---:|---:|---:|
-| 10 | 1 | 0.8 | 0.0 | 0.1 | 0.1 | 73 MB |
-| 10 | 100 | 4.9 | 0.0 | 0.5 | 0.6 | 135 MB |
-| 50 | 1 | 3.9 | 0.2 | 0.5 | 0.6 | 115 MB |
-| 50 | 100 | 26.2 | 0.2 | 3.7 | 4.4 | 431 MB |
-| 500 | 1 | 76.6 | 22.0 | 11.2 | 13.6 | 444 MB |
-| 500 | 50 | 271.0 | 24.0 | 70.9 | 75.1 | 1.6 GB |
-| 500 | 100 | 584.9 | 21.3 | 187.1 | 195.5 | 2.9 GB |
+| aggregates | tags | total | Wizard | cpp2xml | xslt | xml2cpp | seal | cpp2gal | post xml | state |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 10 | 1 | 1.1 | 0.0 | 0.0 | 0.1 | 0.2 | 0.0 | 0.1 | 0.1 | 59 MB |
+| 10 | 100 | 5.7 | 0.0 | 0.5 | 0.2 | 1.3 | 0.3 | 0.7 | 1.9 | 114 MB |
+| 50 | 1 | 4.3 | 0.0 | 0.4 | 0.2 | 1.3 | 0.2 | 0.5 | 0.9 | 100 MB |
+| 50 | 100 | 26.7 | 0.0 | 2.4 | 0.9 | 6.4 | 1.4 | 4.0 | 8.8 | 259 MB |
+| 500 | 1 | 48.3 | 0.4 | 5.8 | 2.0 | 14.2 | 5.2 | 5.8 | 8.9 | 352 MB |
+| 500 | 50 | 159.3 | 0.5 | 15.4 | 5.3 | 38.8 | 11.6 | 22.6 | 49.0 | 987 MB |
+| 500 | 100 | 273.6 | 0.9 | 25.7 | 9.0 | 64.1 | 19.4 | 39.5 | 89.3 | 1.7 GB |
 
-500 aggregates, 10 versions and 100 static tags takes 9 min 45 s. Time is about `O(A * T^0.5)`: from 1 tag to 100 tags the run grows 6 to 8 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 96 times longer. At 500 aggregates the **Wizard stays near 22 seconds**, whatever the number of tags.
+500 aggregates, 10 versions and 100 static tags takes 4 min 34 s. Time is about `O(A * T^0.4)`: from 1 tag to 100 tags the run grows 5 to 6 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 44 times longer. At 500 aggregates the **Wizard stays under a second**, whatever the number of tags.
 
 ## Without XSLT
 
-Not every project needs an XSLT between the Wizard and the end. `gal-static-no-xslt.cfg` is the same static grid without any user XSLT. Then `cpp2xml`, `suffix.xsl` and `xml2cpp` are not in the run, and **Saxon is not created**. The log has no *xslt processor* line.
+Not every project needs an XSLT between the Wizard and the end. `gal-static-no-xslt.cfg` is the same static grid without any user XSLT. Then `cpp2xml`, `suffix.xsl`, `xml2cpp` and the seal are not in the run, and **Saxon is not created**. The log has no *xslt processor* line.
 
 | aggregates | tags | total | Wizard | cpp2gal | post xml | state |
 |---:|---:|---:|---:|---:|---:|---:|
-| 10 | 1 | 0.4 | 0.0 | 0.1 | 0.2 | 5 MB |
-| 10 | 100 | 3.1 | 0.0 | 0.5 | 2.0 | 30 MB |
-| 50 | 100 | 14.7 | 0.2 | 2.6 | 9.3 | 126 MB |
-| 500 | 1 | 44.5 | 23.4 | 6.7 | 8.9 | 185 MB |
-| 500 | 100 | 156.6 | 21.0 | 24.8 | 86.4 | 1.1 GB |
+| 10 | 1 | 0.5 | 0.0 | 0.1 | 0.2 | 5 MB |
+| 10 | 100 | 3.0 | 0.0 | 0.5 | 1.9 | 30 MB |
+| 50 | 100 | 15.3 | 0.0 | 2.5 | 10.3 | 125 MB |
+| 500 | 1 | 20.4 | 0.4 | 7.0 | 9.1 | 185 MB |
+| 500 | 100 | 145.6 | 0.7 | 27.0 | 93.1 | 1.1 GB |
 
-The big case (500 aggregates, 100 static tags) drops from 9 min 45 s to **2 min 37 s**, and from 2.9 GB to 1.1 GB. The slow step is now `post xml` (86 s), the compiled XML.
+The big case (500 aggregates, 100 static tags) drops from 4 min 34 s to **2 min 26 s**, and from 1.7 GB to 1.1 GB. The slow step is now `post xml` (93 s), the compiled XML.
 
 ## What it means for your project
 
 | If | Then |
 |---|---|
-| The project has 10 to 50 aggregates and 10 versions. | A run is a few seconds. Do not worry. |
+| The project has 10 to 50 aggregates and 10 versions. | A run takes from a second to about half a minute. Do not worry. |
 | The project has many versions (more than the usual 5 to 10 in use). | Time and memory follow the number of versions. [Collapse](aggregates-and-versions.md#collapsing-history) old ones when they go out of service. |
 | You have many tags that change every version. | Each dynamic tag is copied into every version. Use a **static** label for what does not need to change in each version. |
 | A tag must be new in every version (an id). | Keep it dynamic, but keep the number of such tags small. |
-| You use a language XSLT. | It is the largest cost on a big project: the step and the read back. Do in the *post* XSLT what does not have to change the data. |
+| You use a language XSLT. | It adds the steps around it: the XML for Saxon, the read back and the seal. With 500 aggregates and 100 tags that is about two minutes on top of two and a half. Do in the *post* XSLT what does not have to change the data. |
 | You have no data changes to make. | List no language XSLT. Saxon is not even created for a run with no XSLT at all. |
-| The Wizard is slow. | It is `O(1)` in tags and grows with aggregates. 500 aggregates cost about 22 s. |
+| The Wizard is slow. | It is `O(1)` in tags. 500 aggregates with 10 versions cost under a second, and 100 aggregates with 100 versions about 4 to 7 s. |
 
 The time of each step is always in `intermediate/galimatron.log`: use the same lines to measure your own project. See [Logs and diagnostics](diagnostics.md).
 

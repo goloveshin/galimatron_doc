@@ -169,17 +169,17 @@
 <tbody>
 <tr>
 <td>1 tag in each aggregate</td>
-<td style="text-align: right;">76.6 s, 444 MB</td>
-<td style="text-align: right;">44.5 s, 185 MB</td>
+<td style="text-align: right;">48.3 s, 352 MB</td>
+<td style="text-align: right;">20.4 s, 185 MB</td>
 </tr>
 <tr>
 <td>100 tags in each aggregate</td>
-<td style="text-align: right;">9 min 45 s, 2.9 GB</td>
-<td style="text-align: right;">2 min 37 s, 1.1 GB</td>
+<td style="text-align: right;">4 min 34 s, 1.7 GB</td>
+<td style="text-align: right;">2 min 26 s, 1.1 GB</td>
 </tr>
 </tbody>
 </table>
-<p>The Wizard stays near 22 seconds in all of these rows. What grows with the tags is your XSLT and the reading of its result back: with 100 tags they are about two thirds of the run.</p>
+<p>The Wizard stays under a second in all of these rows. What grows with the tags is the XML: with 100 tags and your XSLT, the compiled XML (<code>post xml</code>) takes 89 s, reading the result of your XSLT back (<code>xml2cpp</code>) 64 s, and writing the <code>.gal</code> files (<code>cpp2gal</code>) 40 s. Together they are about two thirds of the run.</p>
 </div>
 <h2 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h2>
 <p><img alt="Time of the biggest dynamic run" src="../images/23_benchmark_time.svg" /></p>
@@ -206,6 +206,7 @@
 <th style="text-align: right;">cpp2xml</th>
 <th style="text-align: right;">xslt</th>
 <th style="text-align: right;">xml2cpp</th>
+<th style="text-align: right;">seal</th>
 <th style="text-align: right;">cpp2gal</th>
 <th style="text-align: right;">post xml</th>
 <th style="text-align: right;">state</th>
@@ -216,168 +217,181 @@
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6.9</td>
-<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: right;">0.0</td>
 <td style="text-align: right;">1.0</td>
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">0.3</td>
 <td style="text-align: right;">1.0</td>
-<td style="text-align: right;">1.0</td>
-<td style="text-align: right;">152 MB</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">130 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">14.1</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">201 MB</td>
-</tr>
-<tr>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">50.4</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">11.3</td>
-<td style="text-align: right;">12.9</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">11.1</td>
-<td style="text-align: right;">447 MB</td>
-</tr>
-<tr>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">128.5</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">10.0</td>
-<td style="text-align: right;">42.7</td>
-<td style="text-align: right;">45.7</td>
-<td style="text-align: right;">9.1</td>
-<td style="text-align: right;">13.8</td>
-<td style="text-align: right;">799 MB</td>
-</tr>
-<tr>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">151.8</td>
-<td style="text-align: right;">11.2</td>
-<td style="text-align: right;">10.2</td>
-<td style="text-align: right;">36.9</td>
-<td style="text-align: right;">41.2</td>
-<td style="text-align: right;">8.3</td>
-<td style="text-align: right;">37.5</td>
-<td style="text-align: right;">1.1 GB</td>
-</tr>
-<tr>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">419.4</td>
-<td style="text-align: right;">12.9</td>
-<td style="text-align: right;">22.5</td>
-<td style="text-align: right;">152.8</td>
-<td style="text-align: right;">160.4</td>
-<td style="text-align: right;">18.3</td>
-<td style="text-align: right;">43.3</td>
-<td style="text-align: right;">1.6 GB</td>
-</tr>
-<tr>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">14.8</td>
-<td style="text-align: right;">0.8</td>
-<td style="text-align: right;">1.9</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">14.6</td>
+<td style="text-align: right;">0.0</td>
 <td style="text-align: right;">2.1</td>
-<td style="text-align: right;">262 MB</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">191 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">42.1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">5.2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">13.8</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">330 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">77.1</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">11.8</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">10.2</td>
+<td style="text-align: right;">15.7</td>
+<td style="text-align: right;">508 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">109.5</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">46.1</td>
+<td style="text-align: right;">651 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">184.4</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">24.3</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: right;">63.3</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">19.2</td>
+<td style="text-align: right;">50.6</td>
+<td style="text-align: right;">1.0 GB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">14.9</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">179 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">32.7</td>
-<td style="text-align: right;">0.8</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">8.9</td>
-<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">28.4</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">263 MB</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">84.4</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">10.5</td>
 <td style="text-align: right;">4.0</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">277 MB</td>
-</tr>
-<tr>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">134.1</td>
-<td style="text-align: right;">12.3</td>
-<td style="text-align: right;">9.5</td>
-<td style="text-align: right;">37.0</td>
-<td style="text-align: right;">39.9</td>
-<td style="text-align: right;">8.5</td>
-<td style="text-align: right;">21.5</td>
-<td style="text-align: right;">808 MB</td>
+<td style="text-align: right;">27.9</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: right;">25.4</td>
+<td style="text-align: right;">538 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">393.3</td>
-<td style="text-align: right;">12.6</td>
-<td style="text-align: right;">20.3</td>
-<td style="text-align: right;">150.9</td>
-<td style="text-align: right;">157.1</td>
-<td style="text-align: right;">17.6</td>
-<td style="text-align: right;">27.1</td>
-<td style="text-align: right;">1.3 GB</td>
+<td style="text-align: right;">157.0</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">23.0</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">59.6</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">34.7</td>
+<td style="text-align: right;">942 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">436.4</td>
-<td style="text-align: right;">45.0</td>
-<td style="text-align: right;">20.2</td>
-<td style="text-align: right;">130.6</td>
-<td style="text-align: right;">137.6</td>
-<td style="text-align: right;">16.2</td>
-<td style="text-align: right;">73.4</td>
-<td style="text-align: right;">2.1 GB</td>
+<td style="text-align: right;">217.0</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">23.3</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: right;">57.7</td>
+<td style="text-align: right;">15.8</td>
+<td style="text-align: right;">17.2</td>
+<td style="text-align: right;">89.0</td>
+<td style="text-align: right;">1.2 GB</td>
 </tr>
 <tr>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">1383.9</td>
-<td style="text-align: right;">47.4</td>
-<td style="text-align: right;">43.5</td>
-<td style="text-align: right;">568.0</td>
-<td style="text-align: right;">580.3</td>
-<td style="text-align: right;">35.2</td>
-<td style="text-align: right;">88.8</td>
-<td style="text-align: right;">2.9 GB</td>
+<td style="text-align: right;">365.3</td>
+<td style="text-align: right;">6.7</td>
+<td style="text-align: right;">49.2</td>
+<td style="text-align: right;">21.1</td>
+<td style="text-align: right;">119.9</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">36.7</td>
+<td style="text-align: right;">101.6</td>
+<td style="text-align: right;">1.9 GB</td>
 </tr>
 </tbody>
 </table>
-<p>The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes <strong>23 minutes 4 seconds</strong> and grows the state by 2.9 GB. Nearly all of it is the two steps that walk the data with your XSLT: <code>xslt</code> (568 s, your language XSLT) and <code>xml2cpp</code> (580 s, reading its result back).</p>
+<p>The columns are the steps of the run. <code>xslt</code> is Saxon at work: it takes the document and runs your XSLT. <code>xml2cpp</code> reads the result back, and <code>seal</code> moves the changes out of the closed versions. The full grid (aggregates 10, 20, 50 and 100, versions 10, 20, 50 and 100) is in <code>examples/benchmark/matrix/times.md</code>.</p>
+<p>The biggest run has 100 aggregates, 100 versions and 8 dynamic tags. It takes <strong>6 minutes 5 seconds</strong> and grows the state by 1.9 GB. The slowest steps are <code>xml2cpp</code> (120 s, reading the result of your XSLT back) and <code>post xml</code> (102 s, the compiled XML). Saxon itself, with your XSLT, takes 21 s.</p>
 <h3 id="how-it-grows">How it grows<a class="headerlink" href="#how-it-grows" title="Permanent link">&para;</a></h3>
 <p><code>A</code> is the number of aggregates, <code>V</code> the number of versions, <code>T</code> the number of tags.</p>
 <ul>
-<li><strong>Versions dominate</strong>, about <code>O(V^1.5)</code>. Ten times the versions (10 to 100) makes the run 22 to 42 times longer. The copied dynamic tags and the XSLT walk grow with every version.</li>
-<li><strong>Tags</strong> are about <code>O(T^0.5)</code> on a 10-version run. Four times the tags (2 to 8) doubles the time. With 100 versions it triples it, toward <code>O(T)</code>.</li>
-<li><strong>Aggregates</strong> are about <code>O(A)</code> to <code>O(A^1.5)</code>. Twice the aggregates makes the run 2 to 3 times longer.</li>
-<li><strong>State</strong> follows the versions, about <code>O(V)</code>. At 10 versions, 100 aggregates stay near 260 MB for both tag counts.</li>
+<li><strong>Versions dominate</strong>, about <code>O(V^1.1)</code>. Ten times the versions (10 to 100) makes the run 13 to 15 times longer. The copied dynamic tags grow with every version.</li>
+<li><strong>Tags</strong> are about <code>O(T^0.4)</code>. Four times the tags (2 to 8) makes the run 1.7 to 1.9 times longer.</li>
+<li><strong>Aggregates</strong> are about <code>O(A)</code>. Twice the aggregates makes the run about twice as long.</li>
+<li><strong>State</strong> follows the versions, a little slower than <code>O(V)</code>: ten times the versions needs 6 to 7 times the memory. At 10 versions, 100 aggregates take 179 MB with 2 tags and 263 MB with 8 tags.</li>
 </ul>
 <h2 id="static-tags">Static tags<a class="headerlink" href="#static-tags" title="Permanent link">&para;</a></h2>
 <p>The same project with tags that have a <strong>static</strong> label. A new version does not copy them. <code>V</code> is fixed at 10.</p>
@@ -388,8 +402,12 @@
 <th style="text-align: right;">tags</th>
 <th style="text-align: right;">total</th>
 <th style="text-align: right;">Wizard</th>
+<th style="text-align: right;">cpp2xml</th>
 <th style="text-align: right;">xslt</th>
 <th style="text-align: right;">xml2cpp</th>
+<th style="text-align: right;">seal</th>
+<th style="text-align: right;">cpp2gal</th>
+<th style="text-align: right;">post xml</th>
 <th style="text-align: right;">state</th>
 </tr>
 </thead>
@@ -397,71 +415,99 @@
 <tr>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.2</td>
 <td style="text-align: right;">0.0</td>
 <td style="text-align: right;">0.1</td>
 <td style="text-align: right;">0.1</td>
-<td style="text-align: right;">73 MB</td>
+<td style="text-align: right;">59 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">5.7</td>
 <td style="text-align: right;">0.0</td>
 <td style="text-align: right;">0.5</td>
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">135 MB</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">114 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">1.3</td>
 <td style="text-align: right;">0.2</td>
 <td style="text-align: right;">0.5</td>
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">115 MB</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">100 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">26.2</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">3.7</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">431 MB</td>
+<td style="text-align: right;">26.7</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">259 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">500</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">76.6</td>
-<td style="text-align: right;">22.0</td>
-<td style="text-align: right;">11.2</td>
-<td style="text-align: right;">13.6</td>
-<td style="text-align: right;">444 MB</td>
+<td style="text-align: right;">48.3</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">14.2</td>
+<td style="text-align: right;">5.2</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">352 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">500</td>
 <td style="text-align: right;">50</td>
-<td style="text-align: right;">271.0</td>
-<td style="text-align: right;">24.0</td>
-<td style="text-align: right;">70.9</td>
-<td style="text-align: right;">75.1</td>
-<td style="text-align: right;">1.6 GB</td>
+<td style="text-align: right;">159.3</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">15.4</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">11.6</td>
+<td style="text-align: right;">22.6</td>
+<td style="text-align: right;">49.0</td>
+<td style="text-align: right;">987 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">500</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">584.9</td>
-<td style="text-align: right;">21.3</td>
-<td style="text-align: right;">187.1</td>
-<td style="text-align: right;">195.5</td>
-<td style="text-align: right;">2.9 GB</td>
+<td style="text-align: right;">273.6</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">25.7</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">64.1</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">39.5</td>
+<td style="text-align: right;">89.3</td>
+<td style="text-align: right;">1.7 GB</td>
 </tr>
 </tbody>
 </table>
-<p>500 aggregates, 10 versions and 100 static tags takes 9 min 45 s. Time is about <code>O(A * T^0.5)</code>: from 1 tag to 100 tags the run grows 6 to 8 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 96 times longer. At 500 aggregates the <strong>Wizard stays near 22 seconds</strong>, whatever the number of tags.</p>
+<p>500 aggregates, 10 versions and 100 static tags takes 4 min 34 s. Time is about <code>O(A * T^0.4)</code>: from 1 tag to 100 tags the run grows 5 to 6 times, and fifty times the aggregates (10 to 500) makes a 1-tag run about 44 times longer. At 500 aggregates the <strong>Wizard stays under a second</strong>, whatever the number of tags.</p>
 <h2 id="without-xslt">Without XSLT<a class="headerlink" href="#without-xslt" title="Permanent link">&para;</a></h2>
-<p>Not every project needs an XSLT between the Wizard and the end. <code>gal-static-no-xslt.cfg</code> is the same static grid without any user XSLT. Then <code>cpp2xml</code>, <code>suffix.xsl</code> and <code>xml2cpp</code> are not in the run, and <strong>Saxon is not created</strong>. The log has no <em>xslt processor</em> line.</p>
+<p>Not every project needs an XSLT between the Wizard and the end. <code>gal-static-no-xslt.cfg</code> is the same static grid without any user XSLT. Then <code>cpp2xml</code>, <code>suffix.xsl</code>, <code>xml2cpp</code> and the seal are not in the run, and <strong>Saxon is not created</strong>. The log has no <em>xslt processor</em> line.</p>
 <table>
 <thead>
 <tr>
@@ -478,7 +524,7 @@
 <tr>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">0.0</td>
 <td style="text-align: right;">0.1</td>
 <td style="text-align: right;">0.2</td>
@@ -487,42 +533,42 @@
 <tr>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.0</td>
 <td style="text-align: right;">0.0</td>
 <td style="text-align: right;">0.5</td>
-<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">1.9</td>
 <td style="text-align: right;">30 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">50</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">14.7</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">9.3</td>
-<td style="text-align: right;">126 MB</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">10.3</td>
+<td style="text-align: right;">125 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">500</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">44.5</td>
-<td style="text-align: right;">23.4</td>
-<td style="text-align: right;">6.7</td>
-<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">20.4</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">9.1</td>
 <td style="text-align: right;">185 MB</td>
 </tr>
 <tr>
 <td style="text-align: right;">500</td>
 <td style="text-align: right;">100</td>
-<td style="text-align: right;">156.6</td>
-<td style="text-align: right;">21.0</td>
-<td style="text-align: right;">24.8</td>
-<td style="text-align: right;">86.4</td>
+<td style="text-align: right;">145.6</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">93.1</td>
 <td style="text-align: right;">1.1 GB</td>
 </tr>
 </tbody>
 </table>
-<p>The big case (500 aggregates, 100 static tags) drops from 9 min 45 s to <strong>2 min 37 s</strong>, and from 2.9 GB to 1.1 GB. The slow step is now <code>post xml</code> (86 s), the compiled XML.</p>
+<p>The big case (500 aggregates, 100 static tags) drops from 4 min 34 s to <strong>2 min 26 s</strong>, and from 1.7 GB to 1.1 GB. The slow step is now <code>post xml</code> (93 s), the compiled XML.</p>
 <h2 id="what-it-means-for-your-project">What it means for your project<a class="headerlink" href="#what-it-means-for-your-project" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -534,7 +580,7 @@
 <tbody>
 <tr>
 <td>The project has 10 to 50 aggregates and 10 versions.</td>
-<td>A run is a few seconds. Do not worry.</td>
+<td>A run takes from a second to about half a minute. Do not worry.</td>
 </tr>
 <tr>
 <td>The project has many versions (more than the usual 5 to 10 in use).</td>
@@ -550,7 +596,7 @@
 </tr>
 <tr>
 <td>You use a language XSLT.</td>
-<td>It is the largest cost on a big project: the step and the read back. Do in the <em>post</em> XSLT what does not have to change the data.</td>
+<td>It adds the steps around it: the XML for Saxon, the read back and the seal. With 500 aggregates and 100 tags that is about two minutes on top of two and a half. Do in the <em>post</em> XSLT what does not have to change the data.</td>
 </tr>
 <tr>
 <td>You have no data changes to make.</td>
@@ -558,7 +604,7 @@
 </tr>
 <tr>
 <td>The Wizard is slow.</td>
-<td>It is <code>O(1)</code> in tags and grows with aggregates. 500 aggregates cost about 22 s.</td>
+<td>It is <code>O(1)</code> in tags. 500 aggregates with 10 versions cost under a second, and 100 aggregates with 100 versions about 4 to 7 s.</td>
 </tr>
 </tbody>
 </table>

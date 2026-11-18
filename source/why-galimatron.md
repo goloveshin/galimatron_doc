@@ -21,7 +21,7 @@ The model behind it is **extremely simple on purpose**: a few kinds of entities 
 - **Checked before it is written.** The run parses and validates the description, and checks the seal, before your `.gal` files are rewritten. A failing check stops the run there. [More](how-it-works.md#the-steps)
 - **Deterministic.** The same `.gal` files and the same XSLT give the same result, so a run that has nothing to change leaves no diff in version control. [More](how-it-works.md#a-run-is-deterministic)
 - **Easy to see what happened.** A log with the time and memory of every step, a summary, and XML dumps of every stage. [More](diagnostics.md)
-- **Measured.** Up to 500 aggregates and 100 versions, with the numbers published. The size to expect in practice, 500 aggregates and 10 versions, runs in 45 seconds to under 10 minutes, depending on the tags and the XSLT. [More](benchmark.md)
+- **Measured.** Up to 500 aggregates and 100 versions, with the numbers published. The size to expect in practice, 500 aggregates and 10 versions, runs in 20 seconds to under 5 minutes, depending on the tags and the XSLT. [More](benchmark.md)
 - **One tool, no library.** Galimatron is one executable for Windows and Linux. You do not link it into your program. You run it, and it reads and writes the folders that you name in `gal.cfg`. There is an extension for Visual Studio Code. [More](getting-started.md)
 
 ## Where Galimatron stands
