@@ -28,14 +28,14 @@
         <mxCell id="l3" value="default" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="580" y="320" width="150" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="1st value" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v1">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a1" value="1st value" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="-11" y="-25" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="a2" value="2nd value" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a2" value="2nd value" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="40" y="3" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="a3" value="3rd value" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v3">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a3" value="3rd value" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="use" target="v3">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="-12" y="26" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="b1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="v1" target="l1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

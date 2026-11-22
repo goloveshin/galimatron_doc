@@ -26,13 +26,13 @@
         </mxCell>
 
         <mxCell id="h1" value="content hash&lt;br&gt;of apple" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="440" y="29" width="120" height="60" as="geometry"/>
+          <mxGeometry x="455" y="29" width="110" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="h2" value="content hash&lt;br&gt;of pear" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="440" y="139" width="120" height="60" as="geometry"/>
+          <mxGeometry x="455" y="139" width="110" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="h3" value="content hash&lt;br&gt;of shop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="440" y="249" width="120" height="60" as="geometry"/>
+          <mxGeometry x="455" y="249" width="110" height="60" as="geometry"/>
         </mxCell>
         <mxCell id="so" value="sort, then&lt;br&gt;combine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="620" y="139" width="150" height="60" as="geometry"/>
@@ -40,14 +40,14 @@
         <mxCell id="rh" value="root declaration:&lt;br&gt;1 = { hash = '...' }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="600" y="249" width="210" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="x1" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="ap" target="h1">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="x1" value="important values" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="ap" target="h1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="x2" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="pe" target="h2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="x2" value="important values" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="pe" target="h2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="x3" value="important values" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="sh" target="h3">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="x3" value="important values" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="sh" target="h3">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="y1" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="h1" target="so">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

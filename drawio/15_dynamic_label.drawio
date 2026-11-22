@@ -25,11 +25,11 @@
         <mxCell id="v2_b" value="uuid = need_new_uuid&lt;br&gt;&amp;nbsp;&amp;nbsp;important {&lt;span style=&quot;background-color:#f5a3d2;border-radius:3px;&quot;&gt;&quot;..2&quot;&lt;/span&gt;};" style="text;html=1;whiteSpace=wrap;verticalAlign=top;align=left;fontFamily=Courier New;fontSize=14;spacingLeft=6;spacingRight=4;spacingTop=3;" vertex="1" parent="v2">
           <mxGeometry x="0" y="26" width="190" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="wizard&lt;br&gt;create version" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v0" target="v1">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a1" value="wizard&lt;br&gt;create version" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v0" target="v1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-22" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="a2" value="your language&lt;br&gt;xslt" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v1" target="v2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a2" value="your language&lt;br&gt;xslt" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="v1" target="v2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-22" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="n" value="A dynamic label marks tags that must follow every new version. wizard create version copies such a tag into the new version, and the copy carries &lt;span style=&quot;background-color:#ffb066;border-radius:3px;&quot;&gt;a marker with the value need_gen_uuid&lt;/span&gt;.&lt;br&gt;&lt;br&gt;The original has no marker. An XSLT can tell the fresh copies from the old tags and give them &lt;span style=&quot;background-color:#f5a3d2;border-radius:3px;&quot;&gt;a new value&lt;/span&gt;. The next-uuid step of the messages example does exactly that." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="30" y="215" width="770" height="150" as="geometry"/>

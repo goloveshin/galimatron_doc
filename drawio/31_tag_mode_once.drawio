@@ -46,14 +46,14 @@
         <mxCell id="a2" value="&lt;span style=&quot;color:#8a8a8a;text-decoration:line-through;&quot;&gt;banner&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe3e1;strokeColor=#c9a3a0;dashed=1;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="650" y="300" width="150" height="66" as="geometry"/>
         </mxCell>
-        <mxCell id="er" value="ends here" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="r1" target="r2">
-          <mxGeometry relative="1" as="geometry"><mxPoint y="-16" as="offset"/></mxGeometry>
+        <mxCell id="er" value="ends here" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=13;edgeStyle=none;dashed=1;" edge="1" parent="1" source="r1" target="r2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="ef" value="flows in" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="r1" target="a1">
-          <mxGeometry relative="1" as="geometry"><mxPoint y="0" as="offset"/></mxGeometry>
+        <mxCell id="ef" value="flows in" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#2e7d32;fontColor=#2e7d32;fontStyle=1;fontSize=13;edgeStyle=none;" edge="1" parent="1" source="r1" target="a1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="38" y="0" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="ea" value="ends here" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=13;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;" edge="1" parent="1" source="a1" target="a2">
-          <mxGeometry relative="1" as="geometry"><mxPoint y="-16" as="offset"/></mxGeometry>
+        <mxCell id="ea" value="ends here" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#c62828;fontColor=#c62828;fontStyle=1;fontSize=13;edgeStyle=none;dashed=1;" edge="1" parent="1" source="a1" target="a2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

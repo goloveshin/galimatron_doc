@@ -52,11 +52,11 @@
         <mxCell id="a2b" value="" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry"><mxPoint x="652" y="206" as="sourcePoint"/><mxPoint x="652" y="236" as="targetPoint"/></mxGeometry>
         </mxCell>
-        <mxCell id="a3" value="depend on it" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry"><mxPoint x="352" y="400" as="sourcePoint"/><mxPoint x="352" y="346" as="targetPoint"/></mxGeometry>
+        <mxCell id="a3" value="depend on it" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="352" y="400" as="sourcePoint"/><mxPoint x="352" y="346" as="targetPoint"/><mxPoint x="48" y="0" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="a5" value="guards" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="hs" target="ou">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a5" value="guards" style="endArrow=classic;html=1;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="hs" target="ou">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="line" value="" style="endArrow=none;html=1;edgeStyle=none;dashed=1;dashPattern=8 6;strokeWidth=2;strokeColor=#555555;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry"><mxPoint x="472" y="5" as="sourcePoint"/><mxPoint x="472" y="462" as="targetPoint"/></mxGeometry>

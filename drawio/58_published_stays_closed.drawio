@@ -16,8 +16,8 @@
         <mxCell id="c5" value='old apps and stored files no longer match&lt;br&gt;&lt;font color="#666666"&gt;and nothing warned you&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="550" y="40" width="300" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="c6" value="edits" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c3" target="c4">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="c6" value="edits" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1" source="c3" target="c4">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-13" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="c7" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c4" target="c5">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
@@ -34,8 +34,8 @@
         <mxCell id="c11" value='old apps read version 2, new apps read version 3&lt;br&gt;&lt;font color="#666666"&gt;every version stays true&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="550" y="186" width="300" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="c12" value="new version" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c9" target="c10">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="c12" value="new version" style="endArrow=classic;html=1;edgeStyle=none;" edge="1" parent="1" source="c9" target="c10">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-13" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="c13" value="" style="endArrow=classic;html=1;edgeStyle=none;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="c10" target="c11">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

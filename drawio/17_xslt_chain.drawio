@@ -22,8 +22,8 @@
         <mxCell id="la" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l0" target="l1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="lb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="l1" target="l2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="lb" value="principal result" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="lc" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="l2" target="l3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
@@ -55,8 +55,8 @@
         <mxCell id="pa" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="p0" target="p1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="pb" value="principal result" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="p1" target="p2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="pb" value="principal result" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="pc" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="p2" target="p3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

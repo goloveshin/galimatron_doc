@@ -16,11 +16,11 @@
         <mxCell id="o3" value="shop.json&lt;br&gt;(last month)  - only in git" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="40" y="240" width="300" height="60" as="geometry"/>
         </mxCell>
-        <mxCell id="oa" value="overwrite" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="o1" target="o2">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="oa" value="overwrite" style="endArrow=classic;html=1;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="o1" target="o2">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="39" y="0" as="offset"/></mxGeometry>
         </mxCell>
-        <mxCell id="ob" value="overwrite" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="o2" target="o3">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="ob" value="overwrite" style="endArrow=classic;html=1;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="o2" target="o3">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="39" y="0" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="on" value="A generator sees only today. Nothing in the data says what was published before." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="40" y="320" width="340" height="50" as="geometry"/>

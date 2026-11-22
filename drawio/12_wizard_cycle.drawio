@@ -16,8 +16,8 @@
         <mxCell id="o2" value="console.gal now holds&lt;br&gt;// wizard create version;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Courier New;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="555" y="110" width="250" height="64" as="geometry"/>
         </mxCell>
-        <mxCell id="a1" value="you write&lt;br&gt;it" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="c1" target="g">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="a1" value="you write&lt;br&gt;it" style="endArrow=classic;html=1;edgeStyle=none;fontSize=13;" edge="1" parent="1" source="c1" target="g">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-22" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="a2" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="g" target="o1">
           <mxGeometry relative="1" as="geometry"></mxGeometry>

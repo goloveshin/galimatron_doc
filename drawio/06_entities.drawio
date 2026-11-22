@@ -52,8 +52,8 @@
         <mxCell id="e7" value="" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;" edge="1" parent="1" source="av" target="al">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e8" value="orchestrates" style="endArrow=classic;html=1;labelBackgroundColor=#ffffff;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="ra" target="ag">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        <mxCell id="e8" value="orchestrates" style="endArrow=classic;html=1;edgeStyle=none;dashed=1;fontSize=13;" edge="1" parent="1" source="ra" target="ag">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-14" as="offset"/></mxGeometry>
         </mxCell>
         <mxCell id="n1" value="A version holds the content. A tag is a named piece of data. A label gives meaning to the values of a tag. An ordering says which aggregates come first, and it lives only in the root. The root aggregate declares the versions, and every aggregate repeats the same indexes." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="40" y="345" width="720" height="100" as="geometry"/>
