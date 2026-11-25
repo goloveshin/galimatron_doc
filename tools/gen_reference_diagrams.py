@@ -256,7 +256,6 @@ def libraries():
     translator = box(350, 216, 300, 72, 'galimatron_translator_library',
                      'parser, state, Wizard, validator, compiler, XML, seal, the sequence of steps', BLUE)
     common = box(350, 322, 300, 56, 'galimatron_common_library', 'exception vocabulary, path report', BLUE)
-    gfs = box(20, 412, 300, 56, 'global_filesystem_library', 'the filesystem as a struct of functions', TEAL)
     gcommon = box(350, 412, 300, 72, 'global_common_library',
                   'type aliases, logging helpers, scope guard, private memory', TEAL)
     pch = box(350, 518, 300, 56, 'global_pch_library', 'owns the precompiled header (<font face="Courier New">pch.hpp</font>)', TEAL)
@@ -266,9 +265,7 @@ def libraries():
     d.e(runtime, translator, a + 'edgeStyle=none;')
     d.e(translator, common, a + 'edgeStyle=none;')
     d.e(exe_lib, common, a + 'edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0;entryY=0.5;', points=[(170, 350)])
-    d.e(runtime, gfs, a + 'edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;entryX=0;entryY=0.5;', points=[(8, 146), (8, 440)])
     d.e(common, gcommon, a + 'edgeStyle=none;')
-    d.e(gfs, gcommon, a + 'edgeStyle=none;')
     d.e(gcommon, pch, a + 'edgeStyle=none;')
 
     ex = 700
@@ -277,6 +274,7 @@ def libraries():
         ('SaxonC-HE · Taskflow · inja (private to the translator)', 44),
         ('ANTLR runtime · pugixml · range-v3 · Boost.Graph, Hash2, ... (public)', 44),
         ('leaf_spy (translator and runtime)', 30),
+        ('virtual_filesystem (translator and runtime)', 30),
         ('multi_index_lookup · base64 · magic_enum (global_common_library)', 44),
         ('Boost (algorithm, graph, leaf, multi_index, uuid, asio) · Logme · nlohmann_json · pugixml · range-v3 '
          '(the PCH makes these visible everywhere)', 58),
@@ -288,7 +286,7 @@ def libraries():
         d.v(ex, y, 300, h, text, BOX + 'fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;')
         y += h + 8
     d.v(ex, y + 6, 300, 70,
-        'multi_index_lookup and leaf_spy are separate repositories, fetched at configure time. '
+        'multi_index_lookup, leaf_spy and virtual_filesystem are separate repositories, fetched at configure time. '
         'Tests are separate targets: global_tests, galimatron_tests (and galimatron_crash_child), uuid_protocol_tests.',
         TXT + 'align=left;fontSize=11;fontColor=#555555;')
     d.v(20, 600, 650, 36,

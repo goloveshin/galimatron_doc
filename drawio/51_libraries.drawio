@@ -19,70 +19,64 @@
         <mxCell id="c6" value="&lt;b&gt;galimatron_common_library&lt;/b&gt;&lt;br&gt;exception vocabulary, path report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;" vertex="1" parent="1">
           <mxGeometry x="350" y="322" width="300" height="56" as="geometry"/>
         </mxCell>
-        <mxCell id="c7" value="&lt;b&gt;global_filesystem_library&lt;/b&gt;&lt;br&gt;the filesystem as a struct of functions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0ea;strokeColor=#14b8a6;fontSize=12;align=center;" vertex="1" parent="1">
-          <mxGeometry x="20" y="412" width="300" height="56" as="geometry"/>
-        </mxCell>
-        <mxCell id="c8" value="&lt;b&gt;global_common_library&lt;/b&gt;&lt;br&gt;type aliases, logging helpers, scope guard, private memory" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0ea;strokeColor=#14b8a6;fontSize=12;align=center;" vertex="1" parent="1">
+        <mxCell id="c7" value="&lt;b&gt;global_common_library&lt;/b&gt;&lt;br&gt;type aliases, logging helpers, scope guard, private memory" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0ea;strokeColor=#14b8a6;fontSize=12;align=center;" vertex="1" parent="1">
           <mxGeometry x="350" y="412" width="300" height="72" as="geometry"/>
         </mxCell>
-        <mxCell id="c9" value='&lt;b&gt;global_pch_library&lt;/b&gt;&lt;br&gt;owns the precompiled header (&lt;font face="Courier New"&gt;pch.hpp&lt;/font&gt;)' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0ea;strokeColor=#14b8a6;fontSize=12;align=center;" vertex="1" parent="1">
+        <mxCell id="c8" value='&lt;b&gt;global_pch_library&lt;/b&gt;&lt;br&gt;owns the precompiled header (&lt;font face="Courier New"&gt;pch.hpp&lt;/font&gt;)' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0f0ea;strokeColor=#14b8a6;fontSize=12;align=center;" vertex="1" parent="1">
           <mxGeometry x="350" y="518" width="300" height="56" as="geometry"/>
         </mxCell>
-        <mxCell id="c10" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c3" target="c2">
+        <mxCell id="c9" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c3" target="c2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c11" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c3" target="c4">
+        <mxCell id="c10" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c3" target="c4">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c12" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c4" target="c5">
+        <mxCell id="c11" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c4" target="c5">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c13" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c5" target="c6">
+        <mxCell id="c12" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c5" target="c6">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c14" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="c2" target="c6">
+        <mxCell id="c13" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="c2" target="c6">
           <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="170" y="350"/></Array></mxGeometry>
         </mxCell>
-        <mxCell id="c15" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="c4" target="c7">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="8" y="146"/><mxPoint x="8" y="440"/></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="c16" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c6" target="c8">
+        <mxCell id="c14" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c6" target="c7">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c17" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c7" target="c8">
+        <mxCell id="c15" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c7" target="c8">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="c18" value="" style="html=1;rounded=0;strokeColor=#555555;strokeWidth=1.5;endArrow=classic;edgeStyle=none;" edge="1" parent="1" source="c8" target="c9">
-          <mxGeometry relative="1" as="geometry"></mxGeometry>
-        </mxCell>
-        <mxCell id="c19" value="&lt;b&gt;External libraries&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
+        <mxCell id="c16" value="&lt;b&gt;External libraries&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="700" y="20" width="300" height="22" as="geometry"/>
         </mxCell>
-        <mxCell id="c20" value="SaxonC-HE · Taskflow · inja (private to the translator)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+        <mxCell id="c17" value="SaxonC-HE · Taskflow · inja (private to the translator)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
           <mxGeometry x="700" y="50" width="300" height="44" as="geometry"/>
         </mxCell>
-        <mxCell id="c21" value="ANTLR runtime · pugixml · range-v3 · Boost.Graph, Hash2, ... (public)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+        <mxCell id="c18" value="ANTLR runtime · pugixml · range-v3 · Boost.Graph, Hash2, ... (public)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
           <mxGeometry x="700" y="102" width="300" height="44" as="geometry"/>
         </mxCell>
-        <mxCell id="c22" value="leaf_spy (translator and runtime)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+        <mxCell id="c19" value="leaf_spy (translator and runtime)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
           <mxGeometry x="700" y="154" width="300" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="c23" value="multi_index_lookup · base64 · magic_enum (global_common_library)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
-          <mxGeometry x="700" y="192" width="300" height="44" as="geometry"/>
+        <mxCell id="c20" value="virtual_filesystem (translator and runtime)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="192" width="300" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="c24" value="Boost (algorithm, graph, leaf, multi_index, uuid, asio) · Logme · nlohmann_json · pugixml · range-v3 (the PCH makes these visible everywhere)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
-          <mxGeometry x="700" y="244" width="300" height="58" as="geometry"/>
+        <mxCell id="c21" value="multi_index_lookup · base64 · magic_enum (global_common_library)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="230" width="300" height="44" as="geometry"/>
         </mxCell>
-        <mxCell id="c25" value="Boost.Program_options" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
-          <mxGeometry x="700" y="310" width="300" height="30" as="geometry"/>
+        <mxCell id="c22" value="Boost (algorithm, graph, leaf, multi_index, uuid, asio) · Logme · nlohmann_json · pugixml · range-v3 (the PCH makes these visible everywhere)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="282" width="300" height="58" as="geometry"/>
         </mxCell>
-        <mxCell id="c26" value="Boost.Units · Boost.Process (tests)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+        <mxCell id="c23" value="Boost.Program_options" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
           <mxGeometry x="700" y="348" width="300" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="c27" value="multi_index_lookup and leaf_spy are separate repositories, fetched at configure time. Tests are separate targets: global_tests, galimatron_tests (and galimatron_crash_child), uuid_protocol_tests." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontColor=#555555;" vertex="1" parent="1">
-          <mxGeometry x="700" y="392" width="300" height="70" as="geometry"/>
+        <mxCell id="c24" value="Boost.Units · Boost.Process (tests)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#999999;dashed=1;fontSize=11;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="386" width="300" height="30" as="geometry"/>
         </mxCell>
-        <mxCell id="c28" value="An arrow: links PUBLIC to. The dependency runs one way, down. Dashed boxes are external libraries." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;fontColor=#555555;" vertex="1" parent="1">
+        <mxCell id="c25" value="multi_index_lookup, leaf_spy and virtual_filesystem are separate repositories, fetched at configure time. Tests are separate targets: global_tests, galimatron_tests (and galimatron_crash_child), uuid_protocol_tests." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=11;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="700" y="430" width="300" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="c26" value="An arrow: links PUBLIC to. The dependency runs one way, down. Dashed boxes are external libraries." style="text;html=1;whiteSpace=wrap;verticalAlign=middle;align=left;fontSize=12;fontColor=#555555;" vertex="1" parent="1">
           <mxGeometry x="20" y="600" width="650" height="36" as="geometry"/>
         </mxCell>
       </root>
